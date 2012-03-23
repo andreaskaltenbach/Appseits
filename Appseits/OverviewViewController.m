@@ -12,8 +12,8 @@
 #import "MatchCell.h"
 
 @interface OverviewViewController()
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-@property (weak, nonatomic) IBOutlet UITableView *matchTable;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (strong, nonatomic) IBOutlet UITableView *matchTable;
 @property (nonatomic, strong) NSArray *tournamentRounds;
 @end
 

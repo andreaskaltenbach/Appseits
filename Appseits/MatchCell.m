@@ -11,14 +11,14 @@
 
 @interface MatchCell()
 
-@property (nonatomic, weak) UIImageView *firstTeamImage;
-@property (nonatomic, weak) UIImageView *secondTeamImage;
-@property (nonatomic, weak) UILabel *firstTeamName;
-@property (nonatomic, weak) UILabel *secondTeamName;
-@property (nonatomic, weak) UITextField *firstTeamGoalsBet;
-@property (nonatomic, weak) UITextField *secondTeamGoalsBet;
-@property (nonatomic, weak) UILabel *matchResultLabel;
-@property (nonatomic, weak) UILabel *pointsLabel;
+@property (nonatomic, strong) UIImageView *firstTeamImage;
+@property (nonatomic, strong) UIImageView *secondTeamImage;
+@property (nonatomic, strong) UILabel *firstTeamName;
+@property (nonatomic, strong) UILabel *secondTeamName;
+@property (nonatomic, strong) UITextField *firstTeamGoalsBet;
+@property (nonatomic, strong) UITextField *secondTeamGoalsBet;
+@property (nonatomic, strong) UILabel *matchResultLabel;
+@property (nonatomic, strong) UILabel *pointsLabel;
 
 @end
 
@@ -53,7 +53,7 @@
         self.matchResultLabel = (UILabel*) [self viewWithTag:6];
         self.pointsLabel = (UILabel*) [self viewWithTag:7];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyPressed:) name: object:self.firstTeamGoalsBet];
+        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyPressed:) name: object:self.firstTeamGoalsBet];
     }
     return self;
 }

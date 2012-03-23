@@ -10,7 +10,7 @@
 
 @interface TournamentRound : NSObject
 
-@property NSString *roundName;
-@property NSArray* matches;
+@property (nonatomic, strong) NSString *roundName;
+@property (nonatomic, strong) NSArray* matches;
 
 @end
