@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Match.h"
 
-@interface MatchCell : UITableViewCell
+@interface MatchCell : UITableViewCell<UITextFieldDelegate>
+
+@property (nonatomic, strong) Match *match;
 
 @end

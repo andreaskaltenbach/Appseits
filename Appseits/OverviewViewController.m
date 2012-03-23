@@ -36,12 +36,14 @@
         // disable spinner && show table
         NSLog(@"Got matches!");
         [self.spinner stopAnimating];
+        self.spinner.hidden = YES;
         self.tournamentRounds = tournamentRounds;
         [self.matchTable reloadData];
         
     } :^(NSString *errorMessage) {
         NSLog(@"Failed to load matches!");
         [self.spinner stopAnimating];
+        self.spinner.hidden = YES;
     }];
 }
 
@@ -50,7 +52,6 @@
     [self setSpinner:nil];
     [super viewDidUnload];
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     NSLog(@"Round: %i", [self.tournamentRounds count]);
@@ -65,6 +66,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MatchCell* cell = [tableView dequeueReusableCellWithIdentifier:@"matchCell"];
+
+    TournamentRound *round = [self.tournamentRounds objectAtIndex:indexPath.section];
+    Match *match = [round.matches objectAtIndex:indexPath.row];
+    
+    cell.match = match;
     
     return cell;
 }
@@ -73,6 +79,8 @@
     UILabel *roundLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
     TournamentRound *round = [self.tournamentRounds objectAtIndex:section];
     roundLabel.text = round.roundName;
+    roundLabel.backgroundColor = [UIColor blackColor];
+    roundLabel.textColor = [UIColor whiteColor];
     return roundLabel;
 }
 

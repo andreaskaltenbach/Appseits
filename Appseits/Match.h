@@ -10,6 +10,7 @@
 
 @interface Match : NSObject
 
+
 @property (nonatomic, strong) NSString *firstTeamName;
 @property (nonatomic, strong) NSString *secondTeamName;
 
