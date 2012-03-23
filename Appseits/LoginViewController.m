@@ -9,10 +9,12 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
+@property (unsafe_unretained, nonatomic) IBOutlet UITextField *usernameField;
 
 @end
 
 @implementation LoginViewController
+@synthesize usernameField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +33,7 @@
 
 - (void)viewDidUnload
 {
+    [self setUsernameField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

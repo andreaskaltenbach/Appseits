@@ -21,6 +21,7 @@
 		4E531C46151CB05B0003CAD1 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Match.m */; };
 		4E531C4A151CB0820003CAD1 /* MatchService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C49151CB0820003CAD1 /* MatchService.m */; };
 		4E531C4E151CB5D50003CAD1 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* MatchCell.m */; };
+		5BF4E863151D025300CC3AE9 /* MatchDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF4E862151D025300CC3AE9 /* MatchDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,8 @@
 		4E531C49151CB0820003CAD1 /* MatchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchService.m; sourceTree = "<group>"; };
 		4E531C4C151CB5D50003CAD1 /* MatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchCell.h; sourceTree = "<group>"; };
 		4E531C4D151CB5D50003CAD1 /* MatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
+		5BF4E861151D025300CC3AE9 /* MatchDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDetailsViewController.h; sourceTree = "<group>"; };
+		5BF4E862151D025300CC3AE9 /* MatchDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,7 @@
 		4E531C1B151CAB060003CAD1 /* Appseits */ = {
 			isa = PBXGroup;
 			children = (
+				5BF4E860151D023300CC3AE9 /* controller */,
 				4E531C4B151CB5BB0003CAD1 /* view */,
 				4E531C47151CB06C0003CAD1 /* services */,
 				4E531C40151CB0240003CAD1 /* model */,
@@ -102,10 +106,6 @@
 				4E531C27151CAB060003CAD1 /* MainStoryboard_iPhone.storyboard */,
 				4E531C2A151CAB060003CAD1 /* MainStoryboard_iPad.storyboard */,
 				4E531C1C151CAB060003CAD1 /* Supporting Files */,
-				4E531C39151CACA80003CAD1 /* OverviewViewController.h */,
-				4E531C3A151CACA80003CAD1 /* OverviewViewController.m */,
-				4E531C3D151CAE500003CAD1 /* LoginViewController.h */,
-				4E531C3E151CAE500003CAD1 /* LoginViewController.m */,
 			);
 			path = Appseits;
 			sourceTree = "<group>";
@@ -148,6 +148,19 @@
 				4E531C4D151CB5D50003CAD1 /* MatchCell.m */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		5BF4E860151D023300CC3AE9 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				4E531C39151CACA80003CAD1 /* OverviewViewController.h */,
+				4E531C3A151CACA80003CAD1 /* OverviewViewController.m */,
+				4E531C3D151CAE500003CAD1 /* LoginViewController.h */,
+				4E531C3E151CAE500003CAD1 /* LoginViewController.m */,
+				5BF4E861151D025300CC3AE9 /* MatchDetailsViewController.h */,
+				5BF4E862151D025300CC3AE9 /* MatchDetailsViewController.m */,
+			);
+			name = controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +235,7 @@
 				4E531C46151CB05B0003CAD1 /* Match.m in Sources */,
 				4E531C4A151CB0820003CAD1 /* MatchService.m in Sources */,
 				4E531C4E151CB5D50003CAD1 /* MatchCell.m in Sources */,
+				5BF4E863151D025300CC3AE9 /* MatchDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +322,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
 				INFOPLIST_FILE = "Appseits/Appseits-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -320,7 +334,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
 				INFOPLIST_FILE = "Appseits/Appseits-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
