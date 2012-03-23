@@ -1,5 +1,5 @@
 //
-//  AppseitsViewController.h
+//  OverviewViewController.h
 //  Appseits
 //
 //  Created by AndreasKaltenbach on 2012-03-23.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppseitsViewController : UIViewController
+@interface OverviewViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end

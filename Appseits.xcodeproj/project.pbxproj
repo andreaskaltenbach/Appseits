@@ -15,7 +15,12 @@
 		4E531C26151CAB060003CAD1 /* AppseitsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C25151CAB060003CAD1 /* AppseitsAppDelegate.m */; };
 		4E531C29151CAB060003CAD1 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E531C27151CAB060003CAD1 /* MainStoryboard_iPhone.storyboard */; };
 		4E531C2C151CAB060003CAD1 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E531C2A151CAB060003CAD1 /* MainStoryboard_iPad.storyboard */; };
-		4E531C2F151CAB060003CAD1 /* AppseitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C2E151CAB060003CAD1 /* AppseitsViewController.m */; };
+		4E531C3B151CACA90003CAD1 /* OverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C3A151CACA80003CAD1 /* OverviewViewController.m */; };
+		4E531C3F151CAE500003CAD1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C3E151CAE500003CAD1 /* LoginViewController.m */; };
+		4E531C43151CB04A0003CAD1 /* TournamentRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C42151CB04A0003CAD1 /* TournamentRound.m */; };
+		4E531C46151CB05B0003CAD1 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Match.m */; };
+		4E531C4A151CB0820003CAD1 /* MatchService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C49151CB0820003CAD1 /* MatchService.m */; };
+		4E531C4E151CB5D50003CAD1 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* MatchCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,16 +28,26 @@
 		4E531C15151CAB050003CAD1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4E531C17151CAB050003CAD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4E531C19151CAB050003CAD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		4E531C1D151CAB060003CAD1 /* Appseits-Info.plist */ = {isa = PBXFileReference; path = "Appseits-Info.plist"; sourceTree = "<group>"; };
+		4E531C1D151CAB060003CAD1 /* Appseits-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Appseits-Info.plist"; sourceTree = "<group>"; };
 		4E531C1F151CAB060003CAD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4E531C21151CAB060003CAD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4E531C23151CAB060003CAD1 /* Appseits-Prefix.pch */ = {isa = PBXFileReference; path = "Appseits-Prefix.pch"; sourceTree = "<group>"; };
-		4E531C24151CAB060003CAD1 /* AppseitsAppDelegate.h */ = {isa = PBXFileReference; path = AppseitsAppDelegate.h; sourceTree = "<group>"; };
+		4E531C23151CAB060003CAD1 /* Appseits-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Appseits-Prefix.pch"; sourceTree = "<group>"; };
+		4E531C24151CAB060003CAD1 /* AppseitsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppseitsAppDelegate.h; sourceTree = "<group>"; };
 		4E531C25151CAB060003CAD1 /* AppseitsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppseitsAppDelegate.m; sourceTree = "<group>"; };
 		4E531C28151CAB060003CAD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		4E531C2B151CAB060003CAD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		4E531C2D151CAB060003CAD1 /* AppseitsViewController.h */ = {isa = PBXFileReference; path = AppseitsViewController.h; sourceTree = "<group>"; };
-		4E531C2E151CAB060003CAD1 /* AppseitsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppseitsViewController.m; sourceTree = "<group>"; };
+		4E531C39151CACA80003CAD1 /* OverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewViewController.h; sourceTree = "<group>"; };
+		4E531C3A151CACA80003CAD1 /* OverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewViewController.m; sourceTree = "<group>"; };
+		4E531C3D151CAE500003CAD1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		4E531C3E151CAE500003CAD1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		4E531C41151CB04A0003CAD1 /* TournamentRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TournamentRound.h; sourceTree = "<group>"; };
+		4E531C42151CB04A0003CAD1 /* TournamentRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TournamentRound.m; sourceTree = "<group>"; };
+		4E531C44151CB05B0003CAD1 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
+		4E531C45151CB05B0003CAD1 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
+		4E531C48151CB0820003CAD1 /* MatchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchService.h; sourceTree = "<group>"; };
+		4E531C49151CB0820003CAD1 /* MatchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchService.m; sourceTree = "<group>"; };
+		4E531C4C151CB5D50003CAD1 /* MatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MatchCell.h; sourceTree = "<group>"; };
+		4E531C4D151CB5D50003CAD1 /* MatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +94,18 @@
 		4E531C1B151CAB060003CAD1 /* Appseits */ = {
 			isa = PBXGroup;
 			children = (
+				4E531C4B151CB5BB0003CAD1 /* view */,
+				4E531C47151CB06C0003CAD1 /* services */,
+				4E531C40151CB0240003CAD1 /* model */,
 				4E531C24151CAB060003CAD1 /* AppseitsAppDelegate.h */,
 				4E531C25151CAB060003CAD1 /* AppseitsAppDelegate.m */,
 				4E531C27151CAB060003CAD1 /* MainStoryboard_iPhone.storyboard */,
 				4E531C2A151CAB060003CAD1 /* MainStoryboard_iPad.storyboard */,
-				4E531C2D151CAB060003CAD1 /* AppseitsViewController.h */,
-				4E531C2E151CAB060003CAD1 /* AppseitsViewController.m */,
 				4E531C1C151CAB060003CAD1 /* Supporting Files */,
+				4E531C39151CACA80003CAD1 /* OverviewViewController.h */,
+				4E531C3A151CACA80003CAD1 /* OverviewViewController.m */,
+				4E531C3D151CAE500003CAD1 /* LoginViewController.h */,
+				4E531C3E151CAE500003CAD1 /* LoginViewController.m */,
 			);
 			path = Appseits;
 			sourceTree = "<group>";
@@ -99,6 +119,35 @@
 				4E531C23151CAB060003CAD1 /* Appseits-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E531C40151CB0240003CAD1 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4E531C41151CB04A0003CAD1 /* TournamentRound.h */,
+				4E531C42151CB04A0003CAD1 /* TournamentRound.m */,
+				4E531C44151CB05B0003CAD1 /* Match.h */,
+				4E531C45151CB05B0003CAD1 /* Match.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		4E531C47151CB06C0003CAD1 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				4E531C48151CB0820003CAD1 /* MatchService.h */,
+				4E531C49151CB0820003CAD1 /* MatchService.m */,
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
+		4E531C4B151CB5BB0003CAD1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4E531C4C151CB5D50003CAD1 /* MatchCell.h */,
+				4E531C4D151CB5D50003CAD1 /* MatchCell.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,7 +216,12 @@
 			files = (
 				4E531C22151CAB060003CAD1 /* main.m in Sources */,
 				4E531C26151CAB060003CAD1 /* AppseitsAppDelegate.m in Sources */,
-				4E531C2F151CAB060003CAD1 /* AppseitsViewController.m in Sources */,
+				4E531C3B151CACA90003CAD1 /* OverviewViewController.m in Sources */,
+				4E531C3F151CAE500003CAD1 /* LoginViewController.m in Sources */,
+				4E531C43151CB04A0003CAD1 /* TournamentRound.m in Sources */,
+				4E531C46151CB05B0003CAD1 /* Match.m in Sources */,
+				4E531C4A151CB0820003CAD1 /* MatchService.m in Sources */,
+				4E531C4E151CB5D50003CAD1 /* MatchCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +343,7 @@
 				4E531C34151CAB060003CAD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
