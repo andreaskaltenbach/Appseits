@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E050D7C152209BA0063EDED /* blck.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D7B152209BA0063EDED /* blck.png */; };
+		4E050D7F15220A320063EDED /* UIColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D7E15220A320063EDED /* UIColor+AppColors.m */; };
+		4E050D8115220E710063EDED /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D8015220E710063EDED /* square.png */; };
+		4E050D831522115D0063EDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E050D821522115D0063EDED /* QuartzCore.framework */; };
+		4E050D86152219F60063EDED /* GameResultCelll.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D85152219F60063EDED /* GameResultCelll.m */; };
 		4E531C16151CAB050003CAD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C15151CAB050003CAD1 /* UIKit.framework */; };
 		4E531C18151CAB050003CAD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C17151CAB050003CAD1 /* Foundation.framework */; };
 		4E531C1A151CAB050003CAD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C19151CAB050003CAD1 /* CoreGraphics.framework */; };
@@ -18,12 +23,19 @@
 		4E531C3B151CACA90003CAD1 /* OverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C3A151CACA80003CAD1 /* OverviewViewController.m */; };
 		4E531C3F151CAE500003CAD1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C3E151CAE500003CAD1 /* LoginViewController.m */; };
 		4E531C43151CB04A0003CAD1 /* TournamentRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C42151CB04A0003CAD1 /* TournamentRound.m */; };
-		4E531C46151CB05B0003CAD1 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Match.m */; };
-		4E531C4A151CB0820003CAD1 /* MatchService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C49151CB0820003CAD1 /* MatchService.m */; };
-		4E531C4E151CB5D50003CAD1 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* MatchCell.m */; };
+		4E531C46151CB05B0003CAD1 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Game.m */; };
+		4E531C4A151CB0820003CAD1 /* GameService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C49151CB0820003CAD1 /* GameService.m */; };
+		4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E050D7B152209BA0063EDED /* blck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blck.png; sourceTree = "<group>"; };
+		4E050D7D15220A320063EDED /* UIColor+AppColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColors.h"; sourceTree = "<group>"; };
+		4E050D7E15220A320063EDED /* UIColor+AppColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColors.m"; sourceTree = "<group>"; };
+		4E050D8015220E710063EDED /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
+		4E050D821522115D0063EDED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4E050D84152219F60063EDED /* GameResultCelll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResultCelll.h; sourceTree = "<group>"; };
+		4E050D85152219F60063EDED /* GameResultCelll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameResultCelll.m; sourceTree = "<group>"; };
 		4E531C11151CAB050003CAD1 /* Appseits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appseits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E531C15151CAB050003CAD1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4E531C17151CAB050003CAD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -42,12 +54,12 @@
 		4E531C3E151CAE500003CAD1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		4E531C41151CB04A0003CAD1 /* TournamentRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TournamentRound.h; sourceTree = "<group>"; };
 		4E531C42151CB04A0003CAD1 /* TournamentRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TournamentRound.m; sourceTree = "<group>"; };
-		4E531C44151CB05B0003CAD1 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
-		4E531C45151CB05B0003CAD1 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
-		4E531C48151CB0820003CAD1 /* MatchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchService.h; sourceTree = "<group>"; };
-		4E531C49151CB0820003CAD1 /* MatchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchService.m; sourceTree = "<group>"; };
-		4E531C4C151CB5D50003CAD1 /* MatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchCell.h; sourceTree = "<group>"; };
-		4E531C4D151CB5D50003CAD1 /* MatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
+		4E531C44151CB05B0003CAD1 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		4E531C45151CB05B0003CAD1 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		4E531C48151CB0820003CAD1 /* GameService.h */ = {isa = PBXFileReference; fileEncoding = 4; path = GameService.h; sourceTree = "<group>"; };
+		4E531C49151CB0820003CAD1 /* GameService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameService.m; sourceTree = "<group>"; };
+		4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePredictionCell.h; sourceTree = "<group>"; };
+		4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePredictionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E050D831522115D0063EDED /* QuartzCore.framework in Frameworks */,
 				4E531C16151CAB050003CAD1 /* UIKit.framework in Frameworks */,
 				4E531C18151CAB050003CAD1 /* Foundation.framework in Frameworks */,
 				4E531C1A151CAB050003CAD1 /* CoreGraphics.framework in Frameworks */,
@@ -64,9 +77,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E050D79152209B20063EDED /* images */ = {
+			isa = PBXGroup;
+			children = (
+				4E050D8015220E710063EDED /* square.png */,
+				4E050D7B152209BA0063EDED /* blck.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		4E531C06151CAB050003CAD1 = {
 			isa = PBXGroup;
 			children = (
+				4E050D821522115D0063EDED /* QuartzCore.framework */,
 				4E531C1B151CAB060003CAD1 /* Appseits */,
 				4E531C14151CAB050003CAD1 /* Frameworks */,
 				4E531C12151CAB050003CAD1 /* Products */,
@@ -94,6 +117,7 @@
 		4E531C1B151CAB060003CAD1 /* Appseits */ = {
 			isa = PBXGroup;
 			children = (
+				4E050D79152209B20063EDED /* images */,
 				4E531C4B151CB5BB0003CAD1 /* view */,
 				4E531C47151CB06C0003CAD1 /* services */,
 				4E531C40151CB0240003CAD1 /* model */,
@@ -106,6 +130,8 @@
 				4E531C3A151CACA80003CAD1 /* OverviewViewController.m */,
 				4E531C3D151CAE500003CAD1 /* LoginViewController.h */,
 				4E531C3E151CAE500003CAD1 /* LoginViewController.m */,
+				4E050D7D15220A320063EDED /* UIColor+AppColors.h */,
+				4E050D7E15220A320063EDED /* UIColor+AppColors.m */,
 			);
 			path = Appseits;
 			sourceTree = "<group>";
@@ -126,8 +152,8 @@
 			children = (
 				4E531C41151CB04A0003CAD1 /* TournamentRound.h */,
 				4E531C42151CB04A0003CAD1 /* TournamentRound.m */,
-				4E531C44151CB05B0003CAD1 /* Match.h */,
-				4E531C45151CB05B0003CAD1 /* Match.m */,
+				4E531C44151CB05B0003CAD1 /* Game.h */,
+				4E531C45151CB05B0003CAD1 /* Game.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -135,8 +161,8 @@
 		4E531C47151CB06C0003CAD1 /* services */ = {
 			isa = PBXGroup;
 			children = (
-				4E531C48151CB0820003CAD1 /* MatchService.h */,
-				4E531C49151CB0820003CAD1 /* MatchService.m */,
+				4E531C48151CB0820003CAD1 /* GameService.h */,
+				4E531C49151CB0820003CAD1 /* GameService.m */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -144,8 +170,10 @@
 		4E531C4B151CB5BB0003CAD1 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				4E531C4C151CB5D50003CAD1 /* MatchCell.h */,
-				4E531C4D151CB5D50003CAD1 /* MatchCell.m */,
+				4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */,
+				4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */,
+				4E050D84152219F60063EDED /* GameResultCelll.h */,
+				4E050D85152219F60063EDED /* GameResultCelll.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -204,6 +232,8 @@
 				4E531C20151CAB060003CAD1 /* InfoPlist.strings in Resources */,
 				4E531C29151CAB060003CAD1 /* MainStoryboard_iPhone.storyboard in Resources */,
 				4E531C2C151CAB060003CAD1 /* MainStoryboard_iPad.storyboard in Resources */,
+				4E050D7C152209BA0063EDED /* blck.png in Resources */,
+				4E050D8115220E710063EDED /* square.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,9 +249,11 @@
 				4E531C3B151CACA90003CAD1 /* OverviewViewController.m in Sources */,
 				4E531C3F151CAE500003CAD1 /* LoginViewController.m in Sources */,
 				4E531C43151CB04A0003CAD1 /* TournamentRound.m in Sources */,
-				4E531C46151CB05B0003CAD1 /* Match.m in Sources */,
-				4E531C4A151CB0820003CAD1 /* MatchService.m in Sources */,
-				4E531C4E151CB5D50003CAD1 /* MatchCell.m in Sources */,
+				4E531C46151CB05B0003CAD1 /* Game.m in Sources */,
+				4E531C4A151CB0820003CAD1 /* GameService.m in Sources */,
+				4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */,
+				4E050D7F15220A320063EDED /* UIColor+AppColors.m in Sources */,
+				4E050D86152219F60063EDED /* GameResultCelll.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +307,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -294,7 +326,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -308,7 +340,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
 				INFOPLIST_FILE = "Appseits/Appseits-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -320,7 +352,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
 				INFOPLIST_FILE = "Appseits/Appseits-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

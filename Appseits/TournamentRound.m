@@ -11,6 +11,6 @@
 @implementation TournamentRound
 
 @synthesize roundName = _roundName;
-@synthesize matches = _matches;
+@synthesize games = _matches;
 
 @end

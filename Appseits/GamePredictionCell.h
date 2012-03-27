@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Match.h"
+#import "Game.h"
 
-@interface MatchCell : UITableViewCell<UITextFieldDelegate>
+@interface GamePredictionCell : UITableViewCell<UITextFieldDelegate>
 
-@property (nonatomic, strong) Match *match;
+@property (nonatomic, strong) Game *game;
 
 @end
