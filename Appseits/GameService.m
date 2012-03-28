@@ -25,12 +25,16 @@
     Game *match1 = [[Game alloc] init];
     match1.firstTeamName = @"Pol";
     match1.secondTeamName = @"Gre";
+    match1.firstTeamGoals = 0;
+    match1.secondTeamGoals = 3;
     match1.kickOff = past;
     match1.points = 3;
     
     Game *match2 = [[Game alloc] init];
     match2.firstTeamName = @"Rus";
     match2.secondTeamName = @"Cze";
+    match2.firstTeamGoals = 4;
+    match2.secondTeamGoals = 1;
     match2.kickOff = past;
     match2.points = 2;
     

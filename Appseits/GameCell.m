@@ -7,6 +7,7 @@
 //
 
 #import "GameCell.h"
+#import "UIColor+AppColors.h"
 
 @interface GameCell() 
 @property (nonatomic, strong) UIImageView *firstTeamImage;
@@ -33,6 +34,7 @@
         
         self.secondTeamName = (UILabel*) [self viewWithTag:2];
         self.secondTeamImage = (UIImageView*) [self viewWithTag:22]; 
+
     }
     return self;
 }
