@@ -11,6 +11,9 @@
 @interface TournamentRound : NSObject
 
 @property (nonatomic, strong) NSString *roundName;
-@property (nonatomic, strong) NSArray* matches;
+@property (nonatomic, strong) NSArray* games;
+@property BOOL locked;
+
+- (int) points;
 
 @end

@@ -12,9 +12,9 @@
 typedef void(^SuccessBlock)(NSArray *matches);
 typedef void(^FailedBlock)(NSString * errorMessage);
 
-@interface MatchService : NSObject
+@interface GameService : NSObject
 
-+ (void) getMatches:(SuccessBlock) onSuccess: (FailedBlock) onError;
++ (void) getGames:(SuccessBlock) onSuccess: (FailedBlock) onError;
 
 
 @end
