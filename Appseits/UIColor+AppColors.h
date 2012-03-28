@@ -17,4 +17,10 @@
 + (UIColor*) highlightedGreen;
 
 + (NSArray *) gameCellGradient;
+
++ (UIColor*) progressWaves;
+
++ (UIColor*) separatorVertical;
+
++ (UIColor*) orangeSeparator;
 @end

@@ -12,7 +12,7 @@
 
 #define ROUND_WIDTH_IN_TIMELINE 250
 #define ROUND_TEXT_X 20
-#define ROUND_TEXT_Y 10
+#define ROUND_TEXT_Y 4
 #define ROUND_TEXT_WIDTH 140
 #define ROUND_TEXT_HEIGHT 40
 
@@ -27,13 +27,22 @@
     
     self.contentSize = CGSizeMake([tournamentRounds count] * ROUND_WIDTH_IN_TIMELINE, height);
     
+    // add progress waves
+    int progressWidth = 200;
+    UIView *progress = [[UIView alloc] initWithFrame:CGRectMake(0, 0, progressWidth, self.frame.size.height)];
+    progress.backgroundColor = [UIColor progressWaves];
+    [self addSubview:progress];
+    UIView *orangeSeparator = [[UIView alloc] initWithFrame:CGRectMake(progressWidth, 0, 2, self.frame.size.height)];
+    orangeSeparator.backgroundColor = [UIColor orangeSeparator];
+    [self addSubview:orangeSeparator];
+    
     int xOffset = 0;
     for (TournamentRound *tournamentRound in tournamentRounds) {
         
         if (xOffset != 0) {
             // draw line
-            UIView *line = [[UIView alloc] initWithFrame:CGRectMake(xOffset, 0, 1, height)];
-            line.backgroundColor = [UIColor blueColor];
+            UIView *line = [[UIView alloc] initWithFrame:CGRectMake(xOffset, 0, 2, height)];
+            line.backgroundColor = [UIColor separatorVertical];
             [self addSubview:line];
         }
         
@@ -54,6 +63,8 @@
         
         xOffset+= ROUND_WIDTH_IN_TIMELINE;
     }
+    
+   
 }
 
 - (void)drawRect:(CGRect)rect {

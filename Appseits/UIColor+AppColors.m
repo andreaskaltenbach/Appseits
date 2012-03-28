@@ -30,4 +30,16 @@
     return [UIColor greenColor];
 }
 
++ (UIColor*) progressWaves {
+    return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"progress.png"]];
+}
+
++ (UIColor*) separatorVertical {
+    return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"separator.png"]];
+}
+
++ (UIColor*) orangeSeparator {
+    return [UIColor colorWithRed:198.0/255.0f green:79.0f/255.0f blue:51.0f/255.0f alpha:1];
+}
+
 @end
