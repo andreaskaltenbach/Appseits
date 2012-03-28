@@ -12,5 +12,8 @@
 
 @property (nonatomic, strong) NSString *roundName;
 @property (nonatomic, strong) NSArray* games;
+@property BOOL locked;
+
+- (int) points;
 
 @end

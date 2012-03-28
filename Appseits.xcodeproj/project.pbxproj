@@ -12,6 +12,9 @@
 		4E050D8115220E710063EDED /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D8015220E710063EDED /* square.png */; };
 		4E050D831522115D0063EDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E050D821522115D0063EDED /* QuartzCore.framework */; };
 		4E050D86152219F60063EDED /* GameResultCelll.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D85152219F60063EDED /* GameResultCelll.m */; };
+		4E050D8915233C560063EDED /* TimelineScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D8815233C560063EDED /* TimelineScrollView.m */; };
+		4E050D8C15234F060063EDED /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D8B15234F060063EDED /* GameCell.m */; };
+		4E050D8E15235A8F0063EDED /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D8D15235A8F0063EDED /* Entitlements.plist */; };
 		4E531C16151CAB050003CAD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C15151CAB050003CAD1 /* UIKit.framework */; };
 		4E531C18151CAB050003CAD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C17151CAB050003CAD1 /* Foundation.framework */; };
 		4E531C1A151CAB050003CAD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C19151CAB050003CAD1 /* CoreGraphics.framework */; };
@@ -36,6 +39,11 @@
 		4E050D821522115D0063EDED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4E050D84152219F60063EDED /* GameResultCelll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResultCelll.h; sourceTree = "<group>"; };
 		4E050D85152219F60063EDED /* GameResultCelll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameResultCelll.m; sourceTree = "<group>"; };
+		4E050D8715233C560063EDED /* TimelineScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineScrollView.h; sourceTree = "<group>"; };
+		4E050D8815233C560063EDED /* TimelineScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineScrollView.m; sourceTree = "<group>"; };
+		4E050D8A15234F060063EDED /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCell.h; sourceTree = "<group>"; };
+		4E050D8B15234F060063EDED /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCell.m; sourceTree = "<group>"; };
+		4E050D8D15235A8F0063EDED /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4E531C11151CAB050003CAD1 /* Appseits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appseits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E531C15151CAB050003CAD1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4E531C17151CAB050003CAD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -56,7 +64,7 @@
 		4E531C42151CB04A0003CAD1 /* TournamentRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TournamentRound.m; sourceTree = "<group>"; };
 		4E531C44151CB05B0003CAD1 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		4E531C45151CB05B0003CAD1 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
-		4E531C48151CB0820003CAD1 /* GameService.h */ = {isa = PBXFileReference; fileEncoding = 4; path = GameService.h; sourceTree = "<group>"; };
+		4E531C48151CB0820003CAD1 /* GameService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameService.h; sourceTree = "<group>"; };
 		4E531C49151CB0820003CAD1 /* GameService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameService.m; sourceTree = "<group>"; };
 		4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePredictionCell.h; sourceTree = "<group>"; };
 		4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePredictionCell.m; sourceTree = "<group>"; };
@@ -132,6 +140,7 @@
 				4E531C3E151CAE500003CAD1 /* LoginViewController.m */,
 				4E050D7D15220A320063EDED /* UIColor+AppColors.h */,
 				4E050D7E15220A320063EDED /* UIColor+AppColors.m */,
+				4E050D8D15235A8F0063EDED /* Entitlements.plist */,
 			);
 			path = Appseits;
 			sourceTree = "<group>";
@@ -170,10 +179,14 @@
 		4E531C4B151CB5BB0003CAD1 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */,
-				4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */,
+				4E050D8A15234F060063EDED /* GameCell.h */,
+				4E050D8B15234F060063EDED /* GameCell.m */,
 				4E050D84152219F60063EDED /* GameResultCelll.h */,
 				4E050D85152219F60063EDED /* GameResultCelll.m */,
+				4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */,
+				4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */,
+				4E050D8715233C560063EDED /* TimelineScrollView.h */,
+				4E050D8815233C560063EDED /* TimelineScrollView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -234,6 +247,7 @@
 				4E531C2C151CAB060003CAD1 /* MainStoryboard_iPad.storyboard in Resources */,
 				4E050D7C152209BA0063EDED /* blck.png in Resources */,
 				4E050D8115220E710063EDED /* square.png in Resources */,
+				4E050D8E15235A8F0063EDED /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +268,8 @@
 				4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */,
 				4E050D7F15220A320063EDED /* UIColor+AppColors.m in Sources */,
 				4E050D86152219F60063EDED /* GameResultCelll.m in Sources */,
+				4E050D8915233C560063EDED /* TimelineScrollView.m in Sources */,
+				4E050D8C15234F060063EDED /* GameCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,11 +353,14 @@
 		4E531C33151CAB060003CAD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Appseits/Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stendahls Reklambyra AB";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
 				INFOPLIST_FILE = "Appseits/Appseits-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -349,11 +368,14 @@
 		4E531C34151CAB060003CAD1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Appseits/Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stendahls Reklambyra AB";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
 				INFOPLIST_FILE = "Appseits/Appseits-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

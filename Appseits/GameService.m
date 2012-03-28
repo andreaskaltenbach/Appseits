@@ -26,19 +26,33 @@
     match1.firstTeamName = @"Pol";
     match1.secondTeamName = @"Gre";
     match1.kickOff = past;
+    match1.points = 3;
     
     Game *match2 = [[Game alloc] init];
     match2.firstTeamName = @"Rus";
     match2.secondTeamName = @"Cze";
-    match1.kickOff = future;
+    match2.kickOff = past;
+    match2.points = 2;
+    
+    Game *match3 = [[Game alloc] init];
+    match3.firstTeamName = @"Ned";
+    match3.secondTeamName = @"Den";
+    match3.kickOff = future;
+    
+    Game *match4 = [[Game alloc] init];
+    match4.firstTeamName = @"Ger";
+    match4.secondTeamName = @"Por";
+    match4.kickOff = future;
     
     TournamentRound *firstRound = [[TournamentRound alloc] init];
     firstRound.games = [NSArray arrayWithObjects:match1, match2, nil];
     firstRound.roundName = @"Omgång 1";
+    firstRound.locked = YES;
     
     TournamentRound *secondRound = [[TournamentRound alloc] init];
-    secondRound.games = [NSArray arrayWithObjects:match1, match2, nil];
+    secondRound.games = [NSArray arrayWithObjects:match3, match4, nil];
     secondRound.roundName = @"Omgång 2";
+    secondRound.locked = NO;
     
     NSArray *matches = [NSArray arrayWithObjects:firstRound, secondRound, nil];
     

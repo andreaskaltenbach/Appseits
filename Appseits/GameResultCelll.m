@@ -12,14 +12,9 @@
 
 
 @interface GameResultCelll()
-@property (nonatomic, strong) UILabel *firstTeamName;
-@property (nonatomic, strong) UILabel *secondTeamName;
 @end
 
 @implementation GameResultCelll
-
-@synthesize firstTeamName = _firstTeamName;
-@synthesize secondTeamName = _secondTeamName;
 
 @synthesize game = _game;
 
@@ -32,24 +27,13 @@
         gradient.colors = [UIColor gameCellGradient];
         [self.layer insertSublayer:gradient atIndex:0];
         
-        self.firstTeamName = (UILabel*) [self viewWithTag:20];
-        self.secondTeamName = (UILabel*) [self viewWithTag:21];
+        
     }
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 - (void) setGame:(Game *)game {
-    _game = game;
-    
-    self.firstTeamName.text = game.firstTeamName;
-    self.secondTeamName.text = game.secondTeamName;
+    [super setGame:game];
 }
 
 @end

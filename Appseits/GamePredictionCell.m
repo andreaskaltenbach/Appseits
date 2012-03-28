@@ -13,10 +13,7 @@
 
 @interface GamePredictionCell()
 
-@property (nonatomic, strong) UIImageView *firstTeamImage;
-@property (nonatomic, strong) UIImageView *secondTeamImage;
-@property (nonatomic, strong) UILabel *firstTeamName;
-@property (nonatomic, strong) UILabel *secondTeamName;
+
 @property (nonatomic, strong) UITextField *firstTeamGoalsBet;
 @property (nonatomic, strong) UITextField *secondTeamGoalsBet;
 @property (nonatomic, strong) UILabel *matchResultLabel;
@@ -26,11 +23,6 @@
 
 @implementation GamePredictionCell
 
-@synthesize game = _game;
-@synthesize firstTeamImage = _firstTeamImage;
-@synthesize secondTeamImage = _secondTeamImage;
-@synthesize firstTeamName = _firstTeamName;
-@synthesize secondTeamName = _secondTeamName;
 @synthesize firstTeamGoalsBet = _firstTeamGoalsBet;
 @synthesize secondTeamGoalsBet = _secondTeamGoalsBet;
 @synthesize matchResultLabel = _matchResultLabel;
@@ -47,12 +39,6 @@
         gradient.colors = [UIColor gameCellGradient];
         [self.layer insertSublayer:gradient atIndex:0];
         
-        self.firstTeamName = (UILabel*) [self viewWithTag:20];
-        self.secondTeamName = (UILabel*) [self viewWithTag:21];
-        
-        
-        
-        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyPressed:) name: object:self.firstTeamGoalsBet];
     }
     return self;
 }
@@ -60,20 +46,6 @@
 - (void) keyPressed:(NSNotification*) notification {
     NSLog(@"%@", notification.userInfo);
     NSLog(@"Key pressed!");
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
-- (void) setGame:(Game *)game {
-    _game = game;
-    
-    self.firstTeamName.text = game.firstTeamName;
-    self.secondTeamName.text = game.secondTeamName;
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {

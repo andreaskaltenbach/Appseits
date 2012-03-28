@@ -14,5 +14,7 @@
 
 + (UIColor*) squareBackground;
 
++ (UIColor*) highlightedGreen;
+
 + (NSArray *) gameCellGradient;
 @end

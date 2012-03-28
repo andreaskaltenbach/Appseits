@@ -8,13 +8,20 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Appseits/GameCell.m"
-         timestampString = "354555473.108103"
+         timestampString = "354638559.833871"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
-         landmarkName = "-setGame:"
-         landmarkType = "5">
+         startingLineNumber = "118"
+         endingLineNumber = "118">
       </FileBreakpoint>
    </FileBreakpoints>
+   <ExceptionBreakpoints>
+      <ExceptionBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         scope = "0"
+         stopOnStyle = "0">
+      </ExceptionBreakpoint>
+   </ExceptionBreakpoints>
 </Bucket>

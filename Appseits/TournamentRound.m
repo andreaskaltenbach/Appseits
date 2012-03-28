@@ -7,10 +7,21 @@
 //
 
 #import "TournamentRound.h"
+#import "Game.h"
 
 @implementation TournamentRound
 
 @synthesize roundName = _roundName;
 @synthesize games = _matches;
+@synthesize locked = _locked;
+
+
+- (int) points {
+    int points = 0;
+    for(Game *game in self.games) {
+        points += game.points;
+    }
+    return points;
+}
 
 @end

@@ -25,4 +25,9 @@
             nil];
 }
 
++ (UIColor*) highlightedGreen {
+    //TODO - adjust color
+    return [UIColor greenColor];
+}
+
 @end

@@ -17,10 +17,6 @@
 @synthesize firstTeamPrediction = _firstTeamPrediction;
 @synthesize secondTeamPrediction = _secondTeamPrediction;
 @synthesize kickOff = _kickOff;
-
-- (BOOL) isLocked {
-     NSDate *now = [NSDate date];
-    return [now compare:self.kickOff] == NSOrderedAscending;
-}
+@synthesize points = _points;
 
 @end

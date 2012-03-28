@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Game.h"
+#import "GameCell.h"
 
-@interface GameResultCelll : UITableViewCell
-
-@property (nonatomic, strong) Game *game;
+@interface GameResultCelll : GameCell
 
 @end
