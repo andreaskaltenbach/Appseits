@@ -159,7 +159,7 @@
     Game *game = [round.games objectAtIndex:indexPath.row];
     
     if (round.locked) {
-        return 60;
+        return 100;
     }
     else {
         return 100;
