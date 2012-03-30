@@ -18,6 +18,7 @@
 		4E050D9415236C6B0063EDED /* result.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D9315236C6B0063EDED /* result.png */; };
 		4E050D9A1524486C0063EDED /* tipBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D991524486C0063EDED /* tipBar.png */; };
 		4E059D061525FA2E005ABD20 /* NSDate+DateConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E059D051525FA2E005ABD20 /* NSDate+DateConversion.m */; };
+		4E059D091525FFBC005ABD20 /* Timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E059D081525FFBC005ABD20 /* Timeline.m */; };
 		4E21509A15247CF800DBBC81 /* flagBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E21509915247CF800DBBC81 /* flagBackground.png */; };
 		4E21509E152480A800DBBC81 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E21509D152480A800DBBC81 /* Menu.m */; };
 		4E531C16151CAB050003CAD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C15151CAB050003CAD1 /* UIKit.framework */; };
@@ -56,6 +57,8 @@
 		4E050D991524486C0063EDED /* tipBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tipBar.png; sourceTree = "<group>"; };
 		4E059D041525FA2E005ABD20 /* NSDate+DateConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateConversion.h"; sourceTree = "<group>"; };
 		4E059D051525FA2E005ABD20 /* NSDate+DateConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateConversion.m"; sourceTree = "<group>"; };
+		4E059D071525FFBC005ABD20 /* Timeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timeline.h; sourceTree = "<group>"; };
+		4E059D081525FFBC005ABD20 /* Timeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timeline.m; sourceTree = "<group>"; };
 		4E21509915247CF800DBBC81 /* flagBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagBackground.png; sourceTree = "<group>"; };
 		4E21509C152480A800DBBC81 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		4E21509D152480A800DBBC81 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
@@ -224,6 +227,8 @@
 				4E050D8815233C560063EDED /* TimelineScrollView.m */,
 				4E21509C152480A800DBBC81 /* Menu.h */,
 				4E21509D152480A800DBBC81 /* Menu.m */,
+				4E059D071525FFBC005ABD20 /* Timeline.h */,
+				4E059D081525FFBC005ABD20 /* Timeline.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 				4E050D8C15234F060063EDED /* GameCell.m in Sources */,
 				4E21509E152480A800DBBC81 /* Menu.m in Sources */,
 				4E059D061525FA2E005ABD20 /* NSDate+DateConversion.m in Sources */,
+				4E059D091525FFBC005ABD20 /* Timeline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

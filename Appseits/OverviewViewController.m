@@ -15,6 +15,7 @@
 #import "TimelineScrollView.h"
 #import "Game.h"
 #import "Menu.h"
+#import "Timeline.h"
 
 @interface OverviewViewController()
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) NSArray *tournamentRounds;
 @property (weak, nonatomic) IBOutlet UILabel *pointInCurrentRound;
 @property (weak, nonatomic) IBOutlet UILabel *pointsTotal;
+@property (weak, nonatomic) IBOutlet Timeline *timeline;
 @property (weak, nonatomic) IBOutlet Menu *menu;
 @end
 
@@ -33,6 +35,7 @@
 @synthesize tournamentRounds = _tournamentRounds;
 @synthesize pointInCurrentRound;
 @synthesize pointsTotal;
+@synthesize timeline;
 @synthesize menu;
 
 - (TournamentRound*) activeRound {
@@ -69,6 +72,7 @@
     self.pointsTotal.text = [NSString stringWithFormat:@"%ip", self.totalPoints];
     
     self.timelineScrollView.tournamentRounds = tournamentRounds;
+    self.timeline.rounds = tournamentRounds;
     
     [self.matchTable reloadData];
     
@@ -113,6 +117,7 @@
     [self setPointInCurrentRound:nil];
     [self setPointsTotal:nil];
     [self setMenu:nil];
+    [self setTimeline:nil];
     [super viewDidUnload];
 }
 

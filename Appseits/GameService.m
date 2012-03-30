@@ -16,11 +16,10 @@
     
     // fetch data in background and execute callback when data is available:
     
-    NSURL *url = [NSURL URLWithString:@"http://172.20.60.216/json/games.json"];
+    NSURL *url = [NSURL URLWithString:@"http://dl.dropbox.com/u/15650647/games.json"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-       
        
        if (error) {
            onError(@"Error while downloading games");

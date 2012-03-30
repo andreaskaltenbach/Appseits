@@ -25,7 +25,6 @@
     game.firstTeamName = [gameData objectForKey:@"firstTeam"];
     game.secondTeamName = [gameData objectForKey:@"secondTeam"];
     game.kickOff = [NSDate fromJsonTimestamp:[gameData valueForKey:@"kickOff"]];
-    NSLog(@"Kickoff: %@", game.kickOff);
     return game;
 }
 

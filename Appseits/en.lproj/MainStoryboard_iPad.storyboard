@@ -70,15 +70,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3AG-i7-oEt">
-                                <rect key="frame" x="0.0" y="180" width="320" height="824"/>
+                                <rect key="frame" x="0.0" y="180" width="524" height="824"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="gameResultCell" rowHeight="100" id="Ahn-c2-0pG" customClass="GameResultCelll">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="22" width="524" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="524" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="flagBackground.png" id="cBK-D4-4EJ">
@@ -146,10 +146,10 @@
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="gamePredictionCell" rowHeight="100" id="igN-G1-1oj" customClass="GamePredictionCell">
-                                        <rect key="frame" x="0.0" y="122" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="122" width="524" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="524" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="flagBackground.png" id="UAc-Ih-U9b">
@@ -208,6 +208,11 @@
                                     <outlet property="delegate" destination="2" id="WT1-ro-o1v"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" id="wLZ-Gk-DmQ" customClass="Timeline">
+                                <rect key="frame" x="165" y="50" width="603" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -216,6 +221,7 @@
                         <outlet property="menu" destination="i0x-Uf-kWs" id="pST-zn-kel"/>
                         <outlet property="pointInCurrentRound" destination="fMA-uj-POW" id="RIZ-YR-yyc"/>
                         <outlet property="pointsTotal" destination="grr-s9-h89" id="43I-sF-s0j"/>
+                        <outlet property="timeline" destination="wLZ-Gk-DmQ" id="y9B-3Q-IgZ"/>
                     </connections>
                 </viewController>
             </objects>
@@ -248,8 +254,12 @@
                 <relationship kind="outlet" name="pointInCurrentRound" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="pointsTotal" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
                 <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
             </relationships>
+        </class>
+        <class className="Timeline" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
         </class>
         <class className="TimelineScrollView" superclassName="UIScrollView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
