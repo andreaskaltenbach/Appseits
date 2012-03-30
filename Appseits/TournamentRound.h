@@ -16,4 +16,6 @@
 
 - (int) points;
 
++ (NSArray*) tournamentRoundsFromJson: (NSArray*) jsonRounds;
+
 @end

@@ -8,11 +8,9 @@
 
 #import "GamePredictionCell.h"
 #import "Game.h"
-#import <QuartzCore/QuartzCore.h>
 #import "UIColor+AppColors.h"
 
 @interface GamePredictionCell()
-
 
 @property (nonatomic, strong) UITextField *firstTeamGoalsBet;
 @property (nonatomic, strong) UITextField *secondTeamGoalsBet;
@@ -28,20 +26,6 @@
 @synthesize matchResultLabel = _matchResultLabel;
 @synthesize pointsLabel = _pointsLabel;
 
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        
-        CAGradientLayer *gradient = [CAGradientLayer layer];
-        gradient.frame = self.bounds;
-        gradient.colors = [UIColor gameCellGradient];
-        [self.layer insertSublayer:gradient atIndex:0];
-        
-    }
-    return self;
-}
 
 - (void) keyPressed:(NSNotification*) notification {
     NSLog(@"%@", notification.userInfo);

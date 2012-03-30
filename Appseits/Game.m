@@ -7,6 +7,7 @@
 //
 
 #import "Game.h"
+#import "NSDate+DateConversion.h"
 
 @implementation Game
 
@@ -18,5 +19,22 @@
 @synthesize secondTeamPrediction = _secondTeamPrediction;
 @synthesize kickOff = _kickOff;
 @synthesize points = _points;
+
++ (Game*) gameFromJson:(NSDictionary*) gameData {
+    Game *game = [[Game alloc] init];
+    game.firstTeamName = [gameData objectForKey:@"firstTeam"];
+    game.secondTeamName = [gameData objectForKey:@"secondTeam"];
+    game.kickOff = [NSDate fromJsonTimestamp:[gameData valueForKey:@"kickOff"]];
+    NSLog(@"Kickoff: %@", game.kickOff);
+    return game;
+}
+
++ (NSArray*) gamesFromJson: (NSArray*) jsonData {
+    NSMutableArray *games = [NSMutableArray array];
+    for (NSDictionary *gameData in jsonData) {
+        [games addObject:[Game gameFromJson:gameData]];
+    }
+    return games;
+}
 
 @end

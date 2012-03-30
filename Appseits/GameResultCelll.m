@@ -7,9 +7,7 @@
 //
 
 #import "GameResultCelll.h"
-#import <QuartzCore/QuartzCore.h>
 #import "UIColor+AppColors.h"
-
 
 @interface GameResultCelll()
 @property (nonatomic, strong) UILabel *firstTeamGoals;
@@ -26,11 +24,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        CAGradientLayer *gradient = [CAGradientLayer layer];
-        gradient.frame = self.bounds;
-        gradient.colors = [UIColor gameCellGradient];
-        [self.layer insertSublayer:gradient atIndex:0];
-        
+                
         self.firstTeamGoals = (UILabel*) [self viewWithTag:15];
         self.secondTeamGoals = (UILabel*) [self viewWithTag:25];        
         

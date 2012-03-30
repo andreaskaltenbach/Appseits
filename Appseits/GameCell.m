@@ -8,6 +8,7 @@
 
 #import "GameCell.h"
 #import "UIColor+AppColors.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface GameCell() 
 @property (nonatomic, strong) UIImageView *firstTeamImage;
@@ -28,6 +29,11 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        
+        CAGradientLayer *gradient = [CAGradientLayer layer];
+        gradient.frame = self.bounds;
+        gradient.colors = [UIColor gameCellGradient];
+        [self.layer insertSublayer:gradient atIndex:0];
         
         self.firstTeamName = (UILabel*) [self viewWithTag:1];
         self.firstTeamImage = (UIImageView*) [self viewWithTag:11];

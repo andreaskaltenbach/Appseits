@@ -23,4 +23,7 @@
 + (UIColor*) separatorVertical;
 
 + (UIColor*) orangeSeparator;
+
++ (NSArray *) menuGrayGradient;
++ (NSArray *) menuGreenGradient;
 @end

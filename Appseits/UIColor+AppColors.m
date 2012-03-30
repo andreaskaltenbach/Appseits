@@ -25,9 +25,22 @@
             nil];
 }
 
++ (NSArray *) menuGrayGradient {
+    return [NSArray arrayWithObjects: 
+            (id) [[UIColor colorWithRed:202.0/255.0f green:202.0f/255.0f blue:202.0f/255.0f alpha:1] CGColor],
+            (id)  [[UIColor colorWithRed:1 green:1 blue:1 alpha:1] CGColor],
+            nil];
+}
+
++ (NSArray *) menuGreenGradient {
+    return [NSArray arrayWithObjects: 
+            (id) [[UIColor colorWithRed:50.0/255.0f green:98.0/255.0f blue:10.0/255.0f alpha:1] CGColor],
+            (id) [[UIColor colorWithRed:116.0/255.0f green:173.0/255.0f blue:53.0/255.0f alpha:1] CGColor],
+            nil];
+}
+
 + (UIColor*) highlightedGreen {
-    //TODO - adjust color
-    return [UIColor greenColor];
+    return [UIColor colorWithRed:51.0/255.0f green:99.0f/255.0f blue:11.0f/255.0f alpha:1];
 }
 
 + (UIColor*) progressWaves {

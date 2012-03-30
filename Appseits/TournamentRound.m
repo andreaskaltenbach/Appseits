@@ -24,4 +24,23 @@
     return points;
 }
 
++ (TournamentRound*) tournamentRoundFromJson:(NSDictionary*) jsonData {
+    TournamentRound *round = [[TournamentRound alloc] init];
+    round.roundName = [jsonData objectForKey:@"name"];
+    round.games = [Game gamesFromJson: [jsonData objectForKey:@"games"]];
+    return round;
+}
+
++ (NSArray*) tournamentRoundsFromJson: (NSArray*) jsonRounds {
+    NSMutableArray *rounds = [NSMutableArray array];
+    
+    for (NSDictionary *roundData in jsonRounds) {
+        [rounds addObject:[TournamentRound tournamentRoundFromJson:roundData]];
+    }
+    
+    return rounds;
+}
+
+
+
 @end
