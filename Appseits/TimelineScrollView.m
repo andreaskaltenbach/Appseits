@@ -9,23 +9,28 @@
 #import "TimelineScrollView.h"
 #import "UIColor+AppColors.h"
 #import "TournamentRound.h"
+#import "TimelineScrollViewRoundSection.h"
 
-#define ROUND_WIDTH_IN_TIMELINE 250
 #define ROUND_TEXT_X 20
 #define ROUND_TEXT_Y 4
 #define ROUND_TEXT_WIDTH 140
 #define ROUND_TEXT_HEIGHT 40
+#define MATCH_WIDTH 35
+
+@interface TimelineScrollView()
+@property (nonatomic, strong) NSArray *sections;
+
+@end
 
 @implementation TimelineScrollView
 
 @synthesize tournamentRounds = _tournamentRounds;
+@synthesize sections = _sections;
 
 - (void) setTournamentRounds:(NSArray *)tournamentRounds {
     _tournamentRounds = tournamentRounds;
     
     int height = self.frame.size.height;
-    
-    self.contentSize = CGSizeMake([tournamentRounds count] * ROUND_WIDTH_IN_TIMELINE, height);
     
     // add progress waves
     int progressWidth = 200;
@@ -36,38 +41,37 @@
     orangeSeparator.backgroundColor = [UIColor orangeSeparator];
     [self addSubview:orangeSeparator];
     
-    int xOffset = 0;
+    // add one section for each tournament round
+    NSMutableArray *sections = [NSMutableArray array];
     for (TournamentRound *tournamentRound in tournamentRounds) {
-        
-        if (xOffset != 0) {
-            // draw line
-            UIView *line = [[UIView alloc] initWithFrame:CGRectMake(xOffset, 0, 2, height)];
-            line.backgroundColor = [UIColor separatorVertical];
-            [self addSubview:line];
-        }
-        
-        // print round name
-        UILabel *roundName = [[UILabel alloc] initWithFrame:CGRectMake(xOffset + ROUND_TEXT_X, ROUND_TEXT_Y, ROUND_TEXT_WIDTH, ROUND_TEXT_HEIGHT)];
-        roundName.text = tournamentRound.roundName;
-        roundName.textAlignment = UITextAlignmentCenter;
-        if (tournamentRound.locked) {
-            roundName.textColor = [UIColor highlightedGreen];
-        }
-        else {
-            roundName.textColor = [UIColor whiteColor];
-        }
-        roundName.font = [UIFont systemFontOfSize:20];
-        roundName.backgroundColor = [UIColor clearColor];
-        
-        [self addSubview:roundName];
-        
-        xOffset+= ROUND_WIDTH_IN_TIMELINE;
+        TimelineScrollViewRoundSection *section = [TimelineScrollViewRoundSection initWithRound:tournamentRound :self];
+        [sections addObject:section];
     }
+    self.sections = [NSArray arrayWithArray:sections];
     
-   
+    // add separator line as left border
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, height)];
+    line.backgroundColor = [UIColor separatorVertical];
+    line.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    [self addSubview:line];
+
+    [self setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect {
+
+    int offset = 0;
+    
+    // resize all sections
+    for (TimelineScrollViewRoundSection *section in self.sections) {
+        [section resize:offset :MATCH_WIDTH];
+        offset += section.frame.size.width;
+    }
+    
+    CGSize contentSize = self.contentSize;
+    contentSize.width = offset;
+    self.contentSize = contentSize;
+    
     [super drawRect:rect];
 }
 

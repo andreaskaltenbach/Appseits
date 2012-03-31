@@ -38,6 +38,7 @@
 		5BA4B89C1526E853006450B7 /* lockOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA4B8991526E853006450B7 /* lockOpen.png */; };
 		5BA4B89D1526E853006450B7 /* lockOpenActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA4B89A1526E853006450B7 /* lockOpenActive.png */; };
 		5BA4B89E1526E853006450B7 /* lockClosed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA4B89B1526E853006450B7 /* lockClosed.png */; };
+		5BA4B8A2152737ED006450B7 /* TimelineScrollViewRoundSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4B8A1152737ED006450B7 /* TimelineScrollViewRoundSection.m */; };
 		5BBE7ECB15263A9800FA980E /* SSGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBE7ECA15263A9800FA980E /* SSGradientView.m */; };
 		5BBE7ECF15263ADA00FA980E /* SSBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBE7ECE15263ADA00FA980E /* SSBorderedView.m */; };
 		5BBE7ED215263B2100FA980E /* SSDrawingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBE7ED115263B2100FA980E /* SSDrawingUtilities.m */; };
@@ -96,6 +97,8 @@
 		5BA4B8991526E853006450B7 /* lockOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockOpen.png; sourceTree = "<group>"; };
 		5BA4B89A1526E853006450B7 /* lockOpenActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockOpenActive.png; sourceTree = "<group>"; };
 		5BA4B89B1526E853006450B7 /* lockClosed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockClosed.png; sourceTree = "<group>"; };
+		5BA4B8A0152737ED006450B7 /* TimelineScrollViewRoundSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineScrollViewRoundSection.h; sourceTree = "<group>"; };
+		5BA4B8A1152737ED006450B7 /* TimelineScrollViewRoundSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineScrollViewRoundSection.m; sourceTree = "<group>"; };
 		5BBE7EC915263A9800FA980E /* SSGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGradientView.h; sourceTree = "<group>"; };
 		5BBE7ECA15263A9800FA980E /* SSGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSGradientView.m; sourceTree = "<group>"; };
 		5BBE7ECD15263ADA00FA980E /* SSBorderedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBorderedView.h; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */,
 				4E050D8715233C560063EDED /* TimelineScrollView.h */,
 				4E050D8815233C560063EDED /* TimelineScrollView.m */,
+				5BA4B8A0152737ED006450B7 /* TimelineScrollViewRoundSection.h */,
+				5BA4B8A1152737ED006450B7 /* TimelineScrollViewRoundSection.m */,
 				4E21509C152480A800DBBC81 /* Menu.h */,
 				4E21509D152480A800DBBC81 /* Menu.m */,
 				4E059D071525FFBC005ABD20 /* Timeline.h */,
@@ -370,6 +375,7 @@
 				5BBE7ECB15263A9800FA980E /* SSGradientView.m in Sources */,
 				5BBE7ECF15263ADA00FA980E /* SSBorderedView.m in Sources */,
 				5BBE7ED215263B2100FA980E /* SSDrawingUtilities.m in Sources */,
+				5BA4B8A2152737ED006450B7 /* TimelineScrollViewRoundSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
