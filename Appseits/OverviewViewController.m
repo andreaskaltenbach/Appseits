@@ -20,12 +20,12 @@
 @interface OverviewViewController()
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UITableView *matchTable;
-@property (weak, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
+@property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
 @property (nonatomic, strong) NSArray *tournamentRounds;
-@property (weak, nonatomic) IBOutlet UILabel *pointInCurrentRound;
-@property (weak, nonatomic) IBOutlet UILabel *pointsTotal;
-@property (weak, nonatomic) IBOutlet Timeline *timeline;
-@property (weak, nonatomic) IBOutlet Menu *menu;
+@property (strong, nonatomic) IBOutlet UILabel *pointInCurrentRound;
+@property (strong, nonatomic) IBOutlet UILabel *pointsTotal;
+@property (strong, nonatomic) IBOutlet Timeline *timeline;
+@property (strong, nonatomic) IBOutlet Menu *menu;
 @end
 
 @implementation OverviewViewController
@@ -175,6 +175,11 @@
     }
     
     
+}
+
+
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    return YES;
 }
 
 @end

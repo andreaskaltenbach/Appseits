@@ -26,4 +26,6 @@
 
 + (NSArray *) menuGrayGradient;
 + (NSArray *) menuGreenGradient;
++ (NSArray *) darkGrayGradient;
+
 @end

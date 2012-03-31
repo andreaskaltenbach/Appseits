@@ -11,55 +11,79 @@
 #import "Game.h"
 #import "UIColor+AppColors.h"
 #import <QuartzCore/QuartzCore.h>
+#import "TimelineRoundSection.h"
+#import "SSGradientView.h"
 
 #define ROUND_LABEL_HEIGHT 30
-#define ROUND_LABEL_X 10
 
 @interface Timeline()
-@property (nonatomic, strong) NSDictionary *sectionToRoundMap;
-@property (nonatomic, strong) CAGradientLayer *activeGradientLayer;
-@property (nonatomic, strong) CAGradientLayer *inactiveGradientLayer;
+@property (nonatomic, strong) NSArray *timelineSections;
+@property (nonatomic, strong) UIView *roundLabelGradient;
+@property (nonatomic, strong) NSArray *separators;
+@property float totalWidth;
+@property int games;
 @end
 
 @implementation Timeline
 
 @synthesize rounds = _rounds;
-@synthesize sectionToRoundMap = _sectionToRoundMap;
-@synthesize activeGradientLayer = _activeGradientLayer;
-@synthesize inactiveGradientLayer = _inactiveGradientLayer;
+@synthesize timelineSections = _timelineSections;
+@synthesize totalWidth = _totalWidth;
+@synthesize games = _games;
+@synthesize roundLabelGradient = _roundLabelGradient;
+@synthesize separators = _separators;
+
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
         
-        
     }
     return self;
+}
+- (void) drawRect:(CGRect)rect {
+    
+    float xOffset = 0;
+    float widthPerGame = rect.size.width/self.games;
+
+    for (TimelineRoundSection *section in self.subviews) {
+        
+        if ([section isKindOfClass:[TimelineRoundSection class]]) {
+            [section resize:xOffset :widthPerGame];
+            xOffset += section.frame.size.width;
+        }
+    }
+    
+    [super drawRect:rect];
 }
 
 -(void) setRounds:(NSArray *)rounds {
     _rounds = rounds;
     
-    NSMutableDictionary *sectionToRoundMap = [NSMutableDictionary dictionary];
     
-    float totalWidth = self.frame.size.width;
-    float totalHeight = self.frame.size.height;
     
-    float games = 0;
+    NSMutableArray *sections = [NSMutableArray array];
+    NSMutableArray *separators = [NSMutableArray array];
+    
+    //self.totalWidth = self.frame.size.width;
+    //float totalHeight = self.frame.size.height;
+    
+    // count all the games
+    self.games = 0;
     for (TournamentRound *round in rounds) {
-        games += [round.games count];
+        self.games += [round.games count];
     }
-    float widthPerGame = totalWidth/games;
     
-    float xOffset = 0;
-    
-    // add a section for each round
-    for (TournamentRound *round in rounds) {
-        float sectionWidth = widthPerGame*[round.games count];
-        UIView *roundSection = [[UIView alloc] initWithFrame:CGRectMake(xOffset, 0, sectionWidth, totalHeight)];
         
-        // add the gradient behind the label
+    
+    // add a section for each tournament round
+    for (TournamentRound *round in rounds) {
+        
+        TimelineRoundSection *roundSection = [TimelineRoundSection initWithRound:round :self];
+        [sections addObject:roundSection];
+        
+        /*// add the gradient behind the label
         UIView *gradient = [[UIView alloc] initWithFrame:CGRectMake(0, totalHeight-ROUND_LABEL_HEIGHT, sectionWidth, ROUND_LABEL_HEIGHT)];
         CAGradientLayer *gradientLayer = [CAGradientLayer layer];
         gradientLayer.frame = gradient.bounds;
@@ -80,41 +104,34 @@
         
         [self addSubview:roundSection];
         
-        [sectionToRoundMap setObject:round forKey:roundSection];
+        //[sectionToRoundMap setObject:round forKey:roundSection];
         
-        xOffset += sectionWidth;
+        xOffset += sectionWidth;*/
     }
+    self.timelineSections = sections;
     
-    self.sectionToRoundMap = sectionToRoundMap;
+    // create left border
+    UIView *leftBorder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, self.frame.size.height)];
+    leftBorder.backgroundColor = [UIColor grayColor];
+    [self addSubview:leftBorder];
+    
+    [self setNeedsDisplay];
 }
 
-- (void) highlightSection: (UIView*) highlightedSection {
-    __block TournamentRound *highlightedRound;
-    
-    [self.sectionToRoundMap enumerateKeysAndObjectsUsingBlock:^(UIView* section, TournamentRound* round, BOOL *stop) {
-        
-
-        if (section == highlightedSection) {
-            // this section has to be highlighted
-            highlightedRound = round;
-            
-        }
-        else {
-            // this section has to be inactive
-            UIView *gradientView = [section.subviews objectAtIndex:1];
-//            gradientView.layer
-            
-        }
-        
-    }];
-    
-    //return highlightedRound;
-}
          
 - (void) sectionTapped:(UITapGestureRecognizer*) sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
         UIView *section = sender.view;
-                NSLog(@"Frame: %f", section.frame.size.width);
+        
+        for (TimelineRoundSection *roundSection in self.timelineSections) {
+            if (roundSection == section) {
+                [roundSection highlight];
+            }
+            else {
+                [roundSection unhighlight];
+            }
+        }
+        [self setNeedsDisplay];
     }
 }
 

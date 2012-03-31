@@ -9,6 +9,7 @@
 #import "Menu.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+AppColors.h"
+#import "SSGradientView.h"
 
 @interface Menu()
 @property (nonatomic, strong) UIView *resultMenuItem;
@@ -54,15 +55,9 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         
-        CAGradientLayer *gradient = [CAGradientLayer layer];
-        gradient.frame = self.bounds;
-        gradient.colors = [UIColor menuGrayGradient];
+
+        self.colors = [UIColor menuGrayGradient];
         
-        gradient.shadowColor = [UIColor blackColor].CGColor;
-        gradient.shadowOpacity = 0.7f;
-        gradient.shadowOffset = CGSizeMake(0.0f, 5.0f);
-        gradient.shadowRadius = 5.0f;
-        [self.layer insertSublayer:gradient atIndex:0];
         
         int width = self.frame.size.width;
         int height = self.frame.size.height;
@@ -70,11 +65,11 @@
         // create gradient layer for selected menu item
         self.selectedItemLayer = [CAGradientLayer layer];
         self.selectedItemLayer.frame = CGRectMake(0, 0, MENU_ITEM_WIDTH, height);
-        self.selectedItemLayer.colors = [UIColor menuGreenGradient];
+        //self.selectedItemLayer.colors = [UIColor menuGreenGradient];
         
         self.unselectedItemLayer = [CAGradientLayer layer];
         self.unselectedItemLayer.frame = CGRectMake(0, 0, MENU_ITEM_WIDTH, height);
-        self.unselectedItemLayer.colors = [UIColor menuGrayGradient];
+        //self.unselectedItemLayer.colors = [UIColor menuGrayGradient];
                 
         // create result tab
         self.resultMenuItem = [[UIView alloc] initWithFrame:CGRectMake(width - MARGIN_RIGHT - 2*MENU_ITEM_WIDTH, 0, MENU_ITEM_WIDTH, height)];

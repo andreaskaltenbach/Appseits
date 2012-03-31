@@ -10,8 +10,8 @@
 
 @interface MatchDetailsViewController ()
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIPageControl *pageIndicator;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UIPageControl *pageIndicator;
 
 @end
 
