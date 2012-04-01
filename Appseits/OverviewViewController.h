@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TournamentRoundSelectDelegate.h"
 
-@interface OverviewViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate>
 
 @end

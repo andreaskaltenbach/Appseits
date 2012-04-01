@@ -1,5 +1,5 @@
 //
-//  TimelineScrollViewRoundSection.h
+//  GameTable.h
 //  Appseits
 //
 //  Created by Andreas Kaltenbach on 2012-03-31.
@@ -9,12 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "TournamentRound.h"
 
-@interface TimelineScrollViewRoundSection : UIView
+@interface GameTable : UITableView<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) TournamentRound *round;
-
-+ (TimelineScrollViewRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent;
-
-- (void) resize:(float) offset: (float) gameWidth;
 
 @end

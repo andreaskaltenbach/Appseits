@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TournamentRoundSelectDelegate.h"
 
 @interface Timeline : UIView
 
 @property (nonatomic, strong) NSArray *rounds;
+@property (nonatomic, strong) id<TournamentRoundSelectDelegate> roundSelectDelegate;
 
 @end

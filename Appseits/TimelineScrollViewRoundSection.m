@@ -15,7 +15,6 @@
 #define ROUND_MIN_WIDTH 100
 
 @interface TimelineScrollViewRoundSection()
-@property (nonatomic, strong) TournamentRound *round;
 @end
 
 @implementation TimelineScrollViewRoundSection
@@ -47,6 +46,8 @@
     line.backgroundColor = [UIColor separatorVertical];
     line.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     [section addSubview:line];
+    
+    [section addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:parent action:@selector(sectionTapped:)]];
 
     
     [parent addSubview:section];

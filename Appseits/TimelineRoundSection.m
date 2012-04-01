@@ -22,7 +22,6 @@ static UIImage *lockedImage;
 
 
 @interface TimelineRoundSection()
-@property (nonatomic, strong) TournamentRound *round;
 @property (nonatomic, strong) SSGradientView *labelGradient;
 @property (nonatomic, strong) UILabel *roundLabel;
 @property (nonatomic, strong) UIImageView *lockImage;

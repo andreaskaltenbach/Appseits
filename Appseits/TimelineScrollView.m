@@ -19,13 +19,13 @@
 
 @interface TimelineScrollView()
 @property (nonatomic, strong) NSArray *sections;
-
 @end
 
 @implementation TimelineScrollView
 
 @synthesize tournamentRounds = _tournamentRounds;
 @synthesize sections = _sections;
+@synthesize roundSelectDelegate = _roundSelectDelegate;
 
 - (void) setTournamentRounds:(NSArray *)tournamentRounds {
     _tournamentRounds = tournamentRounds;
@@ -73,6 +73,13 @@
     self.contentSize = contentSize;
     
     [super drawRect:rect];
+}
+
+- (void) sectionTapped:(UITapGestureRecognizer*) sender {
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        TimelineScrollViewRoundSection *section = (TimelineScrollViewRoundSection*) sender.view;
+        [self.roundSelectDelegate tournamentRoundSelected:section.round];
+    }
 }
 
 

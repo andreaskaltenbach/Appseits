@@ -16,10 +16,11 @@
 #import "Game.h"
 #import "Menu.h"
 #import "Timeline.h"
+#import "GameTable.h"
 
 @interface OverviewViewController()
+@property (weak, nonatomic) IBOutlet GameTable *gameTable;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-@property (strong, nonatomic) IBOutlet UITableView *matchTable;
 @property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
 @property (nonatomic, strong) NSArray *tournamentRounds;
 @property (strong, nonatomic) IBOutlet UILabel *pointInCurrentRound;
@@ -29,14 +30,14 @@
 @end
 
 @implementation OverviewViewController
-@synthesize spinner;
-@synthesize matchTable;
-@synthesize timelineScrollView;
+@synthesize gameTable = _gameTable;
+@synthesize spinner = _spinner;
+@synthesize timelineScrollView = _timelineScrollView;
 @synthesize tournamentRounds = _tournamentRounds;
-@synthesize pointInCurrentRound;
-@synthesize pointsTotal;
-@synthesize timeline;
-@synthesize menu;
+@synthesize pointInCurrentRound = _pointInCurrentRound;
+@synthesize pointsTotal = _pointsTotal;
+@synthesize timeline = _timeline;
+@synthesize menu = _menu;
 
 - (TournamentRound*) activeRound {
     NSDate *now = [NSDate date];
@@ -65,19 +66,8 @@
 }
 
 - (void) setTournamentRounds:(NSArray *)tournamentRounds {
-    _tournamentRounds = tournamentRounds;
-    
-    // update score labels
-    self.pointInCurrentRound.text = [NSString stringWithFormat:@"%ip", self.activeRoundPoints];
-    self.pointsTotal.text = [NSString stringWithFormat:@"%ip", self.totalPoints];
-    
     self.timelineScrollView.tournamentRounds = tournamentRounds;
     self.timeline.rounds = tournamentRounds;
-    
-    [self.matchTable reloadData];
-    
-    
-    
 }
 
 - (void) viewDidLoad {
@@ -89,6 +79,8 @@
     
     // check credentials and open login view if required!
     
+    self.timelineScrollView.roundSelectDelegate = self;
+    self.timeline.roundSelectDelegate = self;
     
     // load matches
     [GameService getGames:^(NSArray *tournamentRounds) {
@@ -105,78 +97,25 @@
         self.spinner.hidden = YES;
     }];
     
-    self.matchTable.backgroundColor = [UIColor blackBackground];
+    self.gameTable.backgroundColor = [UIColor blackBackground];
     self.timelineScrollView.backgroundColor = [UIColor blackBackground];
 }
 
 - (void)viewDidUnload {
-    [self setMatchTable:nil];
     [self setSpinner:nil];
-    [self setTimelineScrollView:nil];
     [self setTimelineScrollView:nil];
     [self setPointInCurrentRound:nil];
     [self setPointsTotal:nil];
     [self setMenu:nil];
     [self setTimeline:nil];
+    [self setGameTable:nil];
     [super viewDidUnload];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@"Round: %i", [self.tournamentRounds count]);
-    return [self.tournamentRounds count]; 
+// Called whenever a tournament round is selected in the timeline
+- (void) tournamentRoundSelected:(TournamentRound*) round {
+    self.gameTable.round = round;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    TournamentRound *round = [self.tournamentRounds objectAtIndex:section];
-    return [round.games count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSString *gameResultCell = @"gameResultCell";
-    NSString *gamePredictionCell = @"gamePredictionCell";
-    
-    TournamentRound *round = [self.tournamentRounds objectAtIndex:indexPath.section];
-    Game *game = [round.games objectAtIndex:indexPath.row];
-    
-    if (round.locked) {
-        GameResultCelll * cell = [tableView dequeueReusableCellWithIdentifier:gameResultCell];
-        cell.game = game;
-        return cell;
-    }
-    else {
-        GamePredictionCell * cell = [tableView dequeueReusableCellWithIdentifier:gamePredictionCell];
-        cell.game = game;
-        return cell;
-    }
-}
-
-
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UILabel *roundLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-    TournamentRound *round = [self.tournamentRounds objectAtIndex:section];
-    roundLabel.text = round.roundName;
-    roundLabel.backgroundColor = [UIColor blackColor];
-    roundLabel.textColor = [UIColor whiteColor];
-    return roundLabel;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    TournamentRound *round = [self.tournamentRounds objectAtIndex:indexPath.section];
-    Game *game = [round.games objectAtIndex:indexPath.row];
-    
-    if (round.locked) {
-        return 100;
-    }
-    else {
-        return 100;
-    }
-    
-    
-}
-
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     return YES;

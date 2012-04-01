@@ -11,6 +11,8 @@
 
 @interface TimelineRoundSection : UIView
 
+@property (nonatomic, strong) TournamentRound *round;
+
 + (TimelineRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent;
 
 - (void) resize:(float) offset: (float) gameWidth;

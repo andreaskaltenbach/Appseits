@@ -35,6 +35,7 @@
 		4E531C46151CB05B0003CAD1 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Game.m */; };
 		4E531C4A151CB0820003CAD1 /* GameService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C49151CB0820003CAD1 /* GameService.m */; };
 		4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */; };
+		5B1EE8B115274DFC00D01564 /* GameTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* GameTable.m */; };
 		5BA4B89C1526E853006450B7 /* lockOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA4B8991526E853006450B7 /* lockOpen.png */; };
 		5BA4B89D1526E853006450B7 /* lockOpenActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA4B89A1526E853006450B7 /* lockOpenActive.png */; };
 		5BA4B89E1526E853006450B7 /* lockClosed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA4B89B1526E853006450B7 /* lockClosed.png */; };
@@ -94,6 +95,9 @@
 		4E531C49151CB0820003CAD1 /* GameService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameService.m; sourceTree = "<group>"; };
 		4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePredictionCell.h; sourceTree = "<group>"; };
 		4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePredictionCell.m; sourceTree = "<group>"; };
+		5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TournamentRoundSelectDelegate.h; sourceTree = "<group>"; };
+		5B1EE8AF15274DFC00D01564 /* GameTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTable.h; sourceTree = "<group>"; };
+		5B1EE8B015274DFC00D01564 /* GameTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTable.m; sourceTree = "<group>"; };
 		5BA4B8991526E853006450B7 /* lockOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockOpen.png; sourceTree = "<group>"; };
 		5BA4B89A1526E853006450B7 /* lockOpenActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockOpenActive.png; sourceTree = "<group>"; };
 		5BA4B89B1526E853006450B7 /* lockClosed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockClosed.png; sourceTree = "<group>"; };
@@ -263,6 +267,9 @@
 				4E059D081525FFBC005ABD20 /* Timeline.m */,
 				5BD4B15215262263004FE21B /* TimelineRoundSection.h */,
 				5BD4B15315262263004FE21B /* TimelineRoundSection.m */,
+				5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */,
+				5B1EE8AF15274DFC00D01564 /* GameTable.h */,
+				5B1EE8B015274DFC00D01564 /* GameTable.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -376,6 +383,7 @@
 				5BBE7ECF15263ADA00FA980E /* SSBorderedView.m in Sources */,
 				5BBE7ED215263B2100FA980E /* SSDrawingUtilities.m in Sources */,
 				5BA4B8A2152737ED006450B7 /* TimelineScrollViewRoundSection.m in Sources */,
+				5B1EE8B115274DFC00D01564 /* GameTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
