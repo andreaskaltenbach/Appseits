@@ -25,7 +25,8 @@
 + (UIColor*) orangeSeparator;
 
 + (NSArray *) menuGrayGradient;
-+ (NSArray *) menuGreenGradient;
++ (NSArray *) greenGradient;
 + (NSArray *) darkGrayGradient;
++ (NSArray *) grayGradient;
 
 @end

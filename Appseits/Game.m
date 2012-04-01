@@ -25,6 +25,11 @@
     game.firstTeamName = [gameData objectForKey:@"firstTeam"];
     game.secondTeamName = [gameData objectForKey:@"secondTeam"];
     game.kickOff = [NSDate fromJsonTimestamp:[gameData valueForKey:@"kickOff"]];
+    game.firstTeamGoals = [gameData valueForKey:@"firstTeamGoals"];
+    game.secondTeamGoals = [gameData valueForKey:@"secondTeamGoals"];
+    game.firstTeamPrediction = [gameData valueForKey:@"firstTeamGoalsBet"];
+    game.secondTeamPrediction = [gameData valueForKey:@"secondTeamGoalsBet"];
+    game.points = [gameData valueForKey:@"points"];
     return game;
 }
 
@@ -34,6 +39,10 @@
         [games addObject:[Game gameFromJson:gameData]];
     }
     return games;
+}
+
+- (NSString *) description {
+    return [NSString stringWithFormat:@"Game %@ - %@", self.firstTeamName, self.secondTeamName];
 }
 
 @end

@@ -14,12 +14,20 @@
 #define ICON_MARGIN_RIGHT 5
 #define ROUND_MIN_WIDTH 100
 
+static UIImage *greenBall;
+static UIImage *grayBall;
+
 @interface TimelineScrollViewRoundSection()
 @end
 
 @implementation TimelineScrollViewRoundSection
 
 @synthesize round = _round;
+
++ (void) initialize {
+    greenBall = [UIImage imageNamed:@"greenBall"];
+    grayBall = [UIImage imageNamed:@"grayBall"];
+}
 
 + (TimelineScrollViewRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent {
     float sectionHeight = parent.frame.size.height;

@@ -79,7 +79,7 @@
     NSArray *games = [self.matches objectAtIndex:indexPath.section];
     Game *game = [games objectAtIndex:indexPath.row];
     
-    if (self.round.locked) {
+    if ((game.firstTeamGoals && game.secondTeamGoals) || self.round.locked) {
         GameResultCelll * cell = [tableView dequeueReusableCellWithIdentifier:gameResultCell];
         cell.game = game;
         return cell;

@@ -19,7 +19,7 @@
 - (int) points {
     int points = 0;
     for(Game *game in self.games) {
-        points += game.points;
+        points += game.points.intValue;
     }
     return points;
 }

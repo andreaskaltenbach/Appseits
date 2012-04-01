@@ -36,9 +36,10 @@
 		4E531C4A151CB0820003CAD1 /* GameService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C49151CB0820003CAD1 /* GameService.m */; };
 		4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */; };
 		5B1EE8B115274DFC00D01564 /* GameTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* GameTable.m */; };
-		5BA4B89C1526E853006450B7 /* lockOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA4B8991526E853006450B7 /* lockOpen.png */; };
-		5BA4B89D1526E853006450B7 /* lockOpenActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA4B89A1526E853006450B7 /* lockOpenActive.png */; };
-		5BA4B89E1526E853006450B7 /* lockClosed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA4B89B1526E853006450B7 /* lockClosed.png */; };
+		5B8FB2401528784C003AEB05 /* lockClosed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FB23C1528784C003AEB05 /* lockClosed.png */; };
+		5B8FB2411528784C003AEB05 /* lockOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FB23D1528784C003AEB05 /* lockOpen.png */; };
+		5B8FB2421528784C003AEB05 /* grayBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FB23E1528784C003AEB05 /* grayBall.png */; };
+		5B8FB2431528784C003AEB05 /* greenBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FB23F1528784C003AEB05 /* greenBall.png */; };
 		5BA4B8A2152737ED006450B7 /* TimelineScrollViewRoundSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4B8A1152737ED006450B7 /* TimelineScrollViewRoundSection.m */; };
 		5BBE7ECB15263A9800FA980E /* SSGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBE7ECA15263A9800FA980E /* SSGradientView.m */; };
 		5BBE7ECF15263ADA00FA980E /* SSBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBE7ECE15263ADA00FA980E /* SSBorderedView.m */; };
@@ -98,9 +99,10 @@
 		5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TournamentRoundSelectDelegate.h; sourceTree = "<group>"; };
 		5B1EE8AF15274DFC00D01564 /* GameTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTable.h; sourceTree = "<group>"; };
 		5B1EE8B015274DFC00D01564 /* GameTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTable.m; sourceTree = "<group>"; };
-		5BA4B8991526E853006450B7 /* lockOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockOpen.png; sourceTree = "<group>"; };
-		5BA4B89A1526E853006450B7 /* lockOpenActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockOpenActive.png; sourceTree = "<group>"; };
-		5BA4B89B1526E853006450B7 /* lockClosed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockClosed.png; sourceTree = "<group>"; };
+		5B8FB23C1528784C003AEB05 /* lockClosed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockClosed.png; sourceTree = "<group>"; };
+		5B8FB23D1528784C003AEB05 /* lockOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockOpen.png; sourceTree = "<group>"; };
+		5B8FB23E1528784C003AEB05 /* grayBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayBall.png; sourceTree = "<group>"; };
+		5B8FB23F1528784C003AEB05 /* greenBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenBall.png; sourceTree = "<group>"; };
 		5BA4B8A0152737ED006450B7 /* TimelineScrollViewRoundSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineScrollViewRoundSection.h; sourceTree = "<group>"; };
 		5BA4B8A1152737ED006450B7 /* TimelineScrollViewRoundSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineScrollViewRoundSection.m; sourceTree = "<group>"; };
 		5BBE7EC915263A9800FA980E /* SSGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGradientView.h; sourceTree = "<group>"; };
@@ -135,9 +137,10 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
-				5BA4B8991526E853006450B7 /* lockOpen.png */,
-				5BA4B89A1526E853006450B7 /* lockOpenActive.png */,
-				5BA4B89B1526E853006450B7 /* lockClosed.png */,
+				5B8FB23C1528784C003AEB05 /* lockClosed.png */,
+				5B8FB23D1528784C003AEB05 /* lockOpen.png */,
+				5B8FB23E1528784C003AEB05 /* grayBall.png */,
+				5B8FB23F1528784C003AEB05 /* greenBall.png */,
 				4E21509915247CF800DBBC81 /* flagBackground.png */,
 				4E050D991524486C0063EDED /* tipBar.png */,
 				5BD4B143152395AF004FE21B /* separator.png */,
@@ -349,9 +352,10 @@
 				5BD4B144152395AF004FE21B /* separator.png in Resources */,
 				4E050D9A1524486C0063EDED /* tipBar.png in Resources */,
 				4E21509A15247CF800DBBC81 /* flagBackground.png in Resources */,
-				5BA4B89C1526E853006450B7 /* lockOpen.png in Resources */,
-				5BA4B89D1526E853006450B7 /* lockOpenActive.png in Resources */,
-				5BA4B89E1526E853006450B7 /* lockClosed.png in Resources */,
+				5B8FB2401528784C003AEB05 /* lockClosed.png in Resources */,
+				5B8FB2411528784C003AEB05 /* lockOpen.png in Resources */,
+				5B8FB2421528784C003AEB05 /* grayBall.png in Resources */,
+				5B8FB2431528784C003AEB05 /* greenBall.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,12 +13,11 @@
 @property (nonatomic, strong) NSString *firstTeamName;
 @property (nonatomic, strong) NSString *secondTeamName;
 @property (nonatomic, strong) NSDate *kickOff;
-@property int firstTeamGoals;
-@property int secondTeamGoals;
-@property int firstTeamPrediction;
-@property int secondTeamPrediction;
-@property int points;
-
+@property (nonatomic, strong) NSNumber *firstTeamGoals;
+@property (nonatomic, strong) NSNumber *secondTeamGoals;
+@property (nonatomic, strong) NSNumber *firstTeamPrediction;
+@property (nonatomic, strong) NSNumber *secondTeamPrediction;
+@property (nonatomic, strong) NSNumber *points;
 
 + (NSArray*) gamesFromJson: (NSArray*) jsonData;
 
