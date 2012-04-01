@@ -11,10 +11,11 @@
 @interface TournamentRound : NSObject
 
 @property (nonatomic, strong) NSString *roundName;
-@property (nonatomic, strong) NSArray* games;
-@property BOOL locked;
+@property (nonatomic, strong) NSArray *games;
+@property (nonatomic, strong) NSDate *lockDate;
 
 - (int) points;
+- (BOOL) locked;
 
 + (NSArray*) tournamentRoundsFromJson: (NSArray*) jsonRounds;
 

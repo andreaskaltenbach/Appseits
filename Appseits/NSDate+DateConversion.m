@@ -11,6 +11,10 @@
 @implementation NSDate (DateConversion)
 
 + (NSDate*) fromJsonTimestamp:(id) timestamp {
-return [NSDate dateWithTimeIntervalSince1970:([timestamp doubleValue])];
+    
+    NSLog(@"Timestamp %@", timestamp);
+    if (!timestamp) return nil;
+    
+    return [NSDate dateWithTimeIntervalSince1970:([timestamp doubleValue])];
 }
 @end

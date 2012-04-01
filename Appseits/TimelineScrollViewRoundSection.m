@@ -10,12 +10,16 @@
 #import "UIColor+AppColors.h"
 #define LABEL_MARGIN_LEFT 5
 #define LABEL_ICON_MARGIN 5
-#define ICON_WIDTH 21
+#define BALL_WIDTH 26
+#define LOCK_WIDTH 15
 #define ICON_MARGIN_RIGHT 5
 #define ROUND_MIN_WIDTH 100
 
+
 static UIImage *greenBall;
 static UIImage *grayBall;
+static UIImage *lockOpen;
+static UIImage *lockClosed;
 
 @interface TimelineScrollViewRoundSection()
 @end
@@ -27,6 +31,8 @@ static UIImage *grayBall;
 + (void) initialize {
     greenBall = [UIImage imageNamed:@"greenBall"];
     grayBall = [UIImage imageNamed:@"grayBall"];
+    lockOpen = [UIImage imageNamed:@"lockOpen"];
+    lockClosed = [UIImage imageNamed:@"lockClosed"];
 }
 
 + (TimelineScrollViewRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent {
@@ -35,7 +41,7 @@ static UIImage *grayBall;
     TimelineScrollViewRoundSection *section = [[TimelineScrollViewRoundSection alloc] initWithFrame:CGRectMake(0, 0, sectionWidth, sectionHeight)];
     
     // print round name
-    UILabel *roundName = [[UILabel alloc] initWithFrame:CGRectMake(LABEL_MARGIN_LEFT, 0, sectionWidth - ICON_MARGIN_RIGHT - ICON_WIDTH - LABEL_ICON_MARGIN, sectionHeight)];
+    UILabel *roundName = [[UILabel alloc] initWithFrame:CGRectMake(LABEL_MARGIN_LEFT, 0, sectionWidth - ICON_MARGIN_RIGHT - BALL_WIDTH - LABEL_ICON_MARGIN, sectionHeight)];
     roundName.text = round.roundName;
     NSLog(@"Name:width %f",roundName.frame.size.width);
     roundName.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -49,6 +55,24 @@ static UIImage *grayBall;
     roundName.backgroundColor = [UIColor clearColor];
     [section addSubview:roundName];
     
+    // add the lock icon
+    UIImageView *ball;
+    UIImageView *lock;
+    if (round.locked) {
+        ball = [[UIImageView alloc]initWithImage:greenBall];   
+        lock = [[UIImageView alloc]initWithImage:lockClosed];   
+    }
+    else {
+        ball = [[UIImageView alloc]initWithImage:grayBall];   
+        lock = [[UIImageView alloc]initWithImage:lockOpen];
+    }
+    ball.frame = CGRectMake(sectionWidth - BALL_WIDTH - ICON_MARGIN_RIGHT, (sectionHeight - BALL_WIDTH)/2, BALL_WIDTH, BALL_WIDTH);
+    ball.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    lock.frame = CGRectMake(sectionWidth - 5 - BALL_WIDTH + (BALL_WIDTH - LOCK_WIDTH) - ICON_MARGIN_RIGHT, (sectionHeight - LOCK_WIDTH)/2, LOCK_WIDTH, LOCK_WIDTH);
+    lock.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    [section addSubview:ball];
+    [section addSubview:lock];
+    
     // add separator line as right border
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(sectionWidth, 0, 1, sectionHeight)];
     line.backgroundColor = [UIColor separatorVertical];
@@ -56,8 +80,6 @@ static UIImage *grayBall;
     [section addSubview:line];
     
     [section addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:parent action:@selector(sectionTapped:)]];
-
-    
     [parent addSubview:section];
     
     section.round = round;

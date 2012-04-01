@@ -8,13 +8,13 @@
 
 #import "TournamentRound.h"
 #import "Game.h"
+#import "NSDate+DateConversion.h"
 
 @implementation TournamentRound
 
 @synthesize roundName = _roundName;
 @synthesize games = _matches;
-@synthesize locked = _locked;
-
+@synthesize lockDate = _lockDate;
 
 - (int) points {
     int points = 0;
@@ -28,6 +28,7 @@
     TournamentRound *round = [[TournamentRound alloc] init];
     round.roundName = [jsonData objectForKey:@"name"];
     round.games = [Game gamesFromJson: [jsonData objectForKey:@"games"]];
+    round.lockDate = [NSDate fromJsonTimestamp:[jsonData objectForKey:@"lockedDate"]];
     return round;
 }
 
@@ -39,6 +40,13 @@
     }
     
     return rounds;
+}
+
+- (BOOL) locked {
+    if (!self.lockDate) return NO;
+    NSLog(@"Locked date %@", self.lockDate);
+    
+    return [self.lockDate compare:[NSDate date]] == NSOrderedAscending;
 }
 
 
