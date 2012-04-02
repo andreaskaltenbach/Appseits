@@ -44,11 +44,7 @@
 
 - (BOOL) locked {
     if (!self.lockDate) return NO;
-    NSLog(@"Locked date %@", self.lockDate);
-    
     return [self.lockDate compare:[NSDate date]] == NSOrderedAscending;
 }
-
-
 
 @end

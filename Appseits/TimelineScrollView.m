@@ -54,6 +54,9 @@
     line.backgroundColor = [UIColor separatorVertical];
     line.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     [self addSubview:line];
+    
+    // TODO better logic to decide which round to select initially
+    [self selectTournamentRound:[self.sections objectAtIndex:0]];
 
     [self setNeedsDisplay];
 }
@@ -75,10 +78,14 @@
     [super drawRect:rect];
 }
 
+- (void) selectTournamentRound:(TimelineScrollViewRoundSection*) section {
+    [self.roundSelectDelegate tournamentRoundSelected:section.round];
+}
+
 - (void) sectionTapped:(UITapGestureRecognizer*) sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
         TimelineScrollViewRoundSection *section = (TimelineScrollViewRoundSection*) sender.view;
-        [self.roundSelectDelegate tournamentRoundSelected:section.round];
+        [self selectTournamentRound:section];
     }
 }
 

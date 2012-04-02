@@ -10,5 +10,5 @@
 #import "TournamentRoundSelectDelegate.h"
 
 @interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate>
-
+@property (nonatomic, strong) NSArray *tournamentRounds;
 @end

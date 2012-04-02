@@ -81,25 +81,30 @@
     leftBorder.backgroundColor = [UIColor grayColor];
     [self addSubview:leftBorder];
     
+    // TODO better logic to decide which round to select initially
+    [self selectTournamentRound:[self.timelineSections objectAtIndex:0]];
+    
     [self setNeedsDisplay];
 }
 
+- (void) selectTournamentRound:(TimelineRoundSection*) section {
+    for (TimelineRoundSection *roundSection in self.timelineSections) {
+        if (roundSection == section) {
+            [roundSection highlight];
+        }
+        else {
+            [roundSection unhighlight];
+        }
+    }
+    [self setNeedsDisplay];
+    
+    [self.roundSelectDelegate tournamentRoundSelected:section.round];
+}
          
 - (void) sectionTapped:(UITapGestureRecognizer*) sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
         TimelineRoundSection *section = (TimelineRoundSection*) sender.view;
-        
-        for (TimelineRoundSection *roundSection in self.timelineSections) {
-            if (roundSection == section) {
-                [roundSection highlight];
-            }
-            else {
-                [roundSection unhighlight];
-            }
-        }
-        [self setNeedsDisplay];
-        
-        [self.roundSelectDelegate tournamentRoundSelected:section.round];
+        [self selectTournamentRound:section];
     }
 }
 

@@ -21,9 +21,8 @@
 
 @interface OverviewViewController()
 @property (weak, nonatomic) IBOutlet GameTable *gameTable;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
-@property (nonatomic, strong) NSArray *tournamentRounds;
+
 @property (strong, nonatomic) IBOutlet UILabel *pointInCurrentRound;
 @property (strong, nonatomic) IBOutlet UILabel *pointsTotal;
 @property (strong, nonatomic) IBOutlet Timeline *timeline;
@@ -33,12 +32,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *resultMenuLabel;
 @property (weak, nonatomic) IBOutlet SSGradientView *rankingMenuItem;
 @property (weak, nonatomic) IBOutlet MenuDependendScrollView *menuDependingScrollView;
+@property (weak, nonatomic) IBOutlet UIView *scoreView;
 @property (weak, nonatomic) IBOutlet UILabel *rankingMenuLabel;
 @end
 
 @implementation OverviewViewController
 @synthesize gameTable = _gameTable;
-@synthesize spinner = _spinner;
 @synthesize timelineScrollView = _timelineScrollView;
 @synthesize tournamentRounds = _tournamentRounds;
 @synthesize pointInCurrentRound = _pointInCurrentRound;
@@ -50,6 +49,7 @@
 @synthesize resultMenuLabel = _resultMenuLabel;
 @synthesize rankingMenuItem = _rankingMenuItem;
 @synthesize menuDependingScrollView = _menuDependingScrollView;
+@synthesize scoreView = _scoreView;
 @synthesize rankingMenuLabel = _rankingMenuLabel;
 
 - (TournamentRound*) activeRound {
@@ -79,14 +79,15 @@
 }
 
 - (void) setTournamentRounds:(NSArray *)tournamentRounds {
-    self.timelineScrollView.tournamentRounds = tournamentRounds;
-    self.timeline.rounds = tournamentRounds;
+    _tournamentRounds = tournamentRounds;
 }
 
 - (void) viewDidLoad {
     
     [super viewDidLoad];
-    [self.spinner startAnimating];
+    
+    self.timelineScrollView.tournamentRounds = self.tournamentRounds;
+    self.timeline.rounds = self.tournamentRounds;
     
     self.view.backgroundColor = [UIColor squareBackground];
     
@@ -98,6 +99,8 @@
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *menu = [userDefaults objectForKey:@"menu"];
+    
+    self.scoreView.backgroundColor = [UIColor clearColor];
     
     //TODO
     if ([menu isEqualToString:@"Ranking"]) {
@@ -114,28 +117,12 @@
     
     self.timelineScrollView.roundSelectDelegate = self;
     self.timeline.roundSelectDelegate = self;
-    
-    // load matches
-    [GameService getGames:^(NSArray *tournamentRounds) {
         
-        // disable spinner && show table
-        NSLog(@"Got matches!");
-        [self.spinner stopAnimating];
-        self.spinner.hidden = YES;
-        self.tournamentRounds = tournamentRounds;
-        
-    } :^(NSString *errorMessage) {
-        NSLog(@"Failed to load matches!");
-        [self.spinner stopAnimating];
-        self.spinner.hidden = YES;
-    }];
-    
     self.gameTable.backgroundColor = [UIColor blackBackground];
     self.timelineScrollView.backgroundColor = [UIColor blackBackground];
 }
 
 - (void)viewDidUnload {
-    [self setSpinner:nil];
     [self setTimelineScrollView:nil];
     [self setPointInCurrentRound:nil];
     [self setPointsTotal:nil];
@@ -152,6 +139,7 @@
     [self setRankingMenuLabel:nil];
     [self setMenuDependingScrollView:nil];
     [self setMenuDependingScrollView:nil];
+    [self setScoreView:nil];
     [super viewDidUnload];
 }
 
