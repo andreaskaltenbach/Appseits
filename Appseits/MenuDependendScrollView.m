@@ -41,7 +41,6 @@ typedef enum {
     
 
     float width = frame.size.width;
-    NSLog(@"Width: %f", width);    
     int xOffset = 0;
     
     

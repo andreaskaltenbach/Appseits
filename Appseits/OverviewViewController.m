@@ -18,6 +18,7 @@
 #import "Timeline.h"
 #import "GameTable.h"
 #import "MenuDependendScrollView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface OverviewViewController()
 @property (weak, nonatomic) IBOutlet GameTable *gameTable;
@@ -84,15 +85,20 @@
 
 - (void) viewDidLoad {
     
-    [super viewDidLoad];
-    
+    self.timelineScrollView.roundSelectDelegate = self;
     self.timelineScrollView.tournamentRounds = self.tournamentRounds;
+    self.timelineScrollView.backgroundColor = [UIColor blackBackground];
+    self.timeline.roundSelectDelegate = self;
     self.timeline.rounds = self.tournamentRounds;
+
     
     self.view.backgroundColor = [UIColor squareBackground];
     
     // initialize menu
     self.menu.colors = [UIColor menuGrayGradient];
+    self.menu.layer.shadowOffset = CGSizeMake(0, 10);
+    self.menu.layer.shadowRadius = 5;
+    self.menu.layer.shadowOpacity = 0.5;
     self.menuItemView.backgroundColor = [UIColor clearColor];
     self.resultMenuItem.backgroundColor = [UIColor clearColor];
     self.rankingMenuItem.backgroundColor = [UIColor clearColor];
@@ -115,11 +121,12 @@
     
     // check credentials and open login view if required!
     
-    self.timelineScrollView.roundSelectDelegate = self;
-    self.timeline.roundSelectDelegate = self;
+   
         
     self.gameTable.backgroundColor = [UIColor blackBackground];
-    self.timelineScrollView.backgroundColor = [UIColor blackBackground];
+    
+    
+    [super viewDidLoad];
 }
 
 - (void)viewDidUnload {

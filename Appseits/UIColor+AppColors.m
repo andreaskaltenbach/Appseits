@@ -20,8 +20,8 @@
 
 + (NSArray *) gameCellGradient {
     return [NSArray arrayWithObjects: 
-            (id) [[UIColor colorWithRed:210.0/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1] CGColor],
-            (id)  [[UIColor colorWithRed:1 green:1 blue:1 alpha:1] CGColor],
+            [UIColor colorWithRed:210.0/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1],
+            [UIColor colorWithRed:1 green:1 blue:1 alpha:1],
             nil];
 }
 

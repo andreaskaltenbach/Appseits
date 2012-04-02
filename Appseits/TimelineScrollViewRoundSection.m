@@ -43,7 +43,6 @@ static UIImage *lockClosed;
     // print round name
     UILabel *roundName = [[UILabel alloc] initWithFrame:CGRectMake(LABEL_MARGIN_LEFT, 0, sectionWidth - ICON_MARGIN_RIGHT - BALL_WIDTH - LABEL_ICON_MARGIN, sectionHeight)];
     roundName.text = round.roundName;
-    NSLog(@"Name:width %f",roundName.frame.size.width);
     roundName.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     if (round.locked) {
         roundName.textColor = [UIColor highlightedGreen];
