@@ -37,6 +37,8 @@
 		4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */; };
 		4EB4FBBB1529F05700799AA4 /* StartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4FBBA1529F05700799AA4 /* StartupViewController.m */; };
 		5B1EE8B115274DFC00D01564 /* GameTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* GameTable.m */; };
+		5B76D2B5152A382300225BEB /* LeaguePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B76D2B4152A382300225BEB /* LeaguePicker.m */; };
+		5B76D2B9152A38BA00225BEB /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B76D2B8152A38BA00225BEB /* League.m */; };
 		5B7F2B12152901D1006A3687 /* MenuDependendScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F2B11152901D1006A3687 /* MenuDependendScrollView.m */; };
 		5B7F2B16152902C6006A3687 /* RankingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F2B15152902C6006A3687 /* RankingTable.m */; };
 		5B7F2B1915290392006A3687 /* Ranking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F2B1815290392006A3687 /* Ranking.m */; };
@@ -100,11 +102,15 @@
 		4E531C49151CB0820003CAD1 /* GameService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameService.m; sourceTree = "<group>"; };
 		4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePredictionCell.h; sourceTree = "<group>"; };
 		4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePredictionCell.m; sourceTree = "<group>"; };
-		4EB4FBB91529F05700799AA4 /* StartupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = StartupViewController.h; sourceTree = "<group>"; };
+		4EB4FBB91529F05700799AA4 /* StartupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupViewController.h; sourceTree = "<group>"; };
 		4EB4FBBA1529F05700799AA4 /* StartupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupViewController.m; sourceTree = "<group>"; };
 		5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TournamentRoundSelectDelegate.h; sourceTree = "<group>"; };
 		5B1EE8AF15274DFC00D01564 /* GameTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTable.h; sourceTree = "<group>"; };
 		5B1EE8B015274DFC00D01564 /* GameTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTable.m; sourceTree = "<group>"; };
+		5B76D2B3152A382300225BEB /* LeaguePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguePicker.h; sourceTree = "<group>"; };
+		5B76D2B4152A382300225BEB /* LeaguePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguePicker.m; sourceTree = "<group>"; };
+		5B76D2B7152A38BA00225BEB /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
+		5B76D2B8152A38BA00225BEB /* League.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = League.m; sourceTree = "<group>"; };
 		5B7F2B10152901D1006A3687 /* MenuDependendScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuDependendScrollView.h; sourceTree = "<group>"; };
 		5B7F2B11152901D1006A3687 /* MenuDependendScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuDependendScrollView.m; sourceTree = "<group>"; };
 		5B7F2B14152902C6006A3687 /* RankingTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingTable.h; sourceTree = "<group>"; };
@@ -252,6 +258,8 @@
 				4E531C45151CB05B0003CAD1 /* Game.m */,
 				5B7F2B1715290392006A3687 /* Ranking.h */,
 				5B7F2B1815290392006A3687 /* Ranking.m */,
+				5B76D2B7152A38BA00225BEB /* League.h */,
+				5B76D2B8152A38BA00225BEB /* League.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -291,6 +299,8 @@
 				5B7F2B11152901D1006A3687 /* MenuDependendScrollView.m */,
 				5B7F2B14152902C6006A3687 /* RankingTable.h */,
 				5B7F2B15152902C6006A3687 /* RankingTable.m */,
+				5B76D2B3152A382300225BEB /* LeaguePicker.h */,
+				5B76D2B4152A382300225BEB /* LeaguePicker.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -412,6 +422,8 @@
 				5B7F2B16152902C6006A3687 /* RankingTable.m in Sources */,
 				5B7F2B1915290392006A3687 /* Ranking.m in Sources */,
 				4EB4FBBB1529F05700799AA4 /* StartupViewController.m in Sources */,
+				5B76D2B5152A382300225BEB /* LeaguePicker.m in Sources */,
+				5B76D2B9152A38BA00225BEB /* League.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

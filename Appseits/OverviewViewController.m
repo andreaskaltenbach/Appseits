@@ -19,6 +19,7 @@
 #import "GameTable.h"
 #import "MenuDependendScrollView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "LeaguePicker.h"
 
 @interface OverviewViewController()
 @property (weak, nonatomic) IBOutlet GameTable *gameTable;
@@ -35,6 +36,9 @@
 @property (weak, nonatomic) IBOutlet MenuDependendScrollView *menuDependingScrollView;
 @property (weak, nonatomic) IBOutlet UIView *scoreView;
 @property (weak, nonatomic) IBOutlet UILabel *rankingMenuLabel;
+@property (weak, nonatomic) IBOutlet UITextField *leagueInput;
+@property (weak, nonatomic) IBOutlet LeaguePicker *leaguePicker;
+@property (nonatomic, strong) NSNumber *leagueId;
 @end
 
 @implementation OverviewViewController
@@ -52,6 +56,9 @@
 @synthesize menuDependingScrollView = _menuDependingScrollView;
 @synthesize scoreView = _scoreView;
 @synthesize rankingMenuLabel = _rankingMenuLabel;
+@synthesize leagueInput = _leagueInput;
+@synthesize leaguePicker = _leaguePicker;
+@synthesize leagueId = _leagueId;
 
 - (TournamentRound*) activeRound {
     NSDate *now = [NSDate date];
@@ -85,12 +92,27 @@
 
 - (void) viewDidLoad {
     
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *menu = [userDefaults objectForKey:@"menu"];
+    NSString *leagueName = [userDefaults objectForKey:@"leagueName"];
+    NSNumber *leagueId = [userDefaults objectForKey:@"leagueId"];
+    
     self.timelineScrollView.roundSelectDelegate = self;
     self.timelineScrollView.tournamentRounds = self.tournamentRounds;
     self.timelineScrollView.backgroundColor = [UIColor blackBackground];
     self.timeline.roundSelectDelegate = self;
     self.timeline.rounds = self.tournamentRounds;
-
+    
+    self.leaguePicker.leaguePickerDelegate = self;
+    [self.leagueInput setInputView:self.leaguePicker];
+    self.leagueInput.backgroundColor = [UIColor clearColor];
+    if (leagueName) {
+        self.leagueInput.text = leagueName;
+    }
+    else {
+        self.leagueInput.text = @"Alla ligor";u
+    }
+    if (leagueId) self.leagueId = leagueId;
     
     self.view.backgroundColor = [UIColor squareBackground];
     
@@ -103,8 +125,7 @@
     self.resultMenuItem.backgroundColor = [UIColor clearColor];
     self.rankingMenuItem.backgroundColor = [UIColor clearColor];
 
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *menu = [userDefaults objectForKey:@"menu"];
+
     
     self.scoreView.backgroundColor = [UIColor clearColor];
     
@@ -147,6 +168,8 @@
     [self setMenuDependingScrollView:nil];
     [self setMenuDependingScrollView:nil];
     [self setScoreView:nil];
+    [self setLeagueInput:nil];
+    [self setLeaguePicker:nil];
     [super viewDidUnload];
 }
 
@@ -175,6 +198,18 @@
     self.resultMenuItem.colors = [UIColor menuGrayGradient];
     self.resultMenuLabel.textColor = [UIColor blackColor];
     [self.menuDependingScrollView scrollToRankings];
+}
+
+- (void) leaguePicked:(League*) league {
+    NSLog(@"League picked!!!");
+    [self.leagueInput resignFirstResponder];
+    self.leagueInput.text = league.name;
+    self.leagueId = league.id;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:league.name forKey:@"leagueName"];
+    [userDefaults setObject:league.id forKey:@"leagueId"];
+    [userDefaults synchronize];
 }
 
 

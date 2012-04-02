@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UILabel *firstTeamName;
 @property (nonatomic, strong) UILabel *secondTeamName;
 @property (nonatomic, strong) SSGradientView *backgroundGradient;
+@property (nonatomic, strong) UILabel *kickOff;
 @end
 
 @implementation GameCell
@@ -27,6 +28,7 @@
 @synthesize secondTeamImage = _secondTeamImage;
 @synthesize firstTeamName = _firstTeamName;
 @synthesize secondTeamName = _secondTeamName;
+@synthesize kickOff = _kickOff;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -43,7 +45,8 @@
         
         self.secondTeamName = (UILabel*) [self viewWithTag:2];
         self.secondTeamImage = (UIImageView*) [self viewWithTag:22]; 
-
+        
+        self.kickOff = (UILabel*) [self viewWithTag:5];
     }
     return self;
 }
@@ -80,7 +83,6 @@
             if (saveError) {
                 NSLog(@"Failed to store flag on file system");
             }
-
         }];
     }
 }
@@ -93,8 +95,11 @@
     [self fetchFlagImage:firstTeam :self.firstTeamImage];
 
     self.secondTeamName.text = secondTeam;
-    [self fetchFlagImage:secondTeam :self.secondTeamImage];    
+    [self fetchFlagImage:secondTeam :self.secondTeamImage];  
     
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"HH:mm";
+    self.kickOff.text = [dateFormatter stringFromDate:game.kickOff];
 }
 
 @end

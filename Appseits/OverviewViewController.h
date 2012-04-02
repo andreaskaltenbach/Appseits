@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TournamentRoundSelectDelegate.h"
+#import "LeaguePicker.h"
 
-@interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate>
+@interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate, LeaguePickDelegate>
 @property (nonatomic, strong) NSArray *tournamentRounds;
 @end
