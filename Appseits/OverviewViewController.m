@@ -20,6 +20,8 @@
 #import "MenuDependendScrollView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "LeaguePicker.h"
+#import "RankingTable.h"
+#import "Constants.h"
 
 @interface OverviewViewController()
 @property (weak, nonatomic) IBOutlet GameTable *gameTable;
@@ -39,6 +41,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *leagueInput;
 @property (weak, nonatomic) IBOutlet LeaguePicker *leaguePicker;
 @property (nonatomic, strong) NSNumber *leagueId;
+@property (weak, nonatomic) IBOutlet RankingTable *rankingTable;
 @end
 
 @implementation OverviewViewController
@@ -59,6 +62,7 @@
 @synthesize leagueInput = _leagueInput;
 @synthesize leaguePicker = _leaguePicker;
 @synthesize leagueId = _leagueId;
+@synthesize rankingTable = _rankingTable;
 
 - (TournamentRound*) activeRound {
     NSDate *now = [NSDate date];
@@ -93,9 +97,9 @@
 - (void) viewDidLoad {
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *menu = [userDefaults objectForKey:@"menu"];
-    NSString *leagueName = [userDefaults objectForKey:@"leagueName"];
-    NSNumber *leagueId = [userDefaults objectForKey:@"leagueId"];
+    NSString *menu = [userDefaults objectForKey:MENU_KEY];
+    NSString *leagueName = [userDefaults objectForKey:LEAGUE_NAME_KEY];
+    NSNumber *leagueId = [userDefaults objectForKey:LEAGUE_ID_KEY];
     
     self.timelineScrollView.roundSelectDelegate = self;
     self.timelineScrollView.tournamentRounds = self.tournamentRounds;
@@ -110,7 +114,7 @@
         self.leagueInput.text = leagueName;
     }
     else {
-        self.leagueInput.text = @"Alla ligor";u
+        self.leagueInput.text = @"Alla ligor";
     }
     if (leagueId) self.leagueId = leagueId;
     
@@ -142,10 +146,10 @@
     
     // check credentials and open login view if required!
     
+
    
         
     self.gameTable.backgroundColor = [UIColor blackBackground];
-    
     
     [super viewDidLoad];
 }
@@ -170,6 +174,7 @@
     [self setScoreView:nil];
     [self setLeagueInput:nil];
     [self setLeaguePicker:nil];
+    [self setRankingTable:nil];
     [super viewDidUnload];
 }
 
@@ -182,7 +187,6 @@
     return YES;
 }
 - (IBAction)resultSelected:(id)sender {
-    
     NSLog(@"Result selected");
     self.rankingMenuItem.colors = [UIColor menuGrayGradient];
     self.rankingMenuLabel.textColor = [UIColor blackColor];
@@ -210,6 +214,8 @@
     [userDefaults setObject:league.name forKey:@"leagueName"];
     [userDefaults setObject:league.id forKey:@"leagueId"];
     [userDefaults synchronize];
+    
+    self.rankingTable.leagueId = league.id;
 }
 
 

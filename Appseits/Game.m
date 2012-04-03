@@ -25,8 +25,13 @@
     game.firstTeamName = [gameData objectForKey:@"firstTeam"];
     game.secondTeamName = [gameData objectForKey:@"secondTeam"];
     game.kickOff = [NSDate fromJsonTimestamp:[gameData valueForKey:@"kickOff"]];
-    game.firstTeamGoals = [gameData valueForKey:@"firstTeamGoals"];
-    game.secondTeamGoals = [gameData valueForKey:@"secondTeamGoals"];
+    
+    NSNumber *firstTeamGoals = [gameData valueForKey:@"firstTeamGoals"];
+    if (firstTeamGoals) game.firstTeamGoals = firstTeamGoals;
+    
+    NSNumber *secondTeamGoals = [gameData valueForKey:@"secondTeamGoals"];
+    if (secondTeamGoals) game.secondTeamGoals = secondTeamGoals;
+    
     game.firstTeamPrediction = [gameData valueForKey:@"firstTeamGoalsBet"];
     game.secondTeamPrediction = [gameData valueForKey:@"secondTeamGoalsBet"];
     game.points = [gameData valueForKey:@"points"];

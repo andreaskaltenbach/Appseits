@@ -13,8 +13,10 @@
 #define BALL_WIDTH 26
 #define LOCK_WIDTH 15
 #define ICON_MARGIN_RIGHT 5
-#define ROUND_MIN_WIDTH 100
+#define LABEL_WIDTH 160
 
+#define BALL_ICON_MARGIN_RIGHT 169
+#define LOCK_ICON_MARGIN_RIGHT 174
 
 static UIImage *greenBall;
 static UIImage *grayBall;
@@ -36,12 +38,13 @@ static UIImage *lockClosed;
 }
 
 + (TimelineScrollViewRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent {
-    float sectionHeight = parent.frame.size.height;
-    float sectionWidth = 100 * [round.games count];
-    TimelineScrollViewRoundSection *section = [[TimelineScrollViewRoundSection alloc] initWithFrame:CGRectMake(0, 0, sectionWidth, sectionHeight)];
+    
+    int sectionHeight = parent.frame.size.height;
+    
+    TimelineScrollViewRoundSection *section = [[TimelineScrollViewRoundSection alloc] initWithFrame:CGRectMake(0, 0, ROUND_WIDTH, parent.frame.size.height)];
     
     // print round name
-    UILabel *roundName = [[UILabel alloc] initWithFrame:CGRectMake(LABEL_MARGIN_LEFT, 0, sectionWidth - ICON_MARGIN_RIGHT - BALL_WIDTH - LABEL_ICON_MARGIN, sectionHeight)];
+    UILabel *roundName = [[UILabel alloc] initWithFrame:CGRectMake(LABEL_MARGIN_LEFT, 0, LABEL_WIDTH, sectionHeight)];
     roundName.text = round.roundName;
     roundName.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     if (round.locked) {
@@ -65,40 +68,27 @@ static UIImage *lockClosed;
         ball = [[UIImageView alloc]initWithImage:grayBall];   
         lock = [[UIImageView alloc]initWithImage:lockOpen];
     }
-    ball.frame = CGRectMake(sectionWidth - BALL_WIDTH - ICON_MARGIN_RIGHT, (sectionHeight - BALL_WIDTH)/2, BALL_WIDTH, BALL_WIDTH);
-    ball.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-    lock.frame = CGRectMake(sectionWidth - 5 - BALL_WIDTH + (BALL_WIDTH - LOCK_WIDTH) - ICON_MARGIN_RIGHT, (sectionHeight - LOCK_WIDTH)/2, LOCK_WIDTH, LOCK_WIDTH);
-    lock.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    ball.frame = CGRectMake(BALL_ICON_MARGIN_RIGHT, (sectionHeight - BALL_WIDTH)/2, BALL_WIDTH, BALL_WIDTH);
+    lock.frame = CGRectMake(ROUND_WIDTH - 5 - BALL_WIDTH + (BALL_WIDTH - LOCK_WIDTH) - ICON_MARGIN_RIGHT, (sectionHeight - LOCK_WIDTH)/2, LOCK_WIDTH, LOCK_WIDTH);
     [section addSubview:ball];
     [section addSubview:lock];
     
-    // add separator line as right border
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(sectionWidth, 0, 1, sectionHeight)];
-    line.backgroundColor = [UIColor separatorVertical];
-    line.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-    [section addSubview:line];
+    // add separator lines left and right
+    UIView *leftLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, sectionHeight)];
+    leftLine.backgroundColor = [UIColor separatorVertical];
+    [section addSubview:leftLine];
+    UIView *rightLine = [[UIView alloc] initWithFrame:CGRectMake(ROUND_WIDTH, 0, 1, sectionHeight)];
+    rightLine.backgroundColor = [UIColor separatorVertical];
+    [section addSubview:rightLine];
     
-    [section addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:parent action:@selector(sectionTapped:)]];
     [parent addSubview:section];
     
     section.round = round;
     
+    [section addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:parent action:@selector(sectionTapped:)]];
+    
     return section;
     
-}
-
-- (void) resize:(float) offset: (float) gameWidth {
-    float sectionWidth = gameWidth * [self.round.games count];
-    if (sectionWidth < ROUND_MIN_WIDTH) {
-        sectionWidth = ROUND_MIN_WIDTH;
-    }
-    
-    CGRect frame = self.frame;
-    frame.size.width = sectionWidth;
-    frame.origin.x = offset;
-    self.frame = frame;
-    
-
 }
 
 - (void) highlight {

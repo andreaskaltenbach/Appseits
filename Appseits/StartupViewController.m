@@ -9,6 +9,7 @@
 #import "StartupViewController.h"
 #import "GameService.h"
 #import "OverviewViewController.h"
+#import "UIColor+AppColors.h"
 
 @interface StartupViewController ()
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
@@ -22,6 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    spinner.color = [UIColor darkGreen];
 	[spinner startAnimating];
     
     // check credentials and show login screen, if required

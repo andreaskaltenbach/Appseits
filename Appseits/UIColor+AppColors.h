@@ -29,4 +29,5 @@
 + (NSArray *) darkGrayGradient;
 + (NSArray *) grayGradient;
 
++ (UIColor *) darkGreen;
 @end

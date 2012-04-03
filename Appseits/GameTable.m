@@ -9,6 +9,7 @@
 #import "GameTable.h"
 #import "GameResultCelll.h"
 #import "GamePredictionCell.h"
+#import "UIColor+AppColors.h"
 
 @interface GameTable()
 @property (nonatomic, strong) NSMutableArray *matchDays;
@@ -94,12 +95,20 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+    
+    CGRect tableFrame = tableView.frame;
+    
+    UIView *sectionRow = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableFrame.size.width, 20)];
+    sectionRow.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    sectionRow.backgroundColor = [UIColor blackBackground];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 20)];
     NSString *matchDay = [self.matchDays objectAtIndex:section];
     label.text = matchDay;
-    label.backgroundColor = [UIColor blackColor];
     label.textColor = [UIColor whiteColor];
-    return label;
+    label.backgroundColor = [UIColor clearColor];
+    [sectionRow addSubview:label];
+    return sectionRow;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
