@@ -62,23 +62,33 @@ static UIImage *grayBall;
 
 - (void) setGame:(Game *)game {
     [super setGame:game];
+
+    // set match result
+    if (game.firstTeamGoals && game.secondTeamGoals) {
+        self.firstTeamGoals.text = [NSString stringWithFormat:@"%i", game.firstTeamGoals.intValue];
+        self.secondTeamGoals.text = [NSString stringWithFormat:@"%i", game.secondTeamGoals.intValue];
+    } else {
+        self.firstTeamGoals.text = @"-";
+        self.secondTeamGoals.text = @"-";
+    }
     
-    self.firstTeamGoals.text = [NSString stringWithFormat:@"%i", game.firstTeamGoals.intValue];
-    self.secondTeamGoals.text = [NSString stringWithFormat:@"%i", game.secondTeamGoals.intValue];
-    
-    if (game.firstTeamGoals == game.firstTeamPrediction
+    if (!game.firstTeamPrediction || !game.secondTeamPrediction) {
+        // player does not set any prediction:
+        self.firstTeamPredictionGradient.colors = [UIColor grayGradient];
+        self.secondTeamPredictionGradient.colors = [UIColor grayGradient];
+    }
+    else if (game.firstTeamGoals == game.firstTeamPrediction
         && game.secondTeamGoals == game.secondTeamPrediction) {
         // the player did bet the exact result
         self.firstTeamPredictionGradient.colors = [UIColor greenGradient];
         self.secondTeamPredictionGradient.colors = [UIColor greenGradient];
     }
-    if (game.firstTeamGoals.intValue - game.secondTeamGoals.intValue
+    else if (game.firstTeamGoals.intValue - game.secondTeamGoals.intValue
         == game.firstTeamPrediction.intValue - game.secondTeamPrediction.intValue) {
         // the player did bet on the correct goal difference
         self.firstTeamPredictionGradient.colors = [UIColor greenGradient];
         self.secondTeamPredictionGradient.colors = [UIColor greenGradient];
     }
-
     else if (game.firstTeamGoals > game.secondTeamGoals &&
              game.firstTeamPrediction > game.secondTeamPrediction) {
         // first team did win and player betted on that
@@ -97,8 +107,15 @@ static UIImage *grayBall;
         self.secondTeamPredictionGradient.colors = [UIColor grayGradient];
     }
     
-    self.firstTeamPrediction.text = [NSString stringWithFormat:@"%i", game.firstTeamPrediction.intValue];
-    self.secondTeamPrediction.text = [NSString stringWithFormat:@"%i", game.secondTeamPrediction.intValue];
+    // set the user's predictions
+    if (game.firstTeamPrediction && game.secondTeamPrediction) {
+        self.firstTeamPrediction.text = [NSString stringWithFormat:@"%i", game.firstTeamPrediction.intValue];
+        self.secondTeamPrediction.text = [NSString stringWithFormat:@"%i", game.secondTeamPrediction.intValue];
+    }    
+    else {
+        self.firstTeamPrediction.text = @"-";
+        self.secondTeamPrediction.text = @"-";
+    }
     
     if (game.points.intValue > 0) {
         self.pointsBackground.image = greenBall;
