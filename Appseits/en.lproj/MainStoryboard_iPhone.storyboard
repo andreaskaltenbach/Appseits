@@ -236,11 +236,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="Up8-uV-wwV" customClass="MenuDependendScrollView">
-                                <rect key="frame" x="0.0" y="187" width="320" height="273"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                <rect key="frame" x="0.0" y="140" width="320" height="320"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="Gwy-FQ-gRl">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="Xl4-xp-0TF" customClass="TimelineScrollView">
@@ -248,7 +248,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             </scrollView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="KT6-Hu-UFq" customClass="GameTable">
-                                                <rect key="frame" x="0.0" y="50" width="320" height="220"/>
+                                                <rect key="frame" x="0.0" y="50" width="320" height="320"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
@@ -588,6 +588,84 @@
         <image name="separator.png" width="2" height="17"/>
         <image name="tipBar.png" width="302" height="36"/>
     </resources>
+    <classes>
+        <class className="GameCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameCell.h"/>
+        </class>
+        <class className="GamePredictionCell" superclassName="GameCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GamePredictionCell.h"/>
+        </class>
+        <class className="GameResultCelll" superclassName="GameCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameResultCelll.h"/>
+        </class>
+        <class className="GameTable" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameTable.h"/>
+        </class>
+        <class className="LeaguePicker" superclassName="UIPickerView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaguePicker.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MatchDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="pageIndicator" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="MenuDependendScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuDependendScrollView.h"/>
+        </class>
+        <class className="OverviewViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverviewViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gameTable" candidateClass="GameTable"/>
+                <relationship kind="outlet" name="leagueInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="leaguePicker" candidateClass="LeaguePicker"/>
+                <relationship kind="outlet" name="menu" candidateClass="SSGradientView"/>
+                <relationship kind="outlet" name="menuDependingScrollView" candidateClass="MenuDependendScrollView"/>
+                <relationship kind="outlet" name="menuItemView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="pointInCurrentRound" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pointsTotal" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rankingMenuItem" candidateClass="SSGradientView"/>
+                <relationship kind="outlet" name="rankingMenuLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rankingTable" candidateClass="RankingTable"/>
+                <relationship kind="outlet" name="resultMenuItem" candidateClass="SSGradientView"/>
+                <relationship kind="outlet" name="resultMenuLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
+                <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
+            </relationships>
+        </class>
+        <class className="RankingCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingCell.h"/>
+        </class>
+        <class className="RankingTable" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingTable.h"/>
+        </class>
+        <class className="SSBorderedView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSBorderedView.h"/>
+        </class>
+        <class className="SSGradientView" superclassName="SSBorderedView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSGradientView.h"/>
+        </class>
+        <class className="StartupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartupViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="Timeline" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
+        </class>
+        <class className="TimelineScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

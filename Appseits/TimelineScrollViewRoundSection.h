@@ -17,6 +17,4 @@
 
 + (TimelineScrollViewRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent;
 
-- (void) resize:(float) offset: (float) gameWidth;
-
 @end

@@ -15,6 +15,7 @@
 #define ROUND_TEXT_Y 4
 #define ROUND_TEXT_WIDTH 140
 #define ROUND_TEXT_HEIGHT 40
+#define SIDE_OFFSET 300
 
 @interface TimelineScrollView()
 @property (nonatomic, strong) NSArray *sections;
@@ -47,9 +48,9 @@
 - (void) setTournamentRounds:(NSArray *)tournamentRounds {
     _tournamentRounds = tournamentRounds;
     
-    self.contentSize = CGSizeMake([tournamentRounds count] * ROUND_WIDTH, self.frame.size.height);
+    self.contentSize = CGSizeMake([tournamentRounds count] * ROUND_WIDTH + 2*SIDE_OFFSET, self.frame.size.height);
     
-    int xOffset = 0;
+    int xOffset = SIDE_OFFSET;
     
     // add one section for each tournament round
     NSMutableArray *sections = [NSMutableArray array];
@@ -67,24 +68,27 @@
 
     
     // TODO better logic to decide which round to select initially
-    [self selectTournamentRound:[self.sections objectAtIndex:2]];
+    [self selectTournamentRound:[self.sections objectAtIndex:0]];
 
     [self setNeedsDisplay];
 }
 
 - (void) setFrame:(CGRect)frame {
-    
     [super setFrame:frame];
+    if (self.sections) {
+        TimelineScrollViewRoundSection *section = [self.sections objectAtIndex:self.selectedIndex];
+        [self selectTournamentRound:section];
+    }
 }
 
 - (void) selectTournamentRound:(TimelineScrollViewRoundSection*) section {
     
     // scroll to the correct position:
     int totalWidth = self.frame.size.width;
-    int xReduction = (totalWidth - ROUND_WIDTH)/2;
+    int xOffset = SIDE_OFFSET - (totalWidth - ROUND_WIDTH)/2;
     
     self.selectedIndex = [self.sections indexOfObject:section];
-    [self scrollRectToVisible:CGRectMake(self.selectedIndex * ROUND_WIDTH - xReduction , 0, totalWidth, self.frame.size.height) animated:YES];
+    [self scrollRectToVisible:CGRectMake(self.selectedIndex * ROUND_WIDTH + xOffset , 0, totalWidth, self.frame.size.height) animated:YES];
     
     
     [self.roundSelectDelegate tournamentRoundSelected:section.round];
