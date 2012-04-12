@@ -68,7 +68,7 @@
 
     
     // TODO better logic to decide which round to select initially
-    [self selectTournamentRound:[self.sections objectAtIndex:0]];
+    [self selectTournamentRound:[self.sections objectAtIndex:1]];
 
     [self setNeedsDisplay];
 }

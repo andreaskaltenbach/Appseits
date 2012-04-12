@@ -102,4 +102,16 @@
     self.kickOff.text = [dateFormatter stringFromDate:game.kickOff];
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    
+    if (selected) {
+        self.backgroundGradient.colors = [UIColor greenGradient];
+        self.firstTeamName.textColor = [UIColor whiteColor];
+    }
+    else {
+        self.backgroundGradient.colors = [UIColor gameCellGradient];
+        self.firstTeamName.textColor = [UIColor blackColor];
+    }
+}
+
 @end
