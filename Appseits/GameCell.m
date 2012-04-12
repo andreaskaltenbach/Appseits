@@ -107,10 +107,14 @@
     if (selected) {
         self.backgroundGradient.colors = [UIColor greenGradient];
         self.firstTeamName.textColor = [UIColor whiteColor];
+        self.secondTeamName.textColor = [UIColor whiteColor];
+        self.kickOff.textColor = [UIColor whiteColor];
     }
     else {
         self.backgroundGradient.colors = [UIColor gameCellGradient];
         self.firstTeamName.textColor = [UIColor blackColor];
+        self.secondTeamName.textColor = [UIColor blackColor];
+        self.kickOff.textColor = [UIColor blackColor];
     }
 }
 
