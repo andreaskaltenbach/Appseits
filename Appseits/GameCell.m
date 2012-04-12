@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UILabel *secondTeamName;
 @property (nonatomic, strong) SSGradientView *backgroundGradient;
 @property (nonatomic, strong) UILabel *kickOff;
+@property (nonatomic, strong) UIImageView *predictionBackground;
 @end
 
 @implementation GameCell
@@ -29,6 +30,13 @@
 @synthesize firstTeamName = _firstTeamName;
 @synthesize secondTeamName = _secondTeamName;
 @synthesize kickOff = _kickOff;
+@synthesize predictionBackground = _predictionBackground;
+
+static UIImage *predictionBackgroundImage;
+
++ (void) initialize {
+    predictionBackgroundImage = [[UIImage imageNamed:@"tipBar.png"]  resizableImageWithCapInsets:UIEdgeInsetsMake(40, 40, 40, 40)];
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -47,6 +55,7 @@
         self.secondTeamImage = (UIImageView*) [self viewWithTag:22]; 
         
         self.kickOff = (UILabel*) [self viewWithTag:5];
+        self.predictionBackground = (UIImageView*) [self viewWithTag:555];
     }
     return self;
 }
@@ -100,6 +109,22 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"HH:mm";
     self.kickOff.text = [dateFormatter stringFromDate:game.kickOff];
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    
+    if (selected) {
+        self.backgroundGradient.colors = [UIColor greenGradient];
+        self.firstTeamName.textColor = [UIColor whiteColor];
+        self.secondTeamName.textColor = [UIColor whiteColor];
+        self.kickOff.textColor = [UIColor whiteColor];
+    }
+    else {
+        self.backgroundGradient.colors = [UIColor gameCellGradient];
+        self.firstTeamName.textColor = [UIColor blackColor];
+        self.secondTeamName.textColor = [UIColor blackColor];
+        self.kickOff.textColor = [UIColor blackColor];
+    }
 }
 
 @end

@@ -8,7 +8,11 @@
 
 #import "GamePredictionCell.h"
 #import "Game.h"
+#import "iCarousel.h"
 #import "UIColor+AppColors.h"
+#import "SSGradientView.h"
+
+#define MAX_GOALS 12
 
 @interface GamePredictionCell()
 
@@ -16,6 +20,8 @@
 @property (nonatomic, strong) UITextField *secondTeamGoalsBet;
 @property (nonatomic, strong) UILabel *matchResultLabel;
 @property (nonatomic, strong) UILabel *pointsLabel;
+@property (nonatomic, strong) iCarousel *firstTeamPredictionCarousel;
+@property (nonatomic, strong) iCarousel *secondTeamPredictionCarousel;
 
 @end
 
@@ -25,54 +31,101 @@
 @synthesize secondTeamGoalsBet = _secondTeamGoalsBet;
 @synthesize matchResultLabel = _matchResultLabel;
 @synthesize pointsLabel = _pointsLabel;
+@synthesize firstTeamPredictionCarousel = _firstTeamPredictionCarousel;
+@synthesize secondTeamPredictionCarousel = _secondTeamPredictionCarousel;
 
-
-- (void) keyPressed:(NSNotification*) notification {
-    NSLog(@"%@", notification.userInfo);
-    NSLog(@"Key pressed!");
-}
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 10;
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [NSString stringWithFormat:@"%i", row];
-}
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    return NO;
-}// return NO to disallow editing.
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    NSLog(@"Editing!");
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
     
-}// became first responder
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    return YES;
-}// return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
-
-
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-        NSLog(@"Edited!");
+    if (self) {
+        self.firstTeamPredictionCarousel = (iCarousel*) [self viewWithTag:105];
+        self.firstTeamPredictionCarousel.dataSource = self;
+        self.firstTeamPredictionCarousel.delegate = self;
+        self.firstTeamPredictionCarousel.type = iCarouselTypeCylinder;
+        self.secondTeamPredictionCarousel = (iCarousel*) [self viewWithTag:205];
+        self.secondTeamPredictionCarousel.dataSource = self;
+        self.secondTeamPredictionCarousel.delegate = self;
+        self.secondTeamPredictionCarousel.type = iCarouselTypeCylinder;
+    }
     
-}// may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
+    return self;
+}
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    return NO;
-}// return NO to not change text
+- (void) setGame:(Game *)game {
+    [super setGame:game];
+    
+    if (game.firstTeamPrediction) {
+        [self.firstTeamPredictionCarousel scrollToItemAtIndex:game.firstTeamPrediction.intValue animated:YES];
+    }
+    else {
+        [self.firstTeamPredictionCarousel scrollToItemAtIndex:MAX_GOALS-1 animated:YES];
+    }
+    
+    if (game.secondTeamPrediction) {
+        [self.secondTeamPredictionCarousel scrollToItemAtIndex:game.secondTeamPrediction.intValue animated:YES];
+    }
+    else {
+        [self.secondTeamPredictionCarousel scrollToItemAtIndex:MAX_GOALS-1 animated:YES];
+    }
+}
 
-- (BOOL)textFieldShouldClear:(UITextField *)textField {
-    return NO;
-}// called when clear button pressed. return NO to ignore (no notifications)
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    return NO;
-};              // called when 'return' key pressed. return NO to ignore.
+#pragma mark iCarouselDataSource implementation
+
+- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel {
+    return MAX_GOALS;
+}
+
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view {
+    UILabel *label;
+    SSGradientView *gradientView;
+	
+	//create new view if no view is available for recycling
+	if (view == nil)
+	{
+        gradientView = [[SSGradientView alloc] initWithFrame:CGRectMake(0, 0, 36, 36)];
+        gradientView.colors = [UIColor menuGrayGradient];
+        
+		view = gradientView;
+        view.layer.borderColor = [[UIColor blackColor] CGColor];
+        view.layer.borderWidth = 1;
+        
+		label = [[UILabel alloc] initWithFrame:view.bounds];
+		label.textAlignment = UITextAlignmentCenter;
+		label.font = [label.font fontWithSize:20];
+        label.backgroundColor = [UIColor clearColor];
+		[view addSubview:label];
+	}
+	else
+	{
+		label = [[view subviews] lastObject];
+        gradientView = (SSGradientView*) view;
+	}
+	
+    //set label
+    if (index == MAX_GOALS-1) {
+        label.text = @"-";
+        gradientView.colors = [UIColor menuGrayGradient];
+    }
+    else {
+       label.text = [NSString stringWithFormat:@"%i", index];
+       gradientView.colors = [UIColor greenGradient];
+    }
+	return view;
+}
+
+- (NSUInteger)numberOfVisibleItemsInCarousel:(iCarousel *)carousel {
+    return 4;
+}
+
+#pragma mark iCarouselDelegate implementation
+
+- (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
+    
+   
+    NSLog(@"Selected %i", carousel.currentItemIndex);
+    
+    
+}
 
 
 @end

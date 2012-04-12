@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 #import "GameCell.h"
+#import "iCarousel.h"
 
-@interface GamePredictionCell : GameCell
+@interface GamePredictionCell : GameCell<iCarouselDataSource, iCarouselDelegate>
 
 @end

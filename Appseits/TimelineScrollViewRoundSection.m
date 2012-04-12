@@ -8,15 +8,15 @@
 
 #import "TimelineScrollViewRoundSection.h"
 #import "UIColor+AppColors.h"
-#define LABEL_MARGIN_LEFT 5
+#define LABEL_MARGIN_LEFT 15
 #define LABEL_ICON_MARGIN 5
 #define BALL_WIDTH 26
 #define LOCK_WIDTH 15
-#define ICON_MARGIN_RIGHT 5
-#define LABEL_WIDTH 160
+#define ICON_MARGIN_RIGHT 15
+#define LABEL_WIDTH 140
 
-#define BALL_ICON_MARGIN_RIGHT 169
-#define LOCK_ICON_MARGIN_RIGHT 174
+#define BALL_ICON_MARGIN_LEFT 154
+#define LOCK_ICON_MARGIN_LEFT 161
 
 static UIImage *greenBall;
 static UIImage *grayBall;
@@ -68,8 +68,8 @@ static UIImage *lockClosed;
         ball = [[UIImageView alloc]initWithImage:grayBall];   
         lock = [[UIImageView alloc]initWithImage:lockOpen];
     }
-    ball.frame = CGRectMake(BALL_ICON_MARGIN_RIGHT, (sectionHeight - BALL_WIDTH)/2, BALL_WIDTH, BALL_WIDTH);
-    lock.frame = CGRectMake(ROUND_WIDTH - 5 - BALL_WIDTH + (BALL_WIDTH - LOCK_WIDTH) - ICON_MARGIN_RIGHT, (sectionHeight - LOCK_WIDTH)/2, LOCK_WIDTH, LOCK_WIDTH);
+    ball.frame = CGRectMake(BALL_ICON_MARGIN_LEFT, (sectionHeight - BALL_WIDTH)/2, BALL_WIDTH, BALL_WIDTH);
+    lock.frame = CGRectMake(LOCK_ICON_MARGIN_LEFT, (sectionHeight - LOCK_WIDTH)/2, LOCK_WIDTH, LOCK_WIDTH);
     [section addSubview:ball];
     [section addSubview:lock];
     
@@ -98,24 +98,5 @@ static UIImage *lockClosed;
 - (void) unhighlight {
     
 }
-
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

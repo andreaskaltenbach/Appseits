@@ -112,7 +112,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    if (self.round.locked) {
+        return 100;
+    } else {
+        return 120;
+    }
 }
 
 @end
