@@ -36,6 +36,7 @@
 		4E531C4A151CB0820003CAD1 /* GameService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C49151CB0820003CAD1 /* GameService.m */; };
 		4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */; };
 		4E86FF5C152B275F00958DDE /* RankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E86FF5B152B275F00958DDE /* RankingCell.m */; };
+		4E9D96E91536FF770092DA78 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D96E81536FF770092DA78 /* iCarousel.m */; };
 		4EB4FBBB1529F05700799AA4 /* StartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4FBBA1529F05700799AA4 /* StartupViewController.m */; };
 		4EE945D1152B0ACC00E6A62A /* RankingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE945D0152B0ACC00E6A62A /* RankingService.m */; };
 		4EE945D5152B228200E6A62A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE945D4152B228200E6A62A /* Constants.m */; };
@@ -107,6 +108,8 @@
 		4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePredictionCell.m; sourceTree = "<group>"; };
 		4E86FF5A152B275F00958DDE /* RankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingCell.h; sourceTree = "<group>"; };
 		4E86FF5B152B275F00958DDE /* RankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingCell.m; sourceTree = "<group>"; };
+		4E9D96E71536FF770092DA78 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		4E9D96E81536FF770092DA78 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		4EB4FBB91529F05700799AA4 /* StartupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupViewController.h; sourceTree = "<group>"; };
 		4EB4FBBA1529F05700799AA4 /* StartupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupViewController.m; sourceTree = "<group>"; };
 		4EE945CF152B0ACC00E6A62A /* RankingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingService.h; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 		4E531C1B151CAB060003CAD1 /* Appseits */ = {
 			isa = PBXGroup;
 			children = (
+				4E9D96E71536FF770092DA78 /* iCarousel.h */,
+				4E9D96E81536FF770092DA78 /* iCarousel.m */,
 				4E059D021525FA0E005ABD20 /* util */,
 				5BF4E860151D023300CC3AE9 /* controller */,
 				4E050D79152209B20063EDED /* images */,
@@ -442,6 +447,7 @@
 				4EE945D1152B0ACC00E6A62A /* RankingService.m in Sources */,
 				4EE945D5152B228200E6A62A /* Constants.m in Sources */,
 				4E86FF5C152B275F00958DDE /* RankingCell.m in Sources */,
+				4E9D96E91536FF770092DA78 /* iCarousel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
