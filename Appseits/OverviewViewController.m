@@ -19,13 +19,14 @@
 #import "GameTable.h"
 #import "MenuDependendScrollView.h"
 #import <QuartzCore/QuartzCore.h>
-#import "LeaguePicker.h"
 #import "RankingTable.h"
 #import "Constants.h"
+#import "LeaguePickerView.h"
 
 @interface OverviewViewController()
 @property (weak, nonatomic) IBOutlet GameTable *gameTable;
 @property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
+@property (weak, nonatomic) IBOutlet LeaguePickerView *leaguePicker;
 
 @property (strong, nonatomic) IBOutlet UILabel *pointInCurrentRound;
 @property (strong, nonatomic) IBOutlet UILabel *pointsTotal;
@@ -39,14 +40,14 @@
 @property (weak, nonatomic) IBOutlet UIView *scoreView;
 @property (weak, nonatomic) IBOutlet UILabel *rankingMenuLabel;
 @property (weak, nonatomic) IBOutlet UITextField *leagueInput;
-@property (weak, nonatomic) IBOutlet LeaguePicker *leaguePicker;
-@property (nonatomic, strong) NSNumber *leagueId;
 @property (weak, nonatomic) IBOutlet RankingTable *rankingTable;
+@property BOOL leagueInitialized;
 @end
 
 @implementation OverviewViewController
 @synthesize gameTable = _gameTable;
 @synthesize timelineScrollView = _timelineScrollView;
+@synthesize leaguePicker = _leaguePicker;
 @synthesize tournamentRounds = _tournamentRounds;
 @synthesize pointInCurrentRound = _pointInCurrentRound;
 @synthesize pointsTotal = _pointsTotal;
@@ -60,9 +61,8 @@
 @synthesize scoreView = _scoreView;
 @synthesize rankingMenuLabel = _rankingMenuLabel;
 @synthesize leagueInput = _leagueInput;
-@synthesize leaguePicker = _leaguePicker;
-@synthesize leagueId = _leagueId;
 @synthesize rankingTable = _rankingTable;
+@synthesize leagueInitialized = _leagueInitialized;
 
 - (TournamentRound*) activeRound {
     NSDate *now = [NSDate date];
@@ -96,10 +96,8 @@
 
 - (void) viewDidLoad {
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *menu = [userDefaults objectForKey:MENU_KEY];
-    NSString *leagueName = [userDefaults objectForKey:LEAGUE_NAME_KEY];
-    NSNumber *leagueId = [userDefaults objectForKey:LEAGUE_ID_KEY];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeaguePicker)];
+    [self.leagueInput addGestureRecognizer:tapGesture];
     
     self.timelineScrollView.roundSelectDelegate = self;
     self.timelineScrollView.tournamentRounds = self.tournamentRounds;
@@ -107,16 +105,9 @@
     self.timeline.roundSelectDelegate = self;
     self.timeline.rounds = self.tournamentRounds;
     
-    self.leaguePicker.leaguePickerDelegate = self;
-    [self.leagueInput setInputView:self.leaguePicker];
     self.leagueInput.backgroundColor = [UIColor clearColor];
-    if (leagueName) {
-        self.leagueInput.text = leagueName;
-    }
-    else {
-        self.leagueInput.text = @"Alla ligor";
-    }
-    if (leagueId) self.leagueId = leagueId;
+    self.leagueInput.text = @"Alla ligor";
+    self.leaguePicker.leagueDelegate = self;
     
     self.view.backgroundColor = [UIColor squareBackground];
     
@@ -129,10 +120,11 @@
     self.resultMenuItem.backgroundColor = [UIColor clearColor];
     self.rankingMenuItem.backgroundColor = [UIColor clearColor];
 
-
     
     self.scoreView.backgroundColor = [UIColor clearColor];
     
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *menu = [userDefaults objectForKey:MENU_KEY];
     //TODO
     if ([menu isEqualToString:@"Ranking"]) {
         // select rankings directly
@@ -175,6 +167,7 @@
     [self setLeagueInput:nil];
     [self setLeaguePicker:nil];
     [self setRankingTable:nil];
+    [self setLeaguePicker:nil];
     [super viewDidUnload];
 }
 
@@ -204,18 +197,30 @@
     [self.menuDependingScrollView scrollToRankings];
 }
 
-- (void) leaguePicked:(League*) league {
-    NSLog(@"League picked!!!");
-    [self.leagueInput resignFirstResponder];
-    self.leagueInput.text = league.name;
-    self.leagueId = league.id;
+- (void) showLeaguePicker {
+    [self.leaguePicker show];
+}
+
+#pragma mark LeagueDelegate
+- (void) leagueChanged:(League*) league {
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:league.name forKey:@"leagueName"];
-    [userDefaults setObject:league.id forKey:@"leagueId"];
-    [userDefaults synchronize];
+    // TODO - smarter decision whether to show ranking or not!!!
     
-    self.rankingTable.leagueId = league.id;
+    NSLog(@"LEague changed: %@", league);
+
+    if (self.leagueInitialized) {
+        [self rankingSelected:self];
+    }
+    else {
+        self.leagueInitialized = YES;
+    }
+
+    
+    if (league) {
+        self.leagueInput.text = league.name;
+    } else {
+        self.leagueInput.text = @"Alla ligor";
+    }
 }
 
 

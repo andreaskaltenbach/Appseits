@@ -19,5 +19,7 @@ typedef void(^LeagueFailedBlock)(NSString * errorMessage);
 
 + (void) getAllLeagues:(LeagueSuccessBlock) onSuccess: (LeagueFailedBlock) onError;
 
++ (League*) league:(NSNumber*) id: (NSString*) name;
+
 
 @end

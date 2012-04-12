@@ -40,12 +40,13 @@
 		4EB4FBBB1529F05700799AA4 /* StartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4FBBA1529F05700799AA4 /* StartupViewController.m */; };
 		4EE945D1152B0ACC00E6A62A /* RankingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE945D0152B0ACC00E6A62A /* RankingService.m */; };
 		4EE945D5152B228200E6A62A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE945D4152B228200E6A62A /* Constants.m */; };
+		5B1AEB041537736A00786199 /* LeaguePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AEB031537736A00786199 /* LeaguePickerView.m */; };
 		5B1EE8B115274DFC00D01564 /* GameTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* GameTable.m */; };
-		5B76D2B5152A382300225BEB /* LeaguePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B76D2B4152A382300225BEB /* LeaguePicker.m */; };
 		5B76D2B9152A38BA00225BEB /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B76D2B8152A38BA00225BEB /* League.m */; };
 		5B7F2B12152901D1006A3687 /* MenuDependendScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F2B11152901D1006A3687 /* MenuDependendScrollView.m */; };
 		5B7F2B16152902C6006A3687 /* RankingTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F2B15152902C6006A3687 /* RankingTable.m */; };
 		5B7F2B1915290392006A3687 /* Ranking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F2B1815290392006A3687 /* Ranking.m */; };
+		5B89849215375CFA00A170B5 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B89849115375CFA00A170B5 /* lock.png */; };
 		5B8FB2401528784C003AEB05 /* lockClosed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FB23C1528784C003AEB05 /* lockClosed.png */; };
 		5B8FB2411528784C003AEB05 /* lockOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FB23D1528784C003AEB05 /* lockOpen.png */; };
 		5B8FB2421528784C003AEB05 /* grayBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FB23E1528784C003AEB05 /* grayBall.png */; };
@@ -116,11 +117,11 @@
 		4EE945D0152B0ACC00E6A62A /* RankingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingService.m; sourceTree = "<group>"; };
 		4EE945D3152B228200E6A62A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		4EE945D4152B228200E6A62A /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		5B1AEB021537736A00786199 /* LeaguePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguePickerView.h; sourceTree = "<group>"; };
+		5B1AEB031537736A00786199 /* LeaguePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguePickerView.m; sourceTree = "<group>"; };
 		5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TournamentRoundSelectDelegate.h; sourceTree = "<group>"; };
 		5B1EE8AF15274DFC00D01564 /* GameTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTable.h; sourceTree = "<group>"; };
 		5B1EE8B015274DFC00D01564 /* GameTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTable.m; sourceTree = "<group>"; };
-		5B76D2B3152A382300225BEB /* LeaguePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguePicker.h; sourceTree = "<group>"; };
-		5B76D2B4152A382300225BEB /* LeaguePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguePicker.m; sourceTree = "<group>"; };
 		5B76D2B7152A38BA00225BEB /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
 		5B76D2B8152A38BA00225BEB /* League.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = League.m; sourceTree = "<group>"; };
 		5B7F2B10152901D1006A3687 /* MenuDependendScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuDependendScrollView.h; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		5B7F2B15152902C6006A3687 /* RankingTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingTable.m; sourceTree = "<group>"; };
 		5B7F2B1715290392006A3687 /* Ranking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ranking.h; sourceTree = "<group>"; };
 		5B7F2B1815290392006A3687 /* Ranking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ranking.m; sourceTree = "<group>"; };
+		5B89849115375CFA00A170B5 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
 		5B8FB23C1528784C003AEB05 /* lockClosed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockClosed.png; sourceTree = "<group>"; };
 		5B8FB23D1528784C003AEB05 /* lockOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockOpen.png; sourceTree = "<group>"; };
 		5B8FB23E1528784C003AEB05 /* grayBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayBall.png; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5B89849115375CFA00A170B5 /* lock.png */,
 				4E8571881537328B00795055 /* tipBar.png */,
 				5B8FB23C1528784C003AEB05 /* lockClosed.png */,
 				5B8FB23D1528784C003AEB05 /* lockOpen.png */,
@@ -317,10 +320,10 @@
 				5B7F2B11152901D1006A3687 /* MenuDependendScrollView.m */,
 				5B7F2B14152902C6006A3687 /* RankingTable.h */,
 				5B7F2B15152902C6006A3687 /* RankingTable.m */,
-				5B76D2B3152A382300225BEB /* LeaguePicker.h */,
-				5B76D2B4152A382300225BEB /* LeaguePicker.m */,
 				4E86FF5A152B275F00958DDE /* RankingCell.h */,
 				4E86FF5B152B275F00958DDE /* RankingCell.m */,
+				5B1AEB021537736A00786199 /* LeaguePickerView.h */,
+				5B1AEB031537736A00786199 /* LeaguePickerView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				5B8FB2421528784C003AEB05 /* grayBall.png in Resources */,
 				5B8FB2431528784C003AEB05 /* greenBall.png in Resources */,
 				4E8571891537328B00795055 /* tipBar.png in Resources */,
+				5B89849215375CFA00A170B5 /* lock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,12 +446,12 @@
 				5B7F2B16152902C6006A3687 /* RankingTable.m in Sources */,
 				5B7F2B1915290392006A3687 /* Ranking.m in Sources */,
 				4EB4FBBB1529F05700799AA4 /* StartupViewController.m in Sources */,
-				5B76D2B5152A382300225BEB /* LeaguePicker.m in Sources */,
 				5B76D2B9152A38BA00225BEB /* League.m in Sources */,
 				4EE945D1152B0ACC00E6A62A /* RankingService.m in Sources */,
 				4EE945D5152B228200E6A62A /* Constants.m in Sources */,
 				4E86FF5C152B275F00958DDE /* RankingCell.m in Sources */,
 				4E9D96E91536FF770092DA78 /* iCarousel.m in Sources */,
+				5B1AEB041537736A00786199 /* LeaguePickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

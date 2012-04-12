@@ -13,6 +13,13 @@
 @synthesize id = _id;
 @synthesize name = _name;
 
++ (League*) league:(NSNumber*) id: (NSString*) name {
+    League *league = [[League alloc] init];
+    league.id = id;
+    league.name = name;
+    return league;
+}
+
 + (void) getAllLeagues:(LeagueSuccessBlock) onSuccess: (LeagueFailedBlock) onError {
     
     // fetch all leagues

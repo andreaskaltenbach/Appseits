@@ -42,10 +42,10 @@
     }
     return self;
 }
-- (void) drawRect:(CGRect)rect {
+- (void) setFrame:(CGRect)frame {
     
     float xOffset = 0;
-    float widthPerGame = rect.size.width/self.games;
+    float widthPerGame = frame.size.width/self.games;
 
     for (TimelineRoundSection *section in self.subviews) {
         
@@ -55,7 +55,7 @@
         }
     }
     
-    [super drawRect:rect];
+    [super setFrame:frame];
 }
 
 -(void) setRounds:(NSArray *)rounds {

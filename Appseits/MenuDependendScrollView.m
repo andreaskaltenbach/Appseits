@@ -35,7 +35,6 @@ typedef enum {
 
 
 - (void)setFrame:(CGRect)frame {
-    NSLog(@"Changed frame");
     
     self.contentSize = CGSizeMake(2*frame.size.width, frame.size.height);
     

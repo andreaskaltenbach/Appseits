@@ -127,5 +127,8 @@
     
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    // cell is not selectable
+}
 
 @end
