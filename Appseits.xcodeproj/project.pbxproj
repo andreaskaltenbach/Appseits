@@ -16,7 +16,6 @@
 		4E050D8C15234F060063EDED /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D8B15234F060063EDED /* GameCell.m */; };
 		4E050D8E15235A8F0063EDED /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D8D15235A8F0063EDED /* Entitlements.plist */; };
 		4E050D9415236C6B0063EDED /* result.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D9315236C6B0063EDED /* result.png */; };
-		4E050D9A1524486C0063EDED /* tipBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D991524486C0063EDED /* tipBar.png */; };
 		4E059D061525FA2E005ABD20 /* NSDate+DateConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E059D051525FA2E005ABD20 /* NSDate+DateConversion.m */; };
 		4E059D091525FFBC005ABD20 /* Timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E059D081525FFBC005ABD20 /* Timeline.m */; };
 		4E21509A15247CF800DBBC81 /* flagBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E21509915247CF800DBBC81 /* flagBackground.png */; };
@@ -35,6 +34,7 @@
 		4E531C46151CB05B0003CAD1 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Game.m */; };
 		4E531C4A151CB0820003CAD1 /* GameService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C49151CB0820003CAD1 /* GameService.m */; };
 		4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */; };
+		4E8571891537328B00795055 /* tipBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8571881537328B00795055 /* tipBar.png */; };
 		4E86FF5C152B275F00958DDE /* RankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E86FF5B152B275F00958DDE /* RankingCell.m */; };
 		4E9D96E91536FF770092DA78 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D96E81536FF770092DA78 /* iCarousel.m */; };
 		4EB4FBBB1529F05700799AA4 /* StartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EB4FBBA1529F05700799AA4 /* StartupViewController.m */; };
@@ -74,7 +74,6 @@
 		4E050D8B15234F060063EDED /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCell.m; sourceTree = "<group>"; };
 		4E050D8D15235A8F0063EDED /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4E050D9315236C6B0063EDED /* result.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = result.png; sourceTree = "<group>"; };
-		4E050D991524486C0063EDED /* tipBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tipBar.png; sourceTree = "<group>"; };
 		4E059D041525FA2E005ABD20 /* NSDate+DateConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateConversion.h"; sourceTree = "<group>"; };
 		4E059D051525FA2E005ABD20 /* NSDate+DateConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateConversion.m"; sourceTree = "<group>"; };
 		4E059D071525FFBC005ABD20 /* Timeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timeline.h; sourceTree = "<group>"; };
@@ -106,6 +105,7 @@
 		4E531C49151CB0820003CAD1 /* GameService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameService.m; sourceTree = "<group>"; };
 		4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePredictionCell.h; sourceTree = "<group>"; };
 		4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePredictionCell.m; sourceTree = "<group>"; };
+		4E8571881537328B00795055 /* tipBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tipBar.png; sourceTree = "<group>"; };
 		4E86FF5A152B275F00958DDE /* RankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingCell.h; sourceTree = "<group>"; };
 		4E86FF5B152B275F00958DDE /* RankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingCell.m; sourceTree = "<group>"; };
 		4E9D96E71536FF770092DA78 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -167,12 +167,12 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4E8571881537328B00795055 /* tipBar.png */,
 				5B8FB23C1528784C003AEB05 /* lockClosed.png */,
 				5B8FB23D1528784C003AEB05 /* lockOpen.png */,
 				5B8FB23E1528784C003AEB05 /* grayBall.png */,
 				5B8FB23F1528784C003AEB05 /* greenBall.png */,
 				4E21509915247CF800DBBC81 /* flagBackground.png */,
-				4E050D991524486C0063EDED /* tipBar.png */,
 				5BD4B143152395AF004FE21B /* separator.png */,
 				5BD4B14015238F06004FE21B /* progress.png */,
 				4E050D9315236C6B0063EDED /* result.png */,
@@ -400,12 +400,12 @@
 				4E050D9415236C6B0063EDED /* result.png in Resources */,
 				5BD4B14115238F06004FE21B /* progress.png in Resources */,
 				5BD4B144152395AF004FE21B /* separator.png in Resources */,
-				4E050D9A1524486C0063EDED /* tipBar.png in Resources */,
 				4E21509A15247CF800DBBC81 /* flagBackground.png in Resources */,
 				5B8FB2401528784C003AEB05 /* lockClosed.png in Resources */,
 				5B8FB2411528784C003AEB05 /* lockOpen.png in Resources */,
 				5B8FB2421528784C003AEB05 /* grayBall.png in Resources */,
 				5B8FB2431528784C003AEB05 /* greenBall.png in Resources */,
+				4E8571891537328B00795055 /* tipBar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

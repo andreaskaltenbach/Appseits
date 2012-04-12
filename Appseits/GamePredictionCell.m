@@ -12,7 +12,7 @@
 #import "UIColor+AppColors.h"
 #import "SSGradientView.h"
 
-#define MAX_GOALS 10
+#define MAX_GOALS 12
 
 @interface GamePredictionCell()
 
@@ -39,7 +39,6 @@
     
     if (self) {
         self.firstTeamPredictionCarousel = (iCarousel*) [self viewWithTag:105];
-        NSLog(@"%@", self.firstTeamPredictionCarousel);
         self.firstTeamPredictionCarousel.dataSource = self;
         self.firstTeamPredictionCarousel.delegate = self;
         self.firstTeamPredictionCarousel.type = iCarouselTypeCylinder;
@@ -47,7 +46,6 @@
         self.secondTeamPredictionCarousel.dataSource = self;
         self.secondTeamPredictionCarousel.delegate = self;
         self.secondTeamPredictionCarousel.type = iCarouselTypeCylinder;
-        
     }
     
     return self;
@@ -60,14 +58,14 @@
         [self.firstTeamPredictionCarousel scrollToItemAtIndex:game.firstTeamPrediction.intValue animated:YES];
     }
     else {
-        [self.firstTeamPredictionCarousel scrollToItemAtIndex:0 animated:YES];
+        [self.firstTeamPredictionCarousel scrollToItemAtIndex:MAX_GOALS-1 animated:YES];
     }
     
     if (game.secondTeamPrediction) {
         [self.secondTeamPredictionCarousel scrollToItemAtIndex:game.secondTeamPrediction.intValue animated:YES];
     }
     else {
-        [self.secondTeamPredictionCarousel scrollToItemAtIndex:0 animated:YES];
+        [self.secondTeamPredictionCarousel scrollToItemAtIndex:MAX_GOALS-1 animated:YES];
     }
 }
 
@@ -78,39 +76,55 @@
 }
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view {
-    UILabel *label = nil;
+    UILabel *label;
+    SSGradientView *gradientView;
 	
 	//create new view if no view is available for recycling
 	if (view == nil)
 	{
-        SSGradientView *gradientView = [[SSGradientView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-        gradientView.colors = [UIColor greenGradient];
-        
+        gradientView = [[SSGradientView alloc] initWithFrame:CGRectMake(0, 0, 36, 36)];
+        gradientView.colors = [UIColor menuGrayGradient];
         
 		view = gradientView;
+        view.layer.borderColor = [[UIColor blackColor] CGColor];
+        view.layer.borderWidth = 1;
         
 		label = [[UILabel alloc] initWithFrame:view.bounds];
-		label.backgroundColor = [UIColor clearColor];
 		label.textAlignment = UITextAlignmentCenter;
-		label.font = [label.font fontWithSize:50];
-        
+		label.font = [label.font fontWithSize:20];
+        label.backgroundColor = [UIColor clearColor];
 		[view addSubview:label];
 	}
 	else
 	{
 		label = [[view subviews] lastObject];
+        gradientView = (SSGradientView*) view;
 	}
 	
     //set label
-   
-   label.text = [NSString stringWithFormat:@"%i", index];
-	
+    if (index == MAX_GOALS-1) {
+        label.text = @"-";
+        gradientView.colors = [UIColor menuGrayGradient];
+    }
+    else {
+       label.text = [NSString stringWithFormat:@"%i", index];
+       gradientView.colors = [UIColor greenGradient];
+    }
 	return view;
 }
 
+- (NSUInteger)numberOfVisibleItemsInCarousel:(iCarousel *)carousel {
+    return 4;
+}
+
 #pragma mark iCarouselDelegate implementation
-- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index {
-    NSLog(@"Selected %i", index);
+
+- (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
+    
+   
+    NSLog(@"Selected %i", carousel.currentItemIndex);
+    
+    
 }
 
 
