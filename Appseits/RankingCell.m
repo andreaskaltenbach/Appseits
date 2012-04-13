@@ -8,6 +8,10 @@
 
 #import "RankingCell.h"
 
+static UIImage *trendUp;
+static UIImage *trendConstant;
+static UIImage *trendDown;
+
 @interface RankingCell()
 @property (nonatomic, strong) UILabel *rank;
 @property (nonatomic, strong) UIImageView *trend;
@@ -23,6 +27,12 @@
 @synthesize userName = _userName;
 @synthesize points = _points;
 @synthesize ranking = _ranking;
+
++ (void) initialize {
+    trendUp = [UIImage imageNamed:@"trendUp.png"];
+    trendConstant = [UIImage imageNamed:@"trendNeutral.png"];
+    trendDown = [UIImage imageNamed:@"trendDown.png"];
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -40,9 +50,21 @@
 
 - (void) setRanking:(Ranking *)ranking {
     _ranking = ranking;
-    
+    self.rank.text = [NSString stringWithFormat:@"%i", ranking.rank.intValue];
     self.userName.text = ranking.userName;
-    self.points.text = [NSString stringWithFormat:@"%f", ranking.totalPoints.floatValue];
+    self.points.text = [NSString stringWithFormat:@"%.1f", ranking.totalPoints.floatValue];
+    
+    switch (ranking.trend) {
+        case UP:
+            self.trend.image = trendUp;
+            break;
+        case DOWN:
+            self.trend.image = trendDown;
+            break;
+        default:
+            self.trend.image = trendConstant;
+            break;
+    }
     
 }
 

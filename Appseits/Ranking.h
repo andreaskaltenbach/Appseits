@@ -24,6 +24,7 @@ typedef enum {
 @property (nonatomic, strong) NSNumber *oneOnOnePoints;
 @property (nonatomic, strong) NSNumber *topScorerPoints;
 @property (nonatomic, strong) NSNumber *topFourPoints;
+@property (nonatomic, strong) NSNumber *rank;
 @property Trend trend;
 
 + (NSArray*) rankingsFromJson: (NSArray*) jsonRankings;

@@ -10,8 +10,6 @@
 
 @implementation Ranking
 
-
-
 @synthesize trend = _trend;
 @synthesize userId = _userId;
 @synthesize userName = _userName;
@@ -20,6 +18,7 @@
 @synthesize oneOnOnePoints = _oneOnOnePoints;
 @synthesize topScorerPoints = _topScorerPoints;
 @synthesize topFourPoints = _topFourPoints;
+@synthesize rank = _rank;
 
 + (Ranking*) rankingFromJson:(NSDictionary*) jsonData {
     Ranking *ranking = [[Ranking alloc] init];
@@ -47,10 +46,14 @@
 }
 
 + (NSArray*) rankingsFromJson: (NSArray*) jsonRankings {
-    NSMutableArray *rankings = [NSMutableArray array];
+
+    int counter = 1;
     
+    NSMutableArray *rankings = [NSMutableArray array];
     for (NSDictionary *rankingData in jsonRankings) {
-        [rankings addObject:[Ranking rankingFromJson:rankingData]];
+        Ranking *ranking = [Ranking rankingFromJson:rankingData];
+        ranking.rank = [NSNumber numberWithInt:counter++];
+        [rankings addObject:ranking];
     }
     
     return rankings;

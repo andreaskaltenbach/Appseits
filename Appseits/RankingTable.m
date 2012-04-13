@@ -37,13 +37,16 @@
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         self.leagueId = [userDefaults objectForKey:LEAGUE_ID_KEY];
         
+        self.backgroundColor = [UIColor clearColor];
+        
+        // setup the table header
+        self.tableHeaderView.backgroundColor = [UIColor blackBackground];
+        
+        
     }
     return self;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.rankings count];
@@ -96,13 +99,6 @@
         
     }
 }
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
-    label.text = @"Namn | Poäng";
-    return label;
-}
-
 
 
 @end
