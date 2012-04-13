@@ -81,7 +81,6 @@
     leftBorder.backgroundColor = [UIColor grayColor];
     [self addSubview:leftBorder];
     
-    // TODO better logic to decide which round to select initially
     [self selectTournamentRound:[self.timelineSections objectAtIndex:0]];
     
     [self setNeedsDisplay];
