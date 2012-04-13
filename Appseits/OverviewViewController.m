@@ -41,7 +41,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *rankingMenuLabel;
 @property (weak, nonatomic) IBOutlet UITextField *leagueInput;
 @property (weak, nonatomic) IBOutlet RankingTable *rankingTable;
-@property BOOL leagueInitialized;
 @end
 
 @implementation OverviewViewController
@@ -62,7 +61,6 @@
 @synthesize rankingMenuLabel = _rankingMenuLabel;
 @synthesize leagueInput = _leagueInput;
 @synthesize rankingTable = _rankingTable;
-@synthesize leagueInitialized = _leagueInitialized;
 
 - (TournamentRound*) activeRound {
     NSDate *now = [NSDate date];
@@ -104,10 +102,18 @@
     self.timelineScrollView.backgroundColor = [UIColor blackBackground];
     self.timeline.roundSelectDelegate = self;
     self.timeline.rounds = self.tournamentRounds;
-    
+
+    // setup league input
     self.leagueInput.backgroundColor = [UIColor clearColor];
-    self.leagueInput.text = @"Alla ligor";
+    League *selectedLeague = [League selectedLeague];
+    if (selectedLeague) {
+        self.leagueInput.text = selectedLeague.name;
+    }
+    else {
+        self.leagueInput.text = @"Alla ligor";
+    }
     self.leaguePicker.leagueDelegate = self;
+
     
     self.view.backgroundColor = [UIColor squareBackground];
     
@@ -204,17 +210,7 @@
 #pragma mark LeagueDelegate
 - (void) leagueChanged:(League*) league {
     
-    // TODO - smarter decision whether to show ranking or not!!!
-    
-    NSLog(@"LEague changed: %@", league);
-
-    if (self.leagueInitialized) {
-        [self rankingSelected:self];
-    }
-    else {
-        self.leagueInitialized = YES;
-    }
-
+    [self rankingSelected:self];
     
     if (league) {
         self.leagueInput.text = league.name;
@@ -222,6 +218,5 @@
         self.leagueInput.text = @"Alla ligor";
     }
 }
-
 
 @end

@@ -21,5 +21,7 @@ typedef void(^LeagueFailedBlock)(NSString * errorMessage);
 
 + (League*) league:(NSNumber*) id: (NSString*) name;
 
++ (League*) selectedLeague;
++ (void) setSelectedLeague:(League*) league;
 
 @end

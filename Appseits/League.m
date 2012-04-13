@@ -7,6 +7,7 @@
 //
 
 #import "League.h"
+#import "Constants.h"
 
 @implementation League
 
@@ -44,6 +45,31 @@
             onSuccess(leagues);
         }
     }];
+}
+
++ (void) setSelectedLeague:(League*) league {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (league) {
+        [userDefaults setObject:league.name forKey:@"leagueName"];
+        [userDefaults setObject:league.id forKey:@"leagueId"];
+    }
+    else {
+        [userDefaults removeObjectForKey:@"leagueName"];
+        [userDefaults removeObjectForKey:@"leagueId"];
+    }
+    [userDefaults synchronize];
+}
+
++ (League*) selectedLeague {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSNumber *leagueId = [userDefaults objectForKey:LEAGUE_ID_KEY];
+    NSString *leagueName = [userDefaults objectForKey:LEAGUE_NAME_KEY];
+    if (leagueId) {
+        return [League league:leagueId :leagueName];
+    }
+    else {
+        return nil;
+    }
 }
 
 + (NSArray*) leaguesFromJson:(NSArray*) jsonData {
