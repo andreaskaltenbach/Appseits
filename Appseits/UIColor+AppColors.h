@@ -29,5 +29,9 @@
 + (NSArray *) darkGrayGradient;
 + (NSArray *) grayGradient;
 
++ (UIColor *) rankingSelected;
++ (UIColor *) rankingOdd;
++ (UIColor *) rankingEven;
+
 + (UIColor *) darkGreen;
 @end

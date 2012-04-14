@@ -57,12 +57,11 @@
     cell.ranking = [self.rankings objectAtIndex:indexPath.row];
     
     if (indexPath.row % 2 == 0) {
-        [cell setBackgroundGradientColor:[UIColor greenGradient]];
+        [cell even];
     }
     else {
-        [cell setBackgroundGradientColor:[UIColor menuGrayGradient]];
+        [cell odd];
     }
-
     return cell;
 }
 
@@ -102,6 +101,10 @@
         }];
         
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 30;
 }
 
 

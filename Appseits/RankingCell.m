@@ -8,6 +8,7 @@
 
 #import "RankingCell.h"
 #import "SSGradientView.h"
+#import "UIColor+AppColors.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -18,7 +19,7 @@ static UIImage *trendDown;
 @property (nonatomic, strong) UIImageView *trend;
 @property (nonatomic, strong) UILabel *userName;
 @property (nonatomic, strong) UILabel *points;
-@property (nonatomic, strong) SSGradientView *background;
+@property (nonatomic, strong) UIView *background;
 
 @end
 
@@ -48,14 +49,13 @@ static UIImage *trendDown;
         
         self.points = (UILabel*) [self viewWithTag:5];        
         
-        self.background = (SSGradientView*) [self viewWithTag:100];
+        self.background = (UIView*) [self viewWithTag:100];
+        
+
     }
     return self;
 }
 
-- (void) setBackgroundGradientColor:(NSArray*) colors {
-    self.background.colors = colors;
-}
 
 - (void) setRanking:(Ranking *)ranking {
     _ranking = ranking;
@@ -76,6 +76,15 @@ static UIImage *trendDown;
     }
     
 }
+
+- (void) even {
+    self.background.backgroundColor = [UIColor rankingEven];
+}
+
+- (void) odd {
+    self.background.backgroundColor = [UIColor rankingOdd];
+}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

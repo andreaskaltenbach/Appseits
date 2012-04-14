@@ -73,4 +73,17 @@
     return [UIColor colorWithRed:49.0/255.0f green:110.0f/255.0f blue:9.0f/255.0f alpha:1];
 }
 
++ (UIColor *) rankingSelected {
+    return [UIColor colorWithRed:116.0/255.0f green:173.0f/255.0f blue:54.0f/255.0f alpha:1];
+}
+
++ (UIColor *) rankingOdd {
+    return [UIColor colorWithRed:188.0/255.0f green:199.0f/255.0f blue:200.0f/255.0f alpha:0.3];
+}
+
++ (UIColor *) rankingEven {
+    return [UIColor clearColor];
+}
+
+
 @end
