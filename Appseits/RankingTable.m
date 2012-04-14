@@ -39,10 +39,7 @@
         
         self.backgroundColor = [UIColor clearColor];
         
-        // setup the table header
-        self.tableHeaderView.backgroundColor = [UIColor blackBackground];
-        
-        
+        self.scrollsToTop = NO;
     }
     return self;
 }
@@ -58,6 +55,13 @@
     
     RankingCell *cell = [tableView dequeueReusableCellWithIdentifier:rankingCellIdentifier];
     cell.ranking = [self.rankings objectAtIndex:indexPath.row];
+    
+    if (indexPath.row % 2 == 0) {
+        [cell setBackgroundGradientColor:[UIColor greenGradient]];
+    }
+    else {
+        [cell setBackgroundGradientColor:[UIColor menuGrayGradient]];
+    }
 
     return cell;
 }

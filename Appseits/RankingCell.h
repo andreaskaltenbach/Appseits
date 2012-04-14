@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) Ranking *ranking;
 
+- (void) setBackgroundGradientColor:(NSArray*) colors;
+
 @end

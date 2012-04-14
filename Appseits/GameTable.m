@@ -27,6 +27,7 @@
     if (self) {
         self.delegate = self;
         self.dataSource = self;
+        self.scrollsToTop = YES;
     }
     return self;
 }

@@ -23,6 +23,10 @@
 #import "Constants.h"
 #import "LeaguePickerView.h"
 
+static UIImage *trendUp;
+static UIImage *trendConstant;
+static UIImage *trendDown;
+
 @interface OverviewViewController()
 @property (weak, nonatomic) IBOutlet GameTable *gameTable;
 @property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
@@ -41,6 +45,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *rankingMenuLabel;
 @property (weak, nonatomic) IBOutlet UITextField *leagueInput;
 @property (weak, nonatomic) IBOutlet RankingTable *rankingTable;
+@property (weak, nonatomic) IBOutlet UIImageView *trendImage;
+@property (weak, nonatomic) IBOutlet UIView *rankingTableHeader;
 @end
 
 @implementation OverviewViewController
@@ -61,6 +67,14 @@
 @synthesize rankingMenuLabel = _rankingMenuLabel;
 @synthesize leagueInput = _leagueInput;
 @synthesize rankingTable = _rankingTable;
+@synthesize trendImage = _trendImage;
+@synthesize rankingTableHeader = _rankingTableHeader;
+
++ (void) initialize {
+    trendUp = [UIImage imageNamed:@"trendUp.png"];
+    trendConstant = [UIImage imageNamed:@"trendNeutral.png"];
+    trendDown = [UIImage imageNamed:@"trendDown.png"];
+}
 
 - (TournamentRound*) activeRound {
     NSDate *now = [NSDate date];
@@ -125,7 +139,12 @@
     self.menuItemView.backgroundColor = [UIColor clearColor];
     self.resultMenuItem.backgroundColor = [UIColor clearColor];
     self.rankingMenuItem.backgroundColor = [UIColor clearColor];
-
+    
+    // initialize personal informer
+    self.trendImage.image = trendUp;
+    
+    // setup the ranking table header
+    self.rankingTableHeader.backgroundColor = [UIColor blackBackground];
     
     self.scoreView.backgroundColor = [UIColor clearColor];
     
@@ -174,6 +193,8 @@
     [self setLeaguePicker:nil];
     [self setRankingTable:nil];
     [self setLeaguePicker:nil];
+    [self setTrendImage:nil];
+    [self setRankingTableHeader:nil];
     [super viewDidUnload];
 }
 

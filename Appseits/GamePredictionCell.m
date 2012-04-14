@@ -82,7 +82,7 @@
 	//create new view if no view is available for recycling
 	if (view == nil)
 	{
-        gradientView = [[SSGradientView alloc] initWithFrame:CGRectMake(0, 0, 36, 36)];
+        gradientView = [[SSGradientView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
         gradientView.colors = [UIColor menuGrayGradient];
         
 		view = gradientView;
@@ -91,7 +91,8 @@
         
 		label = [[UILabel alloc] initWithFrame:view.bounds];
 		label.textAlignment = UITextAlignmentCenter;
-		label.font = [label.font fontWithSize:20];
+        label.font = [UIFont boldSystemFontOfSize:22];
+        label.textColor = [UIColor whiteColor];
         label.backgroundColor = [UIColor clearColor];
 		[view addSubview:label];
 	}
@@ -104,17 +105,19 @@
     //set label
     if (index == MAX_GOALS-1) {
         label.text = @"-";
+        label.textColor = [UIColor blackColor];
         gradientView.colors = [UIColor menuGrayGradient];
     }
     else {
        label.text = [NSString stringWithFormat:@"%i", index];
+       label.textColor = [UIColor whiteColor];
        gradientView.colors = [UIColor greenGradient];
     }
 	return view;
 }
 
 - (NSUInteger)numberOfVisibleItemsInCarousel:(iCarousel *)carousel {
-    return 4;
+    return 5;
 }
 
 #pragma mark iCarouselDelegate implementation
