@@ -11,5 +11,4 @@
 #import "LeaguePickerView.h"
 
 @interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate, LeagueDelegate>
-@property (nonatomic, strong) NSArray *tournamentRounds;
 @end

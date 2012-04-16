@@ -10,7 +10,4 @@
 
 @interface RankingTable : UITableView<UITableViewDataSource, UITableViewDelegate>
 
-
-@property (nonatomic, strong) NSNumber *leagueId;
-
 @end

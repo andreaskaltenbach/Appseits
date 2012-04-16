@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="6qr-mS-VaE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ROM-IM-TKG">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -56,10 +56,6 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="loginButtonClicked:" destination="2" eventType="touchUpInside" id="rmT-hG-eMz"/>
-                                            <action selector="loginClicked:" destination="2" eventType="touchUpInside" id="rZx-jk-ghQ"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -67,12 +63,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="YgU-Em-Ifs"/>
                     <connections>
                         <outlet property="usernameField" destination="xuQ-BR-xDy" id="NkD-ch-XQ5"/>
+                        <segue destination="6qr-mS-VaE" kind="push" identifier="toOverview" id="jzV-gS-f2N"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="494" y="-423"/>
+            <point key="canvasLocation" x="277" y="-501"/>
         </scene>
         <!--Overview View Controller-->
         <scene sceneID="ecx-o9-RJL">
@@ -567,6 +565,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Tdx-ja-v8r"/>
                     <connections>
                         <outlet property="gameTable" destination="KT6-Hu-UFq" id="faE-WE-Jau"/>
                         <outlet property="leagueInput" destination="PUQ-s3-g7l" id="kgD-HP-woS"/>
@@ -585,7 +584,6 @@
                         <outlet property="scoreView" destination="DVm-iQ-cdc" id="1fA-Gg-cfU"/>
                         <outlet property="timelineScrollView" destination="Xl4-xp-0TF" id="UBJ-xT-heh"/>
                         <outlet property="trendImage" destination="OQs-YT-d0P" id="aTb-7X-XZC"/>
-                        <segue destination="2" kind="modal" identifier="toLogin" id="m9X-BJ-il3"/>
                     </connections>
                 </viewController>
                 <tapGestureRecognizer id="MiS-WY-3ru">
@@ -655,6 +653,24 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="406" y="751"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XMU-6v-OB7">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PM3-OV-jGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController navigationBarHidden="YES" id="ROM-IM-TKG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Jdd-F7-ZzU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="wXD-RF-hfN"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-249" y="-501"/>
         </scene>
     </scenes>
     <resources>

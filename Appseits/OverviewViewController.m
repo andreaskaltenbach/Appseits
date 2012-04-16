@@ -22,6 +22,7 @@
 #import "RankingTable.h"
 #import "Constants.h"
 #import "LeaguePickerView.h"
+#import "BackendAdapter.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -53,7 +54,6 @@ static UIImage *trendDown;
 @synthesize gameTable = _gameTable;
 @synthesize timelineScrollView = _timelineScrollView;
 @synthesize leaguePicker = _leaguePicker;
-@synthesize tournamentRounds = _tournamentRounds;
 @synthesize pointInCurrentRound = _pointInCurrentRound;
 @synthesize pointsTotal = _pointsTotal;
 @synthesize timeline = _timeline;
@@ -76,59 +76,16 @@ static UIImage *trendDown;
     trendDown = [UIImage imageNamed:@"trendDown.png"];
 }
 
-- (TournamentRound*) activeRound {
-    NSDate *now = [NSDate date];
-    
-    for (TournamentRound *round in self.tournamentRounds) {
-        for (Game *game in round.games) {
-            if ([now compare:game.kickOff] == NSOrderedDescending) {
-                return round;
-            }
-        }
-    }
-    return nil;
-}
-
-- (int) activeRoundPoints {
-    TournamentRound *activeRound = [self activeRound];
-    return (activeRound) ? activeRound.points : 0;
-}
-
-- (int) totalPoints {
-    int total = 0;
-    for (TournamentRound *round in self.tournamentRounds) {
-        total += round.points;
-    }
-    return total;
-}
-
-- (void) setTournamentRounds:(NSArray *)tournamentRounds {
-    _tournamentRounds = tournamentRounds;
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    // load tournament rounds
-    self.tournamentRounds = [GameService rounds];
-    
-    
-}
-
 - (void) viewDidLoad {
-    
-    // TODO - check credentials and show login screen, if required
-    
-    
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeaguePicker)];
     [self.leagueInput addGestureRecognizer:tapGesture];
     
     self.timelineScrollView.roundSelectDelegate = self;
-    self.timelineScrollView.tournamentRounds = self.tournamentRounds;
+    self.timelineScrollView.tournamentRounds = [BackendAdapter tournamentRounds];
     self.timelineScrollView.backgroundColor = [UIColor blackBackground];
     self.timeline.roundSelectDelegate = self;
-    self.timeline.rounds = self.tournamentRounds;
+    self.timeline.rounds = [BackendAdapter tournamentRounds];
 
     // setup league input
     self.leagueInput.backgroundColor = [UIColor clearColor];

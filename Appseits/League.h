@@ -24,4 +24,6 @@ typedef void(^LeagueFailedBlock)(NSString * errorMessage);
 + (League*) selectedLeague;
 + (void) setSelectedLeague:(League*) league;
 
++ (NSArray*) leaguesFromJson:(NSArray*) jsonData;
+
 @end

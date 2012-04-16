@@ -9,6 +9,7 @@
 #import "AppseitsAppDelegate.h"
 #import "iCarousel.h"
 #import "GameService.h"
+#import "BackendAdapter.h"
 
 @implementation AppseitsAppDelegate
 
@@ -39,8 +40,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // load matches
-    [GameService initiallyFetchAllRounds];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

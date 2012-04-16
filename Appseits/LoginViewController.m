@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "BackendAdapter.h"
 
 @interface LoginViewController ()
 @property (unsafe_unretained, nonatomic) IBOutlet UITextField *usernameField;
@@ -28,7 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+    // do we have valid credentials?
+    BOOL validCredentials = [BackendAdapter validateCredentials];
+    
+    if (validCredentials) {
+        [BackendAdapter initializeModel];
+        [self performSegueWithIdentifier:@"toOverview" sender:self];
+    }
 }
 
 - (void)viewDidUnload

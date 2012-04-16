@@ -10,8 +10,8 @@
 #import "Ranking.h"
 #import "Constants.h"
 #import "UIColor+AppColors.h"
-#import "RankingService.h"
 #import "RankingCell.h"
+#import "BackendAdapter.h"
 
 #define SPINNER_DIMENSION 50
 
@@ -23,7 +23,6 @@
 @implementation RankingTable
 
 @synthesize rankings = _rankings;
-@synthesize leagueId = _leagueId;
 @synthesize loadingView = _loadingView;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -34,12 +33,14 @@
         self.dataSource = self;
         
         // load a potential league ID stored in the user defaults
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        self.leagueId = [userDefaults objectForKey:LEAGUE_ID_KEY];
+//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  //      self.leagueId = [userDefaults objectForKey:LEAGUE_ID_KEY];
         
         self.backgroundColor = [UIColor clearColor];
         
         self.scrollsToTop = NO;
+        
+        self.rankings = [BackendAdapter rankings];
     }
     return self;
 }
@@ -84,12 +85,14 @@
     return _loadingView;
 }
 
-- (void) setLeagueId:(NSNumber *)leagueId {
+/*- (void) setLeagueId:(NSNumber *)leagueId {
     if (_leagueId != leagueId) {
         _leagueId = leagueId;
         
         // show spinner view and fetch new 
         self.loadingView.hidden = NO;
+        
+        BackendAdapter setCurrentLeague:<#(League *)#> :<#^(bool success)onDone#>
         
         [RankingService getRankingsForLeague:leagueId :^(NSArray *rankings) {
             self.rankings = rankings;
@@ -101,6 +104,6 @@
         }];
         
     }
-}
+}*/
 
 @end
