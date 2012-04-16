@@ -116,7 +116,7 @@
     if (self.round.locked) {
         return 100;
     } else {
-        return 120;
+        return 100;
     }
 }
 
