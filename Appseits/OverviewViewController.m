@@ -7,7 +7,6 @@
 //
 
 #import "OverviewViewController.h"
-#import "GameService.h"
 #import "TournamentRound.h"
 #import "GamePredictionCell.h"
 #import "UIColor+AppColors.h"
@@ -89,7 +88,7 @@ static UIImage *trendDown;
 
     // setup league input
     self.leagueInput.backgroundColor = [UIColor clearColor];
-    League *selectedLeague = [League selectedLeague];
+    League *selectedLeague = [BackendAdapter currentLeague];
     if (selectedLeague) {
         self.leagueInput.text = selectedLeague.name;
     }

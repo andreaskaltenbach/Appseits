@@ -15,7 +15,7 @@
 
 @end
 
-@interface LeaguePickerView : UIView<UIPickerViewDelegate, UIPickerViewDataSource>
+@interface LeaguePickerView : UIView<UIPickerViewDelegate>
 @property id<LeagueDelegate> leagueDelegate;
 
 - (void) show;

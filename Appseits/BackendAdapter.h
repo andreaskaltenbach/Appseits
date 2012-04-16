@@ -23,5 +23,7 @@ typedef void(^FinishedBlock)(bool success);
 
 + (NSArray*) tournamentRounds;
 + (NSArray*) rankings;
++ (NSArray*) leagues;
+
 
 @end

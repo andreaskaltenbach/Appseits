@@ -9,6 +9,8 @@
 #import "LeaguePickerView.h"
 #import "League.h"
 #import "Constants.h"
+#import "BackendAdapter.h"
+#import "LeaguePickerDataSourceDelegate.h"
 
 @interface LeaguePickerView() 
 @property (nonatomic, strong) UIPickerView *leaguePicker;
@@ -32,8 +34,8 @@
     if (self) {
         
         self.leaguePicker = (UIPickerView*) [self viewWithTag:1];
-        self.leaguePicker.dataSource = self;
-        self.leaguePicker.delegate = self;
+        self.leaguePicker.dataSource = [LeaguePickerDataSourceDelegate instance];
+        self.leaguePicker.delegate = [LeaguePickerDataSourceDelegate instance];
         
         UIToolbar *toolbar = (UIToolbar*) [self.subviews objectAtIndex:0];
         self.cancelButton = [toolbar.items objectAtIndex:0];
@@ -41,50 +43,22 @@
         self.submitButton = [toolbar.items objectAtIndex:2];
         self.submitButton.action = @selector(submit);
 
-        // fetch the previously selected league
+        // initialize leagues
+        self.leagues = [BackendAdapter leagues];
         [self selectLeagueItem];
     }
     return self;
 }
 
 - (void) selectLeagueItem {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSNumber *leagueId = [userDefaults objectForKey:LEAGUE_ID_KEY];
+    League *currentLeague = [BackendAdapter currentLeague];
     
-    [League getAllLeagues:^(NSArray *leagues) {
-        self.leagues = leagues;
-        [self.leaguePicker reloadAllComponents];
-        int index = 0;
-        if (leagueId) {
-            for (League *league in self.leagues) {
-                if (league.id == leagueId) {
-                    [self.leaguePicker selectRow:index + 1 inComponent:0 animated:NO];
-                }
-                index++;
-            }
-        }
-        
-    } :^(NSString *errorMessage) {
-        NSLog(@"Failed to fetch leagues");
-    } ];
-}
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return [self.leagues count] + 1;
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    
-    if (row == 0) {
-        return @"Alla ligor";
+    if (!currentLeague) {
+        [self.leaguePicker selectRow:0 inComponent:0 animated:NO];
     }
     else {
-        League *league = [self.leagues objectAtIndex:row - 1];
-        return league.name;
+        int leagueIndex = [[BackendAdapter leagues] indexOfObject:currentLeague];
+        [self.leaguePicker selectRow:leagueIndex + 1 inComponent:0 animated:NO];
     }
 }
 
@@ -109,19 +83,18 @@
 
 - (void) submit {
     [self hide];
-    // store selection in user defaults
+
     self.selectedLeagueIndex = [self.leaguePicker selectedRowInComponent:0];
     
-    if (self.selectedLeagueIndex == 0) {
-        [League setSelectedLeague:nil];
-        [self.leagueDelegate leagueChanged:nil];        
+    League *league;
+    if (self.selectedLeagueIndex != 0) {
+        // an explicit league was selected 
+        league = [[BackendAdapter leagues] objectAtIndex:self.selectedLeagueIndex - 1];
     }
-    else {
-        // store the selected league
-        League *selectedLeague = [self.leagues objectAtIndex:self.selectedLeagueIndex -1];
-        [League setSelectedLeague:selectedLeague];
-        [self.leagueDelegate leagueChanged:selectedLeague];
-    }
+    
+    [BackendAdapter setCurrentLeague:league :^(bool success) {
+        [self.leagueDelegate leagueChanged:league];
+    }];
 }
 
 - (void) cancel {

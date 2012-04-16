@@ -7,9 +7,6 @@
 //
 
 #import "AppseitsAppDelegate.h"
-#import "iCarousel.h"
-#import "GameService.h"
-#import "BackendAdapter.h"
 
 @implementation AppseitsAppDelegate
 

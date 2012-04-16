@@ -17,12 +17,7 @@ typedef void(^LeagueFailedBlock)(NSString * errorMessage);
 @property (nonatomic, strong) NSNumber *id;
 @property (nonatomic, strong) NSString *name;
 
-+ (void) getAllLeagues:(LeagueSuccessBlock) onSuccess: (LeagueFailedBlock) onError;
-
 + (League*) league:(NSNumber*) id: (NSString*) name;
-
-+ (League*) selectedLeague;
-+ (void) setSelectedLeague:(League*) league;
 
 + (NSArray*) leaguesFromJson:(NSArray*) jsonData;
 

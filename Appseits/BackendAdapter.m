@@ -117,21 +117,6 @@ static TournamentRound *currentRound;
     NSLog(@"Fetched %i tournament rounds", [rounds count]);
 }
 
-
-
-+ (void) setSelectedLeague:(League*) league {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if (league) {
-        [userDefaults setObject:league.name forKey:@"leagueName"];
-        [userDefaults setObject:league.id forKey:@"leagueId"];
-    }
-    else {
-        [userDefaults removeObjectForKey:@"leagueName"];
-        [userDefaults removeObjectForKey:@"leagueId"];
-    }
-    [userDefaults synchronize];
-}
-
 + (League*) currentLeague {
     return currentLeague;
 }
@@ -144,6 +129,12 @@ static TournamentRound *currentRound;
     else {
         currentLeague = league;
         
+        // store selected league in user defaults
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:league.id forKey:@"leagueId"];
+        [userDefaults synchronize];
+        
+        
         // refresh the rankings based on the selected league
         [self loadRankings:finished];
     }
@@ -155,6 +146,10 @@ static TournamentRound *currentRound;
 
 + (NSArray*) rankings {
     return rankings;
+}
+
++ (NSArray*) leagues {
+    return leagues;
 }
 
 + (void) loadRankings {
