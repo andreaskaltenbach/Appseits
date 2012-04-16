@@ -16,5 +16,8 @@ typedef void(^FailedBlock)(NSString * errorMessage);
 
 + (void) getGames:(SuccessBlock) onSuccess: (FailedBlock) onError;
 
++ (NSArray*) initiallyFetchAllRounds;
+
++ (NSArray*) rounds;
 
 @end

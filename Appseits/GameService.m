@@ -12,6 +12,8 @@
 
 @implementation GameService
 
+static NSArray *rounds;
+
 + (void) getGames:(SuccessBlock) onSuccess: (FailedBlock) onError {
     
     // fetch data in background and execute callback when data is available:
@@ -38,6 +40,39 @@
        }
        
     }];
+}
+
++ (NSArray*) initiallyFetchAllRounds {
+    
+    // fetch data and store locally:
+    
+    NSURL *url = [NSURL URLWithString:@"http://dl.dropbox.com/u/15650647/games.json"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+    NSError *error;
+    NSURLResponse *response;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    if (error) {
+        NSLog(@"Error while downloading games");
+        return nil;
+    }
+    
+    // parse the result
+    NSError *parseError = nil;
+    NSArray *roundsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
+    
+    if (parseError) {
+        NSLog(@"Error while parsing match data from server");
+        return nil;
+    }
+    
+    rounds = [TournamentRound tournamentRoundsFromJson:roundsData];
+    return rounds;
+}
+
++ (NSArray*) rounds {
+    return rounds;
 }
 
 @end

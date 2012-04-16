@@ -106,7 +106,20 @@ static UIImage *trendDown;
     _tournamentRounds = tournamentRounds;
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // load tournament rounds
+    self.tournamentRounds = [GameService rounds];
+    
+    
+}
+
 - (void) viewDidLoad {
+    
+    // TODO - check credentials and show login screen, if required
+    
+    
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeaguePicker)];
     [self.leagueInput addGestureRecognizer:tapGesture];
