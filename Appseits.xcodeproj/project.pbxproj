@@ -284,6 +284,8 @@
 		4E059D021525FA0E005ABD20 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				4E9D96E71536FF770092DA78 /* iCarousel.h */,
+				4E9D96E81536FF770092DA78 /* iCarousel.m */,
 				4E059D041525FA2E005ABD20 /* NSDate+DateConversion.h */,
 				4E059D051525FA2E005ABD20 /* NSDate+DateConversion.m */,
 				5BBE7EC915263A9800FA980E /* SSGradientView.h */,
@@ -418,8 +420,6 @@
 		4E531C1B151CAB060003CAD1 /* Appseits */ = {
 			isa = PBXGroup;
 			children = (
-				4E9D96E71536FF770092DA78 /* iCarousel.h */,
-				4E9D96E81536FF770092DA78 /* iCarousel.m */,
 				4E059D021525FA0E005ABD20 /* util */,
 				5BF4E860151D023300CC3AE9 /* controller */,
 				4E050D79152209B20063EDED /* images */,
