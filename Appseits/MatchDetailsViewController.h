@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CorePlot-CocoaTouch.h"
 
-@interface MatchDetailsViewController : UIViewController
+@interface MatchDetailsViewController : UIViewController<CPTPieChartDataSource, CPTPieChartDelegate>
 
 @end

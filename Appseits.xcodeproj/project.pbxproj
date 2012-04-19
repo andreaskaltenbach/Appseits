@@ -64,6 +64,7 @@
 		5BD4B14115238F06004FE21B /* progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4B14015238F06004FE21B /* progress.png */; };
 		5BD4B144152395AF004FE21B /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4B143152395AF004FE21B /* separator.png */; };
 		5BD4B15415262263004FE21B /* TimelineRoundSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4B15315262263004FE21B /* TimelineRoundSection.m */; };
+		5BEC8890153F3EFE00EDC6BA /* CPTColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC888F153F3EFE00EDC6BA /* CPTColor+AppColors.m */; };
 		5BF4E863151D025300CC3AE9 /* MatchDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF4E862151D025300CC3AE9 /* MatchDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -237,6 +238,8 @@
 		5BD4B143152395AF004FE21B /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator.png; sourceTree = "<group>"; };
 		5BD4B15215262263004FE21B /* TimelineRoundSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineRoundSection.h; sourceTree = "<group>"; };
 		5BD4B15315262263004FE21B /* TimelineRoundSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineRoundSection.m; sourceTree = "<group>"; };
+		5BEC888E153F3EFD00EDC6BA /* CPTColor+AppColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CPTColor+AppColors.h"; sourceTree = "<group>"; };
+		5BEC888F153F3EFE00EDC6BA /* CPTColor+AppColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CPTColor+AppColors.m"; sourceTree = "<group>"; };
 		5BF4E861151D025300CC3AE9 /* MatchDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDetailsViewController.h; sourceTree = "<group>"; };
 		5BF4E862151D025300CC3AE9 /* MatchDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -438,6 +441,8 @@
 				4E050D7D15220A320063EDED /* UIColor+AppColors.h */,
 				4E050D7E15220A320063EDED /* UIColor+AppColors.m */,
 				4E050D8D15235A8F0063EDED /* Entitlements.plist */,
+				5BEC888E153F3EFD00EDC6BA /* CPTColor+AppColors.h */,
+				5BEC888F153F3EFE00EDC6BA /* CPTColor+AppColors.m */,
 			);
 			path = Appseits;
 			sourceTree = "<group>";
@@ -640,6 +645,7 @@
 				5B1AEB041537736A00786199 /* LeaguePickerView.m in Sources */,
 				5B7CE636153C9EB200EB7794 /* BackendAdapter.m in Sources */,
 				5BD34AA1153CC735006EB953 /* LeaguePickerDataSourceDelegate.m in Sources */,
+				5BEC8890153F3EFE00EDC6BA /* CPTColor+AppColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +739,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
 				WRAPPER_EXTENSION = app;
@@ -752,6 +759,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
 				WRAPPER_EXTENSION = app;
