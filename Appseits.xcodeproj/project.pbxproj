@@ -38,6 +38,11 @@
 		4E8571891537328B00795055 /* tipBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8571881537328B00795055 /* tipBar.png */; };
 		4E86FF5C152B275F00958DDE /* RankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E86FF5B152B275F00958DDE /* RankingCell.m */; };
 		4E9D96E91536FF770092DA78 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D96E81536FF770092DA78 /* iCarousel.m */; };
+		4EE59D9A154031DC0082193D /* UnfinishedMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE59D99154031DC0082193D /* UnfinishedMatchViewController.m */; };
+		4EE59D9E15404A690082193D /* AppseitsPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE59D9D15404A690082193D /* AppseitsPageControl.m */; };
+		4EE59DA115404C4E0082193D /* pageControl_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE59D9F15404C4E0082193D /* pageControl_inactive.png */; };
+		4EE59DA215404C4E0082193D /* pageControl_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE59DA015404C4E0082193D /* pageControl_active.png */; };
+		4EE59DA5154050FB0082193D /* PagedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE59DA4154050FB0082193D /* PagedView.m */; };
 		4EE945D5152B228200E6A62A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE945D4152B228200E6A62A /* Constants.m */; };
 		5B1AEB041537736A00786199 /* LeaguePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AEB031537736A00786199 /* LeaguePickerView.m */; };
 		5B1EE8B115274DFC00D01564 /* GameTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* GameTable.m */; };
@@ -197,6 +202,14 @@
 		4E86FF5B152B275F00958DDE /* RankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingCell.m; sourceTree = "<group>"; };
 		4E9D96E71536FF770092DA78 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		4E9D96E81536FF770092DA78 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		4EE59D98154031DC0082193D /* UnfinishedMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnfinishedMatchViewController.h; sourceTree = "<group>"; };
+		4EE59D99154031DC0082193D /* UnfinishedMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnfinishedMatchViewController.m; sourceTree = "<group>"; };
+		4EE59D9C15404A690082193D /* AppseitsPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppseitsPageControl.h; sourceTree = "<group>"; };
+		4EE59D9D15404A690082193D /* AppseitsPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppseitsPageControl.m; sourceTree = "<group>"; };
+		4EE59D9F15404C4E0082193D /* pageControl_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageControl_inactive.png; sourceTree = "<group>"; };
+		4EE59DA015404C4E0082193D /* pageControl_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageControl_active.png; sourceTree = "<group>"; };
+		4EE59DA3154050FB0082193D /* PagedView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PagedView.h; sourceTree = "<group>"; };
+		4EE59DA4154050FB0082193D /* PagedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagedView.m; sourceTree = "<group>"; };
 		4EE945D3152B228200E6A62A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		4EE945D4152B228200E6A62A /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		5B1AEB021537736A00786199 /* LeaguePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguePickerView.h; sourceTree = "<group>"; };
@@ -263,6 +276,8 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4EE59D9F15404C4E0082193D /* pageControl_inactive.png */,
+				4EE59DA015404C4E0082193D /* pageControl_active.png */,
 				5BA1F2FC1538B43B00B57336 /* trendUp.png */,
 				5BA1F2FD1538B43B00B57336 /* trendDown.png */,
 				5BA1F2FE1538B43B00B57336 /* trendNeutral.png */,
@@ -514,6 +529,10 @@
 				4E86FF5B152B275F00958DDE /* RankingCell.m */,
 				5B1AEB021537736A00786199 /* LeaguePickerView.h */,
 				5B1AEB031537736A00786199 /* LeaguePickerView.m */,
+				4EE59D9C15404A690082193D /* AppseitsPageControl.h */,
+				4EE59D9D15404A690082193D /* AppseitsPageControl.m */,
+				4EE59DA3154050FB0082193D /* PagedView.h */,
+				4EE59DA4154050FB0082193D /* PagedView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -527,6 +546,8 @@
 				4E531C3E151CAE500003CAD1 /* LoginViewController.m */,
 				5BF4E861151D025300CC3AE9 /* MatchDetailsViewController.h */,
 				5BF4E862151D025300CC3AE9 /* MatchDetailsViewController.m */,
+				4EE59D98154031DC0082193D /* UnfinishedMatchViewController.h */,
+				4EE59D99154031DC0082193D /* UnfinishedMatchViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -604,6 +625,8 @@
 				5BA1F3001538B43B00B57336 /* trendDown.png in Resources */,
 				5BA1F3011538B43B00B57336 /* trendNeutral.png in Resources */,
 				4E45D5CA153C69E50036098A /* Default.png in Resources */,
+				4EE59DA115404C4E0082193D /* pageControl_inactive.png in Resources */,
+				4EE59DA215404C4E0082193D /* pageControl_active.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +669,9 @@
 				5B7CE636153C9EB200EB7794 /* BackendAdapter.m in Sources */,
 				5BD34AA1153CC735006EB953 /* LeaguePickerDataSourceDelegate.m in Sources */,
 				5BEC8890153F3EFE00EDC6BA /* CPTColor+AppColors.m in Sources */,
+				4EE59D9A154031DC0082193D /* UnfinishedMatchViewController.m in Sources */,
+				4EE59D9E15404A690082193D /* AppseitsPageControl.m in Sources */,
+				4EE59DA5154050FB0082193D /* PagedView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

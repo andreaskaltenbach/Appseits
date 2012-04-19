@@ -435,7 +435,7 @@
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </view>
                                                         <connections>
-                                                            <segue destination="7nM-vB-VdW" kind="modal" modalTransitionStyle="flipHorizontal" id="tWy-BR-jEQ"/>
+                                                            <segue destination="0JB-BR-gUT" kind="modal" modalTransitionStyle="flipHorizontal" id="egn-dR-9dI"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -599,69 +599,100 @@
             </objects>
             <point key="canvasLocation" x="-46" y="68"/>
         </scene>
-        <!--Match Details View Controller-->
+        <!--Unfinished Match View Controller-->
         <scene sceneID="RWE-8g-Iey">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slS-OO-n36" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="0JB-BR-gUT" customClass="MatchDetailsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Z3b-Hq-VDO">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                <viewController id="0JB-BR-gUT" customClass="UnfinishedMatchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Eg-K3-HR6">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="UgI-aE-z1m">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                            <view contentMode="scaleToFill" id="nek-FB-fPD">
+                                <rect key="frame" x="60" y="0.0" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gjG-so-yNG">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" title="Ranking">
+                                            <color key="titleColor" red="0.20000001788139343" green="0.20000001788139343" blue="0.20000001788139343" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.25882354378700256" green="0.5058823823928833" blue="0.15686275064945221" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="spreadSelected:" destination="0JB-BR-gUT" eventType="touchUpInside" id="XNf-D1-dzt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qva-46-LxR">
+                                        <rect key="frame" x="110" y="0.0" width="90" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" title="Resultat">
+                                            <color key="titleColor" red="0.20000001788139343" green="0.20000001788139343" blue="0.20000001788139343" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.25882354378700256" green="0.5058823823928833" blue="0.15686275064945221" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resultSelected:" destination="0JB-BR-gUT" eventType="touchUpInside" id="feL-Dg-bPs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="RMn-an-9C7" customClass="PagedView">
+                                <rect key="frame" x="0.0" y="58" width="320" height="370"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="AnQ-xx-98y">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" id="gT9-cr-fJg" customClass="CPTGraphHostingView">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="0.44919145459999998" blue="0.37828749080000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <view contentMode="scaleToFill" id="XRb-rr-awa" customClass="CPTGraphHostingView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" id="Ole-Xf-qam">
-                                        <rect key="frame" x="320" y="0.0" width="320" height="416"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" red="0.85246637800000002" green="0.46698683590000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <view contentMode="scaleToFill" id="vO4-hP-VcH">
+                                        <rect key="frame" x="400" y="150" width="279" height="184"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" id="RVP-9t-UhF">
-                                        <rect key="frame" x="640" y="0.0" width="320" height="416"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.44919145459999998" blue="0.37828749080000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <view contentMode="scaleToFill" id="6r0-ry-rhL">
+                                        <rect key="frame" x="20" y="93" width="279" height="184"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="r9v-Xw-f5Y">
-                                <rect key="frame" x="140" y="431" width="39" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" id="EQd-ye-SZ9" customClass="AppseitsPageControl">
+                                <rect key="frame" x="140" y="425" width="40" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="LYL-UK-Otw" appends="YES" id="Ro8-Eo-veP"/>
-                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="1Rn-C3-ar2"/>
                     <connections>
-                        <outlet property="pageIndicator" destination="r9v-Xw-f5Y" id="VkO-Oe-QLv"/>
-                        <outlet property="pieChartView" destination="gT9-cr-fJg" id="L19-Jj-IvA"/>
-                        <outlet property="scrollView" destination="UgI-aE-z1m" id="nmL-t6-9LY"/>
+                        <outlet property="graphView" destination="XRb-rr-awa" id="8Zn-G0-v6D"/>
+                        <outlet property="pageIndicator" destination="EQd-ye-SZ9" id="H1r-wg-LYO"/>
+                        <outlet property="resultButton" destination="qva-46-LxR" id="h2F-aR-h9b"/>
+                        <outlet property="scrollView" destination="RMn-an-9C7" id="dom-le-cN8"/>
+                        <outlet property="spreadButton" destination="gjG-so-yNG" id="mcN-tc-5nv"/>
                     </connections>
                 </viewController>
                 <tapGestureRecognizer id="LYL-UK-Otw">
                     <connections>
                         <action selector="viewTapped:" destination="0JB-BR-gUT" id="NFK-w1-inp"/>
-                        <outlet property="delegate" destination="Z3b-Hq-VDO" id="EeR-vl-O5n"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="999" y="457"/>
+            <point key="canvasLocation" x="417" y="250"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XMU-6v-OB7">
@@ -681,24 +712,6 @@
             </objects>
             <point key="canvasLocation" x="-249" y="-501"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Fww-xm-Quh">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBb-Lr-Vc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="7nM-vB-VdW" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="c8S-c7-PAL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="0JB-BR-gUT" kind="relationship" relationship="rootViewController" id="dBk-Ih-RHZ"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="473" y="457"/>
-        </scene>
     </scenes>
     <resources>
         <image name="flagBackground.png" width="27" height="27"/>
@@ -710,6 +723,99 @@
         <image name="tipBar.png" width="302" height="36"/>
         <image name="verticalSeparator.png" width="6" height="88"/>
     </resources>
+    <classes>
+        <class className="AppseitsPageControl" superclassName="UIPageControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppseitsPageControl.h"/>
+        </class>
+        <class className="CPTGraphHostingView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
+        </class>
+        <class className="GameCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameCell.h"/>
+        </class>
+        <class className="GamePredictionCell" superclassName="GameCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GamePredictionCell.h"/>
+        </class>
+        <class className="GameResultCelll" superclassName="GameCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameResultCelll.h"/>
+        </class>
+        <class className="GameTable" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameTable.h"/>
+        </class>
+        <class className="LeaguePickerView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaguePickerView.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MenuDependendScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuDependendScrollView.h"/>
+        </class>
+        <class className="OverviewViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverviewViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gameTable" candidateClass="GameTable"/>
+                <relationship kind="outlet" name="leagueInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="leaguePicker" candidateClass="LeaguePickerView"/>
+                <relationship kind="outlet" name="menu" candidateClass="SSGradientView"/>
+                <relationship kind="outlet" name="menuDependingScrollView" candidateClass="MenuDependendScrollView"/>
+                <relationship kind="outlet" name="menuItemView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="pointInCurrentRound" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pointsTotal" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rankingMenuItem" candidateClass="SSGradientView"/>
+                <relationship kind="outlet" name="rankingMenuLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rankingTable" candidateClass="RankingTable"/>
+                <relationship kind="outlet" name="rankingTableHeader" candidateClass="UIView"/>
+                <relationship kind="outlet" name="resultMenuItem" candidateClass="SSGradientView"/>
+                <relationship kind="outlet" name="resultMenuLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
+                <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
+                <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PagedScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PagedScrollView.h"/>
+        </class>
+        <class className="RankingCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingCell.h"/>
+        </class>
+        <class className="RankingTable" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingTable.h"/>
+        </class>
+        <class className="SSBorderedView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSBorderedView.h"/>
+        </class>
+        <class className="SSGradientView" superclassName="SSBorderedView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSGradientView.h"/>
+        </class>
+        <class className="Timeline" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
+        </class>
+        <class className="TimelineScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
+        </class>
+        <class className="UnfinishedMatchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UnfinishedMatchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="graphView" candidateClass="CPTGraphHostingView"/>
+                <relationship kind="outlet" name="pageIndicator" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="resultButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="PagedScrollView"/>
+                <relationship kind="outlet" name="spreadButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="iCarousel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

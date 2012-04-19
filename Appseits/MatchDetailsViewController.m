@@ -25,29 +25,7 @@
 @synthesize pieChart = _pieChart;
 @synthesize pieChartView = _pieChartView;
 
--(CPTFill *)sliceFillForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)index {
-    return [CPTFill fillWithColor:[CPTColor darkGreen]];
-}
 
--(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
-    return 4;
-}
-
--(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
-    if (index == 0) return [NSNumber numberWithInt:2.1];
-    if (index == 1) return [NSNumber numberWithInt:1.4];
-    if (index == 2) return [NSNumber numberWithInt:1.4];
-    return [NSNumber numberWithInt:4];
-}
-
--(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index {
-    CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:@"Lulu"];
-	CPTMutableTextStyle *textStyle = [label.textStyle mutableCopy];
-    
-	textStyle.color = [CPTColor lightGrayColor];
-	label.textStyle = textStyle;
-    return label;
-}
 
 - (void)viewDidLoad
 {
