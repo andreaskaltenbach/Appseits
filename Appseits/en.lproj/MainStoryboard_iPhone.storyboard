@@ -656,16 +656,11 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" id="XRb-rr-awa" customClass="CPTGraphHostingView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="vO4-hP-VcH">
                                         <rect key="frame" x="400" y="150" width="279" height="184"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="6r0-ry-rhL">
-                                        <rect key="frame" x="20" y="93" width="279" height="184"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -777,8 +772,8 @@
                 <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
             </relationships>
         </class>
-        <class className="PagedScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PagedScrollView.h"/>
+        <class className="PagedView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PagedView.h"/>
         </class>
         <class className="RankingCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingCell.h"/>
@@ -804,7 +799,7 @@
                 <relationship kind="outlet" name="graphView" candidateClass="CPTGraphHostingView"/>
                 <relationship kind="outlet" name="pageIndicator" candidateClass="UIPageControl"/>
                 <relationship kind="outlet" name="resultButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="PagedScrollView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="PagedView"/>
                 <relationship kind="outlet" name="spreadButton" candidateClass="UIButton"/>
             </relationships>
         </class>

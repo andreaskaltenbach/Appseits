@@ -7,8 +7,10 @@
 //
 
 #import "PagedView.h"
+#import "AppseitsPageControl.h"
 
 @interface PagedView()
+@property (nonatomic, strong) AppseitsPageControl *pageControl;
 
 @property int pageIndex;
 
@@ -17,6 +19,7 @@
 @implementation PagedView
 
 @synthesize pageIndex = _pageIndex;
+@synthesize pageControl = _pageControl;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -25,13 +28,11 @@
         // Initialization code
         [self layoutChildren:self.frame];
         
-        UIView *first = 
-        [self.subviews objectAtIndex:0];
-        first.backgroundColor = [UIColor yellowColor];
+        int height = self.frame.size.height;
         
-        first = 
-        [self.subviews objectAtIndex:1];
-        first.backgroundColor = [UIColor lightGrayColor];
+        self.pageControl = [[AppseitsPageControl alloc] initWithFrame:CGRectMake(height - 30, 0, self.frame.size.width, 30)];
+        self.pageControl.numberOfPages = [self.subviews count];
+        [self addSubview:self.pageControl];
         
     }
     return self;
@@ -42,10 +43,12 @@
     self.contentSize = CGSizeMake(frame.size.width * subviews, frame.size.height);
     int xOffset = 0;
     for (UIView *subview in self.subviews) {
+        
+        if (subview != self.pageControl) {
+        
         subview.frame = CGRectMake(xOffset, 0, frame.size.width, frame.size.height);
         xOffset+= frame.size.width;
-        NSLog(@"Subview: %f, %f, %f , %f", subview.frame.origin.x, subview.frame.origin.y, subview.frame.size.width, subview.frame.size.height
-              );
+                }
     }
 }
 

@@ -55,8 +55,6 @@
 
 - (void)viewDidLoad
 {
-    self.graphView.layer.borderWidth = 1;
-    self.graphView.layer.borderColor = [[UIColor blackColor] CGColor];
         
     self.view.backgroundColor = [UIColor squareBackground];
     
