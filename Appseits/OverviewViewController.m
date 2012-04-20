@@ -89,6 +89,7 @@ static UIImage *trendDown;
     self.headerView.backgroundColor = [UIColor headerBackground];
     
     self.mainScrollView.delegate = self;
+    
         
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeaguePicker)];
     [self.leagueInput addGestureRecognizer:tapGesture];

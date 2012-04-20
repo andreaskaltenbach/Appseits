@@ -10,11 +10,13 @@
 
 @implementation MainScrollView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithCoder:aDecoder];
     if (self) {
         // Initialization code
+        self.contentSize = CGSizeMake(self.frame.size.width, 2000);
+        self.scrollEnabled = NO;
     }
     return self;
 }
