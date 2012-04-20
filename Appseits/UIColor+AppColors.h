@@ -10,6 +10,8 @@
 
 @interface UIColor (AppColors)
 
++ (UIColor*) headerBackground;
+
 + (UIColor*) blackBackground;
 
 + (UIColor*) squareBackground;

@@ -10,6 +10,10 @@
 
 @implementation UIColor (AppColors)
 
++ (UIColor*) headerBackground {
+    return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"headerPattern.png"]];
+}
+
 + (UIColor*) blackBackground {
     return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"blck.png"]];
 }

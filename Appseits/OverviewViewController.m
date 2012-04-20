@@ -22,6 +22,7 @@
 #import "Constants.h"
 #import "LeaguePickerView.h"
 #import "BackendAdapter.h"
+#import "MainScrollView.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -47,6 +48,8 @@ static UIImage *trendDown;
 @property (weak, nonatomic) IBOutlet RankingTable *rankingTable;
 @property (weak, nonatomic) IBOutlet UIImageView *trendImage;
 @property (weak, nonatomic) IBOutlet UIView *rankingTableHeader;
+@property (strong, nonatomic) IBOutlet UIView *headerView;
+@property (strong, nonatomic) IBOutlet MainScrollView *mainScrollView;
 @end
 
 @implementation OverviewViewController
@@ -68,6 +71,8 @@ static UIImage *trendDown;
 @synthesize rankingTable = _rankingTable;
 @synthesize trendImage = _trendImage;
 @synthesize rankingTableHeader = _rankingTableHeader;
+@synthesize headerView = _headerView;
+@synthesize mainScrollView = _mainScrollView;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -75,8 +80,16 @@ static UIImage *trendDown;
     trendDown = [UIImage imageNamed:@"trendDown.png"];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"Scrolling to %f", scrollView.contentOffset.y);
+}
+
 - (void) viewDidLoad {
     
+    self.headerView.backgroundColor = [UIColor headerBackground];
+    
+    self.mainScrollView.delegate = self;
+        
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeaguePicker)];
     [self.leagueInput addGestureRecognizer:tapGesture];
     
@@ -164,6 +177,8 @@ static UIImage *trendDown;
     [self setLeaguePicker:nil];
     [self setTrendImage:nil];
     [self setRankingTableHeader:nil];
+    [self setHeaderView:nil];
+    [self setMainScrollView:nil];
     [super viewDidUnload];
 }
 
