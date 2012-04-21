@@ -10,6 +10,7 @@
 
 @interface UIColor (AppColors)
 
++ (NSArray *) lastUpdatedGradient;
 + (UIColor*) headerBackground;
 
 + (UIColor*) menuBackground;

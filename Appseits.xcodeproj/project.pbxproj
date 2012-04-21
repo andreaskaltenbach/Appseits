@@ -71,6 +71,8 @@
 		5BD38CD4154297BF00551FB9 /* menuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD38CD3154297BF00551FB9 /* menuBackground.png */; };
 		5BD38CD715429D2200551FB9 /* menuSelectedBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD38CD615429D2200551FB9 /* menuSelectedBackground.png */; };
 		5BD38CDA1542A2B300551FB9 /* ScrollTriggeringTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD38CD91542A2B300551FB9 /* ScrollTriggeringTableView.m */; };
+		5BD38CDC1542A53400551FB9 /* 11-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD38CDB1542A53400551FB9 /* 11-clock.png */; };
+		5BD38CDF1542BA2B00551FB9 /* LastUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD38CDE1542BA2B00551FB9 /* LastUpdateView.m */; };
 		5BD4B14115238F06004FE21B /* progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4B14015238F06004FE21B /* progress.png */; };
 		5BD4B144152395AF004FE21B /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4B143152395AF004FE21B /* separator.png */; };
 		5BD4B15415262263004FE21B /* TimelineRoundSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4B15315262263004FE21B /* TimelineRoundSection.m */; };
@@ -259,6 +261,9 @@
 		5BD38CD615429D2200551FB9 /* menuSelectedBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuSelectedBackground.png; sourceTree = "<group>"; };
 		5BD38CD81542A2B300551FB9 /* ScrollTriggeringTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTriggeringTableView.h; sourceTree = "<group>"; };
 		5BD38CD91542A2B300551FB9 /* ScrollTriggeringTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTriggeringTableView.m; sourceTree = "<group>"; };
+		5BD38CDB1542A53400551FB9 /* 11-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock.png"; sourceTree = "<group>"; };
+		5BD38CDD1542BA2B00551FB9 /* LastUpdateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastUpdateView.h; sourceTree = "<group>"; };
+		5BD38CDE1542BA2B00551FB9 /* LastUpdateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastUpdateView.m; sourceTree = "<group>"; };
 		5BD4B14015238F06004FE21B /* progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress.png; sourceTree = "<group>"; };
 		5BD4B143152395AF004FE21B /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator.png; sourceTree = "<group>"; };
 		5BD4B15215262263004FE21B /* TimelineRoundSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineRoundSection.h; sourceTree = "<group>"; };
@@ -289,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				5BD38CD615429D2200551FB9 /* menuSelectedBackground.png */,
+				5BD38CDB1542A53400551FB9 /* 11-clock.png */,
 				5BD38CD3154297BF00551FB9 /* menuBackground.png */,
 				4EDF7A781541A1EA000C81AD /* headerPattern.png */,
 				4EE59D9F15404C4E0082193D /* pageControl_inactive.png */,
@@ -552,6 +558,8 @@
 				4EDF7A7C1541A6B4000C81AD /* MainScrollView.m */,
 				5BD38CD81542A2B300551FB9 /* ScrollTriggeringTableView.h */,
 				5BD38CD91542A2B300551FB9 /* ScrollTriggeringTableView.m */,
+				5BD38CDD1542BA2B00551FB9 /* LastUpdateView.h */,
+				5BD38CDE1542BA2B00551FB9 /* LastUpdateView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -649,6 +657,7 @@
 				4EDF7A791541A1EA000C81AD /* headerPattern.png in Resources */,
 				5BD38CD4154297BF00551FB9 /* menuBackground.png in Resources */,
 				5BD38CD715429D2200551FB9 /* menuSelectedBackground.png in Resources */,
+				5BD38CDC1542A53400551FB9 /* 11-clock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,6 +705,7 @@
 				4EE59DA5154050FB0082193D /* PagedView.m in Sources */,
 				4EDF7A7D1541A6B4000C81AD /* MainScrollView.m in Sources */,
 				5BD38CDA1542A2B300551FB9 /* ScrollTriggeringTableView.m in Sources */,
+				5BD38CDF1542BA2B00551FB9 /* LastUpdateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
