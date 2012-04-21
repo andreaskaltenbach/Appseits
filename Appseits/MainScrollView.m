@@ -20,13 +20,20 @@
 
         self.scrollEnabled = YES;
         self.bounces = YES;
-        
+        self.showsVerticalScrollIndicator = NO;
+        self.delegate = self;
         self.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height + SCORE_VIEW_HEIGHT);
-        
-        [self scrollRectToVisible:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) animated:NO];
         
     }
     return self;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    NSLog(@"Scrolling: %f", scrollView.contentOffset.y);
+    if (scrollView.contentOffset.y > 0 && scrollView.isDragging) {
+        scrollView.contentOffset = CGPointZero;
+    }
 }
 
 @end

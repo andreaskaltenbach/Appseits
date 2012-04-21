@@ -80,7 +80,7 @@ static UIImage *trendDown;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
     
-    if (scrollView.contentOffset.y != 0 && (scrollView == self.gameTable || scrollView == self.rankingTable)) {
+    if (scrollView == self.gameTable || scrollView == self.rankingTable) {
         
         // if table inside the menu-dependend view is scrolled, we also scroll the main scroll view
         if (scrollView.contentOffset.y <= self.scoreView.frame.size.height) {
@@ -89,8 +89,11 @@ static UIImage *trendDown;
         else {
             self.mainScrollView.contentOffset = CGPointMake(0, self.scoreView.frame.size.height);
         }
-        
-        //scrollView.contentOffset = CGPointMake(0, 0);
+        /*
+        CGRect scrollBounds = scrollView.bounds;
+        scrollBounds.origin = CGPointMake(0, 0);
+        scrollView.bounds = scrollBounds;*/
+
 
     }
 }
@@ -108,8 +111,6 @@ static UIImage *trendDown;
     [self.mainScrollView addSubview:self.pullToRefreshView];
     
     self.headerView.backgroundColor = [UIColor headerBackground];
-    
-    self.mainScrollView.delegate = self;
     
     self.gameTable.scrollDelegate = self;
     self.rankingTable.scrollDelegate = self;
