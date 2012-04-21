@@ -8,6 +8,9 @@
 
 #import "MainScrollView.h"
 
+#define PUSH_TO_REFRESH_HEIGHT 70
+#define SCORE_VIEW_HEIGHT 50
+
 @implementation MainScrollView
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -15,8 +18,13 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Initialization code
-        self.contentSize = CGSizeMake(self.frame.size.width, 2000);
-        self.scrollEnabled = NO;
+
+        self.scrollEnabled = YES;
+        self.bounces = NO;
+        
+        self.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height + PUSH_TO_REFRESH_HEIGHT + SCORE_VIEW_HEIGHT);
+        
+        [self scrollRectToVisible:CGRectMake(0, PUSH_TO_REFRESH_HEIGHT, self.frame.size.width, self.frame.size.height) animated:NO];
     }
     return self;
 }
