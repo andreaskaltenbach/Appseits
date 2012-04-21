@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScrollTriggeringTableView.h"
 
-@interface RankingTable : UITableView<UITableViewDataSource, UITableViewDelegate>
+@interface RankingTable : ScrollTriggeringTableView<UITableViewDataSource>
 
 @end

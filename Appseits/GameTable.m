@@ -64,6 +64,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    NSLog(@"Match days : %i", [self.matchDays count]);
     return [self.matchDays count]; 
 }
 
@@ -92,7 +93,9 @@
     }
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
@@ -110,7 +113,5 @@
     [sectionRow addSubview:label];
     return sectionRow;
 }
-
-
 
 @end

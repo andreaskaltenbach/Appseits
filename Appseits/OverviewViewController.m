@@ -94,17 +94,8 @@ static UIImage *trendDown;
         //scrollView.contentOffset = CGPointMake(0, 0);
 
     }
-    
-    
-    
-    
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (tableView == self.gameTable) return 100;
-    
-    return 44;
-}
 
 - (void) viewDidLoad {
     
@@ -112,8 +103,8 @@ static UIImage *trendDown;
     
     self.mainScrollView.delegate = self;
     
-    self.gameTable.delegate = self;
-    self.rankingTable.delegate = self;
+    self.gameTable.scrollDelegate = self;
+    self.rankingTable.scrollDelegate = self;
         
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeaguePicker)];
     [self.leagueInput addGestureRecognizer:tapGesture];

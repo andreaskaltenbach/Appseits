@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TournamentRound.h"
+#import "ScrollTriggeringTableView.h"
 
-@interface GameTable : UITableView<UITableViewDataSource>
+@interface GameTable : ScrollTriggeringTableView<UITableViewDataSource>
 
 @property (nonatomic, strong) TournamentRound *round;
 
