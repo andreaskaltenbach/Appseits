@@ -50,6 +50,7 @@ static UIImage *trendDown;
 @property (weak, nonatomic) IBOutlet UIView *rankingTableHeader;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet MainScrollView *mainScrollView;
+@property (weak, nonatomic) IBOutlet UIView *pullToRefreshPanel;
 @end
 
 @implementation OverviewViewController
@@ -73,6 +74,7 @@ static UIImage *trendDown;
 @synthesize rankingTableHeader = _rankingTableHeader;
 @synthesize headerView = _headerView;
 @synthesize mainScrollView = _mainScrollView;
+@synthesize pullToRefreshPanel = _pullToRefreshPanel;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -82,6 +84,24 @@ static UIImage *trendDown;
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSLog(@"Scrolling to %f", scrollView.contentOffset.y);
+    
+    if (scrollView == self.gameTable || scrollView == self.rankingTable) {
+        // if table inside the menu-dependend view is scrolled, we also scroll the main scroll view
+        if (scrollView.contentOffset.y <= self.scoreView.frame.size.height) {
+            self.mainScrollView.contentOffset = CGPointMake(0, self.pullToRefreshPanel.frame.size.height +scrollView.contentOffset.y);
+        }
+        else {
+            self.mainScrollView.contentOffset = CGPointMake(0, self.pullToRefreshPanel.frame.size.height + self.scoreView.frame.size.height);
+        }
+    }
+    
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == self.gameTable) return 100;
+    
+    return 44;
 }
 
 - (void) viewDidLoad {
@@ -90,6 +110,8 @@ static UIImage *trendDown;
     
     self.mainScrollView.delegate = self;
     
+    self.gameTable.delegate = self;
+    self.rankingTable.delegate = self;
         
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeaguePicker)];
     [self.leagueInput addGestureRecognizer:tapGesture];
@@ -180,6 +202,7 @@ static UIImage *trendDown;
     [self setRankingTableHeader:nil];
     [self setHeaderView:nil];
     [self setMainScrollView:nil];
+    [self setPullToRefreshPanel:nil];
     [super viewDidUnload];
 }
 

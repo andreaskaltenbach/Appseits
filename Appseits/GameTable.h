@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TournamentRound.h"
 
-@interface GameTable : UITableView<UITableViewDataSource, UITableViewDelegate>
+@interface GameTable : UITableView<UITableViewDataSource>
 
 @property (nonatomic, strong) TournamentRound *round;
 

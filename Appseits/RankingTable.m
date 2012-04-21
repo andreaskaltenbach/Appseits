@@ -29,7 +29,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.delegate = self;
+
         self.dataSource = self;
         
         // load a potential league ID stored in the user defaults

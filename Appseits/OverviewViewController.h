@@ -10,5 +10,5 @@
 #import "TournamentRoundSelectDelegate.h"
 #import "LeaguePickerView.h"
 
-@interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate, LeagueDelegate, UIScrollViewDelegate>
+@interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate, LeagueDelegate, UIScrollViewDelegate, UITableViewDelegate>
 @end

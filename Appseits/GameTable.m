@@ -25,7 +25,6 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.delegate = self;
         self.dataSource = self;
         self.scrollsToTop = YES;
     }
@@ -112,12 +111,6 @@
     return sectionRow;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.round.locked) {
-        return 100;
-    } else {
-        return 100;
-    }
-}
+
 
 @end
