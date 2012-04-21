@@ -61,14 +61,14 @@ typedef enum {
  
  The default is `nil`.
  */
-@property (nonatomic) UIColor *topColor;
+@property (weak, nonatomic) UIColor *topColor;
 
 /**
  The bottom gradient color. This method is deprecated.
  
  The default is `nil`.
  */
-@property (nonatomic) UIColor *bottomColor;
+@property (weak, nonatomic) UIColor *bottomColor;
 
 /** The scale of the gradient. This method is deprecated.
  

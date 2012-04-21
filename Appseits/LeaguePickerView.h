@@ -16,7 +16,7 @@
 @end
 
 @interface LeaguePickerView : UIView<UIPickerViewDelegate>
-@property id<LeagueDelegate> leagueDelegate;
+@property (unsafe_unretained) id<LeagueDelegate> leagueDelegate;
 
 - (void) show;
 

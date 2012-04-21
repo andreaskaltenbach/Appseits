@@ -8,9 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "League.h"
-
+#import "TournamentRound.h"
 
 typedef void(^FinishedBlock)(bool success);
+
+@protocol MatchUpdateDelegate
+- (void) matchesUpdated:(TournamentRound*) round;
+@end
+
+@protocol RankingUpdateDelegate
+- (void) rankingsUpdated:(NSArray*) rankings;
+@end
 
 @interface BackendAdapter : NSObject
 
@@ -24,6 +32,12 @@ typedef void(^FinishedBlock)(bool success);
 + (NSArray*) tournamentRounds;
 + (NSArray*) rankings;
 + (NSArray*) leagues;
+
++ (void) addMatchUpdateDelegate:(id<MatchUpdateDelegate>) delegate;
++ (void) addRankingUpdateDelegate:(id<RankingUpdateDelegate>) delegate;
+
++ (void) updateMatches;
++ (void) updateRankings;
 
 
 @end

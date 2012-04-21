@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TournamentRoundSelectDelegate.h"
 #import "LeaguePickerView.h"
+#import "PullToRefreshView.h"
 
-@interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate, LeagueDelegate, UIScrollViewDelegate, UITableViewDelegate>
+@interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate, LeagueDelegate, UIScrollViewDelegate, UITableViewDelegate, PullToRefreshViewDelegate>
 @end

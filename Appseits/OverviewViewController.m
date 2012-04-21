@@ -23,31 +23,32 @@
 #import "LeaguePickerView.h"
 #import "BackendAdapter.h"
 #import "MainScrollView.h"
+#import "PullToRefreshView.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
 static UIImage *trendDown;
 
 @interface OverviewViewController()
-@property (weak, nonatomic) IBOutlet GameTable *gameTable;
+@property (strong, nonatomic) IBOutlet GameTable *gameTable;
 @property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
-@property (weak, nonatomic) IBOutlet LeaguePickerView *leaguePicker;
+@property (strong, nonatomic) IBOutlet LeaguePickerView *leaguePicker;
 
 @property (strong, nonatomic) IBOutlet UILabel *pointInCurrentRound;
 @property (strong, nonatomic) IBOutlet UILabel *pointsTotal;
 @property (strong, nonatomic) IBOutlet Timeline *timeline;
-@property (weak, nonatomic) IBOutlet UIView *menu;
-@property (weak, nonatomic) IBOutlet UIView *resultMenuItem;
-@property (weak, nonatomic) IBOutlet UIView *rankingMenuItem;
-@property (weak, nonatomic) IBOutlet MenuDependendScrollView *menuDependingScrollView;
-@property (weak, nonatomic) IBOutlet UIView *scoreView;
-@property (weak, nonatomic) IBOutlet UITextField *leagueInput;
-@property (weak, nonatomic) IBOutlet RankingTable *rankingTable;
-@property (weak, nonatomic) IBOutlet UIImageView *trendImage;
-@property (weak, nonatomic) IBOutlet UIView *rankingTableHeader;
+@property (strong, nonatomic) IBOutlet UIView *menu;
+@property (strong, nonatomic) IBOutlet UIView *resultMenuItem;
+@property (strong, nonatomic) IBOutlet UIView *rankingMenuItem;
+@property (strong, nonatomic) IBOutlet MenuDependendScrollView *menuDependingScrollView;
+@property (strong, nonatomic) IBOutlet UIView *scoreView;
+@property (strong, nonatomic) IBOutlet UITextField *leagueInput;
+@property (strong, nonatomic) IBOutlet RankingTable *rankingTable;
+@property (strong, nonatomic) IBOutlet UIImageView *trendImage;
+@property (strong, nonatomic) IBOutlet UIView *rankingTableHeader;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet MainScrollView *mainScrollView;
-@property (weak, nonatomic) IBOutlet UIView *pullToRefreshPanel;
+@property (nonatomic, strong) PullToRefreshView *pullToRefreshView;
 @end
 
 @implementation OverviewViewController
@@ -68,7 +69,7 @@ static UIImage *trendDown;
 @synthesize rankingTableHeader = _rankingTableHeader;
 @synthesize headerView = _headerView;
 @synthesize mainScrollView = _mainScrollView;
-@synthesize pullToRefreshPanel = _pullToRefreshPanel;
+@synthesize pullToRefreshView = _pullToRefreshView;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -81,14 +82,12 @@ static UIImage *trendDown;
     
     if (scrollView.contentOffset.y != 0 && (scrollView == self.gameTable || scrollView == self.rankingTable)) {
         
-        NSLog(@"Scrolling to %f", scrollView.contentOffset.y);
-        
         // if table inside the menu-dependend view is scrolled, we also scroll the main scroll view
         if (scrollView.contentOffset.y <= self.scoreView.frame.size.height) {
-            self.mainScrollView.contentOffset = CGPointMake(0, self.pullToRefreshPanel.frame.size.height +scrollView.contentOffset.y);
+            self.mainScrollView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
         }
         else {
-            self.mainScrollView.contentOffset = CGPointMake(0, self.pullToRefreshPanel.frame.size.height + self.scoreView.frame.size.height);
+            self.mainScrollView.contentOffset = CGPointMake(0, self.scoreView.frame.size.height);
         }
         
         //scrollView.contentOffset = CGPointMake(0, 0);
@@ -98,6 +97,15 @@ static UIImage *trendDown;
 
 
 - (void) viewDidLoad {
+    
+    self.pullToRefreshView = [[PullToRefreshView alloc] initWithScrollView:self.mainScrollView];
+    self.pullToRefreshView.delegate = self;
+    [self.pullToRefreshView addWatchedScrollView:self.gameTable];
+    [self.pullToRefreshView addWatchedScrollView:self.rankingTable];
+    [BackendAdapter addMatchUpdateDelegate:self.pullToRefreshView];
+    [BackendAdapter addRankingUpdateDelegate:self.pullToRefreshView];
+    
+    [self.mainScrollView addSubview:self.pullToRefreshView];
     
     self.headerView.backgroundColor = [UIColor headerBackground];
     
@@ -141,7 +149,7 @@ static UIImage *trendDown;
     // setup the ranking table header
     self.rankingTableHeader.backgroundColor = [UIColor blackBackground];
     
-    self.scoreView.backgroundColor = [UIColor clearColor];
+    self.scoreView.backgroundColor = [UIColor squareBackground];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *menu = [userDefaults objectForKey:MENU_KEY];
@@ -186,7 +194,6 @@ static UIImage *trendDown;
     [self setRankingTableHeader:nil];
     [self setHeaderView:nil];
     [self setMainScrollView:nil];
-    [self setPullToRefreshPanel:nil];
     [super viewDidUnload];
 }
 
@@ -226,6 +233,17 @@ static UIImage *trendDown;
     } else {
         self.leagueInput.text = @"Alla ligor";
     }
+}
+
+- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
+    NSLog(@"refresh!");
+    [BackendAdapter updateMatches];
+    [BackendAdapter updateRankings];
+}
+
+- (NSDate *)pullToRefreshViewLastUpdated:(PullToRefreshView *)view {
+    NSLog(@"view last updated!");
+    return [NSDate date];
 }
 
 @end

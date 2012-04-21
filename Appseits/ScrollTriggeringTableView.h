@@ -10,7 +10,7 @@
 
 @interface ScrollTriggeringTableView : UITableView<UITableViewDelegate>
 
-@property id<UIScrollViewDelegate> scrollDelegate;
+@property (unsafe_unretained) id<UIScrollViewDelegate> scrollDelegate;
 
 
 

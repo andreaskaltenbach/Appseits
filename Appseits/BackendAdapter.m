@@ -23,12 +23,39 @@ static NSArray *leagues;
 static League *currentLeague;
 static TournamentRound *currentRound;
 
+static NSMutableSet *matchUpdateDelegates;
+static NSMutableSet *rankingUpdateDelegates;
+
 @implementation BackendAdapter
+
 
 + (void) initialize {
     tournamentUrl = @"http://dl.dropbox.com/u/15650647/games.json";
     leagueUrl = @"http://dl.dropbox.com/u/15650647/leagues.json";
     rankingUrl = @"http://dl.dropbox.com/u/15650647/ranking.json";
+    
+    matchUpdateDelegates = [NSMutableSet set];
+    rankingUpdateDelegates = [NSMutableSet set];
+}
+
++ (void) updateMatches {
+    for (id<MatchUpdateDelegate> matchUpdateDelegate in matchUpdateDelegates) {
+        [matchUpdateDelegate matchesUpdated:nil];
+    }
+}
+
++ (void) updateRankings {
+    for (id<RankingUpdateDelegate> rankingUpdateDelegate in rankingUpdateDelegates) {
+        [rankingUpdateDelegate rankingsUpdated:nil];
+    }
+    
+}
+
++ (void) addMatchUpdateDelegate:(id<MatchUpdateDelegate>) delegate {
+    [matchUpdateDelegates addObject:delegate];
+}
++ (void) addRankingUpdateDelegate:(id<RankingUpdateDelegate>) delegate {
+    [rankingUpdateDelegates addObject:delegate];
 }
 
 + (BOOL) validateCredentials {

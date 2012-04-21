@@ -15,7 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageIndicator;
 @property (strong, nonatomic) CPTXYGraph *pieChart;
-@property (weak, nonatomic) IBOutlet CPTGraphHostingView *pieChartView;
+@property (strong, nonatomic) IBOutlet CPTGraphHostingView *pieChartView;
 
 @end
 
