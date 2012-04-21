@@ -36,14 +36,11 @@ static UIImage *trendDown;
 @property (strong, nonatomic) IBOutlet UILabel *pointInCurrentRound;
 @property (strong, nonatomic) IBOutlet UILabel *pointsTotal;
 @property (strong, nonatomic) IBOutlet Timeline *timeline;
-@property (weak, nonatomic) IBOutlet SSGradientView *menu;
-@property (weak, nonatomic) IBOutlet UIView *menuItemView;
-@property (weak, nonatomic) IBOutlet SSGradientView *resultMenuItem;
-@property (weak, nonatomic) IBOutlet UILabel *resultMenuLabel;
-@property (weak, nonatomic) IBOutlet SSGradientView *rankingMenuItem;
+@property (weak, nonatomic) IBOutlet UIView *menu;
+@property (weak, nonatomic) IBOutlet UIView *resultMenuItem;
+@property (weak, nonatomic) IBOutlet UIView *rankingMenuItem;
 @property (weak, nonatomic) IBOutlet MenuDependendScrollView *menuDependingScrollView;
 @property (weak, nonatomic) IBOutlet UIView *scoreView;
-@property (weak, nonatomic) IBOutlet UILabel *rankingMenuLabel;
 @property (weak, nonatomic) IBOutlet UITextField *leagueInput;
 @property (weak, nonatomic) IBOutlet RankingTable *rankingTable;
 @property (weak, nonatomic) IBOutlet UIImageView *trendImage;
@@ -61,13 +58,10 @@ static UIImage *trendDown;
 @synthesize pointsTotal = _pointsTotal;
 @synthesize timeline = _timeline;
 @synthesize menu = _menu;
-@synthesize menuItemView = _menuItemView;
 @synthesize resultMenuItem = _resultMenuItem;
-@synthesize resultMenuLabel = _resultMenuLabel;
 @synthesize rankingMenuItem = _rankingMenuItem;
 @synthesize menuDependingScrollView = _menuDependingScrollView;
 @synthesize scoreView = _scoreView;
-@synthesize rankingMenuLabel = _rankingMenuLabel;
 @synthesize leagueInput = _leagueInput;
 @synthesize rankingTable = _rankingTable;
 @synthesize trendImage = _trendImage;
@@ -83,9 +77,12 @@ static UIImage *trendDown;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"Scrolling to %f", scrollView.contentOffset.y);
+
     
-    if (scrollView == self.gameTable || scrollView == self.rankingTable) {
+    if (scrollView.contentOffset.y != 0 && (scrollView == self.gameTable || scrollView == self.rankingTable)) {
+        
+        NSLog(@"Scrolling to %f", scrollView.contentOffset.y);
+        
         // if table inside the menu-dependend view is scrolled, we also scroll the main scroll view
         if (scrollView.contentOffset.y <= self.scoreView.frame.size.height) {
             self.mainScrollView.contentOffset = CGPointMake(0, self.pullToRefreshPanel.frame.size.height +scrollView.contentOffset.y);
@@ -93,7 +90,12 @@ static UIImage *trendDown;
         else {
             self.mainScrollView.contentOffset = CGPointMake(0, self.pullToRefreshPanel.frame.size.height + self.scoreView.frame.size.height);
         }
+        
+        //scrollView.contentOffset = CGPointMake(0, 0);
+
     }
+    
+    
     
     
 }
@@ -137,13 +139,10 @@ static UIImage *trendDown;
     self.view.backgroundColor = [UIColor squareBackground];
     
     // initialize menu
-    self.menu.colors = [UIColor menuGrayGradient];
+    self.menu.backgroundColor = [UIColor menuBackground];
     self.menu.layer.shadowOffset = CGSizeMake(0, 10);
     self.menu.layer.shadowRadius = 5;
     self.menu.layer.shadowOpacity = 0.5;
-    self.menuItemView.backgroundColor = [UIColor clearColor];
-    self.resultMenuItem.backgroundColor = [UIColor clearColor];
-    self.rankingMenuItem.backgroundColor = [UIColor clearColor];
     
     // initialize personal informer
     self.trendImage.image = trendUp;
@@ -184,14 +183,8 @@ static UIImage *trendDown;
     [self setTimeline:nil];
     [self setGameTable:nil];
     [self setMenu:nil];
-    [self setMenuItemView:nil];
     [self setResultMenuItem:nil];
     [self setRankingMenuItem:nil];
-    [self setResultMenuItem:nil];
-    [self setRankingMenuItem:nil];
-    [self setResultMenuLabel:nil];
-    [self setRankingMenuLabel:nil];
-    [self setMenuDependingScrollView:nil];
     [self setMenuDependingScrollView:nil];
     [self setScoreView:nil];
     [self setLeagueInput:nil];
@@ -216,19 +209,15 @@ static UIImage *trendDown;
 }
 - (IBAction)resultSelected:(id)sender {
     NSLog(@"Result selected");
-    self.rankingMenuItem.colors = [UIColor menuGrayGradient];
-    self.rankingMenuLabel.textColor = [UIColor blackColor];
-    self.resultMenuItem.colors = [UIColor greenGradient];
-    self.resultMenuLabel.textColor = [UIColor whiteColor];
+    self.rankingMenuItem.backgroundColor = [UIColor clearColor];
+    self.resultMenuItem.backgroundColor = [UIColor menuSelectedBackground];
     [self.menuDependingScrollView scrollToMatches];
 }
 
 - (IBAction)rankingSelected:(id)sender {
     NSLog(@"Ranking selected");
-    self.rankingMenuItem.colors = [UIColor greenGradient];
-    self.rankingMenuLabel.textColor = [UIColor whiteColor];
-    self.resultMenuItem.colors = [UIColor menuGrayGradient];
-    self.resultMenuLabel.textColor = [UIColor blackColor];
+    self.rankingMenuItem.backgroundColor = [UIColor menuSelectedBackground];
+    self.resultMenuItem.backgroundColor = [UIColor clearColor];
     [self.menuDependingScrollView scrollToRankings];
 }
 

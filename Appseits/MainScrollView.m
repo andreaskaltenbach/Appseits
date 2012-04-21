@@ -19,23 +19,15 @@
     if (self) {
         // Initialization code
 
-        self.scrollEnabled = YES;
+        self.scrollEnabled = NO;
         self.bounces = NO;
         
         self.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height + PUSH_TO_REFRESH_HEIGHT + SCORE_VIEW_HEIGHT);
         
         [self scrollRectToVisible:CGRectMake(0, PUSH_TO_REFRESH_HEIGHT, self.frame.size.width, self.frame.size.height) animated:NO];
+        
     }
     return self;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

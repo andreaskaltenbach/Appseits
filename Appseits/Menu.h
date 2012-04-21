@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SSGradientView.h"
 
-@interface Menu : SSGradientView
+@interface Menu : UIView
 
 @end

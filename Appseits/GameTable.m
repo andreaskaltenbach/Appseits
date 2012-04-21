@@ -26,7 +26,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.dataSource = self;
-        self.scrollsToTop = YES;
+        self.scrollsToTop = NO;
     }
     return self;
 }

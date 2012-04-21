@@ -49,7 +49,7 @@ static UIImage *lockedImage;
     
     // create the gradient view for the background of the round labels
     section.labelGradient = [[SSGradientView alloc] initWithFrame:CGRectMake(0, sectionHeight-ROUND_LABEL_HEIGHT, sectionWidth, ROUND_LABEL_HEIGHT)];
-    section.labelGradient.colors = [UIColor menuGrayGradient];
+    section.labelGradient.colors = [UIColor grayBackgroundGradient];
     section.labelGradient.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [section addSubview:section.labelGradient];
     
@@ -99,7 +99,7 @@ static UIImage *lockedImage;
 }
 
 - (void) unhighlight {
-    self.labelGradient.colors = [UIColor menuGrayGradient];
+    self.labelGradient.colors = [UIColor grayBackgroundGradient];
     self.roundLabel.textColor = [UIColor blackColor];
 }
 

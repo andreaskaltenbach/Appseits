@@ -12,6 +12,11 @@
 
 + (UIColor*) headerBackground;
 
++ (UIColor*) menuBackground;
++ (UIColor*) menuSelectedBackground;
+
++ (NSArray *) grayBackgroundGradient;
+
 + (UIColor*) blackBackground;
 
 + (UIColor*) squareBackground;
@@ -26,7 +31,6 @@
 
 + (UIColor*) orangeSeparator;
 
-+ (NSArray *) menuGrayGradient;
 + (NSArray *) greenGradient;
 + (NSArray *) darkGrayGradient;
 + (NSArray *) grayGradient;

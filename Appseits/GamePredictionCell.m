@@ -83,7 +83,7 @@
 	if (view == nil)
 	{
         gradientView = [[SSGradientView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        gradientView.colors = [UIColor menuGrayGradient];
+        gradientView.colors = [UIColor grayBackgroundGradient];
         
 		view = gradientView;
         view.layer.borderColor = [[UIColor blackColor] CGColor];
@@ -106,7 +106,7 @@
     if (index == MAX_GOALS-1) {
         label.text = @"-";
         label.textColor = [UIColor blackColor];
-        gradientView.colors = [UIColor menuGrayGradient];
+        gradientView.colors = [UIColor grayBackgroundGradient];
     }
     else {
        label.text = [NSString stringWithFormat:@"%i", index];

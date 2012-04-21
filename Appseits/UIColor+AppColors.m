@@ -14,6 +14,14 @@
     return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"headerPattern.png"]];
 }
 
++ (UIColor*) menuBackground {
+    return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"menuBackground.png"]];
+}
+
++ (UIColor*) menuSelectedBackground {
+    return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"menuSelectedBackground.png"]];
+}
+
 + (UIColor*) blackBackground {
     return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"blck.png"]];
 }
@@ -29,10 +37,10 @@
             nil];
 }
 
-+ (NSArray *) menuGrayGradient {
++ (NSArray *) grayBackgroundGradient {
     return [NSArray arrayWithObjects: 
-            [UIColor colorWithRed:202.0/255.0f green:202.0f/255.0f blue:202.0f/255.0f alpha:1],
-            [UIColor colorWithRed:1 green:1 blue:1 alpha:1],
+            [UIColor colorWithRed:210.0/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1],
+            [UIColor whiteColor],
             nil];
 }
 

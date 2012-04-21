@@ -55,9 +55,6 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         
-
-        self.colors = [UIColor menuGrayGradient];
-        
         
         int width = self.frame.size.width;
         int height = self.frame.size.height;
