@@ -58,25 +58,27 @@ static NSMutableSet *rankingUpdateDelegates;
     [rankingUpdateDelegates addObject:delegate];
 }
 
-+ (BOOL) validateCredentials {
++ (void) validateCredentials:(FinishedBlock) onFinished {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *username = [userDefaults objectForKey:@"username"];
+    NSString *email = [userDefaults objectForKey:@"email"];
     NSString *password = [userDefaults objectForKey:@"password"];
     
-    if (username && password) {
+    if (email && password) {
         // TODO validate credentials against backend
-        return NO;
+        onFinished(YES);
     }
     else {
         // TODO - return NO!!!
-        return YES;
+        onFinished(NO);
     }
 }
 
-+ (void) initializeModel {
++ (void) initializeModel:(FinishedBlock) onFinished {
     [self loadCompleteTournament];
     [self loadLeagues];
     [self loadRankings];
+    
+    onFinished(YES);
 }
 
 + (void) loadLeagues {

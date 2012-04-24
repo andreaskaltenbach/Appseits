@@ -24,6 +24,7 @@
 #import "BackendAdapter.h"
 #import "MainScrollView.h"
 #import "PullToRefreshView.h"
+#import "RoundLastUpdatedView.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -49,6 +50,7 @@ static UIImage *trendDown;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet MainScrollView *mainScrollView;
 @property (nonatomic, strong) PullToRefreshView *pullToRefreshView;
+@property (weak, nonatomic) IBOutlet RoundLastUpdatedView *roundLastUpdatedView;
 @end
 
 @implementation OverviewViewController
@@ -70,6 +72,7 @@ static UIImage *trendDown;
 @synthesize headerView = _headerView;
 @synthesize mainScrollView = _mainScrollView;
 @synthesize pullToRefreshView = _pullToRefreshView;
+@synthesize roundLastUpdatedView = _roundLastUpdatedView;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -78,25 +81,38 @@ static UIImage *trendDown;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
     
-    if (scrollView == self.gameTable || scrollView == self.rankingTable) {
-        
-        // if table inside the menu-dependend view is scrolled, we also scroll the main scroll view
+
+    //NSLog(@"Scrolling inner: %f", scrollView.contentOffset.y);
+    
+    // if table inside the menu-dependend view is scrolled, we also scroll the main scroll view
+    //NSLog(@"Is empty %i", scrollView.contentOffset.y == 0.0f);
+    
+    //if (scrollView.contentOffset.y <= 10.0f) {
+    NSLog(@"Scrolling inner: %f", scrollView.contentOffset.y);
         if (scrollView.contentOffset.y <= self.scoreView.frame.size.height) {
             self.mainScrollView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
         }
         else {
             self.mainScrollView.contentOffset = CGPointMake(0, self.scoreView.frame.size.height);
         }
-        /*
-        CGRect scrollBounds = scrollView.bounds;
-        scrollBounds.origin = CGPointMake(0, 0);
-        scrollView.bounds = scrollBounds;*/
 
+    //}    
 
-    }
+        
+    
+    
+    
+    //scrollView.contentOffset = CGPointZero;
+
 }
+/*
+- (void) backToTop:(UIScrollView*) scrollView  {
+    
+     CGRect scrollBounds = scrollView.bounds;
+     scrollBounds.origin = CGPointMake(0, 10);
+     scrollView.bounds = scrollBounds;
+}*/
 
 
 - (void) viewDidLoad {
@@ -107,6 +123,8 @@ static UIImage *trendDown;
     [self.pullToRefreshView addWatchedScrollView:self.rankingTable];
     [BackendAdapter addMatchUpdateDelegate:self.pullToRefreshView];
     [BackendAdapter addRankingUpdateDelegate:self.pullToRefreshView];
+    
+    [BackendAdapter addMatchUpdateDelegate:self.roundLastUpdatedView];
     
     [self.mainScrollView addSubview:self.pullToRefreshView];
     
@@ -195,6 +213,7 @@ static UIImage *trendDown;
     [self setRankingTableHeader:nil];
     [self setHeaderView:nil];
     [self setMainScrollView:nil];
+    [self setRoundLastUpdatedView:nil];
     [super viewDidUnload];
 }
 
@@ -217,7 +236,12 @@ static UIImage *trendDown;
     NSLog(@"Ranking selected");
     self.rankingMenuItem.backgroundColor = [UIColor menuSelectedBackground];
     self.resultMenuItem.backgroundColor = [UIColor clearColor];
+    
+    
+    
     [self.menuDependingScrollView scrollToRankings];
+    
+
 }
 
 - (void) showLeaguePicker {

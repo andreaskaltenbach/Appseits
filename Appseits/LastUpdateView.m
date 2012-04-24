@@ -13,7 +13,7 @@ static UIImage *clockImage;
 
 @interface LastUpdateView()
 
-@property (nonatomic, strong) UILabel *label;
+
 
 @end
 

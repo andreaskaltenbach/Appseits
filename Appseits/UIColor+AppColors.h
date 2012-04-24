@@ -41,4 +41,7 @@
 + (UIColor *) rankingEven;
 
 + (UIColor *) darkGreen;
+
++ (UIColor *) credentialsBackground;
++ (UIColor *) credentialsSeparator;
 @end

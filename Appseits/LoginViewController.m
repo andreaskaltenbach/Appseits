@@ -8,42 +8,109 @@
 
 #import "LoginViewController.h"
 #import "BackendAdapter.h"
+#import "UIColor+AppColors.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LoginViewController ()
 @property (unsafe_unretained, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UITextField *emailInput;
+@property (weak, nonatomic) IBOutlet UITextField *passwordInput;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIView *loginView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UIView *inputBackgroundView;
+@property (weak, nonatomic) IBOutlet UIView *separator;
+@property (weak, nonatomic) IBOutlet UIButton *forgotPasswordButton;
 
 @end
 
 @implementation LoginViewController
 @synthesize usernameField;
+@synthesize emailInput;
+@synthesize passwordInput;
+@synthesize loginButton;
+@synthesize loginView;
+@synthesize spinner;
+@synthesize inputBackgroundView;
+@synthesize separator;
+@synthesize forgotPasswordButton;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+static UIImage *backgroundImage;
+static UIImage *loginButtonImage;
+static UIImage *forgotPasswordButtonImage;
+
++ (void) initialize {
+    backgroundImage = [UIImage imageNamed:@"Default"];
+    loginButtonImage = [UIImage imageNamed:@"login"];
+    forgotPasswordButtonImage = [UIImage imageNamed:@"forgotPassword"];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // do we have valid credentials?
-    BOOL validCredentials = [BackendAdapter validateCredentials];
     
-    if (validCredentials) {
-        [BackendAdapter initializeModel];
-        [self performSegueWithIdentifier:@"toOverview" sender:self];
-    }
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:backgroundImage];
+    
+    spinner.hidden = NO;
+    [spinner startAnimating];
+    
+    loginView.hidden = YES;
+    
+    
+    self.inputBackgroundView.backgroundColor = [UIColor credentialsBackground];
+    self.inputBackgroundView.layer.cornerRadius = 10;
+    self.separator.backgroundColor = [UIColor credentialsSeparator];
+    self.loginButton.backgroundColor = [UIColor colorWithPatternImage:loginButtonImage];
+    self.forgotPasswordButton.backgroundColor = [UIColor colorWithPatternImage:forgotPasswordButtonImage];
+    
+
+    [self login];
+}
+
+- (void) login {
+    [BackendAdapter validateCredentials:^(bool validCredentials) {
+        if (validCredentials) {
+            
+            // enter initialize the app and enter it
+            [BackendAdapter initializeModel:^(bool success) {
+                [self.spinner stopAnimating];
+                [self performSegueWithIdentifier:@"toOverview" sender:self];
+            }];
+        }
+        else {
+            // show inputs
+            [self.spinner stopAnimating];
+            self.spinner.hidden = YES;
+            self.loginView.hidden = NO;
+        }
+    }];
+
 }
 
 - (void)viewDidUnload
 {
     [self setUsernameField:nil];
+    [self setEmailInput:nil];
+    [self setPasswordInput:nil];
+    [self setLoginButton:nil];
+    [self setLoginView:nil];
+    [self setSpinner:nil];
+    [self setInputBackgroundView:nil];
+    [self setInputBackgroundView:nil];
+    [self setSeparator:nil];
+    [self setForgotPasswordButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+- (IBAction)loginTabbed:(id)sender {
+    
+    // store username and password as user defaults
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:self.emailInput.text forKey:@"email"];
+    [userDefaults setObject:self.passwordInput.text forKey:@"password"];
+    [userDefaults synchronize];
+    
+    [self login];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
