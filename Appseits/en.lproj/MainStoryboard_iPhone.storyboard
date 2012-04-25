@@ -108,6 +108,23 @@
                             <view contentMode="TopLeft" id="JbU-Ph-zcW" userLabel="header">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="a91-4J-Tjk">
+                                        <rect key="frame" x="272" y="0.0" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logout:" destination="6qr-mS-VaE" eventType="touchUpInside" id="HKp-wf-7X9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="aYN-hX-Ic6" userLabel="menu">
@@ -608,6 +625,7 @@
                         <outlet property="headerView" destination="JbU-Ph-zcW" id="2j6-as-vg0"/>
                         <outlet property="leagueInput" destination="PUQ-s3-g7l" id="kgD-HP-woS"/>
                         <outlet property="leaguePicker" destination="fht-Jl-2O1" id="SQw-sB-DuO"/>
+                        <outlet property="logoutButton" destination="a91-4J-Tjk" id="Ziu-QG-jLS"/>
                         <outlet property="mainScrollView" destination="aer-g7-G9t" id="Siy-BG-FOm"/>
                         <outlet property="menu" destination="aYN-hX-Ic6" id="587-jF-54d"/>
                         <outlet property="menuDependingScrollView" destination="Up8-uV-wwV" id="qhK-Sn-mbw"/>
@@ -757,119 +775,6 @@
         <image name="tipBar.png" width="302" height="36"/>
         <image name="verticalSeparator.png" width="6" height="88"/>
     </resources>
-    <classes>
-        <class className="AppseitsPageControl" superclassName="UIPageControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppseitsPageControl.h"/>
-        </class>
-        <class className="CPTGraphHostingView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
-        </class>
-        <class className="GameCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameCell.h"/>
-        </class>
-        <class className="GamePredictionCell" superclassName="GameCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GamePredictionCell.h"/>
-        </class>
-        <class className="GameResultCelll" superclassName="GameCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameResultCelll.h"/>
-        </class>
-        <class className="GameTable" superclassName="ScrollTriggeringTableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameTable.h"/>
-        </class>
-        <class className="LastUpdateView" superclassName="SSGradientView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LastUpdateView.h"/>
-        </class>
-        <class className="LeaguePickerView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaguePickerView.h"/>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="emailInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="forgotPasswordButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="inputBackgroundView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loginView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="separator" candidateClass="UIView"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MainScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainScrollView.h"/>
-        </class>
-        <class className="MenuDependendScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuDependendScrollView.h"/>
-        </class>
-        <class className="OverviewViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverviewViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="gameTable" candidateClass="GameTable"/>
-                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="leagueInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="leaguePicker" candidateClass="LeaguePickerView"/>
-                <relationship kind="outlet" name="mainScrollView" candidateClass="MainScrollView"/>
-                <relationship kind="outlet" name="menu" candidateClass="UIView"/>
-                <relationship kind="outlet" name="menuDependingScrollView" candidateClass="MenuDependendScrollView"/>
-                <relationship kind="outlet" name="pointInCurrentRound" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pointsTotal" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rankingMenuItem" candidateClass="UIView"/>
-                <relationship kind="outlet" name="rankingTable" candidateClass="RankingTable"/>
-                <relationship kind="outlet" name="rankingTableHeader" candidateClass="UIView"/>
-                <relationship kind="outlet" name="resultMenuItem" candidateClass="UIView"/>
-                <relationship kind="outlet" name="roundLastUpdatedView" candidateClass="RoundLastUpdatedView"/>
-                <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
-                <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
-                <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="PagedView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PagedView.h"/>
-        </class>
-        <class className="RankingCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingCell.h"/>
-        </class>
-        <class className="RankingTable" superclassName="ScrollTriggeringTableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingTable.h"/>
-        </class>
-        <class className="RoundLastUpdatedView" superclassName="LastUpdateView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundLastUpdatedView.h"/>
-        </class>
-        <class className="SSBorderedView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSBorderedView.h"/>
-        </class>
-        <class className="SSGradientView" superclassName="SSBorderedView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSGradientView.h"/>
-        </class>
-        <class className="ScrollTriggeringTableView" superclassName="UITableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScrollTriggeringTableView.h"/>
-        </class>
-        <class className="Timeline" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
-        </class>
-        <class className="TimelineScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
-        </class>
-        <class className="UnfinishedMatchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UnfinishedMatchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="graphView" candidateClass="CPTGraphHostingView"/>
-                <relationship kind="outlet" name="pageIndicator" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="resultButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="PagedView"/>
-                <relationship kind="outlet" name="spreadButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="iCarousel" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataSource"/>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

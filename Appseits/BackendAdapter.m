@@ -58,6 +58,11 @@ static NSMutableSet *rankingUpdateDelegates;
     [rankingUpdateDelegates addObject:delegate];
 }
 
++ (BOOL) credentialsAvailable {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults objectForKey:@"email"] != nil && [userDefaults objectForKey:@"password"] != nil;
+}
+
 + (void) validateCredentials:(FinishedBlock) onFinished {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *email = [userDefaults objectForKey:@"email"];
@@ -71,6 +76,13 @@ static NSMutableSet *rankingUpdateDelegates;
         // TODO - return NO!!!
         onFinished(NO);
     }
+}
+
++ (void) logout {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults removeObjectForKey:@"email"];
+    [userDefaults removeObjectForKey:@"password"];
+    [userDefaults synchronize];
 }
 
 + (void) initializeModel:(FinishedBlock) onFinished {

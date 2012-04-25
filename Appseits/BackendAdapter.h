@@ -22,9 +22,12 @@ typedef void(^FinishedBlock)(bool success);
 
 @interface BackendAdapter : NSObject
 
++ (BOOL) credentialsAvailable;
 + (void) validateCredentials:(FinishedBlock) onFinished;
 
 + (void) initializeModel:(FinishedBlock) onFinished;
+
++ (void) logout;
 
 + (League*) currentLeague;
 + (void) setCurrentLeague:(League*) league:(FinishedBlock) onDone;

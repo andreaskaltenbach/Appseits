@@ -29,6 +29,7 @@
 static UIImage *trendUp;
 static UIImage *trendConstant;
 static UIImage *trendDown;
+static UIImage *cogWheel;
 
 @interface OverviewViewController()
 @property (strong, nonatomic) IBOutlet GameTable *gameTable;
@@ -51,6 +52,7 @@ static UIImage *trendDown;
 @property (strong, nonatomic) IBOutlet MainScrollView *mainScrollView;
 @property (nonatomic, strong) PullToRefreshView *pullToRefreshView;
 @property (weak, nonatomic) IBOutlet RoundLastUpdatedView *roundLastUpdatedView;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @end
 
 @implementation OverviewViewController
@@ -73,11 +75,14 @@ static UIImage *trendDown;
 @synthesize mainScrollView = _mainScrollView;
 @synthesize pullToRefreshView = _pullToRefreshView;
 @synthesize roundLastUpdatedView = _roundLastUpdatedView;
+@synthesize logoutButton = _logoutButton;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
     trendConstant = [UIImage imageNamed:@"trendNeutral.png"];
     trendDown = [UIImage imageNamed:@"trendDown.png"];
+    
+    cogWheel = [UIImage imageNamed:@"cogwheel"];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -116,6 +121,8 @@ static UIImage *trendDown;
 
 
 - (void) viewDidLoad {
+    
+    self.logoutButton.backgroundColor = [UIColor colorWithPatternImage:cogWheel];
     
     self.pullToRefreshView = [[PullToRefreshView alloc] initWithScrollView:self.mainScrollView];
     self.pullToRefreshView.delegate = self;
@@ -214,6 +221,7 @@ static UIImage *trendDown;
     [self setHeaderView:nil];
     [self setMainScrollView:nil];
     [self setRoundLastUpdatedView:nil];
+    [self setLogoutButton:nil];
     [super viewDidUnload];
 }
 
@@ -269,6 +277,11 @@ static UIImage *trendDown;
 - (NSDate *)pullToRefreshViewLastUpdated:(PullToRefreshView *)view {
     NSLog(@"view last updated!");
     return [NSDate date];
+}
+
+- (IBAction)logout:(id)sender {
+    [BackendAdapter logout];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -62,9 +62,23 @@ static UIImage *forgotPasswordButtonImage;
     self.separator.backgroundColor = [UIColor credentialsSeparator];
     self.loginButton.backgroundColor = [UIColor colorWithPatternImage:loginButtonImage];
     self.forgotPasswordButton.backgroundColor = [UIColor colorWithPatternImage:forgotPasswordButtonImage];
-    
+}
 
-    [self login];
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ([BackendAdapter credentialsAvailable]) {
+        [self login];
+    }
+    else {
+        [self showInputs];
+    }
+}
+
+- (void) showInputs {
+    [self.spinner stopAnimating];
+    self.spinner.hidden = YES;
+    self.loginView.hidden = NO;
 }
 
 - (void) login {
@@ -79,9 +93,7 @@ static UIImage *forgotPasswordButtonImage;
         }
         else {
             // show inputs
-            [self.spinner stopAnimating];
-            self.spinner.hidden = YES;
-            self.loginView.hidden = NO;
+            [self showInputs];
         }
     }];
 
