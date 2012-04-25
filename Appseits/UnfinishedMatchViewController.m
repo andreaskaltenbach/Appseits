@@ -58,6 +58,10 @@
         
     self.view.backgroundColor = [UIColor squareBackground];
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissMyself)];
+    [self.scrollView addGestureRecognizer:tapGesture];
+
+    
     
     
     [self spreadSelected:self];
@@ -90,6 +94,11 @@
     [super viewDidLoad];
 
 }
+
+- (void) dismissMyself {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 - (IBAction)spreadSelected:(id)sender {
     self.spreadButton.selected = YES;
     self.resultButton.selected = NO;
