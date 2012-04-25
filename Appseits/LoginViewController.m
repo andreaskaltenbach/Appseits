@@ -55,6 +55,8 @@ static UIImage *forgotPasswordButtonImage;
     [spinner startAnimating];
     
     loginView.hidden = YES;
+    self.emailInput.delegate = self;
+    self.passwordInput.delegate = self;
     
     
     self.inputBackgroundView.backgroundColor = [UIColor credentialsBackground];
@@ -82,10 +84,11 @@ static UIImage *forgotPasswordButtonImage;
 }
 
 - (void) login {
+    self.spinner.hidden = NO;
+    [self.spinner startAnimating];
     [BackendAdapter validateCredentials:^(bool validCredentials) {
         if (validCredentials) {
-            
-            // enter initialize the app and enter it
+            // initialize the app and enter it
             [BackendAdapter initializeModel:^(bool success) {
                 [self.spinner stopAnimating];
                 [self performSegueWithIdentifier:@"toOverview" sender:self];
@@ -130,6 +133,11 @@ static UIImage *forgotPasswordButtonImage;
 	return YES;
 }
 - (IBAction)loginButtonClicked:(id)sender {
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

@@ -86,11 +86,17 @@ static NSMutableSet *rankingUpdateDelegates;
 }
 
 + (void) initializeModel:(FinishedBlock) onFinished {
-    [self loadCompleteTournament];
-    [self loadLeagues];
-    [self loadRankings];
     
-    onFinished(YES);
+    dispatch_queue_t initQueue = dispatch_queue_create("initialization", NULL);
+
+    dispatch_async(initQueue, ^{
+        [self loadCompleteTournament];
+        [self loadLeagues];
+        [self loadRankings];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            onFinished(YES);
+        });
+    });
 }
 
 + (void) loadLeagues {
