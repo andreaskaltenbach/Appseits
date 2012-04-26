@@ -74,7 +74,7 @@
         NSLog(@"END");
     self.tracking = NO;
     self.scrollDelegated = NO;
-
+    self.realDeviance = 0;
     [self.scrollDelegate snapBack];
 }
 
