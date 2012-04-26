@@ -87,23 +87,12 @@ static UIImage *cogWheel;
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-
-    //NSLog(@"Scrolling inner: %f", scrollView.contentOffset.y);
-    
-    // if table inside the menu-dependend view is scrolled, we also scroll the main scroll view
-    //NSLog(@"Is empty %i", scrollView.contentOffset.y == 0.0f);
-    
-    //if (scrollView.contentOffset.y <= 10.0f) {
     NSLog(@"Scrolling inner: %f", scrollView.contentOffset.y);
-        if (scrollView.contentOffset.y <= self.scoreView.frame.size.height) {
-            self.mainScrollView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
-        }
-        else {
-            self.mainScrollView.contentOffset = CGPointMake(0, self.scoreView.frame.size.height);
-        }
+    if (scrollView.contentOffset.y < 0 ) {
+        self.mainScrollView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
+    }
 
-    //}    
-
+    
         
     
     
@@ -134,6 +123,8 @@ static UIImage *cogWheel;
     [BackendAdapter addMatchUpdateDelegate:self.roundLastUpdatedView];
     
     [self.mainScrollView addSubview:self.pullToRefreshView];
+    
+    self.menuDependingScrollView.scrollsToTop = NO;
     
     self.headerView.backgroundColor = [UIColor headerBackground];
     
@@ -237,6 +228,10 @@ static UIImage *cogWheel;
     NSLog(@"Result selected");
     self.rankingMenuItem.backgroundColor = [UIColor clearColor];
     self.resultMenuItem.backgroundColor = [UIColor menuSelectedBackground];
+    
+    self.gameTable.scrollsToTop = YES;
+    self.rankingTable.scrollsToTop = NO;
+    
     [self.menuDependingScrollView scrollToMatches];
 }
 
@@ -245,11 +240,11 @@ static UIImage *cogWheel;
     self.rankingMenuItem.backgroundColor = [UIColor menuSelectedBackground];
     self.resultMenuItem.backgroundColor = [UIColor clearColor];
     
+    self.gameTable.scrollsToTop = NO;
+    self.rankingTable.scrollsToTop = YES;
     
     
     [self.menuDependingScrollView scrollToRankings];
-    
-
 }
 
 - (void) showLeaguePicker {

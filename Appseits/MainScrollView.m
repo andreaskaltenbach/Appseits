@@ -22,6 +22,7 @@
         self.bounces = YES;
         self.showsVerticalScrollIndicator = NO;
         self.delegate = self;
+        self.scrollsToTop = NO;
         self.contentSize = CGSizeMake(self.frame.size.width, self.frame.size.height + SCORE_VIEW_HEIGHT);
         
     }
