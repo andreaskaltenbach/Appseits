@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+#import "Match.h"
 #import "GameCell.h"
 #import "iCarousel.h"
 

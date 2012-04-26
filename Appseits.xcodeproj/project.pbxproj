@@ -33,7 +33,7 @@
 		4E531C3B151CACA90003CAD1 /* OverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C3A151CACA80003CAD1 /* OverviewViewController.m */; };
 		4E531C3F151CAE500003CAD1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C3E151CAE500003CAD1 /* LoginViewController.m */; };
 		4E531C43151CB04A0003CAD1 /* TournamentRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C42151CB04A0003CAD1 /* TournamentRound.m */; };
-		4E531C46151CB05B0003CAD1 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Game.m */; };
+		4E531C46151CB05B0003CAD1 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Match.m */; };
 		4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */; };
 		4E8571891537328B00795055 /* tipBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8571881537328B00795055 /* tipBar.png */; };
 		4E86FF5C152B275F00958DDE /* RankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E86FF5B152B275F00958DDE /* RankingCell.m */; };
@@ -52,6 +52,10 @@
 		5B1EE8B115274DFC00D01564 /* GameTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* GameTable.m */; };
 		5B24E311154753D10011EBED /* forgotPassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B24E30F154753D10011EBED /* forgotPassword@2x.png */; };
 		5B24E312154753D10011EBED /* forgotPassword.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B24E310154753D10011EBED /* forgotPassword.png */; };
+		5B3E6FFA1549BD2B00190AE9 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3E6FF61549BD2B00190AE9 /* libTestFlight.a */; };
+		5B3E6FFB1549BD2B00190AE9 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B3E6FF71549BD2B00190AE9 /* README.txt */; };
+		5B3E6FFC1549BD2B00190AE9 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B3E6FF81549BD2B00190AE9 /* release_notes.txt */; };
+		5B3E6FFE1549BD7900190AE9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3E6FFD1549BD7900190AE9 /* libz.dylib */; };
 		5B76D2B9152A38BA00225BEB /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B76D2B8152A38BA00225BEB /* League.m */; };
 		5B7CE636153C9EB200EB7794 /* BackendAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7CE635153C9EB200EB7794 /* BackendAdapter.m */; };
 		5B7F2B12152901D1006A3687 /* MenuDependendScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F2B11152901D1006A3687 /* MenuDependendScrollView.m */; };
@@ -198,21 +202,18 @@
 		4E531C17151CAB050003CAD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4E531C19151CAB050003CAD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4E531C1D151CAB060003CAD1 /* Appseits-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Appseits-Info.plist"; sourceTree = "<group>"; };
-		4E531C1F151CAB060003CAD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4E531C21151CAB060003CAD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4E531C23151CAB060003CAD1 /* Appseits-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Appseits-Prefix.pch"; sourceTree = "<group>"; };
 		4E531C24151CAB060003CAD1 /* AppseitsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppseitsAppDelegate.h; sourceTree = "<group>"; };
 		4E531C25151CAB060003CAD1 /* AppseitsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppseitsAppDelegate.m; sourceTree = "<group>"; };
-		4E531C28151CAB060003CAD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		4E531C2B151CAB060003CAD1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		4E531C39151CACA80003CAD1 /* OverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewViewController.h; sourceTree = "<group>"; };
 		4E531C3A151CACA80003CAD1 /* OverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewViewController.m; sourceTree = "<group>"; };
 		4E531C3D151CAE500003CAD1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		4E531C3E151CAE500003CAD1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		4E531C41151CB04A0003CAD1 /* TournamentRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TournamentRound.h; sourceTree = "<group>"; };
 		4E531C42151CB04A0003CAD1 /* TournamentRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TournamentRound.m; sourceTree = "<group>"; };
-		4E531C44151CB05B0003CAD1 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		4E531C45151CB05B0003CAD1 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		4E531C44151CB05B0003CAD1 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Match.h; sourceTree = "<group>"; };
+		4E531C45151CB05B0003CAD1 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
 		4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePredictionCell.h; sourceTree = "<group>"; };
 		4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePredictionCell.m; sourceTree = "<group>"; };
 		4E8571881537328B00795055 /* tipBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tipBar.png; sourceTree = "<group>"; };
@@ -242,6 +243,14 @@
 		5B1EE8B015274DFC00D01564 /* GameTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTable.m; sourceTree = "<group>"; };
 		5B24E30F154753D10011EBED /* forgotPassword@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forgotPassword@2x.png"; sourceTree = "<group>"; };
 		5B24E310154753D10011EBED /* forgotPassword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forgotPassword.png; sourceTree = "<group>"; };
+		5B3E6FF61549BD2B00190AE9 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		5B3E6FF71549BD2B00190AE9 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		5B3E6FF81549BD2B00190AE9 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
+		5B3E6FF91549BD2B00190AE9 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		5B3E6FFD1549BD7900190AE9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5B3E6FFF1549BFCB00190AE9 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = /Users/andreaskaltenbach/Development/Appseits/Appseits/sv.lproj/InfoPlist.strings; sourceTree = "<absolute>"; };
+		5B3E70001549BFCB00190AE9 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = sv; path = /Users/andreaskaltenbach/Development/Appseits/Appseits/sv.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<absolute>"; };
+		5B3E70011549BFCB00190AE9 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = sv; path = /Users/andreaskaltenbach/Development/Appseits/Appseits/sv.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<absolute>"; };
 		5B76D2B7152A38BA00225BEB /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
 		5B76D2B8152A38BA00225BEB /* League.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = League.m; sourceTree = "<group>"; };
 		5B7CE634153C9EB200EB7794 /* BackendAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendAdapter.h; sourceTree = "<group>"; };
@@ -303,11 +312,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B3E6FFE1549BD7900190AE9 /* libz.dylib in Frameworks */,
 				4E050D831522115D0063EDED /* QuartzCore.framework in Frameworks */,
 				4E531C16151CAB050003CAD1 /* UIKit.framework in Frameworks */,
 				4E531C18151CAB050003CAD1 /* Foundation.framework in Frameworks */,
 				4E531C1A151CAB050003CAD1 /* CoreGraphics.framework in Frameworks */,
 				4E45D5C8153C63110036098A /* libCorePlot-CocoaTouch.a in Frameworks */,
+				5B3E6FFA1549BD2B00190AE9 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +473,7 @@
 		4E531C06151CAB050003CAD1 = {
 			isa = PBXGroup;
 			children = (
+				5B3E6FFD1549BD7900190AE9 /* libz.dylib */,
 				5B9592D9154724EE00A61942 /* Default@2x.png */,
 				4E45D5C9153C69E50036098A /* Default.png */,
 				4E531C1B151CAB060003CAD1 /* Appseits */,
@@ -481,6 +493,7 @@
 		4E531C14151CAB050003CAD1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B3E6FF51549BD2B00190AE9 /* TestFlightSDK1.0 */,
 				4E45D577153C62450036098A /* CorePlotHeaders */,
 				4E45D5C7153C63110036098A /* libCorePlot-CocoaTouch.a */,
 				4E050D821522115D0063EDED /* QuartzCore.framework */,
@@ -534,8 +547,8 @@
 			children = (
 				4E531C41151CB04A0003CAD1 /* TournamentRound.h */,
 				4E531C42151CB04A0003CAD1 /* TournamentRound.m */,
-				4E531C44151CB05B0003CAD1 /* Game.h */,
-				4E531C45151CB05B0003CAD1 /* Game.m */,
+				4E531C44151CB05B0003CAD1 /* Match.h */,
+				4E531C45151CB05B0003CAD1 /* Match.m */,
 				5B7F2B1715290392006A3687 /* Ranking.h */,
 				5B7F2B1815290392006A3687 /* Ranking.m */,
 				5B76D2B7152A38BA00225BEB /* League.h */,
@@ -599,6 +612,17 @@
 				5BD38CE815440A3D00551FB9 /* RoundLastUpdatedView.m */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		5B3E6FF51549BD2B00190AE9 /* TestFlightSDK1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				5B3E6FF61549BD2B00190AE9 /* libTestFlight.a */,
+				5B3E6FF71549BD2B00190AE9 /* README.txt */,
+				5B3E6FF81549BD2B00190AE9 /* release_notes.txt */,
+				5B3E6FF91549BD2B00190AE9 /* TestFlight.h */,
+			);
+			path = TestFlightSDK1.0;
 			sourceTree = "<group>";
 		};
 		5BF4E860151D023300CC3AE9 /* controller */ = {
@@ -704,6 +728,8 @@
 				5B24E312154753D10011EBED /* forgotPassword.png in Resources */,
 				5B007EEF1548754B00AE6518 /* cogwheel.png in Resources */,
 				5B007EF01548754B00AE6518 /* cogwheel@2x.png in Resources */,
+				5B3E6FFB1549BD2B00190AE9 /* README.txt in Resources */,
+				5B3E6FFC1549BD2B00190AE9 /* release_notes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,7 +746,7 @@
 				4E531C3F151CAE500003CAD1 /* LoginViewController.m in Sources */,
 				4E531C43151CB04A0003CAD1 /* TournamentRound.m in Sources */,
 				5BF4E863151D025300CC3AE9 /* MatchDetailsViewController.m in Sources */,
-				4E531C46151CB05B0003CAD1 /* Game.m in Sources */,
+				4E531C46151CB05B0003CAD1 /* Match.m in Sources */,
 				4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */,
 				4E050D7F15220A320063EDED /* UIColor+AppColors.m in Sources */,
 				4E050D86152219F60063EDED /* GameResultCelll.m in Sources */,
@@ -763,7 +789,7 @@
 		4E531C1E151CAB060003CAD1 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4E531C1F151CAB060003CAD1 /* en */,
+				5B3E6FFF1549BFCB00190AE9 /* sv */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -771,7 +797,7 @@
 		4E531C27151CAB060003CAD1 /* MainStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4E531C28151CAB060003CAD1 /* en */,
+				5B3E70011549BFCB00190AE9 /* sv */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -779,7 +805,7 @@
 		4E531C2A151CAB060003CAD1 /* MainStoryboard_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4E531C2B151CAB060003CAD1 /* en */,
+				5B3E70001549BFCB00190AE9 /* sv */,
 			);
 			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
@@ -809,6 +835,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -819,8 +846,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -828,7 +855,9 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -838,7 +867,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Appseits/Entitlements.plist;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stendahls Reklambyra AB";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
 				INFOPLIST_FILE = "Appseits/Appseits-Info.plist";
@@ -846,10 +875,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Appseits/TestFlightSDK1.0\"",
+					"\"$(SRCROOT)/TestFlightSDK1.0\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -858,7 +888,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Appseits/Entitlements.plist;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stendahls Reklambyra AB";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
 				INFOPLIST_FILE = "Appseits/Appseits-Info.plist";
@@ -866,10 +896,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Appseits/TestFlightSDK1.0\"",
+					"\"$(SRCROOT)/TestFlightSDK1.0\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

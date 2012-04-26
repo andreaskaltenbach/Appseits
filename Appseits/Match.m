@@ -6,10 +6,10 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "Game.h"
+#import "Match.h"
 #import "NSDate+DateConversion.h"
 
-@implementation Game
+@implementation Match
 
 @synthesize firstTeamName = _firstTeamName;
 @synthesize secondTeamName = _secondTeamName;
@@ -20,8 +20,8 @@
 @synthesize kickOff = _kickOff;
 @synthesize points = _points;
 
-+ (Game*) gameFromJson:(NSDictionary*) gameData {
-    Game *game = [[Game alloc] init];
++ (Match*) gameFromJson:(NSDictionary*) gameData {
+    Match *game = [[Match alloc] init];
     game.firstTeamName = [gameData objectForKey:@"firstTeam"];
     game.secondTeamName = [gameData objectForKey:@"secondTeam"];
     game.kickOff = [NSDate fromJsonTimestamp:[gameData valueForKey:@"kickOff"]];
@@ -41,7 +41,7 @@
 + (NSArray*) gamesFromJson: (NSArray*) jsonData {
     NSMutableArray *games = [NSMutableArray array];
     for (NSDictionary *gameData in jsonData) {
-        [games addObject:[Game gameFromJson:gameData]];
+        [games addObject:[Match gameFromJson:gameData]];
     }
     return games;
 }

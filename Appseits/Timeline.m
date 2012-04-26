@@ -8,7 +8,6 @@
 
 #import "Timeline.h"
 #import "TournamentRound.h"
-#import "Game.h"
 #import "UIColor+AppColors.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TimelineRoundSection.h"
@@ -66,7 +65,7 @@
     // count all the games
     self.games = 0;
     for (TournamentRound *round in rounds) {
-        self.games += [round.games count];
+        self.games += [round.matches count];
     }
 
     // add a section for each tournament round

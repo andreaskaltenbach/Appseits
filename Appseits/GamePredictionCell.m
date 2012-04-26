@@ -7,7 +7,7 @@
 //
 
 #import "GamePredictionCell.h"
-#import "Game.h"
+#import "Match.h"
 #import "iCarousel.h"
 #import "UIColor+AppColors.h"
 #import "SSGradientView.h"
@@ -51,7 +51,7 @@
     return self;
 }
 
-- (void) setGame:(Game *)game {
+- (void) setGame:(Match *)game {
     [super setGame:game];
     
     if (game.firstTeamPrediction) {

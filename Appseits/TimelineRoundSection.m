@@ -40,7 +40,7 @@ static UIImage *lockedImage;
 
 + (TimelineRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent {
     
-    float sectionWidth = 100 * [round.games count];
+    float sectionWidth = 100 * [round.matches count];
     float sectionHeight = parent.frame.size.height;
     float textIconDivider = sectionWidth - LOCK_ICON_WIDTH - LOCK_ICON_MARGIN_LEFT - LOCK_ICON_MARGIN_RIGHT;
     
@@ -82,7 +82,7 @@ static UIImage *lockedImage;
 
 - (void) resize:(float) xOffset: (float) gameWidth {
     
-    float width = [self.round.games count] * gameWidth;
+    float width = [self.round.matches count] * gameWidth;
     
     CGRect frame  = self.frame;
     frame.origin.x = xOffset;

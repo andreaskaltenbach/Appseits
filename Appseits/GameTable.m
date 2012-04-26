@@ -41,7 +41,7 @@
     self.matchDays = [NSMutableArray array];
     self.matches = [NSMutableArray array];
     
-    for (Game* game in round.games) {
+    for (Match* game in round.matches) {
 
         // add match date to list of match days
         NSString *matchDate = [dateFormatter stringFromDate:game.kickOff];
@@ -79,7 +79,7 @@
     NSString *gamePredictionCell = @"gamePredictionCell";
     
     NSArray *games = [self.matches objectAtIndex:indexPath.section];
-    Game *game = [games objectAtIndex:indexPath.row];
+    Match *game = [games objectAtIndex:indexPath.row];
     
     if ((game.firstTeamGoals && game.secondTeamGoals) || self.round.locked) {
         GameResultCelll * cell = [tableView dequeueReusableCellWithIdentifier:gameResultCell];

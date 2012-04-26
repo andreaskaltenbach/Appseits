@@ -60,7 +60,7 @@ static UIImage *grayBall;
     return self;
 }
 
-- (void) setGame:(Game *)game {
+- (void) setGame:(Match *)game {
     [super setGame:game];
 
     // set match result

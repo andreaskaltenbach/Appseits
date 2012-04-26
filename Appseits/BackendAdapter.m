@@ -11,6 +11,7 @@
 #import "Ranking.h"
 #import "League.h"
 #import "Constants.h"
+#import "Match.h"
 
 static NSString *tournamentUrl;
 static NSString *leagueUrl;
@@ -25,6 +26,8 @@ static TournamentRound *currentRound;
 
 static NSMutableSet *matchUpdateDelegates;
 static NSMutableSet *rankingUpdateDelegates;
+
+#define FLAG_URL @"http://img.uefa.com/imgml/flags/32x32/%@.png"
 
 @implementation BackendAdapter
 
@@ -93,10 +96,56 @@ static NSMutableSet *rankingUpdateDelegates;
         [self loadCompleteTournament];
         [self loadLeagues];
         [self loadRankings];
+        [self loadFlags];
         dispatch_async(dispatch_get_main_queue(), ^{
             onFinished(YES);
         });
     });
+}
+
++ (void) loadFlags {
+    // collect all unique team names
+    NSMutableSet *teamNames = [NSMutableSet set];
+    for (TournamentRound *round in rounds) {
+        for (Match *match in round.matches) {
+            [teamNames addObject:match.firstTeamName];
+            [teamNames addObject:match.secondTeamName];
+        }
+    }
+    
+    // prepare the file path
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    for (NSString *teamName in teamNames) {
+        
+        NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", teamName]];
+        
+        if (![fileManager fileExistsAtPath:filePath]) {
+            
+            // download flag from UEFA:
+            NSURL *flagUrl = [NSURL URLWithString:[NSString stringWithFormat:FLAG_URL, teamName]];
+            NSURLRequest* flagRequest = [NSURLRequest requestWithURL:flagUrl cachePolicy:NSURLCacheStorageAllowed timeoutInterval:10];
+            NSURLResponse *response;
+            NSError *error;
+
+            NSData *flagData = [NSURLConnection sendSynchronousRequest:flagRequest returningResponse:&response error:&error];
+            
+            if (error) {
+                NSLog(@"No flag available for %@", teamName);
+            }
+                
+            // write flag file to disk
+            [flagData writeToFile:filePath options:NSAtomicWrite error:&error];
+                
+            if (error) {
+                NSLog(@"Failed to store flag on file system");
+            }
+            
+            NSLog(@"Dowloaded flag for %@", teamName);
+        }
+    }
 }
 
 + (void) loadLeagues {

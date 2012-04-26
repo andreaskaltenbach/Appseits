@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Game.h"
+#import "Match.h"
 
 @interface GameCell : UITableViewCell
 
-@property (nonatomic, strong) Game *game;
+@property (nonatomic, strong) Match *game;
 
 @end

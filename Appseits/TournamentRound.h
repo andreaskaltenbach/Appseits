@@ -11,7 +11,7 @@
 @interface TournamentRound : NSObject
 
 @property (nonatomic, strong) NSString *roundName;
-@property (nonatomic, strong) NSArray *games;
+@property (nonatomic, strong) NSArray *matches;
 @property (nonatomic, strong) NSDate *lockDate;
 
 - (int) points;

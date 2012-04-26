@@ -7,18 +7,18 @@
 //
 
 #import "TournamentRound.h"
-#import "Game.h"
+#import "Match.h"
 #import "NSDate+DateConversion.h"
 
 @implementation TournamentRound
 
 @synthesize roundName = _roundName;
-@synthesize games = _matches;
+@synthesize matches = _matches;
 @synthesize lockDate = _lockDate;
 
 - (int) points {
     int points = 0;
-    for(Game *game in self.games) {
+    for(Match *game in self.matches) {
         points += game.points.intValue;
     }
     return points;
@@ -27,7 +27,7 @@
 + (TournamentRound*) tournamentRoundFromJson:(NSDictionary*) jsonData {
     TournamentRound *round = [[TournamentRound alloc] init];
     round.roundName = [jsonData objectForKey:@"name"];
-    round.games = [Game gamesFromJson: [jsonData objectForKey:@"games"]];
+    round.matches = [Match gamesFromJson: [jsonData objectForKey:@"games"]];
     round.lockDate = [NSDate fromJsonTimestamp:[jsonData objectForKey:@"lockedDate"]];
     return round;
 }

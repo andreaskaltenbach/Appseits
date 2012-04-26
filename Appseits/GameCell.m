@@ -76,27 +76,9 @@ static UIImage *predictionBackgroundImage;
         NSData *imageData = [[NSData alloc] initWithContentsOfFile:filePath];
         imageView.image = [UIImage imageWithData:imageData];
     }
-    else {
-        // otherwise, we'll have to download ot from UEFA:
-        NSURL *flagUrl = [NSURL URLWithString:[NSString stringWithFormat:@"http://img.uefa.com/imgml/flags/32x32/%@.png", teamName]];
-        NSURLRequest* flagRequest = [NSURLRequest requestWithURL:flagUrl cachePolicy:NSURLCacheStorageAllowed timeoutInterval:10];
-        
-        NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-        [NSURLConnection sendAsynchronousRequest:flagRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-            
-            imageView.image = [UIImage imageWithData:data];
-            
-            NSError *saveError = nil;
-            [data writeToFile:filePath options:NSAtomicWrite error:&saveError];
-            
-            if (saveError) {
-                NSLog(@"Failed to store flag on file system");
-            }
-        }];
-    }
 }
 
-- (void) setGame:(Game *)game {
+- (void) setGame:(Match *)game {
     
     NSString *firstTeam = [game.firstTeamName uppercaseString];
     NSString *secondTeam = [game.secondTeamName uppercaseString];

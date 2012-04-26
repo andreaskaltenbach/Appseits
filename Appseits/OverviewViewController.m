@@ -12,7 +12,6 @@
 #import "UIColor+AppColors.h"
 #import "GameResultCelll.h"
 #import "TimelineScrollView.h"
-#import "Game.h"
 #import "Menu.h"
 #import "Timeline.h"
 #import "GameTable.h"
