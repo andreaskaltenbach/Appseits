@@ -11,13 +11,17 @@
 @interface ScrollTriggeringTableView()
 
 @property int lastYOffset;
+@property int realDeviance;
 @property BOOL tracking;
+@property BOOL scrollDelegated;
 
 @end
 
 @implementation ScrollTriggeringTableView
 @synthesize lastYOffset = _lastYOffset;
 @synthesize tracking = _tracking;
+@synthesize realDeviance = _realDeviance;
+@synthesize scrollDelegated = _scrollDelegated;
 
 @synthesize scrollDelegate = _scrollDelegate;
 
@@ -35,14 +39,19 @@
 
     
     
-    if (self.tracking && scrollView.contentOffset.y < 0) {
+    if ((self.tracking && scrollView.contentOffset.y < 0) || (self.scrollDelegated && self.realDeviance < 0)) {
         // bouncing upwards
+        
+        self.scrollDelegated = YES;
 
         NSLog(@"Bounce %f", scrollView.contentOffset.y);
 
         
         // inform the scroll delegate that a bounce scroll happens
         [self.scrollDelegate scroll:scrollView.contentOffset.y - self.lastYOffset];
+        
+        self.realDeviance += scrollView.contentOffset.y;
+        NSLog(@"real deviance %i", self.realDeviance);
         
         
         self.contentOffset = CGPointZero;
@@ -63,7 +72,9 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
         NSLog(@"END");
-        self.tracking = NO;
+    self.tracking = NO;
+    self.scrollDelegated = NO;
+
     [self.scrollDelegate snapBack];
 }
 
