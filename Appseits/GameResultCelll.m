@@ -17,29 +17,33 @@ static UIImage *grayBall;
 @interface GameResultCelll()
 @property (nonatomic, strong) UILabel *firstTeamGoals;
 @property (nonatomic, strong) UILabel *secondTeamGoals;
-@property (nonatomic, strong) SSGradientView *firstTeamPredictionGradient;
-@property (nonatomic, strong) SSGradientView *secondTeamPredictionGradient;
 @property (nonatomic, strong) UILabel *firstTeamPrediction;
 @property (nonatomic, strong) UILabel *secondTeamPrediction;
 @property (nonatomic, strong) UIImageView *pointsBackground;
 @property (nonatomic, strong) UILabel *pointsLabel;
+@property (nonatomic, strong) UIView *leftPointsBackground;
+@property (nonatomic, strong) UIView *rightPointsBackground;
+
 @end
 
 @implementation GameResultCelll
 
 @synthesize game = _game;
 @synthesize firstTeamGoals = _firstTeamGoals;
-@synthesize firstTeamPredictionGradient = _firstTeamPredictionGradient;
 @synthesize firstTeamPrediction = _firstTeamPrediction;
 @synthesize secondTeamGoals = _secondTeamGoals;
-@synthesize secondTeamPredictionGradient = _secondTeamPredictionGradient;
 @synthesize secondTeamPrediction = _secondTeamPrediction;
 @synthesize pointsBackground = _pointsBackground;
 @synthesize pointsLabel = _pointsLabel;
+@synthesize leftPointsBackground = _leftPointsBackground;
+@synthesize rightPointsBackground = _rightPointsBackground;
+
+static UIColor* pointsBackground;
 
 + (void) initialize {
     greenBall = [UIImage imageNamed:@"greenBall"];
     grayBall = [UIImage imageNamed:@"grayBall"];
+    pointsBackground = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pointsBackgroundGreen"]];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -47,15 +51,16 @@ static UIImage *grayBall;
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.firstTeamGoals = (UILabel*) [self viewWithTag:15];
-        self.firstTeamPredictionGradient = (SSGradientView*) [self viewWithTag:16];
         self.firstTeamPrediction = (UILabel*) [self viewWithTag:17];
         
         self.secondTeamGoals = (UILabel*) [self viewWithTag:25];        
-        self.secondTeamPredictionGradient = (SSGradientView*) [self viewWithTag:26];
         self.secondTeamPrediction = (UILabel*) [self viewWithTag:27];
         
         self.pointsBackground = (UIImageView*) [self viewWithTag:30];
         self.pointsLabel = (UILabel*) [self viewWithTag:31];
+        
+        self.leftPointsBackground = (UIView*) [self viewWithTag:180];
+        self.rightPointsBackground = (UIView*) [self viewWithTag:280];
     }
     return self;
 }
@@ -74,37 +79,37 @@ static UIImage *grayBall;
     
     if (!game.firstTeamPrediction || !game.secondTeamPrediction) {
         // player does not set any prediction:
-        self.firstTeamPredictionGradient.colors = [UIColor grayGradient];
-        self.secondTeamPredictionGradient.colors = [UIColor grayGradient];
+        self.leftPointsBackground.backgroundColor = [UIColor clearColor];
+        self.rightPointsBackground.backgroundColor = pointsBackground;
     }
     else if (game.firstTeamGoals == game.firstTeamPrediction
         && game.secondTeamGoals == game.secondTeamPrediction) {
         // the player did bet the exact result
-        self.firstTeamPredictionGradient.colors = [UIColor greenGradient];
-        self.secondTeamPredictionGradient.colors = [UIColor greenGradient];
+        self.leftPointsBackground.backgroundColor = pointsBackground;
+        self.rightPointsBackground.backgroundColor = pointsBackground;
     }
     else if (game.firstTeamGoals.intValue - game.secondTeamGoals.intValue
         == game.firstTeamPrediction.intValue - game.secondTeamPrediction.intValue) {
         // the player did bet on the correct goal difference
-        self.firstTeamPredictionGradient.colors = [UIColor greenGradient];
-        self.secondTeamPredictionGradient.colors = [UIColor greenGradient];
+        self.leftPointsBackground.backgroundColor = pointsBackground;
+        self.rightPointsBackground.backgroundColor = pointsBackground;
     }
     else if (game.firstTeamGoals > game.secondTeamGoals &&
              game.firstTeamPrediction > game.secondTeamPrediction) {
         // first team did win and player betted on that
-        self.firstTeamPredictionGradient.colors = [UIColor greenGradient];
-        self.secondTeamPredictionGradient.colors = [UIColor grayGradient];
+        self.leftPointsBackground.backgroundColor = pointsBackground;
+        self.rightPointsBackground.backgroundColor = [UIColor clearColor];
     }
     else if (game.firstTeamGoals < game.secondTeamGoals &&
              game.firstTeamPrediction < game.secondTeamPrediction) {
         // first team did win and player betted on that
-        self.firstTeamPredictionGradient.colors = [UIColor grayGradient];
-        self.secondTeamPredictionGradient.colors = [UIColor greenGradient];
+        self.leftPointsBackground.backgroundColor = pointsBackground;
+        self.rightPointsBackground.backgroundColor = [UIColor clearColor];
     }
     else {
         // the bet was not correct at all
-        self.firstTeamPredictionGradient.colors = [UIColor grayGradient];
-        self.secondTeamPredictionGradient.colors = [UIColor grayGradient];
+        self.leftPointsBackground.backgroundColor = [UIColor clearColor];
+        self.rightPointsBackground.backgroundColor = [UIColor clearColor];
     }
     
     // set the user's predictions

@@ -46,6 +46,8 @@
         self.secondTeamPredictionCarousel.dataSource = self;
         self.secondTeamPredictionCarousel.delegate = self;
         self.secondTeamPredictionCarousel.type = iCarouselTypeCylinder;
+        
+
     }
     
     return self;
@@ -123,10 +125,7 @@
 #pragma mark iCarouselDelegate implementation
 
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
-    
-   
     NSLog(@"Selected %i", carousel.currentItemIndex);
-    
     
 }
 

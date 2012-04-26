@@ -56,6 +56,12 @@
 		5B3E6FFB1549BD2B00190AE9 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B3E6FF71549BD2B00190AE9 /* README.txt */; };
 		5B3E6FFC1549BD2B00190AE9 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B3E6FF81549BD2B00190AE9 /* release_notes.txt */; };
 		5B3E6FFE1549BD7900190AE9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3E6FFD1549BD7900190AE9 /* libz.dylib */; };
+		5B4A9F1C1549D61400592EA2 /* matchBoxGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4A9F161549D61400592EA2 /* matchBoxGray@2x.png */; };
+		5B4A9F1D1549D61400592EA2 /* matchBoxGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4A9F171549D61400592EA2 /* matchBoxGray.png */; };
+		5B4A9F1E1549D61400592EA2 /* matchBoxGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4A9F181549D61400592EA2 /* matchBoxGreen@2x.png */; };
+		5B4A9F1F1549D61400592EA2 /* matchBoxGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4A9F191549D61400592EA2 /* matchBoxGreen.png */; };
+		5B4A9F201549D61400592EA2 /* pointsBackgroundGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4A9F1A1549D61400592EA2 /* pointsBackgroundGreen@2x.png */; };
+		5B4A9F211549D61400592EA2 /* pointsBackgroundGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4A9F1B1549D61400592EA2 /* pointsBackgroundGreen.png */; };
 		5B76D2B9152A38BA00225BEB /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B76D2B8152A38BA00225BEB /* League.m */; };
 		5B7CE636153C9EB200EB7794 /* BackendAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7CE635153C9EB200EB7794 /* BackendAdapter.m */; };
 		5B7F2B12152901D1006A3687 /* MenuDependendScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F2B11152901D1006A3687 /* MenuDependendScrollView.m */; };
@@ -212,7 +218,7 @@
 		4E531C3E151CAE500003CAD1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		4E531C41151CB04A0003CAD1 /* TournamentRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TournamentRound.h; sourceTree = "<group>"; };
 		4E531C42151CB04A0003CAD1 /* TournamentRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TournamentRound.m; sourceTree = "<group>"; };
-		4E531C44151CB05B0003CAD1 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Match.h; sourceTree = "<group>"; };
+		4E531C44151CB05B0003CAD1 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
 		4E531C45151CB05B0003CAD1 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
 		4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePredictionCell.h; sourceTree = "<group>"; };
 		4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePredictionCell.m; sourceTree = "<group>"; };
@@ -251,6 +257,12 @@
 		5B3E6FFF1549BFCB00190AE9 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = /Users/andreaskaltenbach/Development/Appseits/Appseits/sv.lproj/InfoPlist.strings; sourceTree = "<absolute>"; };
 		5B3E70001549BFCB00190AE9 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = sv; path = /Users/andreaskaltenbach/Development/Appseits/Appseits/sv.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<absolute>"; };
 		5B3E70011549BFCB00190AE9 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = sv; path = /Users/andreaskaltenbach/Development/Appseits/Appseits/sv.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<absolute>"; };
+		5B4A9F161549D61400592EA2 /* matchBoxGray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "matchBoxGray@2x.png"; sourceTree = "<group>"; };
+		5B4A9F171549D61400592EA2 /* matchBoxGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = matchBoxGray.png; sourceTree = "<group>"; };
+		5B4A9F181549D61400592EA2 /* matchBoxGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "matchBoxGreen@2x.png"; sourceTree = "<group>"; };
+		5B4A9F191549D61400592EA2 /* matchBoxGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = matchBoxGreen.png; sourceTree = "<group>"; };
+		5B4A9F1A1549D61400592EA2 /* pointsBackgroundGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pointsBackgroundGreen@2x.png"; sourceTree = "<group>"; };
+		5B4A9F1B1549D61400592EA2 /* pointsBackgroundGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointsBackgroundGreen.png; sourceTree = "<group>"; };
 		5B76D2B7152A38BA00225BEB /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
 		5B76D2B8152A38BA00225BEB /* League.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = League.m; sourceTree = "<group>"; };
 		5B7CE634153C9EB200EB7794 /* BackendAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendAdapter.h; sourceTree = "<group>"; };
@@ -328,6 +340,12 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5B4A9F161549D61400592EA2 /* matchBoxGray@2x.png */,
+				5B4A9F171549D61400592EA2 /* matchBoxGray.png */,
+				5B4A9F181549D61400592EA2 /* matchBoxGreen@2x.png */,
+				5B4A9F191549D61400592EA2 /* matchBoxGreen.png */,
+				5B4A9F1A1549D61400592EA2 /* pointsBackgroundGreen@2x.png */,
+				5B4A9F1B1549D61400592EA2 /* pointsBackgroundGreen.png */,
 				5B007EED1548754B00AE6518 /* cogwheel.png */,
 				5B007EEE1548754B00AE6518 /* cogwheel@2x.png */,
 				5B24E30F154753D10011EBED /* forgotPassword@2x.png */,
@@ -730,6 +748,12 @@
 				5B007EF01548754B00AE6518 /* cogwheel@2x.png in Resources */,
 				5B3E6FFB1549BD2B00190AE9 /* README.txt in Resources */,
 				5B3E6FFC1549BD2B00190AE9 /* release_notes.txt in Resources */,
+				5B4A9F1C1549D61400592EA2 /* matchBoxGray@2x.png in Resources */,
+				5B4A9F1D1549D61400592EA2 /* matchBoxGray.png in Resources */,
+				5B4A9F1E1549D61400592EA2 /* matchBoxGreen@2x.png in Resources */,
+				5B4A9F1F1549D61400592EA2 /* matchBoxGreen.png in Resources */,
+				5B4A9F201549D61400592EA2 /* pointsBackgroundGreen@2x.png in Resources */,
+				5B4A9F211549D61400592EA2 /* pointsBackgroundGreen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

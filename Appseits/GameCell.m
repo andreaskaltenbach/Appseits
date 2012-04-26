@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UIImageView *secondTeamImage;
 @property (nonatomic, strong) UILabel *firstTeamName;
 @property (nonatomic, strong) UILabel *secondTeamName;
-@property (nonatomic, strong) SSGradientView *backgroundGradient;
 @property (nonatomic, strong) UILabel *kickOff;
 @property (nonatomic, strong) UIImageView *predictionBackground;
 @end
@@ -24,7 +23,6 @@
 @implementation GameCell
 
 @synthesize game = _game;
-@synthesize backgroundGradient = _backgroundGradient;
 @synthesize firstTeamImage = _firstTeamImage;
 @synthesize secondTeamImage = _secondTeamImage;
 @synthesize firstTeamName = _firstTeamName;
@@ -32,21 +30,18 @@
 @synthesize kickOff = _kickOff;
 @synthesize predictionBackground = _predictionBackground;
 
-static UIImage *predictionBackgroundImage;
+static UIImage *backgroundImage;
+static UIImage *selectedBackgroundImage;
 
 + (void) initialize {
-    predictionBackgroundImage = [[UIImage imageNamed:@"tipBar.png"]  resizableImageWithCapInsets:UIEdgeInsetsMake(40, 40, 40, 40)];
+    backgroundImage = [UIImage imageNamed:@"matchBoxGray"];
+    selectedBackgroundImage = [UIImage imageNamed:@"matchBoxGreen"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        
-        self.backgroundGradient = [[SSGradientView alloc] initWithFrame:self.bounds];
-        self.backgroundGradient.colors = [UIColor gameCellGradient];
-        self.backgroundGradient.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        [self insertSubview:self.backgroundGradient belowSubview:[self.subviews objectAtIndex:0]];
         
         self.firstTeamName = (UILabel*) [self viewWithTag:1];
         self.firstTeamImage = (UIImageView*) [self viewWithTag:11];
@@ -56,6 +51,8 @@ static UIImage *predictionBackgroundImage;
         
         self.kickOff = (UILabel*) [self viewWithTag:5];
         self.predictionBackground = (UIImageView*) [self viewWithTag:555];
+        
+        self.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
     }
     return self;
 }
@@ -96,13 +93,13 @@ static UIImage *predictionBackgroundImage;
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
     if (selected) {
-        self.backgroundGradient.colors = [UIColor greenGradient];
+        self.backgroundColor = [UIColor colorWithPatternImage:selectedBackgroundImage];
         self.firstTeamName.textColor = [UIColor whiteColor];
         self.secondTeamName.textColor = [UIColor whiteColor];
         self.kickOff.textColor = [UIColor whiteColor];
     }
     else {
-        self.backgroundGradient.colors = [UIColor gameCellGradient];
+        self.backgroundColor = [UIColor colorWithPatternImage:backgroundImage];
         self.firstTeamName.textColor = [UIColor blackColor];
         self.secondTeamName.textColor = [UIColor blackColor];
         self.kickOff.textColor = [UIColor blackColor];

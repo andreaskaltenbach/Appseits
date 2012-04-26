@@ -262,22 +262,18 @@
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <prototypes>
-                                                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="gamePredictionCell" rowHeight="100" id="EXY-Qb-ebG" customClass="GamePredictionCell">
-                                                                <rect key="frame" x="0.0" y="22" width="320" height="100"/>
+                                                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="gamePredictionCell" rowHeight="108" id="EXY-Qb-ebG" customClass="GamePredictionCell">
+                                                                <rect key="frame" x="0.0" y="22" width="320" height="108"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" id="DAM-L4-hut">
                                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                                                             <subviews>
-                                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="flagBackground.png" id="bwa-dx-TWG">
-                                                                                    <rect key="frame" x="55" y="17" width="27" height="27"/>
-                                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                                </imageView>
                                                                                 <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" id="QzB-8d-X0j">
-                                                                                    <rect key="frame" x="60" y="22" width="18" height="18"/>
+                                                                                    <rect key="frame" x="65" y="21" width="18" height="18"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                 </imageView>
                                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="SWE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="gby-y0-6JV">
@@ -287,16 +283,8 @@
                                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </label>
-                                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="result.png" id="gHo-f9-dHD">
-                                                                                    <rect key="frame" x="94" y="7" width="43" height="47"/>
-                                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                                </imageView>
-                                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="flagBackground.png" id="2cb-kE-uno">
-                                                                                    <rect key="frame" x="237" y="17" width="27" height="27"/>
-                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                                                                                </imageView>
                                                                                 <imageView userInteractionEnabled="NO" tag="22" contentMode="scaleToFill" id="9vB-ns-42e">
-                                                                                    <rect key="frame" x="242" y="22" width="18" height="18"/>
+                                                                                    <rect key="frame" x="235" y="21" width="18" height="18"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                                                                 </imageView>
                                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="SWE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="yR7-K9-00Q">
@@ -306,10 +294,6 @@
                                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </label>
-                                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="result.png" id="5CM-My-BQn">
-                                                                                    <rect key="frame" x="182" y="7" width="43" height="47"/>
-                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                                                                                </imageView>
                                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" text="18:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="zEh-wT-dmz">
                                                                                     <rect key="frame" x="144" y="26" width="34" height="20"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -333,10 +317,6 @@
                                                                                 </label>
                                                                             </subviews>
                                                                         </view>
-                                                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="555" contentMode="scaleToFill" image="tipBar.png" id="tZa-PJ-oVh">
-                                                                            <rect key="frame" x="9" y="60" width="302" height="36"/>
-                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                                        </imageView>
                                                                         <view contentMode="scaleToFill" id="eBm-lZ-BP5">
                                                                             <rect key="frame" x="75" y="62" width="168" height="46"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
@@ -355,21 +335,17 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 </view>
                                                             </tableViewCell>
-                                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="gameResultCell" rowHeight="100" id="cRr-dI-Fb4" customClass="GameResultCelll">
-                                                                <rect key="frame" x="0.0" y="122" width="320" height="100"/>
+                                                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="gameResultCell" rowHeight="108" id="cRr-dI-Fb4" customClass="GameResultCelll">
+                                                                <rect key="frame" x="0.0" y="130" width="320" height="108"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="107"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" id="SFF-ZI-gdE">
                                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
                                                                             <subviews>
-                                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="flagBackground.png" id="TCm-4k-NgP">
-                                                                                    <rect key="frame" x="55" y="17" width="27" height="27"/>
-                                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                                </imageView>
                                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="SWE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="0Gd-q6-ZoY">
                                                                                     <rect key="frame" x="12" y="20" width="42" height="21"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -378,12 +354,8 @@
                                                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </label>
                                                                                 <imageView userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" id="wzE-51-buH">
-                                                                                    <rect key="frame" x="60" y="22" width="18" height="18"/>
+                                                                                    <rect key="frame" x="65" y="21" width="18" height="18"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                </imageView>
-                                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="result.png" id="dXr-Pn-LcN">
-                                                                                    <rect key="frame" x="94" y="7" width="43" height="47"/>
-                                                                                    <autoresizingMask key="autoresizingMask"/>
                                                                                 </imageView>
                                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="15" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="1m3-vM-5O1">
                                                                                     <rect key="frame" x="94" y="20" width="43" height="21"/>
@@ -392,10 +364,6 @@
                                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </label>
-                                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="flagBackground.png" id="DU2-D5-2hY">
-                                                                                    <rect key="frame" x="237" y="17" width="27" height="27"/>
-                                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                                </imageView>
                                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="SWE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="uoa-52-gwW">
                                                                                     <rect key="frame" x="266" y="20" width="42" height="21"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -404,12 +372,8 @@
                                                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </label>
                                                                                 <imageView userInteractionEnabled="NO" tag="22" contentMode="scaleToFill" id="qFK-Aq-9Fl">
-                                                                                    <rect key="frame" x="242" y="22" width="18" height="18"/>
+                                                                                    <rect key="frame" x="235" y="21" width="18" height="18"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                </imageView>
-                                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="result.png" id="xcz-3g-rTZ">
-                                                                                    <rect key="frame" x="182" y="7" width="43" height="47"/>
-                                                                                    <autoresizingMask key="autoresizingMask"/>
                                                                                 </imageView>
                                                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="25" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="HXn-Ok-e8e">
                                                                                     <rect key="frame" x="182" y="20" width="43" height="21"/>
@@ -431,48 +395,22 @@
                                                                                 </imageView>
                                                                             </subviews>
                                                                         </view>
-                                                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="555" contentMode="center" image="tipBar.png" id="d1X-Bj-idL">
-                                                                            <rect key="frame" x="9" y="56" width="302" height="36"/>
-                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                                        </imageView>
-                                                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="separator.png" id="eXP-S8-rQ9">
-                                                                            <rect key="frame" x="160" y="54" width="2" height="36"/>
-                                                                            <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
-                                                                        </imageView>
-                                                                        <view tag="16" contentMode="scaleToFill" id="rxg-YZ-Ixv" customClass="SSGradientView">
-                                                                            <rect key="frame" x="98" y="59" width="34" height="30"/>
+                                                                        <view tag="180" contentMode="scaleToFill" id="SpH-bz-2s0" userLabel="leftPointsBackground">
+                                                                            <rect key="frame" x="98" y="62" width="36" height="32"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="17" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="vBq-aX-yfx">
-                                                                                    <rect key="frame" x="-4" y="4" width="43" height="21"/>
-                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                </label>
-                                                                            </subviews>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                                         </view>
-                                                                        <view tag="26" contentMode="scaleToFill" id="DFg-ta-PuC" customClass="SSGradientView">
-                                                                            <rect key="frame" x="186" y="59" width="34" height="30"/>
+                                                                        <view tag="280" contentMode="scaleToFill" id="yVI-NJ-foi" userLabel="rightPointsBackground">
+                                                                            <rect key="frame" x="186" y="62" width="36" height="32"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="27" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Sga-d5-ejB">
-                                                                                    <rect key="frame" x="-4" y="4" width="43" height="21"/>
-                                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                </label>
-                                                                            </subviews>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                                         </view>
                                                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="30" contentMode="scaleToFill" image="greenBall.png" id="hJ8-nR-6dd">
-                                                                            <rect key="frame" x="278" y="60" width="28" height="28"/>
+                                                                            <rect key="frame" x="278" y="68" width="28" height="28"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                         </imageView>
                                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="31" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="9aK-bb-2Mp">
-                                                                            <rect key="frame" x="271" y="63" width="43" height="21"/>
+                                                                            <rect key="frame" x="271" y="71" width="43" height="21"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -759,17 +697,127 @@
         </scene>
     </scenes>
     <resources>
-        <image name="flagBackground.png" width="27" height="27"/>
         <image name="forgotPassword.png" width="300" height="44"/>
         <image name="greenBall.png" width="42" height="42"/>
         <image name="lock.png" width="40" height="48"/>
         <image name="login.png" width="300" height="54"/>
-        <image name="result.png" width="43" height="47"/>
-        <image name="separator.png" width="2" height="17"/>
         <image name="star.png" width="22" height="20"/>
-        <image name="tipBar.png" width="302" height="36"/>
         <image name="verticalSeparator.png" width="6" height="88"/>
     </resources>
+    <classes>
+        <class className="AppseitsPageControl" superclassName="UIPageControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppseitsPageControl.h"/>
+        </class>
+        <class className="CPTGraphHostingView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
+        </class>
+        <class className="GameCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameCell.h"/>
+        </class>
+        <class className="GamePredictionCell" superclassName="GameCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GamePredictionCell.h"/>
+        </class>
+        <class className="GameResultCelll" superclassName="GameCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameResultCelll.h"/>
+        </class>
+        <class className="GameTable" superclassName="ScrollTriggeringTableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameTable.h"/>
+        </class>
+        <class className="LastUpdateView" superclassName="SSGradientView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LastUpdateView.h"/>
+        </class>
+        <class className="LeaguePickerView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaguePickerView.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="emailInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="forgotPasswordButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="inputBackgroundView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loginView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="passwordInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="separator" candidateClass="UIView"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MainScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainScrollView.h"/>
+        </class>
+        <class className="MenuDependendScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuDependendScrollView.h"/>
+        </class>
+        <class className="OverviewViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverviewViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gameTable" candidateClass="GameTable"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="leagueInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="leaguePicker" candidateClass="LeaguePickerView"/>
+                <relationship kind="outlet" name="logoutButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mainScrollView" candidateClass="MainScrollView"/>
+                <relationship kind="outlet" name="menu" candidateClass="UIView"/>
+                <relationship kind="outlet" name="menuDependingScrollView" candidateClass="MenuDependendScrollView"/>
+                <relationship kind="outlet" name="pointInCurrentRound" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pointsTotal" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rankingMenuItem" candidateClass="UIView"/>
+                <relationship kind="outlet" name="rankingTable" candidateClass="RankingTable"/>
+                <relationship kind="outlet" name="rankingTableHeader" candidateClass="UIView"/>
+                <relationship kind="outlet" name="resultMenuItem" candidateClass="UIView"/>
+                <relationship kind="outlet" name="roundLastUpdatedView" candidateClass="RoundLastUpdatedView"/>
+                <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
+                <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
+                <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PagedView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PagedView.h"/>
+        </class>
+        <class className="RankingCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingCell.h"/>
+        </class>
+        <class className="RankingTable" superclassName="ScrollTriggeringTableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingTable.h"/>
+        </class>
+        <class className="RoundLastUpdatedView" superclassName="LastUpdateView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundLastUpdatedView.h"/>
+        </class>
+        <class className="SSBorderedView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSBorderedView.h"/>
+        </class>
+        <class className="SSGradientView" superclassName="SSBorderedView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSGradientView.h"/>
+        </class>
+        <class className="ScrollTriggeringTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScrollTriggeringTableView.h"/>
+        </class>
+        <class className="Timeline" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
+        </class>
+        <class className="TimelineScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
+        </class>
+        <class className="UnfinishedMatchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UnfinishedMatchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="graphView" candidateClass="CPTGraphHostingView"/>
+                <relationship kind="outlet" name="pageIndicator" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="resultButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="PagedView"/>
+                <relationship kind="outlet" name="spreadButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="iCarousel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

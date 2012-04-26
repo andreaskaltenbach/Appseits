@@ -221,8 +221,15 @@ static UIImage *cogWheel;
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return YES;
+    switch (toInterfaceOrientation) {
+        case UIDeviceOrientationLandscapeRight:
+        case UIDeviceOrientationLandscapeLeft:
+            return [[UIDevice currentDevice].model isEqualToString:@"iPad"];
+        default:
+            return YES;
+    }
 }
+
 - (IBAction)resultSelected:(id)sender {
     NSLog(@"Result selected");
     self.rankingMenuItem.backgroundColor = [UIColor clearColor];

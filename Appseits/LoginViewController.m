@@ -128,10 +128,16 @@ static UIImage *forgotPasswordButtonImage;
     [self login];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-	return YES;
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    switch (toInterfaceOrientation) {
+        case UIDeviceOrientationLandscapeRight:
+        case UIDeviceOrientationLandscapeLeft:
+            return [[UIDevice currentDevice].model isEqualToString:@"iPad"];
+        default:
+            return YES;
+    }
 }
+
 - (IBAction)loginButtonClicked:(id)sender {
 }
 
