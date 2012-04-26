@@ -241,11 +241,11 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="Up8-uV-wwV" customClass="MenuDependendScrollView">
-                                        <rect key="frame" x="0.0" y="50" width="320" height="370"/>
+                                        <rect key="frame" x="0.0" y="50" width="320" height="320"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="Gwy-FQ-gRl" userLabel="match view">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="Xl4-xp-0TF" customClass="TimelineScrollView">
@@ -258,7 +258,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="KT6-Hu-UFq" customClass="GameTable">
-                                                        <rect key="frame" x="0.0" y="77" width="320" height="293"/>
+                                                        <rect key="frame" x="0.0" y="77" width="320" height="243"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <prototypes>
@@ -429,7 +429,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" id="kPU-UI-zgU" userLabel="ranking view">
-                                                <rect key="frame" x="320" y="0.0" width="320" height="370"/>
+                                                <rect key="frame" x="320" y="0.0" width="320" height="320"/>
                                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" id="FMd-Zt-ACs" userLabel="lastUpdateView" customClass="LastUpdateView">
@@ -470,7 +470,7 @@
                                                         </subviews>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="S6h-1E-dgG" customClass="RankingTable">
-                                                        <rect key="frame" x="0.0" y="57" width="320" height="317"/>
+                                                        <rect key="frame" x="0.0" y="57" width="320" height="267"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <prototypes>

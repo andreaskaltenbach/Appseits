@@ -10,6 +10,7 @@
 #import "TournamentRoundSelectDelegate.h"
 #import "LeaguePickerView.h"
 #import "PullToRefreshView.h"
+#import "ScrollTriggeringTableView.h"
 
-@interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate, LeagueDelegate, UIScrollViewDelegate, UITableViewDelegate, PullToRefreshViewDelegate>
+@interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate>
 @end

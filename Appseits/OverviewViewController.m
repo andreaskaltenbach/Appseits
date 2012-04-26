@@ -84,7 +84,21 @@ static UIImage *cogWheel;
     cogWheel = [UIImage imageNamed:@"cogwheel"];
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+
+- (void) scroll:(int) offset {
+    
+    NSLog(@"Scroll: %i", offset);
+    self.mainScrollView.contentOffset = CGPointMake(0, self.mainScrollView.contentOffset.y + offset);
+    
+}
+- (void) snapBack {
+    
+    //self.mainScrollView.contentOffset = CGPointZero;
+    NSLog(@"Snap back!");
+    [self.mainScrollView scrollRectToVisible:CGRectMake(0, 0, self.mainScrollView.frame.size.width, self.mainScrollView.frame.size.height) animated:YES];
+}
+
+/*- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     NSLog(@"Scrolling inner: %f", scrollView.contentOffset.y);
     if (scrollView.contentOffset.y < 0 ) {
@@ -98,7 +112,7 @@ static UIImage *cogWheel;
     
     //scrollView.contentOffset = CGPointZero;
 
-}
+}*/
 /*
 - (void) backToTop:(UIScrollView*) scrollView  {
     

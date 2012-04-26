@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ScrollDelegate <NSObject>
+
+- (void) scroll:(int) offset;
+- (void) snapBack;
+
+@end
+
 @interface ScrollTriggeringTableView : UITableView<UITableViewDelegate>
 
-@property (unsafe_unretained) id<UIScrollViewDelegate> scrollDelegate;
+@property (unsafe_unretained) id<ScrollDelegate> scrollDelegate;
 
 
 
