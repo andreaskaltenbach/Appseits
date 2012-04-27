@@ -11,12 +11,12 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="LoginViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="dw7-aW-Hia">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="Kf9-eQ-q7o">
-                                <rect key="frame" x="0.0" y="220" width="320" height="240"/>
+                                <rect key="frame" x="0.0" y="221" width="320" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="70d-yG-rIU">
@@ -73,12 +73,11 @@
                                 </subviews>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="wDS-2Q-3tv">
-                                <rect key="frame" x="150" y="220" width="20" height="20"/>
+                                <rect key="frame" x="150" y="193" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                    </scrollView>
                     <navigationItem key="navigationItem" id="YgU-Em-Ifs"/>
                     <connections>
                         <outlet property="emailInput" destination="xuQ-BR-xDy" id="e0C-bK-dV2"/>
@@ -87,6 +86,7 @@
                         <outlet property="loginButton" destination="RGQ-Yb-1t9" id="eIp-TJ-5Fs"/>
                         <outlet property="loginView" destination="Kf9-eQ-q7o" id="cOf-0i-KCV"/>
                         <outlet property="passwordInput" destination="Mu7-Eo-IZm" id="u4L-HM-87P"/>
+                        <outlet property="scrollView" destination="dw7-aW-Hia" id="h83-q2-eeU"/>
                         <outlet property="separator" destination="JQW-BB-429" id="Zdl-nP-3hY"/>
                         <outlet property="spinner" destination="wDS-2Q-3tv" id="eSA-Zc-Qh0"/>
                         <outlet property="usernameField" destination="xuQ-BR-xDy" id="NkD-ch-XQ5"/>
@@ -748,6 +748,7 @@
                 <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="loginView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="passwordInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="separator" candidateClass="UIView"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>

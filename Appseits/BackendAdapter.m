@@ -27,7 +27,11 @@ static TournamentRound *currentRound;
 static NSMutableSet *matchUpdateDelegates;
 static NSMutableSet *rankingUpdateDelegates;
 
+static NSString *token;
+
 #define FLAG_URL @"http://img.uefa.com/imgml/flags/32x32/%@.png"
+
+#define LOGIN_URL @"http://emtipset.dev.stendahls.se/api/login"
 
 @implementation BackendAdapter
 
@@ -67,19 +71,73 @@ static NSMutableSet *rankingUpdateDelegates;
 }
 
 + (void) validateCredentials:(FinishedBlock) onFinished {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *email = [userDefaults objectForKey:@"email"];
-    NSString *password = [userDefaults objectForKey:@"password"];
     
-    if (email && password) {
-        // TODO validate credentials against backend
-        onFinished(YES);
-    }
-    else {
-        // TODO - return NO!!!
-        onFinished(NO);
-    }
+    dispatch_queue_t credentialQueue = dispatch_queue_create("credentialsCheck", NULL);
+    
+    dispatch_async(credentialQueue, ^{
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *email = [userDefaults objectForKey:@"email"];
+        NSString *password = [userDefaults objectForKey:@"password"];
+        
+        if (email && password) {
+            
+            // validate credentials and retrieve a token in response
+            NSURL *url = [NSURL URLWithString:LOGIN_URL];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+            request.HTTPMethod = @"POST";
+            
+            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            NSDictionary *jsonData = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      @"apitest",@"Username",
+                                      @"apitest",@"Password",nil];
+            NSError *error;
+            NSData *data = [NSJSONSerialization dataWithJSONObject:jsonData options:kNilOptions error:&error];
+            request.HTTPBody = data;
+            NSHTTPURLResponse *response;
+            
+            [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            
+            if (response.statusCode != 200) {
+                // an error occured
+                if (response.statusCode != 401) {
+                    NSLog(@"Status code: %i", response.statusCode);
+                    // some unexpected has happened:
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self showErrorAlert:@"Unable to validate credentials"];
+                        onFinished(YES);
+                    });
+                    
+                    
+                }
+                // return a negative response
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    onFinished(NO);
+                });
+                return;
+            }
+            
+            // credentials are valid -> we grab the authentication token and store it
+            token = [response.allHeaderFields objectForKey:@"Authorization"];
+            
+            NSLog(@"Token: %@", token);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                onFinished(YES);
+            });
+            
+            
+        }
+        else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                onFinished(NO);
+            });
+        }
+
+        
+           
+    });
 }
+                   
 
 + (void) logout {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -93,17 +151,24 @@ static NSMutableSet *rankingUpdateDelegates;
     dispatch_queue_t initQueue = dispatch_queue_create("initialization", NULL);
 
     dispatch_async(initQueue, ^{
-        [self loadCompleteTournament];
-        [self loadLeagues];
-        [self loadRankings];
-        [self loadFlags];
+        BOOL successRoad = [self loadCompleteTournament];
+        if (successRoad) {
+            successRoad = [self loadLeagues];
+        
+        }
+        if (successRoad) {
+            successRoad = [self loadRankings];
+        }
+        if (successRoad) {
+            successRoad = [self loadFlags];
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             onFinished(YES);
         });
     });
 }
 
-+ (void) loadFlags {
++ (BOOL) loadFlags {
     // collect all unique team names
     NSMutableSet *teamNames = [NSMutableSet set];
     for (TournamentRound *round in rounds) {
@@ -140,15 +205,20 @@ static NSMutableSet *rankingUpdateDelegates;
             [flagData writeToFile:filePath options:NSAtomicWrite error:&error];
                 
             if (error) {
-                NSLog(@"Failed to store flag on file system");
+                [self showErrorAlert:@"Failed to store flag on file system"];
+                return NO;
             }
             
             NSLog(@"Dowloaded flag for %@", teamName);
+            
+            
         }
+        
     }
+    return YES;
 }
 
-+ (void) loadLeagues {
++ (BOOL) loadLeagues {
     // fetch all leagues
     NSURL *url = [NSURL URLWithString:leagueUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -158,8 +228,8 @@ static NSMutableSet *rankingUpdateDelegates;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     if (error) {
-        NSLog(@"Error while downloading leagues");
-        return;
+        [self showErrorAlert:@"Error while downloading leagues"];
+        return NO;
     }
     
     // parse the result
@@ -167,8 +237,8 @@ static NSMutableSet *rankingUpdateDelegates;
     NSArray *leagueData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
     
     if (parseError) {
-        NSLog(@"Error while parsing league data from server");
-        return;
+        [self showErrorAlert:@"Error while parsing league data from server"];
+        return NO;
     }
     
     leagues = [League leaguesFromJson:leagueData];
@@ -184,9 +254,16 @@ static NSMutableSet *rankingUpdateDelegates;
             }
         }
     }
+    
+    return YES;
 }
 
-+ (void) loadCompleteTournament {
++ (void) showErrorAlert:(NSString*) message {
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [errorAlert show];
+}
+
++ (BOOL) loadCompleteTournament {
     
     NSURL *url = [NSURL URLWithString:tournamentUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -196,8 +273,8 @@ static NSMutableSet *rankingUpdateDelegates;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     if (error) {
-        NSLog(@"Error while downloading matches");
-        return;
+        [self showErrorAlert:@"Error while downloading matches"];
+        return NO;
     }
     
     // parse the result
@@ -205,12 +282,14 @@ static NSMutableSet *rankingUpdateDelegates;
     NSArray *roundsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
     
     if (parseError) {
-        NSLog(@"Error while parsing match data from server");
-        return;
+        [self showErrorAlert:@"Error while parsing match data from server"];
+        return NO;
     }
     
     rounds = [TournamentRound tournamentRoundsFromJson:roundsData];
     NSLog(@"Fetched %i tournament rounds", [rounds count]);
+    
+    return YES;
 }
 
 + (League*) currentLeague {
@@ -248,7 +327,7 @@ static NSMutableSet *rankingUpdateDelegates;
     return leagues;
 }
 
-+ (void) loadRankings {
++ (BOOL) loadRankings {
     
     //TODO - mix in the league ID
     NSURL *url = [NSURL URLWithString:rankingUrl];
@@ -259,8 +338,8 @@ static NSMutableSet *rankingUpdateDelegates;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     if (error) {
-        NSLog(@"Error while downloading rankings");
-        return;
+        [self showErrorAlert:@"Error while downloading rankings"];
+        return YES;
     }
     
     // parse the result
@@ -268,12 +347,14 @@ static NSMutableSet *rankingUpdateDelegates;
     NSArray *rankingData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
     
     if (parseError) {
-        NSLog(@"Error while parsing ranking data from server");
-        return;
+        [self showErrorAlert:@"Error while parsing ranking data from server"];
+        return NO;
     }
     
     rankings = [Ranking rankingsFromJson:rankingData];
     NSLog(@"Fetched %i rankings for league %@", [rankings count], currentLeague);
+    
+    return YES;
 }
 
 + (void) loadRankings:(FinishedBlock) finished {

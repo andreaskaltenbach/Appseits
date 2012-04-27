@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *inputBackgroundView;
 @property (weak, nonatomic) IBOutlet UIView *separator;
 @property (weak, nonatomic) IBOutlet UIButton *forgotPasswordButton;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -34,6 +35,7 @@
 @synthesize inputBackgroundView;
 @synthesize separator;
 @synthesize forgotPasswordButton;
+@synthesize scrollView;
 
 static UIImage *backgroundImage;
 static UIImage *loginButtonImage;
@@ -48,6 +50,9 @@ static UIImage *forgotPasswordButtonImage;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, self.scrollView.frame.size.height * 2);
+    self.scrollView.contentOffset = CGPointMake(0, 20);
     
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:backgroundImage];
     
@@ -114,6 +119,7 @@ static UIImage *forgotPasswordButtonImage;
     [self setInputBackgroundView:nil];
     [self setSeparator:nil];
     [self setForgotPasswordButton:nil];
+    [self setScrollView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
