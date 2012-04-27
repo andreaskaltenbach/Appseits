@@ -110,10 +110,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="a91-4J-Tjk">
-                                        <rect key="frame" x="272" y="0.0" width="48" height="48"/>
+                                        <rect key="frame" x="289" y="16" width="15" height="15"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal">
+                                        <state key="normal" backgroundImage="cogwheel.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -124,8 +124,15 @@
                                             <action selector="logout:" destination="6qr-mS-VaE" eventType="touchUpInside" id="HKp-wf-7X9"/>
                                         </connections>
                                     </button>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="euroLogo.png" id="eE3-Ev-38K">
+                                        <rect key="frame" x="136" y="8" width="49" height="21"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="stroke.png" id="s6A-DS-hwb">
+                                        <rect key="frame" x="14" y="13" width="100" height="16"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="aYN-hX-Ic6" userLabel="menu">
                                 <rect key="frame" x="0.0" y="48" width="320" height="42"/>
@@ -389,8 +396,8 @@
                                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 </label>
-                                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.60000000000000009" contentMode="scaleToFill" image="lock.png" id="YKY-AP-kUb">
-                                                                                    <rect key="frame" x="154" y="14" width="13" height="15"/>
+                                                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.60000000000000009" tag="33" contentMode="scaleToFill" image="matchLock.png" id="YKY-AP-kUb">
+                                                                                    <rect key="frame" x="154" y="14" width="11" height="13"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                                 </imageView>
                                                                             </subviews>
@@ -697,11 +704,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cogwheel.png" width="15" height="15"/>
+        <image name="euroLogo.png" width="49" height="21"/>
         <image name="forgotPassword.png" width="300" height="44"/>
         <image name="greenBall.png" width="42" height="42"/>
-        <image name="lock.png" width="40" height="48"/>
         <image name="login.png" width="300" height="54"/>
+        <image name="matchLock.png" width="11" height="13"/>
         <image name="star.png" width="22" height="20"/>
+        <image name="stroke.png" width="100" height="16"/>
         <image name="verticalSeparator.png" width="6" height="88"/>
     </resources>
     <classes>

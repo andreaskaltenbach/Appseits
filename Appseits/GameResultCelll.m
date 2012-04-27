@@ -23,6 +23,7 @@ static UIImage *grayBall;
 @property (nonatomic, strong) UILabel *pointsLabel;
 @property (nonatomic, strong) UIView *leftPointsBackground;
 @property (nonatomic, strong) UIView *rightPointsBackground;
+@property (nonatomic, strong) UIImageView *matchLock;
 
 @end
 
@@ -37,13 +38,16 @@ static UIImage *grayBall;
 @synthesize pointsLabel = _pointsLabel;
 @synthesize leftPointsBackground = _leftPointsBackground;
 @synthesize rightPointsBackground = _rightPointsBackground;
+@synthesize matchLock = _matchLock;
 
 static UIColor* pointsBackground;
+static UIImage* matchLock;
 
 + (void) initialize {
     greenBall = [UIImage imageNamed:@"greenBall"];
     grayBall = [UIImage imageNamed:@"grayBall"];
     pointsBackground = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pointsBackgroundGreen"]];
+    matchLock = [UIImage imageNamed:@"matchLock"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -58,6 +62,9 @@ static UIColor* pointsBackground;
         
         self.pointsBackground = (UIImageView*) [self viewWithTag:30];
         self.pointsLabel = (UILabel*) [self viewWithTag:31];
+        
+        self.matchLock = (UIImageView*) [self viewWithTag:33];
+        self.matchLock.image = matchLock;
         
         self.leftPointsBackground = (UIView*) [self viewWithTag:180];
         self.rightPointsBackground = (UIView*) [self viewWithTag:280];
