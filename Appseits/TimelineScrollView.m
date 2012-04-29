@@ -15,7 +15,7 @@
 #define ROUND_TEXT_Y 4
 #define ROUND_TEXT_WIDTH 140
 #define ROUND_TEXT_HEIGHT 40
-#define SIDE_OFFSET 300
+#define SIDE_OFFSET 100
 
 @interface TimelineScrollView()
 @property (nonatomic, strong) NSArray *sections;
@@ -49,6 +49,12 @@
     _tournamentRounds = tournamentRounds;
     
     self.contentSize = CGSizeMake([tournamentRounds count] * ROUND_WIDTH + 2*SIDE_OFFSET, self.frame.size.height);
+    
+    // add left-most space, which is always green
+    UIView *beginView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SIDE_OFFSET, self.frame.size.height)];
+    beginView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lockedRound"]];
+    [self addSubview:beginView];
+    
     
     int xOffset = SIDE_OFFSET;
     

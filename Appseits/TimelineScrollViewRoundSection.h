@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TournamentRound.h"
 
-#define ROUND_WIDTH 200
+#define ROUND_WIDTH 134 
 
 @interface TimelineScrollViewRoundSection : UIView
 

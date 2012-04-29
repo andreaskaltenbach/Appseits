@@ -13,15 +13,10 @@
 #define BALL_WIDTH 26
 #define LOCK_WIDTH 15
 #define ICON_MARGIN_RIGHT 15
-#define LABEL_WIDTH 140
+#define LABEL_WIDTH 110
 
-#define BALL_ICON_MARGIN_LEFT 154
-#define LOCK_ICON_MARGIN_LEFT 161
-
-static UIImage *greenBall;
-static UIImage *grayBall;
-static UIImage *lockOpen;
-static UIImage *lockClosed;
+static UIImage *lockedBackground;
+static UIImage *unlockedBackground;
 
 @interface TimelineScrollViewRoundSection()
 @end
@@ -31,10 +26,8 @@ static UIImage *lockClosed;
 @synthesize round = _round;
 
 + (void) initialize {
-    greenBall = [UIImage imageNamed:@"greenBall"];
-    grayBall = [UIImage imageNamed:@"grayBall"];
-    lockOpen = [UIImage imageNamed:@"lockOpen"];
-    lockClosed = [UIImage imageNamed:@"lockClosed"];
+    lockedBackground = [UIImage imageNamed:@"lockedRound"];
+    unlockedBackground = [UIImage imageNamed:@"openRound"];
 }
 
 + (TimelineScrollViewRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent {
@@ -47,32 +40,20 @@ static UIImage *lockClosed;
     UILabel *roundName = [[UILabel alloc] initWithFrame:CGRectMake(LABEL_MARGIN_LEFT, 0, LABEL_WIDTH, sectionHeight)];
     roundName.text = round.roundName;
     roundName.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    if (round.locked) {
-        roundName.textColor = [UIColor highlightedGreen];
-    }
-    else {
-        roundName.textColor = [UIColor whiteColor];
-    }
-    roundName.font = [UIFont systemFontOfSize:20];
+    roundName.textColor = [UIColor whiteColor];
+    roundName.font = [UIFont boldSystemFontOfSize:16];
     roundName.backgroundColor = [UIColor clearColor];
     [section addSubview:roundName];
     
-    // add the lock icon
-    UIImageView *ball;
-    UIImageView *lock;
     if (round.locked) {
-        ball = [[UIImageView alloc]initWithImage:greenBall];   
-        lock = [[UIImageView alloc]initWithImage:lockClosed];   
+        // show green background
+        section.backgroundColor = [UIColor colorWithPatternImage:lockedBackground];
     }
     else {
-        ball = [[UIImageView alloc]initWithImage:grayBall];   
-        lock = [[UIImageView alloc]initWithImage:lockOpen];
+        // show transparent background with gray lock
+        section.backgroundColor = [UIColor colorWithPatternImage:unlockedBackground];
     }
-    ball.frame = CGRectMake(BALL_ICON_MARGIN_LEFT, (sectionHeight - BALL_WIDTH)/2, BALL_WIDTH, BALL_WIDTH);
-    lock.frame = CGRectMake(LOCK_ICON_MARGIN_LEFT, (sectionHeight - LOCK_WIDTH)/2, LOCK_WIDTH, LOCK_WIDTH);
-    [section addSubview:ball];
-    [section addSubview:lock];
-    
+        
     // add separator lines left and right
     UIView *leftLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, sectionHeight)];
     leftLine.backgroundColor = [UIColor separatorVertical];
