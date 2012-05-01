@@ -98,30 +98,6 @@ static UIImage *cogWheel;
     [self.mainScrollView scrollRectToVisible:CGRectMake(0, 0, self.mainScrollView.frame.size.width, self.mainScrollView.frame.size.height) animated:YES];
 }
 
-/*- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
-    NSLog(@"Scrolling inner: %f", scrollView.contentOffset.y);
-    if (scrollView.contentOffset.y < 0 ) {
-        self.mainScrollView.contentOffset = CGPointMake(0, scrollView.contentOffset.y);
-    }
-
-    
-        
-    
-    
-    
-    //scrollView.contentOffset = CGPointZero;
-
-}*/
-/*
-- (void) backToTop:(UIScrollView*) scrollView  {
-    
-     CGRect scrollBounds = scrollView.bounds;
-     scrollBounds.origin = CGPointMake(0, 10);
-     scrollView.bounds = scrollBounds;
-}*/
-
-
 - (void) viewDidLoad {
     
     self.logoutButton.backgroundColor = [UIColor colorWithPatternImage:cogWheel];

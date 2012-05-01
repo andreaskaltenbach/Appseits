@@ -12,7 +12,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface LoginViewController ()
-@property (unsafe_unretained, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
@@ -26,7 +25,6 @@
 @end
 
 @implementation LoginViewController
-@synthesize usernameField;
 @synthesize emailInput;
 @synthesize passwordInput;
 @synthesize loginButton;
@@ -38,11 +36,22 @@
 @synthesize scrollView;
 
 static UIImage *backgroundImage;
+static UIImage *backgroundImagePortrait;
+static UIImage *backgroundImageLandscape;
 static UIImage *loginButtonImage;
 static UIImage *forgotPasswordButtonImage;
 
 + (void) initialize {
-    backgroundImage = [UIImage imageNamed:@"Default"];
+
+    switch (UI_USER_INTERFACE_IDIOM()) {
+        case UIUserInterfaceIdiomPad:
+            backgroundImagePortrait = [UIImage imageNamed:@"Default-Portrait~ipad"];
+            backgroundImageLandscape = [UIImage imageNamed:@"Default-Landscape~ipad"];
+            break;
+        default:
+            backgroundImage = [UIImage imageNamed:@"Default"];
+    }
+    
     loginButtonImage = [UIImage imageNamed:@"login"];
     forgotPasswordButtonImage = [UIImage imageNamed:@"forgotPassword"];
 }
@@ -53,8 +62,11 @@ static UIImage *forgotPasswordButtonImage;
     
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, self.scrollView.frame.size.height * 2);
     self.scrollView.contentOffset = CGPointMake(0, 20);
-    
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:backgroundImage];
+
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:backgroundImage];
+    }
+
     
     spinner.hidden = NO;
     [spinner startAnimating];
@@ -109,7 +121,6 @@ static UIImage *forgotPasswordButtonImage;
 
 - (void)viewDidUnload
 {
-    [self setUsernameField:nil];
     [self setEmailInput:nil];
     [self setPasswordInput:nil];
     [self setLoginButton:nil];
@@ -135,16 +146,22 @@ static UIImage *forgotPasswordButtonImage;
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    switch (toInterfaceOrientation) {
-        case UIDeviceOrientationLandscapeRight:
-        case UIDeviceOrientationLandscapeLeft:
-            return [[UIDevice currentDevice].model isEqualToString:@"iPad"];
-        default:
+    switch (UI_USER_INTERFACE_IDIOM()) {
+        case UIUserInterfaceIdiomPad:
+            
+            if (toInterfaceOrientation == UIDeviceOrientationPortrait ||
+                toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown) {
+                self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImagePortrait];
+            }
+            else {
+                self.view.backgroundColor = [UIColor colorWithPatternImage:backgroundImageLandscape];                
+            }
             return YES;
+        default:
+            // Phone
+            return toInterfaceOrientation == UIDeviceOrientationPortrait ||
+            toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown;
     }
-}
-
-- (IBAction)loginButtonClicked:(id)sender {
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {

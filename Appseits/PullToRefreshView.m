@@ -70,7 +70,9 @@
 }
 
 - (void) addWatchedScrollView:(UIScrollView*) watchedScrollView {
-    [self.watchedScrollViews addObject:watchedScrollView];
+    if (watchedScrollView) {
+        [self.watchedScrollViews addObject:watchedScrollView];
+    }
 }
 
 - (BOOL) watchedScrollViewIsDragging {

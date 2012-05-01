@@ -59,10 +59,14 @@ static NSString *token;
 }
 
 + (void) addMatchUpdateDelegate:(id<MatchUpdateDelegate>) delegate {
-    [matchUpdateDelegates addObject:delegate];
+    if (delegate) {
+        [matchUpdateDelegates addObject:delegate];
+    }
 }
 + (void) addRankingUpdateDelegate:(id<RankingUpdateDelegate>) delegate {
-    [rankingUpdateDelegates addObject:delegate];
+    if (delegate) {
+        [rankingUpdateDelegates addObject:delegate];
+    }
 }
 
 + (BOOL) credentialsAvailable {

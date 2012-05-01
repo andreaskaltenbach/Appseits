@@ -1,11 +1,98 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="kXb-Ax-dFF">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="X5e-XT-Gnn">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40a-zC-l17" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="bk4-4u-ood" customClass="LoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z33-c2-Yyp">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="O6v-nD-ftV">
+                                <rect key="frame" x="224" y="382" width="320" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="7Vd-hm-a5Z">
+                                        <rect key="frame" x="10" y="10" width="300" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Epostadress" minimumFontSize="17" id="whM-O2-ULK" userLabel="emailInput">
+                                                <rect key="frame" x="10" y="0.0" width="280" height="46"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" id="ZaS-dL-rWe" userLabel="separator">
+                                                <rect key="frame" x="0.0" y="49" width="300" height="1"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lösenord" minimumFontSize="17" id="RV7-zi-izE" userLabel="passwordInput">
+                                                <rect key="frame" x="10" y="54" width="280" height="46"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QIy-kS-li3">
+                                        <rect key="frame" x="10" y="121" width="300" height="54"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" backgroundImage="login.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginTabbed:" destination="bk4-4u-ood" eventType="touchUpInside" id="Yhj-gm-ikf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="97d-K4-AlF">
+                                        <rect key="frame" x="10" y="186" width="300" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="forgotPassword.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="jp9-GA-wSh">
+                                <rect key="frame" x="374" y="333" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iSW-1E-S5W"/>
+                    <connections>
+                        <outlet property="emailInput" destination="whM-O2-ULK" id="hfD-nZ-mID"/>
+                        <outlet property="forgotPasswordButton" destination="97d-K4-AlF" id="4G4-hV-CRK"/>
+                        <outlet property="inputBackgroundView" destination="7Vd-hm-a5Z" id="iRJ-F2-lcO"/>
+                        <outlet property="loginButton" destination="QIy-kS-li3" id="ZVw-V7-w4p"/>
+                        <outlet property="passwordInput" destination="RV7-zi-izE" id="NXa-Iw-Ckj"/>
+                        <outlet property="spinner" destination="jp9-GA-wSh" id="p5z-jk-abn"/>
+                        <segue destination="2" kind="push" identifier="toOverview" id="v4d-fq-o8O"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-619" y="-756"/>
+        </scene>
         <!--Overview View Controller-->
         <scene sceneID="4">
             <objects>
@@ -212,6 +299,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="9xO-2V-k1r"/>
                     <connections>
                         <outlet property="gameTable" destination="3AG-i7-oEt" id="g7l-BB-yX9"/>
                         <outlet property="menu" destination="i0x-Uf-kWs" id="pST-zn-kel"/>
@@ -221,10 +309,31 @@
                     </connections>
                 </viewController>
             </objects>
+            <point key="canvasLocation" x="716" y="-765"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xaf-cj-enw">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TN3-xa-NV7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController navigationBarHidden="YES" id="kXb-Ax-dFF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="O2e-gy-91J">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bk4-4u-ood" kind="relationship" relationship="rootViewController" id="jOX-s5-8M7"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1593" y="-756"/>
         </scene>
     </scenes>
     <resources>
         <image name="flagBackground.png" width="27" height="27"/>
+        <image name="forgotPassword.png" width="300" height="44"/>
+        <image name="login.png" width="300" height="54"/>
         <image name="result.png" width="43" height="47"/>
         <image name="separator.png" width="2" height="17"/>
         <image name="tipBar.png" width="302" height="36"/>
@@ -239,29 +348,77 @@
         <class className="GameResultCelll" superclassName="GameCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GameResultCelll.h"/>
         </class>
-        <class className="GameTable" superclassName="UITableView">
+        <class className="GameTable" superclassName="ScrollTriggeringTableView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GameTable.h"/>
         </class>
-        <class className="Menu" superclassName="SSGradientView">
+        <class className="LastUpdateView" superclassName="SSGradientView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LastUpdateView.h"/>
+        </class>
+        <class className="LeaguePickerView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaguePickerView.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="emailInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="forgotPasswordButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="inputBackgroundView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loginView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="passwordInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="separator" candidateClass="UIView"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MainScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainScrollView.h"/>
+        </class>
+        <class className="Menu" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Menu.h"/>
+        </class>
+        <class className="MenuDependendScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuDependendScrollView.h"/>
         </class>
         <class className="OverviewViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OverviewViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="gameTable" candidateClass="GameTable"/>
-                <relationship kind="outlet" name="menu" candidateClass="Menu"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="leagueInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="leaguePicker" candidateClass="LeaguePickerView"/>
+                <relationship kind="outlet" name="logoutButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mainScrollView" candidateClass="MainScrollView"/>
+                <relationship kind="outlet" name="menu" candidateClass="UIView"/>
+                <relationship kind="outlet" name="menuDependingScrollView" candidateClass="MenuDependendScrollView"/>
                 <relationship kind="outlet" name="pointInCurrentRound" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="pointsTotal" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="rankingMenuItem" candidateClass="UIView"/>
+                <relationship kind="outlet" name="rankingTable" candidateClass="RankingTable"/>
+                <relationship kind="outlet" name="rankingTableHeader" candidateClass="UIView"/>
+                <relationship kind="outlet" name="resultMenuItem" candidateClass="UIView"/>
+                <relationship kind="outlet" name="roundLastUpdatedView" candidateClass="RoundLastUpdatedView"/>
+                <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
                 <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
+                <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
             </relationships>
+        </class>
+        <class className="RankingTable" superclassName="ScrollTriggeringTableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingTable.h"/>
+        </class>
+        <class className="RoundLastUpdatedView" superclassName="LastUpdateView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundLastUpdatedView.h"/>
         </class>
         <class className="SSBorderedView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSBorderedView.h"/>
         </class>
         <class className="SSGradientView" superclassName="SSBorderedView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSGradientView.h"/>
+        </class>
+        <class className="ScrollTriggeringTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScrollTriggeringTableView.h"/>
         </class>
         <class className="Timeline" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
