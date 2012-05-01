@@ -47,7 +47,11 @@
 }
 
 - (NSString *) description {
-    return [NSString stringWithFormat:@"Game %@ - %@", self.firstTeamName, self.secondTeamName];
+    return [NSString stringWithFormat:@"Match %@ - %@", self.firstTeamName, self.secondTeamName];
+}
+
+- (BOOL) finished {
+    return self.firstTeamGoals && self.secondTeamGoals;
 }
 
 @end

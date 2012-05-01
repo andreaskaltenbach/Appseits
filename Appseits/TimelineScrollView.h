@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TournamentRoundSelectDelegate.h"
 
-@interface TimelineScrollView : UIScrollView
+@interface TimelineScrollView : UIScrollView<UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSArray *tournamentRounds;
 @property (nonatomic, strong) id<TournamentRoundSelectDelegate> roundSelectDelegate;

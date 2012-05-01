@@ -21,4 +21,6 @@
 
 + (NSArray*) gamesFromJson: (NSArray*) jsonData;
 
+- (BOOL) finished;
+
 @end

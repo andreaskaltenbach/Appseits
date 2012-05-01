@@ -17,6 +17,8 @@
 - (int) points;
 - (BOOL) locked;
 
+- (BOOL) isActive;
+
 + (NSArray*) tournamentRoundsFromJson: (NSArray*) jsonRounds;
 
 @end

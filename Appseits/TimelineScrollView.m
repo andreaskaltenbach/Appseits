@@ -10,6 +10,7 @@
 #import "UIColor+AppColors.h"
 #import "TournamentRound.h"
 #import "TimelineScrollViewRoundSection.h"
+#import "Match.h"
 
 #define ROUND_TEXT_X 20
 #define ROUND_TEXT_Y 4
@@ -20,6 +21,8 @@
 @interface TimelineScrollView()
 @property (nonatomic, strong) NSArray *sections;
 @property int selectedIndex;
+@property (nonatomic, strong) UIView *progressView;
+@property (nonatomic, strong) UIView *orangeLine;
 @end
 
 @implementation TimelineScrollView
@@ -28,6 +31,8 @@
 @synthesize sections = _sections;
 @synthesize roundSelectDelegate = _roundSelectDelegate;
 @synthesize selectedIndex = _selectedIndex;
+@synthesize progressView = _progressView;
+@synthesize orangeLine = _orangeLine;
 
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
@@ -41,8 +46,28 @@
         rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;        
         [self addGestureRecognizer:rightSwipe];
         
+        self.scrollEnabled = YES;
+        self.bounces = NO;
+        self.delegate = self;
     }
     return self;
+}
+
+- (void) placeProgressWaves:(TimelineScrollViewRoundSection*) activeSection {
+    float xPos = activeSection.frame.origin.x;
+    
+    // go through all matches in a round until the first unfinished is found
+    float matchWidth = activeSection.frame.size.width / [activeSection.round.matches count];
+    for (Match* match in activeSection.round.matches) {
+        xPos+= matchWidth;
+        if (!match.finished) {
+            self.progressView.frame = CGRectMake(0, 0, xPos, self.frame.size.height);
+            self.orangeLine.frame = CGRectMake(xPos - 2, 0, 4, self.frame.size.height);
+            return;
+        }
+    }
+    self.progressView.frame = CGRectMake(0, 0, activeSection.frame.origin.x, self.frame.size.height);
+    self.orangeLine.frame = CGRectMake(activeSection.frame.origin.x, 0, 4, self.frame.size.height);
 }
 
 - (void) setTournamentRounds:(NSArray *)tournamentRounds {
@@ -54,7 +79,6 @@
     UIView *beginView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SIDE_OFFSET, self.frame.size.height)];
     beginView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lockedRound"]];
     [self addSubview:beginView];
-    
     
     int xOffset = SIDE_OFFSET;
     
@@ -71,11 +95,31 @@
     }
     self.sections = [NSArray arrayWithArray:sections];
     
-
+    // select current round
+    TimelineScrollViewRoundSection *activeSection;
+    for (TimelineScrollViewRoundSection *section in self.sections) {
+        if (section.round.isActive) {
+            activeSection = section;
+        }
+    }
+    
+    // if no active section can be identified, we take the first one
+    if (!activeSection) activeSection = [self.sections objectAtIndex:0];
     
     // TODO better logic to decide which round to select initially
-    [self selectTournamentRound:[self.sections objectAtIndex:0]];
-
+    [self selectTournamentRound:activeSection];
+    
+    
+    // put in the progress overlay
+    self.progressView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, self.frame.size.height)];
+    self.progressView.backgroundColor = [UIColor progressWaves];
+    [self addSubview:self.progressView];
+    
+    self.orangeLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 4, self.frame.size.height)];
+    self.orangeLine.backgroundColor = [UIColor orangeLine];
+    [self addSubview:self.orangeLine];
+    
+    [self placeProgressWaves:activeSection];
 
     [self setNeedsDisplay];
 }
@@ -121,6 +165,10 @@
         TimelineScrollViewRoundSection *section = [self.sections objectAtIndex:self.selectedIndex - 1];
         [self selectTournamentRound:section];
     }
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    NSLog(@"Scroll end: %f", scrollView.contentOffset.x);
 }
 
 

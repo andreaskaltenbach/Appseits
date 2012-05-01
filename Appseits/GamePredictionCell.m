@@ -46,9 +46,10 @@
         self.secondTeamPredictionCarousel.dataSource = self;
         self.secondTeamPredictionCarousel.delegate = self;
         self.secondTeamPredictionCarousel.type = iCarouselTypeCylinder;
-        
-
     }
+    
+    NSLog(@"BG color: %@", self.backgroundColor);
+    self.backgroundColor = [UIColor blueColor];
     
     return self;
 }

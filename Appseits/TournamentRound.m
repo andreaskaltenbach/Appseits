@@ -16,6 +16,15 @@
 @synthesize matches = _matches;
 @synthesize lockDate = _lockDate;
 
+- (BOOL) isActive {
+    if (!self.locked) return NO;
+    
+    for (Match* match in self.matches) {
+        if (!match.finished) return YES;
+    }
+    return NO;
+}
+
 - (int) points {
     int points = 0;
     for(Match *game in self.matches) {
@@ -45,6 +54,10 @@
 - (BOOL) locked {
     if (!self.lockDate) return NO;
     return [self.lockDate compare:[NSDate date]] == NSOrderedAscending;
+}
+
+- (NSString *) description {
+    return [NSString stringWithFormat:@"Tournament round %@", self.roundName];
 }
 
 @end

@@ -28,9 +28,9 @@
 
 + (UIColor*) progressWaves;
 
-+ (UIColor*) separatorVertical;
++ (UIColor*) orangeLine;
 
-+ (UIColor*) orangeSeparator;
++ (UIColor*) separatorVertical;
 
 + (NSArray *) greenGradient;
 + (NSArray *) darkGrayGradient;

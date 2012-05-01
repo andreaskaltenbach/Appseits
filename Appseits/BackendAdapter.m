@@ -98,14 +98,26 @@ static NSString *token;
             [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             
             if (response.statusCode != 200) {
+                
+                
                 // an error occured
+                if(response.statusCode == 0) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self showErrorAlert:@"No internet connection."];
+                        onFinished(NO);
+                    });
+                    return;
+                }
+
+                
                 if (response.statusCode != 401) {
                     NSLog(@"Status code: %i", response.statusCode);
                     // some unexpected has happened:
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [self showErrorAlert:@"Unable to validate credentials"];
-                        onFinished(YES);
+                        [self showErrorAlert:@"Unable to validate credentials."];
+                        onFinished(NO);
                     });
+                    return;
                     
                     
                 }
@@ -124,8 +136,6 @@ static NSString *token;
             dispatch_async(dispatch_get_main_queue(), ^{
                 onFinished(YES);
             });
-            
-            
         }
         else {
             dispatch_async(dispatch_get_main_queue(), ^{
