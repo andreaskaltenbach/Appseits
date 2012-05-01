@@ -212,9 +212,9 @@ static UIImage *cogWheel;
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     switch (toInterfaceOrientation) {
-        case UIDeviceOrientationLandscapeRight:
-        case UIDeviceOrientationLandscapeLeft:
-            return [[UIDevice currentDevice].model isEqualToString:@"iPad"];
+        case UIDeviceOrientationPortrait:
+        case UIDeviceOrientationPortraitUpsideDown:
+            return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
         default:
             return YES;
     }
