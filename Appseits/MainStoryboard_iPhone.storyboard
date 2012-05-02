@@ -89,7 +89,6 @@
                         <outlet property="scrollView" destination="dw7-aW-Hia" id="h83-q2-eeU"/>
                         <outlet property="separator" destination="JQW-BB-429" id="Zdl-nP-3hY"/>
                         <outlet property="spinner" destination="wDS-2Q-3tv" id="eSA-Zc-Qh0"/>
-                        <outlet property="usernameField" destination="xuQ-BR-xDy" id="NkD-ch-XQ5"/>
                         <segue destination="6qr-mS-VaE" kind="push" identifier="toOverview" id="jzV-gS-f2N"/>
                     </connections>
                 </viewController>
@@ -751,7 +750,6 @@
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="separator" candidateClass="UIView"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="MainScrollView" superclassName="UIScrollView">
