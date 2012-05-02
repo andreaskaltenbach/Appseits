@@ -30,7 +30,6 @@
 		4E531C43151CB04A0003CAD1 /* TournamentRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C42151CB04A0003CAD1 /* TournamentRound.m */; };
 		4E531C46151CB05B0003CAD1 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Match.m */; };
 		4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */; };
-		4E8571891537328B00795055 /* tipBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E8571881537328B00795055 /* tipBar.png */; };
 		4E86FF5C152B275F00958DDE /* RankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E86FF5B152B275F00958DDE /* RankingCell.m */; };
 		4E9D96E91536FF770092DA78 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D96E81536FF770092DA78 /* iCarousel.m */; };
 		4ED8106F154A92BB0084C918 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED8106E154A92BB0084C918 /* logo.png */; };
@@ -235,7 +234,6 @@
 		4E531C45151CB05B0003CAD1 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
 		4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePredictionCell.h; sourceTree = "<group>"; };
 		4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePredictionCell.m; sourceTree = "<group>"; };
-		4E8571881537328B00795055 /* tipBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tipBar.png; sourceTree = "<group>"; };
 		4E86FF5A152B275F00958DDE /* RankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingCell.h; sourceTree = "<group>"; };
 		4E86FF5B152B275F00958DDE /* RankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingCell.m; sourceTree = "<group>"; };
 		4E9D96E71536FF770092DA78 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -413,7 +411,6 @@
 				5BA1F2FE1538B43B00B57336 /* trendNeutral.png */,
 				5BA1F2F71538AC0E00B57336 /* verticalSeparator.png */,
 				5BA1F2F81538AC0E00B57336 /* star.png */,
-				4E8571881537328B00795055 /* tipBar.png */,
 				5B8FB23E1528784C003AEB05 /* grayBall.png */,
 				5B8FB23F1528784C003AEB05 /* greenBall.png */,
 				5BD4B143152395AF004FE21B /* separator.png */,
@@ -766,7 +763,6 @@
 				5BD4B144152395AF004FE21B /* separator.png in Resources */,
 				5B8FB2421528784C003AEB05 /* grayBall.png in Resources */,
 				5B8FB2431528784C003AEB05 /* greenBall.png in Resources */,
-				4E8571891537328B00795055 /* tipBar.png in Resources */,
 				5BA1F2F91538AC0E00B57336 /* verticalSeparator.png in Resources */,
 				5BA1F2FA1538AC0E00B57336 /* star.png in Resources */,
 				5BA1F2FF1538B43B00B57336 /* trendUp.png in Resources */,

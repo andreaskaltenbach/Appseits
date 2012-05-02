@@ -131,7 +131,8 @@
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    // cell is not selectable
+    // a prediction cell is never selectable for an iPhone
+    [super setSelected:NO animated:animated];
 }
 
 @end
