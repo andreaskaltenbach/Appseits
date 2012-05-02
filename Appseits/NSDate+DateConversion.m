@@ -8,10 +8,21 @@
 
 #import "NSDate+DateConversion.h"
 
+#define REGEX @"[0-9]+"
+
 @implementation NSDate (DateConversion)
 
 + (NSDate*) fromJsonTimestamp:(id) timestamp {
     if (!timestamp) return nil;
-    return [NSDate dateWithTimeIntervalSince1970:([timestamp doubleValue])];
+    NSError *error;
+    NSRegularExpression *regex = [NSRegularExpression 
+                                  regularExpressionWithPattern:REGEX
+                                  options:NSRegularExpressionCaseInsensitive
+                                  error:&error];
+    NSRange range   = [regex rangeOfFirstMatchInString:timestamp
+                                               options:0 
+                                                 range:NSMakeRange(0, [timestamp length])];
+    NSString *result = [timestamp substringWithRange:range];
+    return [NSDate dateWithTimeIntervalSince1970:([result doubleValue]/1000)];
 }
 @end
