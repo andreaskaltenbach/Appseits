@@ -13,7 +13,6 @@
 #import "Constants.h"
 #import "Match.h"
 
-static NSString *tournamentUrl;
 static NSString *leagueUrl;
 static NSString *rankingUrl;
 
@@ -28,16 +27,17 @@ static NSMutableSet *matchUpdateDelegates;
 static NSMutableSet *rankingUpdateDelegates;
 
 static NSString *token;
+static NSString *userName;
+static NSString *userId;
 
 #define FLAG_URL @"http://img.uefa.com/imgml/flags/32x32/%@.png"
 
 #define LOGIN_URL @"http://emtipset.dev.stendahls.se/api/login"
+#define ROUNDS_URL @"http://emtipset.dev.stendahls.se/api/rounds"
 
 @implementation BackendAdapter
 
-
 + (void) initialize {
-    tournamentUrl = @"http://dl.dropbox.com/u/15650647/games.json";
     leagueUrl = @"http://dl.dropbox.com/u/15650647/leagues.json";
     rankingUrl = @"http://dl.dropbox.com/u/15650647/ranking.json";
     
@@ -55,7 +55,6 @@ static NSString *token;
     for (id<RankingUpdateDelegate> rankingUpdateDelegate in rankingUpdateDelegates) {
         [rankingUpdateDelegate rankingsUpdated:nil];
     }
-    
 }
 
 + (void) addMatchUpdateDelegate:(id<MatchUpdateDelegate>) delegate {
@@ -99,7 +98,7 @@ static NSString *token;
             request.HTTPBody = data;
             NSHTTPURLResponse *response;
             
-            [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            NSData *userData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             
             if (response.statusCode != 200) {
                 
@@ -132,10 +131,18 @@ static NSString *token;
                 return;
             }
             
-            // credentials are valid -> we grab the authentication token and store it
-            token = [response.allHeaderFields objectForKey:@"Authorization"];
+            // credentials are valid -> we grab the user information and token and store it
+            NSDictionary* json = [NSJSONSerialization 
+                                  JSONObjectWithData:userData
+                                  options:kNilOptions 
+                                  error:&error];
+            token = [json objectForKey:@"auth"];
+            userName = [json objectForKey:@"name"];
+            userId = [json objectForKey:@"userId"];            
             
             NSLog(@"Token: %@", token);
+            NSLog(@"User Name: %@", userName);
+            NSLog(@"User ID: %@", userId);
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 onFinished(YES);
@@ -145,10 +152,7 @@ static NSString *token;
             dispatch_async(dispatch_get_main_queue(), ^{
                 onFinished(NO);
             });
-        }
-
-        
-           
+        }  
     });
 }
                    
@@ -279,8 +283,10 @@ static NSString *token;
 
 + (BOOL) loadCompleteTournament {
     
-    NSURL *url = [NSURL URLWithString:tournamentUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURL *url = [NSURL URLWithString:ROUNDS_URL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    NSLog(@"Header: %@", token);
+    [request addValue:token forHTTPHeaderField:@"Authorization"];
     
     NSError *error;
     NSURLResponse *response;
@@ -294,6 +300,7 @@ static NSString *token;
     // parse the result
     NSError *parseError = nil;
     NSArray *roundsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
+    NSLog(@"Rounds: %@", roundsData);
     
     if (parseError) {
         [self showErrorAlert:@"Error while parsing match data from server"];

@@ -8,12 +8,11 @@
 
 #import "TimelineScrollViewRoundSection.h"
 #import "UIColor+AppColors.h"
-#define LABEL_MARGIN_LEFT 15
+
+#define LABEL_MARGIN_LEFT 10
 #define LABEL_ICON_MARGIN 5
-#define BALL_WIDTH 26
-#define LOCK_WIDTH 15
 #define ICON_MARGIN_RIGHT 15
-#define LABEL_WIDTH 110
+#define LABEL_WIDTH 85
 
 static UIImage *lockedBackground;
 static UIImage *unlockedBackground;
@@ -41,7 +40,7 @@ static UIImage *unlockedBackground;
     roundName.text = round.roundName;
     roundName.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     roundName.textColor = [UIColor whiteColor];
-    roundName.font = [UIFont boldSystemFontOfSize:16];
+    roundName.font = [UIFont boldSystemFontOfSize:14];
     roundName.backgroundColor = [UIColor clearColor];
     [section addSubview:roundName];
     

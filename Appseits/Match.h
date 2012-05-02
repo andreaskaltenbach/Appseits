@@ -18,6 +18,9 @@
 @property (nonatomic, strong) NSNumber *firstTeamPrediction;
 @property (nonatomic, strong) NSNumber *secondTeamPrediction;
 @property (nonatomic, strong) NSNumber *points;
+@property (nonatomic, strong) NSNumber *matchId;
+@property BOOL played;
+@property BOOL unknownOpponents;
 
 + (NSArray*) gamesFromJson: (NSArray*) jsonData;
 

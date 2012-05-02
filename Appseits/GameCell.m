@@ -80,10 +80,16 @@ static UIImage *selectedBackgroundImage;
     NSString *firstTeam = [game.firstTeamName uppercaseString];
     NSString *secondTeam = [game.secondTeamName uppercaseString];
     self.firstTeamName.text = firstTeam;
-    [self fetchFlagImage:firstTeam :self.firstTeamImage];
-
     self.secondTeamName.text = secondTeam;
-    [self fetchFlagImage:secondTeam :self.secondTeamImage];  
+    
+    if (game.unknownOpponents) {
+        self.firstTeamImage.image = nil;
+        self.secondTeamImage.image = nil;        
+    }
+    else {
+        [self fetchFlagImage:firstTeam :self.firstTeamImage];
+        [self fetchFlagImage:secondTeam :self.secondTeamImage];  
+    }
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"HH:mm";

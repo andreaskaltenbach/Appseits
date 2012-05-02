@@ -14,7 +14,7 @@
 
 #define ROUND_TEXT_X 20
 #define ROUND_TEXT_Y 4
-#define ROUND_TEXT_WIDTH 140
+
 #define ROUND_TEXT_HEIGHT 40
 #define SIDE_OFFSET 100
 
