@@ -23,6 +23,7 @@
 @property int selectedIndex;
 @property (nonatomic, strong) UIView *progressView;
 @property (nonatomic, strong) UIView *orangeLine;
+@property (nonatomic, strong) UIView *contentView;
 @end
 
 @implementation TimelineScrollView
@@ -33,27 +34,22 @@
 @synthesize selectedIndex = _selectedIndex;
 @synthesize progressView = _progressView;
 @synthesize orangeLine = _orangeLine;
+@synthesize contentView = _myContentView;
 
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     
     if (self) {
-        
-        UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveToRight:)];
-        leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
-        [self addGestureRecognizer:leftSwipe];
-        UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(moveToLeft:)];
-        rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;        
-        [self addGestureRecognizer:rightSwipe];
-        
         self.scrollEnabled = YES;
+        self.scrollsToTop = NO;
         self.bounces = NO;
         self.delegate = self;
+        self.decelerationRate = UIScrollViewDecelerationRateFast;
     }
     return self;
 }
 
-- (void) placeProgressWaves:(TimelineScrollViewRoundSection*) activeSection {
+- (void) layoutProgressWaves:(TimelineScrollViewRoundSection*) activeSection {
     float xPos = activeSection.frame.origin.x;
     
     // go through all matches in a round until the first unfinished is found
@@ -73,19 +69,23 @@
 - (void) setTournamentRounds:(NSArray *)tournamentRounds {
     _tournamentRounds = tournamentRounds;
     
-    self.contentSize = CGSizeMake([tournamentRounds count] * ROUND_WIDTH + 2*SIDE_OFFSET, self.frame.size.height);
+    float width = [tournamentRounds count] * ROUND_WIDTH + 2*SIDE_OFFSET;
+    self.contentSize = CGSizeMake(width, self.frame.size.height);
+    
+    self.contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, self.frame.size.height)];
+    [self addSubview:self.contentView];
     
     // add left-most space, which is always green
     UIView *beginView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SIDE_OFFSET, self.frame.size.height)];
     beginView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lockedRound"]];
-    [self addSubview:beginView];
+    [self.contentView addSubview:beginView];
     
     int xOffset = SIDE_OFFSET;
     
     // add one section for each tournament round
     NSMutableArray *sections = [NSMutableArray array];
     for (TournamentRound *tournamentRound in tournamentRounds) {
-        TimelineScrollViewRoundSection *section = [TimelineScrollViewRoundSection initWithRound:tournamentRound :self];
+        TimelineScrollViewRoundSection *section = [TimelineScrollViewRoundSection initWithRound:tournamentRound :self.contentView];
         CGRect sectionFrame = section.frame;
         sectionFrame.origin.x = xOffset;
         section.frame = sectionFrame;
@@ -113,13 +113,13 @@
     // put in the progress overlay
     self.progressView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, self.frame.size.height)];
     self.progressView.backgroundColor = [UIColor progressWaves];
-    [self addSubview:self.progressView];
+    [self.contentView addSubview:self.progressView];
     
     self.orangeLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 4, self.frame.size.height)];
     self.orangeLine.backgroundColor = [UIColor orangeLine];
-    [self addSubview:self.orangeLine];
+    [self.contentView addSubview:self.orangeLine];
     
-    [self placeProgressWaves:activeSection];
+    [self layoutProgressWaves:activeSection];
 
     [self setNeedsDisplay];
 }
@@ -141,7 +141,6 @@
     self.selectedIndex = [self.sections indexOfObject:section];
     [self scrollRectToVisible:CGRectMake(self.selectedIndex * ROUND_WIDTH + xOffset , 0, totalWidth, self.frame.size.height) animated:YES];
     
-    
     [self.roundSelectDelegate tournamentRoundSelected:section.round];
 }
 
@@ -152,23 +151,25 @@
     }
 }
 
-
-- (void) moveToRight:(UISwipeGestureRecognizer*) sender {
-    if (self.selectedIndex + 1 < [self.sections count]) {
-        TimelineScrollViewRoundSection *section = [self.sections objectAtIndex:self.selectedIndex + 1];
-        [self selectTournamentRound:section];
-    }
-}
-
-- (void) moveToLeft:(UISwipeGestureRecognizer*) sender {
-    if (self.selectedIndex != 0) {
-        TimelineScrollViewRoundSection *section = [self.sections objectAtIndex:self.selectedIndex - 1];
-        [self selectTournamentRound:section];
-    }
-}
-
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    NSLog(@"Scroll end: %f", scrollView.contentOffset.x);
+
+    int halfSectionSize = ROUND_WIDTH/2;
+    
+    int xOffset = (self.frame.size.width - ROUND_WIDTH) / 2;
+
+    
+    // get closest tournament round and scroll to this:
+    for (TimelineScrollViewRoundSection *section in self.sections) {
+        int leftBoundary = section.frame.origin.x - halfSectionSize - xOffset;
+        int rightBoundary = section.frame.origin.x + halfSectionSize - xOffset;
+        
+        if (leftBoundary < scrollView.contentOffset.x &&
+            scrollView.contentOffset.x < rightBoundary) {
+            targetContentOffset->x =  section.frame.origin.x - xOffset;
+            [self selectTournamentRound:section];
+            return;
+        }
+    }
 }
 
 
