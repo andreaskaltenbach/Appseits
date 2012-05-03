@@ -11,6 +11,9 @@
 #import "UIColor+AppColors.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define SCROLL_OFFET 20
+#define KEYBOARD_SCROLL_OFFET 80
+
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
@@ -61,7 +64,7 @@ static UIImage *forgotPasswordButtonImage;
     [super viewDidLoad];
     
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, self.scrollView.frame.size.height * 2);
-    self.scrollView.contentOffset = CGPointMake(0, 20);
+    self.scrollView.contentOffset = CGPointMake(0, SCROLL_OFFET);
 
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
         self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:backgroundImage];
@@ -92,6 +95,27 @@ static UIImage *forgotPasswordButtonImage;
     else {
         [self showInputs];
     }
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide) name:UIKeyboardWillHideNotification object:nil];
+    }
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
+}
+
+-(void) keyboardWillShow {
+    // scroll input fields up
+    [self.scrollView scrollRectToVisible:CGRectMake(0, KEYBOARD_SCROLL_OFFET + SCROLL_OFFET, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
+}
+
+-(void) keyboardWillHide {
+    // scroll back down
+    [self.scrollView scrollRectToVisible:CGRectMake(0, SCROLL_OFFET, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
 }
 
 - (void) showInputs {
