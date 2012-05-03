@@ -73,6 +73,13 @@ static NSString *userId;
     return [userDefaults objectForKey:@"email"] != nil && [userDefaults objectForKey:@"password"] != nil;
 }
 
++ (void) storeCredentials:(NSString*) email: (NSString*) password {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setValue:email forKey:@"email"];
+    [userDefaults setValue:password forKey:@"password"];
+    [userDefaults synchronize];
+}
+
 + (void) validateCredentials:(FinishedBlock) onFinished {
     
     dispatch_queue_t credentialQueue = dispatch_queue_create("credentialsCheck", NULL);
@@ -91,8 +98,8 @@ static NSString *userId;
             
             [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
             NSDictionary *jsonData = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      @"apitest",@"Username",
-                                      @"apitest",@"Password",nil];
+                                      email,@"Username",
+                                      password,@"Password",nil];
             NSError *error;
             NSData *data = [NSJSONSerialization dataWithJSONObject:jsonData options:kNilOptions error:&error];
             request.HTTPBody = data;
@@ -111,9 +118,8 @@ static NSString *userId;
                     });
                     return;
                 }
-
                 
-                if (response.statusCode != 401) {
+                if (response.statusCode != 401 && response.statusCode != 404) {
                     NSLog(@"Status code: %i", response.statusCode);
                     // some unexpected has happened:
                     dispatch_async(dispatch_get_main_queue(), ^{

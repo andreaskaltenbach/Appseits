@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIView *separator;
 @property (weak, nonatomic) IBOutlet UIButton *forgotPasswordButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UILabel *errorMessage;
 
 @end
 
@@ -37,6 +38,7 @@
 @synthesize separator;
 @synthesize forgotPasswordButton;
 @synthesize scrollView;
+@synthesize errorMessage;
 
 static UIImage *backgroundImage;
 static UIImage *backgroundImagePortrait;
@@ -127,6 +129,7 @@ static UIImage *forgotPasswordButtonImage;
 - (void) login {
     self.spinner.hidden = NO;
     [self.spinner startAnimating];
+    
     [BackendAdapter validateCredentials:^(bool validCredentials) {
         if (validCredentials) {
             // initialize the app and enter it
@@ -137,10 +140,10 @@ static UIImage *forgotPasswordButtonImage;
         }
         else {
             // show inputs
+            [self showErrorMessage:@"Fel epost och lösenord"];
             [self showInputs];
         }
     }];
-
 }
 
 - (void)viewDidUnload
@@ -155,18 +158,31 @@ static UIImage *forgotPasswordButtonImage;
     [self setSeparator:nil];
     [self setForgotPasswordButton:nil];
     [self setScrollView:nil];
+    [self setErrorMessage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
+
+-(void) hideErrorMessage {
+    self.errorMessage.hidden = YES;
+}
+
+-(void) showErrorMessage:(NSString*) message {
+    self.errorMessage.text = message;
+    self.errorMessage.hidden = NO;
+}
+
 - (IBAction)loginTabbed:(id)sender {
+    [self hideErrorMessage];
     
-    // store username and password as user defaults
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:self.emailInput.text forKey:@"email"];
-    [userDefaults setObject:self.passwordInput.text forKey:@"password"];
-    [userDefaults synchronize];
-    
-    [self login];
+    if (self.emailInput.text && self.emailInput.text.length > 0
+        && self.passwordInput.text && self.passwordInput.text.length > 0) {
+        [BackendAdapter storeCredentials:self.emailInput.text :self.passwordInput.text];
+        [self login];
+    }
+    else {
+        [self showErrorMessage:@"Epost och lösenord krävs"];
+    }
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

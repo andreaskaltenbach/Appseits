@@ -23,6 +23,7 @@ typedef void(^FinishedBlock)(bool success);
 @interface BackendAdapter : NSObject
 
 + (BOOL) credentialsAvailable;
++ (void) storeCredentials:(NSString*) email: (NSString*) password;
 + (void) validateCredentials:(FinishedBlock) onFinished;
 
 + (void) initializeModel:(FinishedBlock) onFinished;
