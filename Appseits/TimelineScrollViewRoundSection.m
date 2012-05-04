@@ -65,10 +65,7 @@ static UIImage *unlockedBackground;
     
     section.round = round;
     
-    [section addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:parent action:@selector(sectionTapped:)]];
-    
     return section;
-    
 }
 
 - (void) highlight {
