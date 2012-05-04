@@ -44,4 +44,8 @@
     return 0;
 }
 
+- (float) progress {
+    return 0;
+}
+
 @end

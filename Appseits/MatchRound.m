@@ -42,6 +42,24 @@
     return rounds;
 }
 
+- (float) progress {
+    float matchPercentage = 1/[self.matches count];
+    NSLog(@"Match percentage: %f", matchPercentage);
+    
+    float progress = 0;
+    for (Match* match in self.matches) {
+
+        if (!match.finished) {
+            return progress;
+        }
+        
+        progress+= matchPercentage;
+    }
+
+    NSLog(@"Final percentage: %f", matchPercentage);
+    return progress;
+}
+
 
 
 

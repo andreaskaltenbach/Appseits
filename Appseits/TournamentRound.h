@@ -24,4 +24,6 @@ typedef enum {
 
 - (int) points;
 
+- (float) progress;
+
 @end

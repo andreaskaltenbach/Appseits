@@ -61,18 +61,10 @@ static UIImage *darkRight;
 - (void) layoutProgressWaves:(TimelineScrollViewRoundSection*) activeSection {
     float xPos = activeSection.frame.origin.x;
     
-    // go through all matches in a round until the first unfinished is found
-    float matchWidth = activeSection.frame.size.width / [activeSection.round.matches count];
-    for (Match* match in activeSection.round.matches) {
-        xPos+= matchWidth;
-        if (!match.finished) {
-            self.progressView.frame = CGRectMake(0, 0, xPos, self.frame.size.height);
-            self.orangeLine.frame = CGRectMake(xPos - 2, 0, 4, self.frame.size.height);
-            return;
-        }
-    }
-    self.progressView.frame = CGRectMake(0, 0, activeSection.frame.origin.x, self.frame.size.height);
-    self.orangeLine.frame = CGRectMake(activeSection.frame.origin.x, 0, 4, self.frame.size.height);
+    xPos += ROUND_WIDTH * activeSection.round.progress;
+    
+    self.progressView.frame = CGRectMake(0, 0, xPos, self.frame.size.height);
+    self.orangeLine.frame = CGRectMake(xPos - 2, 0, 4, self.frame.size.height);
 }
 
 - (void) setTournamentRounds:(NSArray *)tournamentRounds {
@@ -88,7 +80,7 @@ static UIImage *darkRight;
     
     // add one section for each tournament round
     NSMutableArray *sections = [NSMutableArray array];
-    for (MatchRound *tournamentRound in tournamentRounds) {
+    for (TournamentRound *tournamentRound in tournamentRounds) {
         TimelineScrollViewRoundSection *section = [TimelineScrollViewRoundSection initWithRound:tournamentRound :self.contentView];
         CGRect sectionFrame = section.frame;
         sectionFrame.origin.x = xOffset;

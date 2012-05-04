@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MatchRound.h"
+#import "TournamentRound.h"
 
 #define ROUND_WIDTH 134 
 
 @interface TimelineScrollViewRoundSection : UIView
 
-@property (nonatomic, strong) MatchRound *round;
+@property (nonatomic, strong) TournamentRound *round;
 
-+ (TimelineScrollViewRoundSection*) initWithRound:(MatchRound*) round: (UIView*) parent;
++ (TimelineScrollViewRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent;
 
 - (void) setSelected:(BOOL) selected;
 
