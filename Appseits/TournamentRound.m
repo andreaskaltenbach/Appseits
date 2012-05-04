@@ -15,6 +15,7 @@
 @synthesize roundName = _roundName;
 @synthesize matches = _matches;
 @synthesize lockDate = _lockDate;
+@synthesize startDate = _startDate;
 
 - (BOOL) isActive {
     if (!self.locked) return NO;
@@ -49,6 +50,22 @@
     }
     
     return rounds;
+}
+
+- (RoundState) roundState {
+    NSDate *now = [NSDate date];
+    if ([now compare:self.lockDate] == NSOrderedDescending) {
+        // lock date has passed
+        return CLOSED;
+    }
+    if ([now compare: self.startDate] == NSOrderedDescending) {
+        // start date has passed and lock date has not passed 
+        return OPEN;
+    }
+    
+    // start date has not yet reached
+    return FUTURE;
+    
 }
 
 - (BOOL) locked {

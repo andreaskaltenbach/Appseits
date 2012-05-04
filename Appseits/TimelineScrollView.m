@@ -75,11 +75,6 @@
     self.contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, self.frame.size.height)];
     [self addSubview:self.contentView];
     
-    // add left-most space, which is always green
-    UIView *beginView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SIDE_OFFSET, self.frame.size.height)];
-    beginView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lockedRound"]];
-    [self.contentView addSubview:beginView];
-    
     int xOffset = SIDE_OFFSET;
     
     // add one section for each tournament round
@@ -132,16 +127,26 @@
     }
 }
 
-- (void) selectTournamentRound:(TimelineScrollViewRoundSection*) section {
+- (void) selectTournamentRound:(TimelineScrollViewRoundSection*) selectedSection {
+    
+    // unselect all sections and select the new one:
+    for (TimelineScrollViewRoundSection *section in self.sections) {
+        if (selectedSection != section) {
+            [section setSelected:NO];
+        }
+        else {
+            [section setSelected:YES];
+        }
+    }
     
     // scroll to the correct position:
     int totalWidth = self.frame.size.width;
     int xOffset = SIDE_OFFSET - (totalWidth - ROUND_WIDTH)/2;
     
-    self.selectedIndex = [self.sections indexOfObject:section];
+    self.selectedIndex = [self.sections indexOfObject:selectedSection];
     [self scrollRectToVisible:CGRectMake(self.selectedIndex * ROUND_WIDTH + xOffset , 0, totalWidth, self.frame.size.height) animated:YES];
     
-    [self.roundSelectDelegate tournamentRoundSelected:section.round];
+    [self.roundSelectDelegate tournamentRoundSelected:selectedSection.round];
 }
 
 - (void) sectionTapped:(UITapGestureRecognizer*) sender {

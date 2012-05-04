@@ -26,6 +26,8 @@
 
 + (NSArray *) gameCellGradient;
 
++ (NSArray *) selectedSection;
+
 + (UIColor*) progressWaves;
 
 + (UIColor*) orangeLine;

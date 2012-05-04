@@ -30,6 +30,13 @@
     return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"square.png"]];
 }
 
++ (NSArray *) selectedSection {
+    return [NSArray arrayWithObjects: 
+            [UIColor colorWithRed:50.0/255.0f green:98.0f/255.0f blue:10.0f/255.0f alpha:1],
+            [UIColor colorWithRed:116.0/255.0f green:173.0f/255.0f blue:53.0f/255.0f alpha:1],
+            nil];  
+}
+
 + (NSArray *) gameCellGradient {
     return [NSArray arrayWithObjects: 
             [UIColor colorWithRed:210.0/255.0f green:210.0f/255.0f blue:210.0f/255.0f alpha:1],

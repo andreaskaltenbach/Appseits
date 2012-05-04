@@ -17,4 +17,6 @@
 
 + (TimelineScrollViewRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent;
 
+- (void) setSelected:(BOOL) selected;
+
 @end
