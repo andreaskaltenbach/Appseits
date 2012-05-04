@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "League.h"
-#import "TournamentRound.h"
+#import "MatchRound.h"
 
 typedef void(^FinishedBlock)(bool success);
 
 @protocol MatchUpdateDelegate
-- (void) matchesUpdated:(TournamentRound*) round;
+- (void) matchesUpdated:(MatchRound*) round;
 @end
 
 @protocol RankingUpdateDelegate

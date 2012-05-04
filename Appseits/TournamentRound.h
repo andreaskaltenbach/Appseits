@@ -2,11 +2,11 @@
 //  TournamentRound.h
 //  Appseits
 //
-//  Created by AndreasKaltenbach on 2012-03-23.
+//  Created by AndreasKaltenbach on 2012-05-04.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 typedef enum {
     CLOSED,
@@ -16,18 +16,12 @@ typedef enum {
 
 @interface TournamentRound : NSObject
 
-@property (nonatomic, strong) NSString *roundName;
-@property (nonatomic, strong) NSArray *matches;
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) NSDate *lockDate;
-
-- (int) points;
-- (BOOL) locked;
-
-- (BOOL) isActive;
-
-+ (NSArray*) tournamentRoundsFromJson: (NSArray*) jsonRounds;
+@property (nonatomic, strong) NSString *roundName;
 
 - (RoundState) roundState;
+
+- (int) points;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "BackendAdapter.h"
-#import "TournamentRound.h"
+#import "MatchRound.h"
 #import "Ranking.h"
 #import "League.h"
 #import "Constants.h"
@@ -21,7 +21,7 @@ static NSArray *rankings;
 static NSArray *leagues;
 
 static League *currentLeague;
-static TournamentRound *currentRound;
+static MatchRound *currentRound;
 
 static NSMutableSet *matchUpdateDelegates;
 static NSMutableSet *rankingUpdateDelegates;
@@ -195,7 +195,7 @@ static NSString *userId;
 + (BOOL) loadFlags {
     // collect all unique team names
     NSMutableSet *teamNames = [NSMutableSet set];
-    for (TournamentRound *round in rounds) {
+    for (MatchRound *round in rounds) {
         for (Match *match in round.matches) {
             [teamNames addObject:match.firstTeamName];
             [teamNames addObject:match.secondTeamName];
@@ -313,7 +313,7 @@ static NSString *userId;
         return NO;
     }
     
-    rounds = [TournamentRound tournamentRoundsFromJson:roundsData];
+    rounds = [MatchRound tournamentRoundsFromJson:roundsData];
     NSLog(@"Fetched %i tournament rounds", [rounds count]);
     
     return YES;

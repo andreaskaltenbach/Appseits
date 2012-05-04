@@ -45,7 +45,7 @@ static UIImage *lockFutureInset;
     lockFutureInset = [UIImage imageNamed:@"lockFutureInset"];
 }
 
-+ (TimelineScrollViewRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent {
++ (TimelineScrollViewRoundSection*) initWithRound:(MatchRound*) round: (UIView*) parent {
     
     int sectionHeight = parent.frame.size.height;
     

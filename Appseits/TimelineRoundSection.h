@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TournamentRound.h"
+#import "MatchRound.h"
 
 @interface TimelineRoundSection : UIView
 
-@property (nonatomic, strong) TournamentRound *round;
+@property (nonatomic, strong) MatchRound *round;
 
-+ (TimelineRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent;
++ (TimelineRoundSection*) initWithRound:(MatchRound*) round: (UIView*) parent;
 
 - (void) resize:(float) offset: (float) gameWidth;
 

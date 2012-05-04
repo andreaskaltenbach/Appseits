@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameResultCelll.h"
+#import "MatchResultCell.h"
 #import "UIColor+AppColors.h"
 #import "SSGradientView.h"
 #import <QuartzCore/QuartzCore.h>
@@ -14,7 +14,7 @@
 static UIImage *greenBall;
 static UIImage *grayBall;
 
-@interface GameResultCelll()
+@interface MatchResultCell()
 @property (nonatomic, strong) UILabel *firstTeamGoals;
 @property (nonatomic, strong) UILabel *secondTeamGoals;
 @property (nonatomic, strong) UILabel *firstTeamPrediction;
@@ -27,7 +27,7 @@ static UIImage *grayBall;
 
 @end
 
-@implementation GameResultCelll
+@implementation MatchResultCell
 
 @synthesize game = _game;
 @synthesize firstTeamGoals = _firstTeamGoals;

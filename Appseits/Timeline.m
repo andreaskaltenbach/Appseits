@@ -7,7 +7,7 @@
 //
 
 #import "Timeline.h"
-#import "TournamentRound.h"
+#import "MatchRound.h"
 #import "UIColor+AppColors.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TimelineRoundSection.h"
@@ -64,12 +64,12 @@
     
     // count all the games
     self.games = 0;
-    for (TournamentRound *round in rounds) {
+    for (MatchRound *round in rounds) {
         self.games += [round.matches count];
     }
 
     // add a section for each tournament round
-    for (TournamentRound *round in rounds) {
+    for (MatchRound *round in rounds) {
         TimelineRoundSection *roundSection = [TimelineRoundSection initWithRound:round :self];
         [sections addObject:roundSection];
     }

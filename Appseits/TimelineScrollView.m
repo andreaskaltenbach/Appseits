@@ -8,7 +8,7 @@
 
 #import "TimelineScrollView.h"
 #import "UIColor+AppColors.h"
-#import "TournamentRound.h"
+#import "MatchRound.h"
 #import "TimelineScrollViewRoundSection.h"
 #import "Match.h"
 
@@ -17,6 +17,9 @@
 
 #define ROUND_TEXT_HEIGHT 40
 #define SIDE_OFFSET 100
+
+static UIImage *darkLeft;
+static UIImage *darkRight;
 
 @interface TimelineScrollView()
 @property (nonatomic, strong) NSArray *sections;
@@ -36,6 +39,11 @@
 @synthesize orangeLine = _orangeLine;
 @synthesize contentView = _myContentView;
 
++ (void) initialize {
+    darkLeft = [UIImage imageNamed:@"darkLeft"];
+    darkRight = [UIImage imageNamed:@"darkRight"];
+}
+
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     
@@ -45,6 +53,7 @@
         self.bounces = NO;
         self.delegate = self;
         self.decelerationRate = UIScrollViewDecelerationRateFast;
+
     }
     return self;
 }
@@ -79,7 +88,7 @@
     
     // add one section for each tournament round
     NSMutableArray *sections = [NSMutableArray array];
-    for (TournamentRound *tournamentRound in tournamentRounds) {
+    for (MatchRound *tournamentRound in tournamentRounds) {
         TimelineScrollViewRoundSection *section = [TimelineScrollViewRoundSection initWithRound:tournamentRound :self.contentView];
         CGRect sectionFrame = section.frame;
         sectionFrame.origin.x = xOffset;
@@ -93,7 +102,7 @@
     // select current round
     TimelineScrollViewRoundSection *activeSection;
     for (TimelineScrollViewRoundSection *section in self.sections) {
-        if (section.round.isActive) {
+        if (section.round.roundState == OPEN) {
             activeSection = section;
         }
     }
@@ -117,14 +126,6 @@
     [self layoutProgressWaves:activeSection];
 
     [self setNeedsDisplay];
-}
-
-- (void) setFrame:(CGRect)frame {
-    [super setFrame:frame];
-    if (self.sections) {
-        TimelineScrollViewRoundSection *section = [self.sections objectAtIndex:self.selectedIndex];
-        [self selectTournamentRound:section];
-    }
 }
 
 - (void) selectTournamentRound:(TimelineScrollViewRoundSection*) selectedSection {

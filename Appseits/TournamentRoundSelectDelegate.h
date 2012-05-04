@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TournamentRound.h"
+#import "MatchRound.h"
 
 @protocol TournamentRoundSelectDelegate <NSObject>
 
 @optional
-- (void) tournamentRoundSelected:(TournamentRound*) round;
+- (void) tournamentRoundSelected:(MatchRound*) round;
 
 @end

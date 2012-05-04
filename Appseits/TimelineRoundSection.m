@@ -7,7 +7,7 @@
 //
 
 #import "TimelineRoundSection.h"
-#import "TournamentRound.h"
+#import "MatchRound.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UIColor+AppColors.h"
 #import "SSGradientView.h"
@@ -38,7 +38,7 @@ static UIImage *lockedImage;
     lockedImage = [UIImage imageNamed:@"lockClosed.png"];
 }
 
-+ (TimelineRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent {
++ (TimelineRoundSection*) initWithRound:(MatchRound*) round: (UIView*) parent {
     
     float sectionWidth = 100 * [round.matches count];
     float sectionHeight = parent.frame.size.height;

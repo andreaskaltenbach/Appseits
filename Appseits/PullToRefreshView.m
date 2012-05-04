@@ -51,7 +51,7 @@
 @synthesize matchesUpdated = _matchesUpdated;
 @synthesize rankingsUpdated = _rankingsUpdated;
 
-- (void) matchesUpdated:(TournamentRound*) round {
+- (void) matchesUpdated:(MatchRound*) round {
     self.matchesUpdated = YES;
     [self releasePullToRefresh];
 }

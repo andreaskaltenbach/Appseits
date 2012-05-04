@@ -10,7 +10,7 @@
 
 @implementation RoundLastUpdatedView
 
-- (void) matchesUpdated:(TournamentRound*) round {
+- (void) matchesUpdated:(MatchRound*) round {
     self.label.text = [NSString stringWithFormat:@"Uppdated %@", [NSDate date]];
 }
 

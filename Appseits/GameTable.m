@@ -7,9 +7,10 @@
 //
 
 #import "GameTable.h"
-#import "GameResultCelll.h"
+#import "MatchResultCell.h"
 #import "GamePredictionCell.h"
 #import "UIColor+AppColors.h"
+#import "TournamentRound.h"
 
 @interface GameTable()
 @property (nonatomic, strong) NSMutableArray *matchDays;
@@ -31,7 +32,7 @@
     return self;
 }
 
-- (void) setRound:(TournamentRound *)round {
+- (void) setRound:(MatchRound *)round {
     _round = round;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -81,8 +82,8 @@
     NSArray *games = [self.matches objectAtIndex:indexPath.section];
     Match *game = [games objectAtIndex:indexPath.row];
     
-    if ((game.firstTeamGoals && game.secondTeamGoals) || self.round.locked) {
-        GameResultCelll * cell = [tableView dequeueReusableCellWithIdentifier:gameResultCell];
+    if ((game.firstTeamGoals && game.secondTeamGoals) || self.round.roundState == CLOSED) {
+        MatchResultCell * cell = [tableView dequeueReusableCellWithIdentifier:gameResultCell];
         cell.game = game;
         return cell;
     }

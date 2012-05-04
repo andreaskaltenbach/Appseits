@@ -349,7 +349,7 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 </view>
                                                             </tableViewCell>
-                                                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="gameResultCell" rowHeight="108" id="cRr-dI-Fb4" customClass="GameResultCelll">
+                                                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="gameResultCell" rowHeight="108" id="cRr-dI-Fb4" customClass="MatchResultCell">
                                                                 <rect key="frame" x="0.0" y="130" width="320" height="108"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">

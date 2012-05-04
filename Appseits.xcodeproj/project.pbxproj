@@ -11,7 +11,7 @@
 		4E050D7F15220A320063EDED /* UIColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D7E15220A320063EDED /* UIColor+AppColors.m */; };
 		4E050D8115220E710063EDED /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D8015220E710063EDED /* square.png */; };
 		4E050D831522115D0063EDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E050D821522115D0063EDED /* QuartzCore.framework */; };
-		4E050D86152219F60063EDED /* GameResultCelll.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D85152219F60063EDED /* GameResultCelll.m */; };
+		4E050D86152219F60063EDED /* MatchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D85152219F60063EDED /* MatchResultCell.m */; };
 		4E050D8915233C560063EDED /* TimelineScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D8815233C560063EDED /* TimelineScrollView.m */; };
 		4E050D8C15234F060063EDED /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D8B15234F060063EDED /* GameCell.m */; };
 		4E050D8E15235A8F0063EDED /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D8D15235A8F0063EDED /* Entitlements.plist */; };
@@ -31,6 +31,11 @@
 		4E246D3E1553FF9100739D33 /* lockOpen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D321553FF9100739D33 /* lockOpen@2x.png */; };
 		4E246D3F1553FF9100739D33 /* lockOpenInset.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D331553FF9100739D33 /* lockOpenInset.png */; };
 		4E246D401553FF9100739D33 /* lockOpenInset@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D341553FF9100739D33 /* lockOpenInset@2x.png */; };
+		4E246D451554041100739D33 /* darkRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D411554041100739D33 /* darkRight.png */; };
+		4E246D461554041100739D33 /* darkRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D421554041100739D33 /* darkRight@2x.png */; };
+		4E246D471554041100739D33 /* darkLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D431554041100739D33 /* darkLeft.png */; };
+		4E246D481554041100739D33 /* darkLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D441554041100739D33 /* darkLeft@2x.png */; };
+		4E246D4B1554075800739D33 /* TournamentRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E246D4A1554075800739D33 /* TournamentRound.m */; };
 		4E45D5C8153C63110036098A /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E45D5C7153C63110036098A /* libCorePlot-CocoaTouch.a */; };
 		4E531C16151CAB050003CAD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C15151CAB050003CAD1 /* UIKit.framework */; };
 		4E531C18151CAB050003CAD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C17151CAB050003CAD1 /* Foundation.framework */; };
@@ -39,7 +44,7 @@
 		4E531C26151CAB060003CAD1 /* AppseitsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C25151CAB060003CAD1 /* AppseitsAppDelegate.m */; };
 		4E531C3B151CACA90003CAD1 /* OverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C3A151CACA80003CAD1 /* OverviewViewController.m */; };
 		4E531C3F151CAE500003CAD1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C3E151CAE500003CAD1 /* LoginViewController.m */; };
-		4E531C43151CB04A0003CAD1 /* TournamentRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C42151CB04A0003CAD1 /* TournamentRound.m */; };
+		4E531C43151CB04A0003CAD1 /* MatchRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C42151CB04A0003CAD1 /* MatchRound.m */; };
 		4E531C46151CB05B0003CAD1 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Match.m */; };
 		4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */; };
 		4E86FF5C152B275F00958DDE /* RankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E86FF5B152B275F00958DDE /* RankingCell.m */; };
@@ -130,8 +135,8 @@
 		4E050D7E15220A320063EDED /* UIColor+AppColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColors.m"; sourceTree = "<group>"; };
 		4E050D8015220E710063EDED /* square.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = square.png; sourceTree = "<group>"; };
 		4E050D821522115D0063EDED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		4E050D84152219F60063EDED /* GameResultCelll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameResultCelll.h; sourceTree = "<group>"; };
-		4E050D85152219F60063EDED /* GameResultCelll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameResultCelll.m; sourceTree = "<group>"; };
+		4E050D84152219F60063EDED /* MatchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchResultCell.h; sourceTree = "<group>"; };
+		4E050D85152219F60063EDED /* MatchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResultCell.m; sourceTree = "<group>"; };
 		4E050D8715233C560063EDED /* TimelineScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineScrollView.h; sourceTree = "<group>"; };
 		4E050D8815233C560063EDED /* TimelineScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineScrollView.m; sourceTree = "<group>"; };
 		4E050D8A15234F060063EDED /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCell.h; sourceTree = "<group>"; };
@@ -156,6 +161,12 @@
 		4E246D321553FF9100739D33 /* lockOpen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lockOpen@2x.png"; sourceTree = "<group>"; };
 		4E246D331553FF9100739D33 /* lockOpenInset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockOpenInset.png; sourceTree = "<group>"; };
 		4E246D341553FF9100739D33 /* lockOpenInset@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lockOpenInset@2x.png"; sourceTree = "<group>"; };
+		4E246D411554041100739D33 /* darkRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkRight.png; sourceTree = "<group>"; };
+		4E246D421554041100739D33 /* darkRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkRight@2x.png"; sourceTree = "<group>"; };
+		4E246D431554041100739D33 /* darkLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkLeft.png; sourceTree = "<group>"; };
+		4E246D441554041100739D33 /* darkLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkLeft@2x.png"; sourceTree = "<group>"; };
+		4E246D491554075700739D33 /* TournamentRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TournamentRound.h; sourceTree = "<group>"; };
+		4E246D4A1554075800739D33 /* TournamentRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TournamentRound.m; sourceTree = "<group>"; };
 		4E45D578153C62450036098A /* _CPTConstraintsFixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CPTConstraintsFixed.h; sourceTree = "<group>"; };
 		4E45D579153C62450036098A /* _CPTConstraintsRelative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CPTConstraintsRelative.h; sourceTree = "<group>"; };
 		4E45D57A153C62450036098A /* _CPTDarkGradientTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CPTDarkGradientTheme.h; sourceTree = "<group>"; };
@@ -249,8 +260,8 @@
 		4E531C3A151CACA80003CAD1 /* OverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverviewViewController.m; sourceTree = "<group>"; };
 		4E531C3D151CAE500003CAD1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		4E531C3E151CAE500003CAD1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		4E531C41151CB04A0003CAD1 /* TournamentRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TournamentRound.h; sourceTree = "<group>"; };
-		4E531C42151CB04A0003CAD1 /* TournamentRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TournamentRound.m; sourceTree = "<group>"; };
+		4E531C41151CB04A0003CAD1 /* MatchRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchRound.h; sourceTree = "<group>"; };
+		4E531C42151CB04A0003CAD1 /* MatchRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchRound.m; sourceTree = "<group>"; };
 		4E531C44151CB05B0003CAD1 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
 		4E531C45151CB05B0003CAD1 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
 		4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePredictionCell.h; sourceTree = "<group>"; };
@@ -386,6 +397,10 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4E246D411554041100739D33 /* darkRight.png */,
+				4E246D421554041100739D33 /* darkRight@2x.png */,
+				4E246D431554041100739D33 /* darkLeft.png */,
+				4E246D441554041100739D33 /* darkLeft@2x.png */,
 				4E246D291553FF9100739D33 /* lockClosed.png */,
 				4E246D2A1553FF9100739D33 /* lockClosed@2x.png */,
 				4E246D2B1553FF9100739D33 /* lockClosedInset.png */,
@@ -632,14 +647,16 @@
 		4E531C40151CB0240003CAD1 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				4E531C41151CB04A0003CAD1 /* TournamentRound.h */,
-				4E531C42151CB04A0003CAD1 /* TournamentRound.m */,
+				4E531C41151CB04A0003CAD1 /* MatchRound.h */,
+				4E531C42151CB04A0003CAD1 /* MatchRound.m */,
 				4E531C44151CB05B0003CAD1 /* Match.h */,
 				4E531C45151CB05B0003CAD1 /* Match.m */,
 				5B7F2B1715290392006A3687 /* Ranking.h */,
 				5B7F2B1815290392006A3687 /* Ranking.m */,
 				5B76D2B7152A38BA00225BEB /* League.h */,
 				5B76D2B8152A38BA00225BEB /* League.m */,
+				4E246D491554075700739D33 /* TournamentRound.h */,
+				4E246D4A1554075800739D33 /* TournamentRound.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -660,8 +677,8 @@
 			children = (
 				4E050D8A15234F060063EDED /* GameCell.h */,
 				4E050D8B15234F060063EDED /* GameCell.m */,
-				4E050D84152219F60063EDED /* GameResultCelll.h */,
-				4E050D85152219F60063EDED /* GameResultCelll.m */,
+				4E050D84152219F60063EDED /* MatchResultCell.h */,
+				4E050D85152219F60063EDED /* MatchResultCell.m */,
 				4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */,
 				4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */,
 				4E050D8715233C560063EDED /* TimelineScrollView.h */,
@@ -846,6 +863,10 @@
 				4E246D3E1553FF9100739D33 /* lockOpen@2x.png in Resources */,
 				4E246D3F1553FF9100739D33 /* lockOpenInset.png in Resources */,
 				4E246D401553FF9100739D33 /* lockOpenInset@2x.png in Resources */,
+				4E246D451554041100739D33 /* darkRight.png in Resources */,
+				4E246D461554041100739D33 /* darkRight@2x.png in Resources */,
+				4E246D471554041100739D33 /* darkLeft.png in Resources */,
+				4E246D481554041100739D33 /* darkLeft@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,12 +881,12 @@
 				4E531C26151CAB060003CAD1 /* AppseitsAppDelegate.m in Sources */,
 				4E531C3B151CACA90003CAD1 /* OverviewViewController.m in Sources */,
 				4E531C3F151CAE500003CAD1 /* LoginViewController.m in Sources */,
-				4E531C43151CB04A0003CAD1 /* TournamentRound.m in Sources */,
+				4E531C43151CB04A0003CAD1 /* MatchRound.m in Sources */,
 				5BF4E863151D025300CC3AE9 /* MatchDetailsViewController.m in Sources */,
 				4E531C46151CB05B0003CAD1 /* Match.m in Sources */,
 				4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */,
 				4E050D7F15220A320063EDED /* UIColor+AppColors.m in Sources */,
-				4E050D86152219F60063EDED /* GameResultCelll.m in Sources */,
+				4E050D86152219F60063EDED /* MatchResultCell.m in Sources */,
 				4E050D8915233C560063EDED /* TimelineScrollView.m in Sources */,
 				4E050D8C15234F060063EDED /* GameCell.m in Sources */,
 				4E21509E152480A800DBBC81 /* Menu.m in Sources */,
@@ -896,6 +917,7 @@
 				5BD38CDF1542BA2B00551FB9 /* LastUpdateView.m in Sources */,
 				5BD38CE215433C9A00551FB9 /* PullToRefreshView.m in Sources */,
 				5BD38CE915440A3E00551FB9 /* RoundLastUpdatedView.m in Sources */,
+				4E246D4B1554075800739D33 /* TournamentRound.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

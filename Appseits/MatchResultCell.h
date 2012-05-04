@@ -10,6 +10,6 @@
 #import "Match.h"
 #import "GameCell.h"
 
-@interface GameResultCelll : GameCell
+@interface MatchResultCell : GameCell
 
 @end

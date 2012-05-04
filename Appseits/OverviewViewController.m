@@ -7,10 +7,10 @@
 //
 
 #import "OverviewViewController.h"
-#import "TournamentRound.h"
+#import "MatchRound.h"
 #import "GamePredictionCell.h"
 #import "UIColor+AppColors.h"
-#import "GameResultCelll.h"
+#import "MatchResultCell.h"
 #import "TimelineScrollView.h"
 #import "Menu.h"
 #import "Timeline.h"
@@ -206,7 +206,7 @@ static UIImage *cogWheel;
 }
 
 // Called whenever a tournament round is selected in the timeline
-- (void) tournamentRoundSelected:(TournamentRound*) round {
+- (void) tournamentRoundSelected:(MatchRound*) round {
     self.gameTable.round = round;
 }
 
