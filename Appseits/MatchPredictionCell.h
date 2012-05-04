@@ -11,6 +11,6 @@
 #import "MatchCell.h"
 #import "iCarousel.h"
 
-@interface GamePredictionCell : MatchCell<iCarouselDataSource, iCarouselDelegate>
+@interface MatchPredictionCell : MatchCell<iCarouselDataSource, iCarouselDelegate>
 
 @end

@@ -8,7 +8,7 @@
 
 #import "OverviewViewController.h"
 #import "MatchRound.h"
-#import "GamePredictionCell.h"
+#import "MatchPredictionCell.h"
 #import "UIColor+AppColors.h"
 #import "MatchResultCell.h"
 #import "TimelineScrollView.h"

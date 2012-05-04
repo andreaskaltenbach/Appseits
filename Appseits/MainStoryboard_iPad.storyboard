@@ -232,7 +232,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="gamePredictionCell" rowHeight="100" id="igN-G1-1oj" customClass="GamePredictionCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="gamePredictionCell" rowHeight="100" id="igN-G1-1oj" customClass="MatchPredictionCell">
                                         <rect key="frame" x="0.0" y="122" width="332" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -339,12 +339,6 @@
         <image name="tipBar.png" width="302" height="36"/>
     </resources>
     <classes>
-        <class className="GameCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameCell.h"/>
-        </class>
-        <class className="GamePredictionCell" superclassName="GameCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GamePredictionCell.h"/>
-        </class>
         <class className="GameTable" superclassName="ScrollTriggeringTableView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GameTable.h"/>
         </class>

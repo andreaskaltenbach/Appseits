@@ -48,5 +48,7 @@ typedef void(^FinishedBlock)(bool success);
 + (void) updateMatches;
 + (void) updateRankings;
 
++ (void) postPrediction:(NSNumber*) matchId: (NSNumber*) firstTeamGoals: (NSNumber*) secondTeamGoals: (FinishedBlock) onDone;
+
 
 @end

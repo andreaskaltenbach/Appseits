@@ -8,7 +8,7 @@
 
 #import "GameTable.h"
 #import "MatchResultCell.h"
-#import "GamePredictionCell.h"
+#import "MatchPredictionCell.h"
 #import "UIColor+AppColors.h"
 #import "TournamentRound.h"
 
@@ -88,7 +88,7 @@
         return cell;
     }
     else {
-        GamePredictionCell * cell = [tableView dequeueReusableCellWithIdentifier:gamePredictionCell];
+        MatchPredictionCell * cell = [tableView dequeueReusableCellWithIdentifier:gamePredictionCell];
         cell.game = match;
         return cell;
     }

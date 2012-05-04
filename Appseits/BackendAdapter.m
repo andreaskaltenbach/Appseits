@@ -38,6 +38,7 @@ static Top4Round *top4Round;
 
 #define LOGIN_URL @"http://emtipset.dev.stendahls.se/api/login"
 #define ROUNDS_URL @"http://emtipset.dev.stendahls.se/api/rounds"
+#define BET_URL @"http://emtipset.dev.stendahls.se/api/bet"
 
 #define TOP4_URL @"http://dl.dropbox.com/u/15650647/top4.json"
 
@@ -481,6 +482,27 @@ static Top4Round *top4Round;
             finished(YES);
         }
     }];
+}
+
++ (void) postPrediction:(NSNumber*) matchId: (NSNumber*) firstTeamGoals: (NSNumber*) secondTeamGoals: (FinishedBlock) onDone {
+    
+   NSMutableURLRequest *request = [self requestForUrl:BET_URL];
+    
+   [request setHTTPMethod:@"PUT"];
+    
+   // build JSON payload
+   [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+   NSDictionary *jsonData = [NSDictionary dictionaryWithObjectsAndKeys:
+                              matchId,@"matchId",
+                              firstTeamGoals,@"homeTeamGoals",
+                              secondTeamGoals,@"awayTeamGoals",nil];
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:jsonData options:kNilOptions error:&error];
+    request.HTTPBody = data;
+    
+   [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+       
+   }];
 }
 
 @end

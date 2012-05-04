@@ -60,7 +60,7 @@
 		4E531C3F151CAE500003CAD1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C3E151CAE500003CAD1 /* LoginViewController.m */; };
 		4E531C43151CB04A0003CAD1 /* MatchRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C42151CB04A0003CAD1 /* MatchRound.m */; };
 		4E531C46151CB05B0003CAD1 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Match.m */; };
-		4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */; };
+		4E531C4E151CB5D50003CAD1 /* MatchPredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */; };
 		4E86FF5C152B275F00958DDE /* RankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E86FF5B152B275F00958DDE /* RankingCell.m */; };
 		4E890C4915526C9700F67CD9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BC662DA154AE16A0070C304 /* Default.png */; };
 		4E890C4B15526C9D00F67CD9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BC662D8154AE1620070C304 /* Default@2x.png */; };
@@ -296,8 +296,8 @@
 		4E531C42151CB04A0003CAD1 /* MatchRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchRound.m; sourceTree = "<group>"; };
 		4E531C44151CB05B0003CAD1 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
 		4E531C45151CB05B0003CAD1 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
-		4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePredictionCell.h; sourceTree = "<group>"; };
-		4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePredictionCell.m; sourceTree = "<group>"; };
+		4E531C4C151CB5D50003CAD1 /* MatchPredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MatchPredictionCell.h; sourceTree = "<group>"; };
+		4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPredictionCell.m; sourceTree = "<group>"; };
 		4E86FF5A152B275F00958DDE /* RankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingCell.h; sourceTree = "<group>"; };
 		4E86FF5B152B275F00958DDE /* RankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingCell.m; sourceTree = "<group>"; };
 		4E9D96E71536FF770092DA78 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -725,8 +725,8 @@
 				4E050D8B15234F060063EDED /* MatchCell.m */,
 				4E050D84152219F60063EDED /* MatchResultCell.h */,
 				4E050D85152219F60063EDED /* MatchResultCell.m */,
-				4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */,
-				4E531C4D151CB5D50003CAD1 /* GamePredictionCell.m */,
+				4E531C4C151CB5D50003CAD1 /* MatchPredictionCell.h */,
+				4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */,
 				4E050D8715233C560063EDED /* TimelineScrollView.h */,
 				4E050D8815233C560063EDED /* TimelineScrollView.m */,
 				5BA4B8A0152737ED006450B7 /* TimelineScrollViewRoundSection.h */,
@@ -944,7 +944,7 @@
 				4E531C43151CB04A0003CAD1 /* MatchRound.m in Sources */,
 				5BF4E863151D025300CC3AE9 /* MatchDetailsViewController.m in Sources */,
 				4E531C46151CB05B0003CAD1 /* Match.m in Sources */,
-				4E531C4E151CB5D50003CAD1 /* GamePredictionCell.m in Sources */,
+				4E531C4E151CB5D50003CAD1 /* MatchPredictionCell.m in Sources */,
 				4E050D7F15220A320063EDED /* UIColor+AppColors.m in Sources */,
 				4E050D86152219F60063EDED /* MatchResultCell.m in Sources */,
 				4E050D8915233C560063EDED /* TimelineScrollView.m in Sources */,

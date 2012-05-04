@@ -6,33 +6,34 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GamePredictionCell.h"
+#import "MatchPredictionCell.h"
 #import "Match.h"
 #import "iCarousel.h"
 #import "UIColor+AppColors.h"
 #import "SSGradientView.h"
+#import "BackendAdapter.h"
 
 #define MAX_GOALS 12
 
-@interface GamePredictionCell()
+@interface MatchPredictionCell()
 
-@property (nonatomic, strong) UITextField *firstTeamGoalsBet;
-@property (nonatomic, strong) UITextField *secondTeamGoalsBet;
 @property (nonatomic, strong) UILabel *matchResultLabel;
 @property (nonatomic, strong) UILabel *pointsLabel;
 @property (nonatomic, strong) iCarousel *firstTeamPredictionCarousel;
 @property (nonatomic, strong) iCarousel *secondTeamPredictionCarousel;
+@property (nonatomic, strong) NSNumber *firstTeamPrediction;
+@property (nonatomic, strong) NSNumber *secondTeamPrediction;
 
 @end
 
-@implementation GamePredictionCell
+@implementation MatchPredictionCell
 
-@synthesize firstTeamGoalsBet = _firstTeamGoalsBet;
-@synthesize secondTeamGoalsBet = _secondTeamGoalsBet;
 @synthesize matchResultLabel = _matchResultLabel;
 @synthesize pointsLabel = _pointsLabel;
 @synthesize firstTeamPredictionCarousel = _firstTeamPredictionCarousel;
 @synthesize secondTeamPredictionCarousel = _secondTeamPredictionCarousel;
+@synthesize firstTeamPrediction = _firstTeamPrediction;
+@synthesize secondTeamPrediction = _secondTeamPrediction;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
@@ -47,8 +48,6 @@
         self.secondTeamPredictionCarousel.delegate = self;
         self.secondTeamPredictionCarousel.type = iCarouselTypeCylinder;
     }
-    
-    NSLog(@"BG color: %@", self.backgroundColor);
     self.backgroundColor = [UIColor blueColor];
     
     return self;
@@ -126,6 +125,47 @@
 #pragma mark iCarouselDelegate implementation
 
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
+    
+    NSNumber *prediction = nil;
+    if (carousel.currentItemIndex > 10) {
+        prediction = [NSNumber numberWithInt:carousel.currentItemIndex];
+    }
+    
+    
+    BOOL updateRequired = NO;
+    
+    
+    if (carousel == self.firstTeamPredictionCarousel) {
+        // first team prediction updated
+        if (![self.firstTeamPrediction isEqualToNumber:prediction]) {
+            self.firstTeamPrediction = prediction;
+            
+            if (self.secondTeamPrediction) updateRequired = YES;
+        }
+        
+    }
+    
+    if (carousel == self.secondTeamPredictionCarousel) {
+        // second team prediction updated
+        if (![self.secondTeamPrediction isEqualToNumber:prediction]) {
+            self.secondTeamPrediction = prediction;
+            
+            if (self.firstTeamPrediction) updateRequired = YES;
+        }
+        
+    }
+    
+    if (updateRequired) {
+        [BackendAdapter postPrediction:self.game.matchId :self.firstTeamPrediction :self.secondTeamPrediction :^(bool success) {
+            //TODO - mark carousel green, meaning that the change is saved
+            // TODO - use sequence ID to identify the last change
+            NSLog(@"Update performed!!!");
+            
+            //TODO handle error
+        }];
+    }
+    
+
     NSLog(@"Selected %i", carousel.currentItemIndex);
     
 }
