@@ -27,7 +27,7 @@
 + (MatchRound*) tournamentRoundFromJson:(NSDictionary*) jsonData {
     MatchRound *round = [[MatchRound alloc] init];
     round.roundName = [jsonData objectForKey:@"name"];
-    round.matches = [Match gamesFromJson: [jsonData objectForKey:@"matches"]];
+    round.matches = [Match matchFromJson: [jsonData objectForKey:@"matches"]];
     round.lockDate = [NSDate fromJsonTimestamp:[jsonData objectForKey:@"lockedDate"]];
     return round;
 }

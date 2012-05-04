@@ -71,7 +71,7 @@
     return match;
 }
 
-+ (NSArray*) gamesFromJson: (NSArray*) jsonData {
++ (NSArray*) matchFromJson: (NSArray*) jsonData {
     NSMutableArray *games = [NSMutableArray array];
     for (NSDictionary *gameData in jsonData) {
         [games addObject:[Match gameFromJson:gameData]];

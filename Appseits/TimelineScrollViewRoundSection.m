@@ -61,8 +61,9 @@ static UIImage *lockFutureInset;
     roundName.text = round.roundName;
     roundName.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     roundName.textColor = [UIColor whiteColor];
-    roundName.font = [UIFont boldSystemFontOfSize:14];
+    roundName.font = [UIFont boldSystemFontOfSize:15];
     roundName.backgroundColor = [UIColor clearColor];
+    roundName.adjustsFontSizeToFitWidth = YES;
     [section addSubview:roundName];
     
     // initialize lock image

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "League.h"
 #import "MatchRound.h"
+#import "Top4Tips.h"
 
 typedef void(^FinishedBlock)(bool success);
 
@@ -36,6 +37,8 @@ typedef void(^FinishedBlock)(bool success);
 + (NSArray*) tournamentRounds;
 + (NSArray*) rankings;
 + (NSArray*) leagues;
+
++ (Top4Tips*) top4;
 
 + (void) addMatchUpdateDelegate:(id<MatchUpdateDelegate>) delegate;
 + (void) addRankingUpdateDelegate:(id<RankingUpdateDelegate>) delegate;

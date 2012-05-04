@@ -258,7 +258,7 @@
                                         <rect key="frame" x="0.0" y="50" width="320" height="320"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" id="Gwy-FQ-gRl" userLabel="match view">
+                                            <view contentMode="scaleToFill" id="Gwy-FQ-gRl" userLabel="round view">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -439,6 +439,11 @@
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
+                                                    <view contentMode="scaleToFill" id="Lcj-b4-Udg" userLabel="top4 view" customClass="Top4View">
+                                                        <rect key="frame" x="0.0" y="77" width="320" height="243"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
@@ -590,6 +595,7 @@
                         <outlet property="roundLastUpdatedView" destination="7vo-g5-A70" id="x6X-g2-e6u"/>
                         <outlet property="scoreView" destination="DVm-iQ-cdc" id="1fA-Gg-cfU"/>
                         <outlet property="timelineScrollView" destination="Xl4-xp-0TF" id="UBJ-xT-heh"/>
+                        <outlet property="top4View" destination="Lcj-b4-Udg" id="wGI-LT-Ji4"/>
                         <outlet property="trendImage" destination="OQs-YT-d0P" id="aTb-7X-XZC"/>
                     </connections>
                 </viewController>

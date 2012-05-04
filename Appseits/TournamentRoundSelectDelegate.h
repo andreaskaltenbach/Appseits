@@ -12,6 +12,6 @@
 @protocol TournamentRoundSelectDelegate <NSObject>
 
 @optional
-- (void) tournamentRoundSelected:(MatchRound*) round;
+- (void) tournamentRoundSelected:(TournamentRound*) round;
 
 @end

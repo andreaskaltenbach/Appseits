@@ -24,6 +24,9 @@
 #import "MainScrollView.h"
 #import "PullToRefreshView.h"
 #import "RoundLastUpdatedView.h"
+#import "MatchRound.h"
+#import "Top4Round.h"
+#import "Top4View.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -52,6 +55,7 @@ static UIImage *cogWheel;
 @property (nonatomic, strong) PullToRefreshView *pullToRefreshView;
 @property (weak, nonatomic) IBOutlet RoundLastUpdatedView *roundLastUpdatedView;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (strong, nonatomic) IBOutlet Top4View *top4View;
 @end
 
 @implementation OverviewViewController
@@ -75,6 +79,7 @@ static UIImage *cogWheel;
 @synthesize pullToRefreshView = _pullToRefreshView;
 @synthesize roundLastUpdatedView = _roundLastUpdatedView;
 @synthesize logoutButton = _logoutButton;
+@synthesize top4View = _top4View;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -202,12 +207,23 @@ static UIImage *cogWheel;
     [self setMainScrollView:nil];
     [self setRoundLastUpdatedView:nil];
     [self setLogoutButton:nil];
+    [self setTop4View:nil];
     [super viewDidUnload];
 }
 
 // Called whenever a tournament round is selected in the timeline
-- (void) tournamentRoundSelected:(MatchRound*) round {
-    self.gameTable.round = round;
+- (void) tournamentRoundSelected:(TournamentRound*) round {
+    
+    if (round.class == [MatchRound class]) {
+        self.gameTable.round = (MatchRound*) round;
+        self.top4View.hidden = YES;
+        self.gameTable.hidden = NO;
+    }
+    if (round.class == [Top4Round class]) {
+//        self.gameTable.round = (MatchRound*) round;
+        self.top4View.hidden = NO;
+        self.gameTable.hidden = YES;
+    }
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

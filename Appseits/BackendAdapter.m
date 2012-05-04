@@ -12,6 +12,8 @@
 #import "League.h"
 #import "Constants.h"
 #import "Match.h"
+#import "Top4Tips.h"
+#import "Top4Round.h"
 
 static NSString *leagueUrl;
 static NSString *rankingUrl;
@@ -30,10 +32,14 @@ static NSString *token;
 static NSString *userName;
 static NSString *userId;
 
+static Top4Round *top4Round;
+
 #define FLAG_URL @"http://img.uefa.com/imgml/flags/32x32/%@.png"
 
 #define LOGIN_URL @"http://emtipset.dev.stendahls.se/api/login"
 #define ROUNDS_URL @"http://emtipset.dev.stendahls.se/api/rounds"
+
+#define TOP4_URL @"http://dl.dropbox.com/u/15650647/top4.json"
 
 @implementation BackendAdapter
 
@@ -177,6 +183,9 @@ static NSString *userId;
     dispatch_async(initQueue, ^{
         BOOL successRoad = [self loadCompleteTournament];
         if (successRoad) {
+            successRoad = [self loadTop4];
+        }
+        if (successRoad) {
             successRoad = [self loadLeagues];
         
         }
@@ -186,6 +195,7 @@ static NSString *userId;
         if (successRoad) {
             successRoad = [self loadFlags];
         }
+
         dispatch_async(dispatch_get_main_queue(), ^{
             onFinished(YES);
         });
@@ -287,6 +297,40 @@ static NSString *userId;
     [errorAlert show];
 }
 
++ (NSMutableURLRequest*) requestForUrl:(NSString*) url {
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request addValue:token forHTTPHeaderField:@"Authorization"];
+    return request;
+}
+
++ (BOOL) loadTop4 {
+    NSMutableURLRequest *request = [self requestForUrl:TOP4_URL];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    if (error) {
+        [self showErrorAlert:@"Error while downloading Top 4 tips"];
+        return NO;
+    }
+    
+    // parse the result
+    NSError *parseError = nil;
+    NSDictionary *tipsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
+    
+    if (parseError) {
+        [self showErrorAlert:@"Error while parsing Top 4 tips data from server"];
+        return NO;
+    }
+    
+    top4Round = [Top4Round init:[Top4Tips fromJson:tipsData]];
+    NSLog(@"Fetched top 4 tips: %@", top4Round.top4Tips);
+    
+    return YES;
+    
+}
+
 + (BOOL) loadCompleteTournament {
     
     NSURL *url = [NSURL URLWithString:ROUNDS_URL];
@@ -343,7 +387,8 @@ static NSString *userId;
 }
 
 + (NSArray*) tournamentRounds {
-    return rounds;
+    NSArray *staticRound = [NSArray arrayWithObjects:top4Round, nil];
+    return [staticRound arrayByAddingObjectsFromArray:rounds];
 }
 
 + (NSArray*) rankings {
@@ -352,6 +397,10 @@ static NSString *userId;
 
 + (NSArray*) leagues {
     return leagues;
+}
+
++ (Top4Tips*) top4 {
+    return top4Round.top4Tips;
 }
 
 + (BOOL) loadRankings {

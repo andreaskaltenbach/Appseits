@@ -22,7 +22,7 @@
 @property BOOL played;
 @property BOOL unknownOpponents;
 
-+ (NSArray*) gamesFromJson: (NSArray*) jsonData;
++ (NSArray*) matchFromJson: (NSArray*) jsonData;
 
 - (BOOL) finished;
 

@@ -10,7 +10,6 @@
 
 @implementation TournamentRound
 
-
 @synthesize roundName = _roundName;
 @synthesize lockDate = _lockDate;
 @synthesize startDate = _startDate;
