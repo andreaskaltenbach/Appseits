@@ -10,7 +10,7 @@
 #import "UIColor+AppColors.h"
 #import "Top4Selector.h"
 
-#define Y_OFFSET 10
+#define Y_OFFSET 5
 #define MARGIN 60
 
 @interface Top4View()
@@ -64,9 +64,10 @@
 
 - (void) setTop4Tips:(Top4Tips *)top4Tips {
     
-    
-    
-    
+    [[self.top4Selectors objectAtIndex:0] setTeam:top4Tips.firstTeam];
+    [[self.top4Selectors objectAtIndex:1] setTeam:top4Tips.secondTeam];
+    [[self.top4Selectors objectAtIndex:2] setTeam:top4Tips.thirdTeam];
+    [[self.top4Selectors objectAtIndex:3] setTeam:top4Tips.fourthTeam];
 }
 
 

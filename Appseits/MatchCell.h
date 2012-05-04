@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Match.h"
 
-@interface GameCell : UITableViewCell
+@interface MatchCell : UITableViewCell
 
 @property (nonatomic, strong) Match *game;
 

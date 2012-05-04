@@ -7,13 +7,13 @@
 //
 
 #import "Top4Selector.h"
+#import "BackendAdapter.h"
 
 static UIImage *background;
 
 @interface Top4Selector()
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UIImageView *flag;
-
 @end
 
 @implementation Top4Selector
@@ -31,16 +31,24 @@ static UIImage *background;
     // setup label
     selector.label = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, 100, 50)];
     selector.label.backgroundColor = [UIColor clearColor];
-    selector.label.text = @"---";
     selector.label.font = [UIFont boldSystemFontOfSize:22];
     [selector addSubview:selector.label];
     
     //setup flag image
-    selector.flag = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
+    selector.flag = [[UIImageView alloc] initWithFrame:CGRectMake(17, 16, 16, 16)];
     [selector addSubview:selector.flag];
     
     return selector;
 }
 
+- (void) setTeam:(NSString*) team {
+    if (team) {
+        self.label.text = [team uppercaseString];
+    }
+    else {
+        self.label.text = @"---";
+    }
+    self.flag.image = [BackendAdapter imageForTeam:team];
+}
 
 @end

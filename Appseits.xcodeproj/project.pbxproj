@@ -13,7 +13,7 @@
 		4E050D831522115D0063EDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E050D821522115D0063EDED /* QuartzCore.framework */; };
 		4E050D86152219F60063EDED /* MatchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D85152219F60063EDED /* MatchResultCell.m */; };
 		4E050D8915233C560063EDED /* TimelineScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D8815233C560063EDED /* TimelineScrollView.m */; };
-		4E050D8C15234F060063EDED /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D8B15234F060063EDED /* GameCell.m */; };
+		4E050D8C15234F060063EDED /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D8B15234F060063EDED /* MatchCell.m */; };
 		4E050D8E15235A8F0063EDED /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D8D15235A8F0063EDED /* Entitlements.plist */; };
 		4E050D9415236C6B0063EDED /* result.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D9315236C6B0063EDED /* result.png */; };
 		4E059D061525FA2E005ABD20 /* NSDate+DateConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E059D051525FA2E005ABD20 /* NSDate+DateConversion.m */; };
@@ -153,8 +153,8 @@
 		4E050D85152219F60063EDED /* MatchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResultCell.m; sourceTree = "<group>"; };
 		4E050D8715233C560063EDED /* TimelineScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineScrollView.h; sourceTree = "<group>"; };
 		4E050D8815233C560063EDED /* TimelineScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineScrollView.m; sourceTree = "<group>"; };
-		4E050D8A15234F060063EDED /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCell.h; sourceTree = "<group>"; };
-		4E050D8B15234F060063EDED /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCell.m; sourceTree = "<group>"; };
+		4E050D8A15234F060063EDED /* MatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MatchCell.h; sourceTree = "<group>"; };
+		4E050D8B15234F060063EDED /* MatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
 		4E050D8D15235A8F0063EDED /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4E050D9315236C6B0063EDED /* result.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = result.png; sourceTree = "<group>"; };
 		4E059D041525FA2E005ABD20 /* NSDate+DateConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateConversion.h"; sourceTree = "<group>"; };
@@ -721,8 +721,8 @@
 		4E531C4B151CB5BB0003CAD1 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				4E050D8A15234F060063EDED /* GameCell.h */,
-				4E050D8B15234F060063EDED /* GameCell.m */,
+				4E050D8A15234F060063EDED /* MatchCell.h */,
+				4E050D8B15234F060063EDED /* MatchCell.m */,
 				4E050D84152219F60063EDED /* MatchResultCell.h */,
 				4E050D85152219F60063EDED /* MatchResultCell.m */,
 				4E531C4C151CB5D50003CAD1 /* GamePredictionCell.h */,
@@ -948,7 +948,7 @@
 				4E050D7F15220A320063EDED /* UIColor+AppColors.m in Sources */,
 				4E050D86152219F60063EDED /* MatchResultCell.m in Sources */,
 				4E050D8915233C560063EDED /* TimelineScrollView.m in Sources */,
-				4E050D8C15234F060063EDED /* GameCell.m in Sources */,
+				4E050D8C15234F060063EDED /* MatchCell.m in Sources */,
 				4E21509E152480A800DBBC81 /* Menu.m in Sources */,
 				4E059D061525FA2E005ABD20 /* NSDate+DateConversion.m in Sources */,
 				4E059D091525FFBC005ABD20 /* Timeline.m in Sources */,

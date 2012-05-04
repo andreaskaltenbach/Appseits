@@ -38,6 +38,8 @@ typedef void(^FinishedBlock)(bool success);
 + (NSArray*) rankings;
 + (NSArray*) leagues;
 
++ (UIImage*) imageForTeam:(NSString*) teamName;
+
 + (Top4Tips*) top4;
 
 + (void) addMatchUpdateDelegate:(id<MatchUpdateDelegate>) delegate;

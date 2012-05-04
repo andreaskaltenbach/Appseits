@@ -220,7 +220,8 @@ static UIImage *cogWheel;
         self.gameTable.hidden = NO;
     }
     if (round.class == [Top4Round class]) {
-//        self.gameTable.round = (MatchRound*) round;
+        Top4Round *top4Round = (Top4Round*) round;
+        self.top4View.top4Tips = top4Round.top4Tips;
         self.top4View.hidden = NO;
         self.gameTable.hidden = YES;
     }

@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Match.h"
-#import "GameCell.h"
+#import "MatchCell.h"
 
-@interface MatchResultCell : GameCell
+@interface MatchResultCell : MatchCell
 
 @end

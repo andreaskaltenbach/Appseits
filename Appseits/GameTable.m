@@ -80,16 +80,16 @@
     NSString *gamePredictionCell = @"gamePredictionCell";
     
     NSArray *games = [self.matches objectAtIndex:indexPath.section];
-    Match *game = [games objectAtIndex:indexPath.row];
+    Match *match = [games objectAtIndex:indexPath.row];
     
-    if ((game.firstTeamGoals && game.secondTeamGoals) || self.round.roundState == CLOSED) {
+    if ((match.firstTeamGoals && match.secondTeamGoals) || self.round.roundState == CLOSED) {
         MatchResultCell * cell = [tableView dequeueReusableCellWithIdentifier:gameResultCell];
-        cell.game = game;
+        cell.game = match;
         return cell;
     }
     else {
         GamePredictionCell * cell = [tableView dequeueReusableCellWithIdentifier:gamePredictionCell];
-        cell.game = game;
+        cell.game = match;
         return cell;
     }
 }

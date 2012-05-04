@@ -12,4 +12,6 @@
 
 + (id) selector;
 
+- (void) setTeam:(NSString*) team;
+
 @end

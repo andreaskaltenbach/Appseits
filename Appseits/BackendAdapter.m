@@ -292,6 +292,28 @@ static Top4Round *top4Round;
     return YES;
 }
 
++ (UIImage*) imageForTeam:(NSString*) teamName {
+    
+    NSString *flagFileName = [NSString stringWithFormat:@"%@.png", teamName];
+    
+    // prepare the file path
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:flagFileName];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if ([fileManager fileExistsAtPath:filePath]) {
+        // if file already exists, simply use this
+        NSData *imageData = [[NSData alloc] initWithContentsOfFile:filePath];
+        return [UIImage imageWithData:imageData];
+    }
+    else {
+        return nil;
+    }
+}
+
+
 + (void) showErrorAlert:(NSString*) message {
     UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [errorAlert show];

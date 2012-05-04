@@ -6,12 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameCell.h"
+#import "MatchCell.h"
 #import "UIColor+AppColors.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SSGradientView.h"
+#import "BackendAdapter.h"
 
-@interface GameCell() 
+@interface MatchCell() 
 @property (nonatomic, strong) UIImageView *firstTeamImage;
 @property (nonatomic, strong) UIImageView *secondTeamImage;
 @property (nonatomic, strong) UILabel *firstTeamName;
@@ -20,7 +21,7 @@
 @property (nonatomic, strong) UIImageView *predictionBackground;
 @end
 
-@implementation GameCell
+@implementation MatchCell
 
 @synthesize game = _game;
 @synthesize firstTeamImage = _firstTeamImage;
@@ -57,24 +58,6 @@ static UIImage *selectedBackgroundImage;
     return self;
 }
 
-- (void) fetchFlagImage:(NSString*) teamName: (UIImageView*) imageView {
-    
-    NSString *flagFileName = [NSString stringWithFormat:@"%@.png", teamName];
-    
-    // prepare the file path
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:flagFileName];
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    
-    if ([fileManager fileExistsAtPath:filePath]) {
-        // if file already exists, simply use this
-        NSData *imageData = [[NSData alloc] initWithContentsOfFile:filePath];
-        imageView.image = [UIImage imageWithData:imageData];
-    }
-}
-
 - (void) setGame:(Match *)game {
     
     NSString *firstTeam = [game.firstTeamName uppercaseString];
@@ -82,15 +65,9 @@ static UIImage *selectedBackgroundImage;
     self.firstTeamName.text = firstTeam;
     self.secondTeamName.text = secondTeam;
     
-    if (game.unknownOpponents) {
-        self.firstTeamImage.image = nil;
-        self.secondTeamImage.image = nil;        
-    }
-    else {
-        [self fetchFlagImage:firstTeam :self.firstTeamImage];
-        [self fetchFlagImage:secondTeam :self.secondTeamImage];  
-    }
-    
+    self.firstTeamImage.image = [BackendAdapter imageForTeam:firstTeam];
+    self.secondTeamImage.image = [BackendAdapter imageForTeam:secondTeam];
+
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"HH:mm";
     self.kickOff.text = [dateFormatter stringFromDate:game.kickOff];
