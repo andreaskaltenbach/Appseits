@@ -39,15 +39,13 @@
     
     match.kickOff = [NSDate fromJsonTimestamp:[gameData valueForKey:@"kickOff"]];
     
+    // extract results
     NSDictionary *result = [gameData objectForKey:@"result"];
     if (result) {
         
         id homeGoals = [result objectForKey:@"homeTeamScore"];
         id awayGoals = [result objectForKey:@"awayTeamScore"];
         
-        
-        
-        NSLog(@"Class: %@", [homeGoals class]);
         if (homeGoals && homeGoals != [NSNull null]) {
             match.firstTeamGoals = homeGoals;
         }
@@ -56,16 +54,21 @@
         }
     }
     
+    // extract predictions
+    NSDictionary *prediction = [gameData objectForKey:@"prediction"];
+    if (prediction) {
+        
+        id homeGoals = [prediction objectForKey:@"homeTeamGoals"];
+        id awayGoals = [prediction objectForKey:@"awayTeamGoals"];
+        
+        if (homeGoals && homeGoals != [NSNull null]) {
+            match.firstTeamPrediction = homeGoals;
+        }
+        if (awayGoals && awayGoals != [NSNull null]) {
+            match.secondTeamPrediction = awayGoals;        
+        }
+    }
     
-    NSNumber *firstTeamGoals = [gameData valueForKey:@"firstTeamGoals"];
-    if (firstTeamGoals) match.firstTeamGoals = firstTeamGoals;
-    
-    NSNumber *secondTeamGoals = [gameData valueForKey:@"secondTeamGoals"];
-    if (secondTeamGoals) match.secondTeamGoals = secondTeamGoals;
-    
-    
-    match.firstTeamPrediction = [gameData valueForKey:@"firstTeamGoalsBet"];
-    match.secondTeamPrediction = [gameData valueForKey:@"secondTeamGoalsBet"];
     match.points = [gameData valueForKey:@"matchPoints"];
     
     return match;

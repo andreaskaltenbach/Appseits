@@ -126,7 +126,7 @@ static Top4Round *top4Round;
                     return;
                 }
                 
-                if (response.statusCode != 401 && response.statusCode != 404) {
+                if (response.statusCode != 401) {
                     NSLog(@"Status code: %i", response.statusCode);
                     // some unexpected has happened:
                     dispatch_async(dispatch_get_main_queue(), ^{

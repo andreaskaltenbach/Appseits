@@ -131,13 +131,12 @@
         prediction = [NSNumber numberWithInt:carousel.currentItemIndex];
     }
     
-    
     BOOL updateRequired = NO;
     
     
     if (carousel == self.firstTeamPredictionCarousel) {
         // first team prediction updated
-        if (![self.firstTeamPrediction isEqualToNumber:prediction]) {
+        if (prediction && self.firstTeamPrediction && ![prediction isEqualToNumber:self.firstTeamPrediction]) {
             self.firstTeamPrediction = prediction;
             
             if (self.secondTeamPrediction) updateRequired = YES;
@@ -147,7 +146,7 @@
     
     if (carousel == self.secondTeamPredictionCarousel) {
         // second team prediction updated
-        if (![self.secondTeamPrediction isEqualToNumber:prediction]) {
+        if (prediction && self.secondTeamPrediction && ![prediction isEqualToNumber:self.secondTeamPrediction]) {
             self.secondTeamPrediction = prediction;
             
             if (self.firstTeamPrediction) updateRequired = YES;
