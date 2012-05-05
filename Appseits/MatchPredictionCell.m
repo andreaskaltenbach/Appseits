@@ -53,18 +53,18 @@
     return self;
 }
 
-- (void) setMatch:(Match *)game {
-    [super setMatch:game];
+- (void) setMatch:(Match *)match {
+    [super setMatch:match];
     
-    if (game.firstTeamPrediction) {
-        [self.firstTeamPredictionCarousel scrollToItemAtIndex:game.firstTeamPrediction.intValue animated:YES];
+    if (match.firstTeamPrediction) {
+        [self.firstTeamPredictionCarousel scrollToItemAtIndex:match.firstTeamPrediction.intValue animated:YES];
     }
     else {
         [self.firstTeamPredictionCarousel scrollToItemAtIndex:MAX_GOALS-1 animated:YES];
     }
     
-    if (game.secondTeamPrediction) {
-        [self.secondTeamPredictionCarousel scrollToItemAtIndex:game.secondTeamPrediction.intValue animated:YES];
+    if (match.secondTeamPrediction) {
+        [self.secondTeamPredictionCarousel scrollToItemAtIndex:match.secondTeamPrediction.intValue animated:YES];
     }
     else {
         [self.secondTeamPredictionCarousel scrollToItemAtIndex:MAX_GOALS-1 animated:YES];
@@ -107,14 +107,31 @@
     //set label
     if (index == MAX_GOALS-1) {
         label.text = @"-";
-        label.textColor = [UIColor blackColor];
-        gradientView.colors = [UIColor grayBackgroundGradient];
     }
     else {
        label.text = [NSString stringWithFormat:@"%i", index];
-       label.textColor = [UIColor whiteColor];
-       gradientView.colors = [UIColor greenGradient];
     }
+    
+    NSLog(@"Match %@ - %@", self.match.firstTeamName, self.match.secondTeamName);
+    
+    NSLog(@"FirstCar: %i", self.firstTeamPredictionCarousel == carousel);
+    NSLog(@"FirstPred: %i", self.firstTeamPrediction.intValue);
+
+    NSLog(@"SecCar: %i", self.secondTeamPredictionCarousel == carousel);
+    NSLog(@"SecPred: %i", self.secondTeamPrediction.intValue);
+    
+    if ((carousel == self.firstTeamPredictionCarousel && index == self.firstTeamPrediction.intValue)
+        || (carousel == self.secondTeamPredictionCarousel && index == self.secondTeamPrediction.intValue)) {
+        // current prediction is displayed in green
+        label.textColor = [UIColor whiteColor];
+        gradientView.colors = [UIColor greenGradient];
+    }
+    else {
+        // others are displayed in gray
+        label.textColor = [UIColor blackColor];
+        gradientView.colors = [UIColor grayBackgroundGradient];
+    }
+
 	return view;
 }
 

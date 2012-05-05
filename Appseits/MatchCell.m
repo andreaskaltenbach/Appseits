@@ -23,7 +23,7 @@
 
 @implementation MatchCell
 
-@synthesize match = _game;
+@synthesize match = _match;
 @synthesize firstTeamImage = _firstTeamImage;
 @synthesize secondTeamImage = _secondTeamImage;
 @synthesize firstTeamName = _firstTeamName;
@@ -58,10 +58,12 @@ static UIImage *selectedBackgroundImage;
     return self;
 }
 
-- (void) setMatch:(Match *)game {
+- (void) setMatch:(Match *)match {
     
-    NSString *firstTeam = [game.firstTeamName uppercaseString];
-    NSString *secondTeam = [game.secondTeamName uppercaseString];
+    _match = match;
+    
+    NSString *firstTeam = [match.firstTeamName uppercaseString];
+    NSString *secondTeam = [match.secondTeamName uppercaseString];
     self.firstTeamName.text = firstTeam;
     self.secondTeamName.text = secondTeam;
     
@@ -70,7 +72,7 @@ static UIImage *selectedBackgroundImage;
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"HH:mm";
-    self.kickOff.text = [dateFormatter stringFromDate:game.kickOff];
+    self.kickOff.text = [dateFormatter stringFromDate:match.kickOff];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

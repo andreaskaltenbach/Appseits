@@ -14,6 +14,7 @@
 #import "Match.h"
 #import "Top4Tips.h"
 #import "Top4Round.h"
+#import "Team.h"
 
 static NSString *leagueUrl;
 static NSString *rankingUrl;
@@ -32,6 +33,8 @@ static NSString *token;
 static NSString *userName;
 static NSString *userId;
 
+static NSArray *teams;
+
 static Top4Round *top4Round;
 
 #define FLAG_URL @"http://img.uefa.com/imgml/flags/32x32/%@.png"
@@ -39,6 +42,7 @@ static Top4Round *top4Round;
 #define LOGIN_URL @"http://emtipset.dev.stendahls.se/api/login"
 #define ROUNDS_URL @"http://emtipset.dev.stendahls.se/api/rounds"
 #define BET_URL @"http://emtipset.dev.stendahls.se/api/bet"
+#define TEAMS_URL @"http://emtipset.dev.stendahls.se/api/teams"
 
 #define TOP4_URL @"http://dl.dropbox.com/u/15650647/top4.json"
 
@@ -195,6 +199,10 @@ static Top4Round *top4Round;
         }
         if (successRoad) {
             successRoad = [self loadFlags];
+        }
+        
+        if (successRoad) {
+            successRoad = [self fetchTeams];
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -503,6 +511,33 @@ static Top4Round *top4Round;
    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
        
    }];
+}
+
++ (BOOL) fetchTeams {
+    
+    NSURLRequest *request = [self requestForUrl:TEAMS_URL];
+    NSError *error;
+    NSURLResponse *response;
+        
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    if (error) {
+        NSLog(@"Error while downloading teams");
+        return NO;
+    }
+    NSError *parseError;
+    NSArray *teamsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
+    
+    if (parseError) {
+        [self showErrorAlert:@"Error while parsing teams from server"];
+        return NO;
+    }
+    
+    teams = [Team teamsFromJson:teamsData];
+    
+    NSLog(@"Fetched %i teams", [teams count]);
+    
+    return YES;
 }
 
 @end

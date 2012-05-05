@@ -12,6 +12,7 @@
 #import "Top4Tips.h"
 
 typedef void(^FinishedBlock)(bool success);
+typedef void(^TeamsFetchedBlock)(NSArray* teams);
 
 @protocol MatchUpdateDelegate
 - (void) matchesUpdated:(MatchRound*) round;
@@ -49,6 +50,8 @@ typedef void(^FinishedBlock)(bool success);
 + (void) updateRankings;
 
 + (void) postPrediction:(NSNumber*) matchId: (NSNumber*) firstTeamGoals: (NSNumber*) secondTeamGoals: (FinishedBlock) onDone;
+
++ (void) getTeams:(TeamsFetchedBlock) teamsFetched;
 
 
 @end

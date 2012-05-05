@@ -29,7 +29,6 @@ static UIImage *grayBall;
 
 @implementation MatchResultCell
 
-@synthesize match = _game;
 @synthesize firstTeamGoals = _firstTeamGoals;
 @synthesize firstTeamPrediction = _firstTeamPrediction;
 @synthesize secondTeamGoals = _secondTeamGoals;

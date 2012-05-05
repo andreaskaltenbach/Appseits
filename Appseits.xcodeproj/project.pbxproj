@@ -104,6 +104,8 @@
 		5B810B8015472D1400AE95E0 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B810B7E15472D1400AE95E0 /* login.png */; };
 		5B8FB2421528784C003AEB05 /* grayBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FB23E1528784C003AEB05 /* grayBall.png */; };
 		5B8FB2431528784C003AEB05 /* greenBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FB23F1528784C003AEB05 /* greenBall.png */; };
+		5B9A0DC21555391E006841EA /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A0DC11555391E006841EA /* Team.m */; };
+		5B9A0DC61555399F006841EA /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A0DC51555399F006841EA /* Player.m */; };
 		5B9E5BB315504EFE00578CCC /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E5BB115504E3A00578CCC /* Default-Portrait~ipad.png */; };
 		5B9E5BB51550501900578CCC /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E5BB41550501900578CCC /* Default-Portrait@2x~ipad.png */; };
 		5B9E5BB6155062A300578CCC /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E5BAF15504D9600578CCC /* Default-Landscape~ipad.png */; };
@@ -153,7 +155,7 @@
 		4E050D85152219F60063EDED /* MatchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResultCell.m; sourceTree = "<group>"; };
 		4E050D8715233C560063EDED /* TimelineScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineScrollView.h; sourceTree = "<group>"; };
 		4E050D8815233C560063EDED /* TimelineScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineScrollView.m; sourceTree = "<group>"; };
-		4E050D8A15234F060063EDED /* MatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MatchCell.h; sourceTree = "<group>"; };
+		4E050D8A15234F060063EDED /* MatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchCell.h; sourceTree = "<group>"; };
 		4E050D8B15234F060063EDED /* MatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
 		4E050D8D15235A8F0063EDED /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4E050D9315236C6B0063EDED /* result.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = result.png; sourceTree = "<group>"; };
@@ -296,7 +298,7 @@
 		4E531C42151CB04A0003CAD1 /* MatchRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchRound.m; sourceTree = "<group>"; };
 		4E531C44151CB05B0003CAD1 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
 		4E531C45151CB05B0003CAD1 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
-		4E531C4C151CB5D50003CAD1 /* MatchPredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MatchPredictionCell.h; sourceTree = "<group>"; };
+		4E531C4C151CB5D50003CAD1 /* MatchPredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPredictionCell.h; sourceTree = "<group>"; };
 		4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPredictionCell.m; sourceTree = "<group>"; };
 		4E86FF5A152B275F00958DDE /* RankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingCell.h; sourceTree = "<group>"; };
 		4E86FF5B152B275F00958DDE /* RankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingCell.m; sourceTree = "<group>"; };
@@ -355,6 +357,10 @@
 		5B810B7E15472D1400AE95E0 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		5B8FB23E1528784C003AEB05 /* grayBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayBall.png; sourceTree = "<group>"; };
 		5B8FB23F1528784C003AEB05 /* greenBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenBall.png; sourceTree = "<group>"; };
+		5B9A0DC01555391E006841EA /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		5B9A0DC11555391E006841EA /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		5B9A0DC41555399F006841EA /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		5B9A0DC51555399F006841EA /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		5B9E5BAC15504D8D00578CCC /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		5B9E5BAF15504D9600578CCC /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		5B9E5BB115504E3A00578CCC /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
@@ -703,6 +709,10 @@
 				4E246D4D15540B7200739D33 /* Top4Round.m */,
 				4E246D4F15540BB700739D33 /* Top4Tips.h */,
 				4E246D5015540BB700739D33 /* Top4Tips.m */,
+				5B9A0DC01555391E006841EA /* Team.h */,
+				5B9A0DC11555391E006841EA /* Team.m */,
+				5B9A0DC41555399F006841EA /* Player.h */,
+				5B9A0DC51555399F006841EA /* Player.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -982,6 +992,8 @@
 				4E246D5115540BB700739D33 /* Top4Tips.m in Sources */,
 				4E246D6B15541D5F00739D33 /* Top4View.m in Sources */,
 				4E246D6E15541EF000739D33 /* Top4Selector.m in Sources */,
+				5B9A0DC21555391E006841EA /* Team.m in Sources */,
+				5B9A0DC61555399F006841EA /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
