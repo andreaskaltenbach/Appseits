@@ -29,7 +29,7 @@ static UIImage *grayBall;
 
 @implementation MatchResultCell
 
-@synthesize game = _game;
+@synthesize match = _game;
 @synthesize firstTeamGoals = _firstTeamGoals;
 @synthesize firstTeamPrediction = _firstTeamPrediction;
 @synthesize secondTeamGoals = _secondTeamGoals;
@@ -72,8 +72,8 @@ static UIImage* matchLock;
     return self;
 }
 
-- (void) setGame:(Match *)game {
-    [super setGame:game];
+- (void) setMatch:(Match *)game {
+    [super setMatch:game];
 
     // set match result
     if (game.firstTeamGoals && game.secondTeamGoals) {

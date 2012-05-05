@@ -53,8 +53,8 @@
     return self;
 }
 
-- (void) setGame:(Match *)game {
-    [super setGame:game];
+- (void) setMatch:(Match *)game {
+    [super setMatch:game];
     
     if (game.firstTeamPrediction) {
         [self.firstTeamPredictionCarousel scrollToItemAtIndex:game.firstTeamPrediction.intValue animated:YES];
@@ -155,7 +155,7 @@
     }
     
     if (updateRequired) {
-        [BackendAdapter postPrediction:self.game.matchId :self.firstTeamPrediction :self.secondTeamPrediction :^(bool success) {
+        [BackendAdapter postPrediction:self.match.matchId :self.firstTeamPrediction :self.secondTeamPrediction :^(bool success) {
             //TODO - mark carousel green, meaning that the change is saved
             // TODO - use sequence ID to identify the last change
             NSLog(@"Update performed!!!");

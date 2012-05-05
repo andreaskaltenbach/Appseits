@@ -84,12 +84,12 @@
     
     if ((match.firstTeamGoals && match.secondTeamGoals) || self.round.roundState == CLOSED) {
         MatchResultCell * cell = [tableView dequeueReusableCellWithIdentifier:gameResultCell];
-        cell.game = match;
+        cell.match = match;
         return cell;
     }
     else {
         MatchPredictionCell * cell = [tableView dequeueReusableCellWithIdentifier:gamePredictionCell];
-        cell.game = match;
+        cell.match = match;
         return cell;
     }
 }

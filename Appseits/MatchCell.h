@@ -11,6 +11,6 @@
 
 @interface MatchCell : UITableViewCell
 
-@property (nonatomic, strong) Match *game;
+@property (nonatomic, strong) Match *match;
 
 @end

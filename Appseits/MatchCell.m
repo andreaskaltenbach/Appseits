@@ -23,7 +23,7 @@
 
 @implementation MatchCell
 
-@synthesize game = _game;
+@synthesize match = _game;
 @synthesize firstTeamImage = _firstTeamImage;
 @synthesize secondTeamImage = _secondTeamImage;
 @synthesize firstTeamName = _firstTeamName;
@@ -58,7 +58,7 @@ static UIImage *selectedBackgroundImage;
     return self;
 }
 
-- (void) setGame:(Match *)game {
+- (void) setMatch:(Match *)game {
     
     NSString *firstTeam = [game.firstTeamName uppercaseString];
     NSString *secondTeam = [game.secondTeamName uppercaseString];
