@@ -27,6 +27,8 @@
 #import "MatchRound.h"
 #import "Top4Round.h"
 #import "Top4View.h"
+#import "TeamViewController.h"
+#import "TeamCell.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -80,6 +82,9 @@ static UIImage *cogWheel;
 @synthesize roundLastUpdatedView = _roundLastUpdatedView;
 @synthesize logoutButton = _logoutButton;
 @synthesize top4View = _top4View;
+@synthesize currentTeamSelection = _currentTeamSelection;
+@synthesize currentTeamPlace = _currentTeamPlace;
+@synthesize allTeams = _allTeams;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -178,7 +183,10 @@ static UIImage *cogWheel;
     // check credentials and open login view if required!
     
 
+    self.allTeams = [BackendAdapter teams];
    
+    // setup top4 view
+    self.top4View.delegate = self;
         
     self.gameTable.backgroundColor = [UIColor blackBackground];
     
@@ -231,9 +239,9 @@ static UIImage *cogWheel;
     switch (toInterfaceOrientation) {
         case UIDeviceOrientationPortrait:
         case UIDeviceOrientationPortraitUpsideDown:
-            return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
-        default:
             return YES;
+        default:
+            return UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
     }
 }
 
@@ -291,5 +299,29 @@ static UIImage *cogWheel;
     [BackendAdapter logout];
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+# pragma mark TeamSelectDelegate
+
+- (void) selectTeamFor:(int) place currentSelection: (Team*) team {
+    self.currentTeamSelection = team;
+    self.currentTeamPlace = place;
+    [self performSegueWithIdentifier:@"toTeamList" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toTeamList"]) {
+        TeamViewController *teamViewController = segue.destinationViewController;
+        teamViewController.overviewController = self;
+    }
+}
+
+# pragma mark UITableViewDelegate
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 
 @end

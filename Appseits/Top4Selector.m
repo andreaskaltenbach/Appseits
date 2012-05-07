@@ -19,6 +19,7 @@ static UIImage *background;
 @implementation Top4Selector
 @synthesize label = _label;
 @synthesize flag = _flag;
+@synthesize team = _team;
 
 + (void) initialize {
     background = [UIImage imageNamed:@"top4Selector"];
@@ -41,14 +42,16 @@ static UIImage *background;
     return selector;
 }
 
-- (void) setTeam:(NSString*) team {
+- (void) setTeam:(Team*) team {
+    _team = team;
+    
     if (team) {
-        self.label.text = [team uppercaseString];
+        self.label.text = team.name;
     }
     else {
         self.label.text = @"---";
     }
-    self.flag.image = [BackendAdapter imageForTeam:team];
+    self.flag.image = [BackendAdapter imageForTeam:team.shortName];
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "Team.h"
+#import "BackendAdapter.h"
 
 @implementation Team
 
@@ -32,6 +33,10 @@
     // TODO - add players
     
     return team;
+}
+
+- (UIImage*) flag {
+    return [BackendAdapter imageForTeam:self.shortName];
 }
 
 @end

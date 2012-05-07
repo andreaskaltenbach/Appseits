@@ -17,4 +17,6 @@
 
 + (NSArray*) teamsFromJson:(NSArray*) teamsData;
 
+- (UIImage*) flag;
+
 @end

@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "Top4Tips.h"
+#import "Team.h"
+
+@protocol TeamSelectDelegate
+
+- (void) selectTeamFor:(int) place currentSelection: (Team*) team;
+
+@end
 
 @interface Top4View : UIView
 
-@property (nonatomic, strong) Top4Tips *top4Tips;
 
+@property (nonatomic, strong) Top4Tips *top4Tips;
+@property (nonatomic, strong) id<TeamSelectDelegate> delegate;
 @end

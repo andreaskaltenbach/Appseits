@@ -7,10 +7,9 @@
 //
 
 #import "Top4Tips.h"
+#import "BackendAdapter.h"
 
 @implementation Top4Tips
-
-@synthesize allTeams = _allTeams;
 
 @synthesize firstTeam = _firstTeam;
 @synthesize secondTeam = _secondTeam;
@@ -19,12 +18,31 @@
 
 + (Top4Tips*) fromJson: (NSDictionary*) jsonData {
     
+    NSArray* allTeams = [BackendAdapter teams];
+    
     Top4Tips *tips = [[Top4Tips alloc] init];
     
-    tips.firstTeam = [jsonData objectForKey:@"first"];
-    tips.secondTeam = [jsonData objectForKey:@"second"];
-    tips.thirdTeam = [jsonData objectForKey:@"third"];
-    tips.fourthTeam = [jsonData objectForKey:@"fourth"];
+    NSNumber *first = [jsonData objectForKey:@"first"];
+    NSNumber *second = [jsonData objectForKey:@"second"];
+    NSNumber *third = [jsonData objectForKey:@"third"];
+    NSNumber *fourth = [jsonData objectForKey:@"fourth"];
+    
+    for (Team* team in allTeams) {
+        
+        if (first && [team.teamId isEqualToNumber:first]) {
+            tips.firstTeam = team;
+        }
+        if (second && [team.teamId isEqualToNumber:second]) {
+            tips.secondTeam = team;
+        }
+        if (third && [team.teamId isEqualToNumber:third]) {
+            tips.thirdTeam = team;
+        }
+        if (fourth && [team.teamId isEqualToNumber:fourth]) {
+            tips.fourthTeam = team;
+        }
+    }
+    
     return tips;
 }
 

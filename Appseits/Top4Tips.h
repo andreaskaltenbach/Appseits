@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Team.h"
 
 @interface Top4Tips : NSObject
 
-@property (nonatomic, strong) NSArray* allTeams;
-
-@property (nonatomic, strong) NSString* firstTeam;
-@property (nonatomic, strong) NSString* secondTeam;
-@property (nonatomic, strong) NSString* thirdTeam;
-@property (nonatomic, strong) NSString* fourthTeam;
+@property (nonatomic, strong) Team* firstTeam;
+@property (nonatomic, strong) Team* secondTeam;
+@property (nonatomic, strong) Team* thirdTeam;
+@property (nonatomic, strong) Team* fourthTeam;
 
 + (Top4Tips*) fromJson: (NSDictionary*) jsonData;
 

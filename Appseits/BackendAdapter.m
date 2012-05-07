@@ -24,7 +24,6 @@ static NSArray *rankings;
 static NSArray *leagues;
 
 static League *currentLeague;
-static MatchRound *currentRound;
 
 static NSMutableSet *matchUpdateDelegates;
 static NSMutableSet *rankingUpdateDelegates;
@@ -188,9 +187,6 @@ static Top4Round *top4Round;
     dispatch_async(initQueue, ^{
         BOOL successRoad = [self loadCompleteTournament];
         if (successRoad) {
-            successRoad = [self loadTop4];
-        }
-        if (successRoad) {
             successRoad = [self loadLeagues];
         
         }
@@ -203,6 +199,9 @@ static Top4Round *top4Round;
         
         if (successRoad) {
             successRoad = [self fetchTeams];
+        }
+        if (successRoad) {
+            successRoad = [self loadTop4];
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -527,6 +526,7 @@ static Top4Round *top4Round;
     }
     NSError *parseError;
     NSArray *teamsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
+    NSLog(@"Teams: %@", teamsData);
     
     if (parseError) {
         [self showErrorAlert:@"Error while parsing teams from server"];
@@ -538,6 +538,10 @@ static Top4Round *top4Round;
     NSLog(@"Fetched %i teams", [teams count]);
     
     return YES;
+}
+
++ (NSArray*) teams {
+    return teams;
 }
 
 @end

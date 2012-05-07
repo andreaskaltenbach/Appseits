@@ -38,6 +38,7 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 + (NSArray*) tournamentRounds;
 + (NSArray*) rankings;
 + (NSArray*) leagues;
++ (NSArray*) teams;
 
 + (UIImage*) imageForTeam:(NSString*) teamName;
 
@@ -51,7 +52,7 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 
 + (void) postPrediction:(NSNumber*) matchId: (NSNumber*) firstTeamGoals: (NSNumber*) secondTeamGoals: (FinishedBlock) onDone;
 
-+ (void) getTeams:(TeamsFetchedBlock) teamsFetched;
+
 
 
 @end

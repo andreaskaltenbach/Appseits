@@ -21,6 +21,7 @@
 
 @synthesize top4Selectors = _top4Selectors;
 @synthesize top4Tips = _top4Tips;
+@synthesize delegate = _delegate;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -55,12 +56,20 @@
             selector.frame = CGRectMake(70, yOffset, 233, 50);    
             [self addSubview:selector];
             
+            [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(teamSelection:)]];
+            
             yOffset+= MARGIN;
         }
     }
     return self;
 }
 
+- (void)teamSelection:(UITapGestureRecognizer *)tapGesture {
+    // call delegate to react on wish to select a team for top4 round
+    int index = [self.top4Selectors indexOfObject:tapGesture.view];
+    Top4Selector *teamSelector = [self.top4Selectors objectAtIndex:index];
+    [self.delegate selectTeamFor:index + 1 currentSelection:teamSelector.team];
+}
 
 - (void) setTop4Tips:(Top4Tips *)top4Tips {
     

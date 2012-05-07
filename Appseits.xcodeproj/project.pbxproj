@@ -85,6 +85,9 @@
 		5B1EE8B115274DFC00D01564 /* GameTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* GameTable.m */; };
 		5B24E311154753D10011EBED /* forgotPassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B24E30F154753D10011EBED /* forgotPassword@2x.png */; };
 		5B24E312154753D10011EBED /* forgotPassword.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B24E310154753D10011EBED /* forgotPassword.png */; };
+		5B3797D7155862BC00B643CE /* TeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3797D6155862BC00B643CE /* TeamCell.m */; };
+		5B3797DA1558650E00B643CE /* AppseitsSelectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3797D91558650E00B643CE /* AppseitsSelectionCell.m */; };
+		5B3797DC155868F000B643CE /* unselectedBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B3797DB155868F000B643CE /* unselectedBackground.png */; };
 		5B3E6FFA1549BD2B00190AE9 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3E6FF61549BD2B00190AE9 /* libTestFlight.a */; };
 		5B3E6FFB1549BD2B00190AE9 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B3E6FF71549BD2B00190AE9 /* README.txt */; };
 		5B3E6FFC1549BD2B00190AE9 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B3E6FF81549BD2B00190AE9 /* release_notes.txt */; };
@@ -106,6 +109,7 @@
 		5B8FB2431528784C003AEB05 /* greenBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B8FB23F1528784C003AEB05 /* greenBall.png */; };
 		5B9A0DC21555391E006841EA /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A0DC11555391E006841EA /* Team.m */; };
 		5B9A0DC61555399F006841EA /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A0DC51555399F006841EA /* Player.m */; };
+		5B9A0DC915553DD5006841EA /* TeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9A0DC815553DD5006841EA /* TeamViewController.m */; };
 		5B9E5BB315504EFE00578CCC /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E5BB115504E3A00578CCC /* Default-Portrait~ipad.png */; };
 		5B9E5BB51550501900578CCC /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E5BB41550501900578CCC /* Default-Portrait@2x~ipad.png */; };
 		5B9E5BB6155062A300578CCC /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9E5BAF15504D9600578CCC /* Default-Landscape~ipad.png */; };
@@ -332,6 +336,11 @@
 		5B1EE8B015274DFC00D01564 /* GameTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTable.m; sourceTree = "<group>"; };
 		5B24E30F154753D10011EBED /* forgotPassword@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forgotPassword@2x.png"; sourceTree = "<group>"; };
 		5B24E310154753D10011EBED /* forgotPassword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forgotPassword.png; sourceTree = "<group>"; };
+		5B3797D5155862BC00B643CE /* TeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCell.h; sourceTree = "<group>"; };
+		5B3797D6155862BC00B643CE /* TeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamCell.m; sourceTree = "<group>"; };
+		5B3797D81558650E00B643CE /* AppseitsSelectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppseitsSelectionCell.h; sourceTree = "<group>"; };
+		5B3797D91558650E00B643CE /* AppseitsSelectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppseitsSelectionCell.m; sourceTree = "<group>"; };
+		5B3797DB155868F000B643CE /* unselectedBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unselectedBackground.png; path = ../../../Desktop/unselectedBackground.png; sourceTree = "<group>"; };
 		5B3E6FF61549BD2B00190AE9 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		5B3E6FF71549BD2B00190AE9 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		5B3E6FF81549BD2B00190AE9 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
@@ -361,6 +370,8 @@
 		5B9A0DC11555391E006841EA /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		5B9A0DC41555399F006841EA /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		5B9A0DC51555399F006841EA /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		5B9A0DC715553DD5006841EA /* TeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamViewController.h; sourceTree = "<group>"; };
+		5B9A0DC815553DD5006841EA /* TeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamViewController.m; sourceTree = "<group>"; };
 		5B9E5BAC15504D8D00578CCC /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		5B9E5BAF15504D9600578CCC /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		5B9E5BB115504E3A00578CCC /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
@@ -435,6 +446,7 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5B3797DB155868F000B643CE /* unselectedBackground.png */,
 				4E246D6215541C8000739D33 /* top4Selector@2x.png */,
 				4E246D6315541C8000739D33 /* top4Selector.png */,
 				4E246D5215541A5200739D33 /* fourth@2x.png */,
@@ -774,6 +786,10 @@
 				4E246D6A15541D5F00739D33 /* Top4View.m */,
 				4E246D6C15541EF000739D33 /* Top4Selector.h */,
 				4E246D6D15541EF000739D33 /* Top4Selector.m */,
+				5B3797D5155862BC00B643CE /* TeamCell.h */,
+				5B3797D6155862BC00B643CE /* TeamCell.m */,
+				5B3797D81558650E00B643CE /* AppseitsSelectionCell.h */,
+				5B3797D91558650E00B643CE /* AppseitsSelectionCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -800,6 +816,8 @@
 				5BF4E862151D025300CC3AE9 /* MatchDetailsViewController.m */,
 				4EE59D98154031DC0082193D /* UnfinishedMatchViewController.h */,
 				4EE59D99154031DC0082193D /* UnfinishedMatchViewController.m */,
+				5B9A0DC715553DD5006841EA /* TeamViewController.h */,
+				5B9A0DC815553DD5006841EA /* TeamViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -937,6 +955,7 @@
 				4E246D6115541A5200739D33 /* first.png in Resources */,
 				4E246D6415541C8000739D33 /* top4Selector@2x.png in Resources */,
 				4E246D6515541C8000739D33 /* top4Selector.png in Resources */,
+				5B3797DC155868F000B643CE /* unselectedBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,6 +1013,9 @@
 				4E246D6E15541EF000739D33 /* Top4Selector.m in Sources */,
 				5B9A0DC21555391E006841EA /* Team.m in Sources */,
 				5B9A0DC61555399F006841EA /* Player.m in Sources */,
+				5B9A0DC915553DD5006841EA /* TeamViewController.m in Sources */,
+				5B3797D7155862BC00B643CE /* TeamCell.m in Sources */,
+				5B3797DA1558650E00B643CE /* AppseitsSelectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,10 @@
 #import "LeaguePickerView.h"
 #import "PullToRefreshView.h"
 #import "ScrollTriggeringTableView.h"
+#import "Top4View.h"
 
-@interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate>
+@interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate>
+@property (nonatomic, strong) Team *currentTeamSelection;
+@property (nonatomic, strong) NSArray *allTeams;
+@property int currentTeamPlace;
 @end
