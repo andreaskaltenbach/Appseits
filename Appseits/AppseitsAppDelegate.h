@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VersionEnforcer.h"
 
-@interface AppseitsAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppseitsAppDelegate : UIResponder <UIApplicationDelegate, VersionDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
