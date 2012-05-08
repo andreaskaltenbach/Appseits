@@ -40,11 +40,17 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-    
-    [self.table selectRowAtIndexPath:[NSIndexPath indexPathForRow:5 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
-    
     self.table.delegate = self.overviewController;
     self.table.dataSource = self;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (self.overviewController.currentTeamSelection) {
+        int index = [self.overviewController.allTeams indexOfObject:self.overviewController.currentTeamSelection];
+        [self.table selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+    }
 }
 
 - (void)viewDidUnload {

@@ -35,4 +35,15 @@
     self.name.text = team.name;
 }
 
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    if (selected) {
+        self.name.textColor = [UIColor whiteColor];
+    }
+    else {
+        self.name.textColor = [UIColor blackColor];
+    }
+}
+
 @end

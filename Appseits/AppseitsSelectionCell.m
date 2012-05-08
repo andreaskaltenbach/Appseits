@@ -7,10 +7,10 @@
 //
 
 #import "AppseitsSelectionCell.h"
-#import "SSGradientView.h"
 #import "UIColor+AppColors.h"
 
 static UIImage *unselectedImage;
+static UIImage *selectedImage;
 
 @interface AppseitsSelectionCell()
 @property (nonatomic, strong) UIView *background;
@@ -22,6 +22,7 @@ static UIImage *unselectedImage;
 
 + (void) initialize {
     unselectedImage = [UIImage imageNamed:@"unselectedBackground"];
+    selectedImage = [UIImage imageNamed:@"selectedBackground"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -42,10 +43,10 @@ static UIImage *unselectedImage;
     [super setSelected:selected animated:animated];
     
     if (selected) {
-//        self.backgroundGradient.colors = [UIColor greenGradient];
+        self.background.backgroundColor = [UIColor colorWithPatternImage:selectedImage];
     }
     else {
-  //      self.backgroundGradient.colors = [UIColor grayGradient];
+        self.background.backgroundColor = [UIColor colorWithPatternImage:unselectedImage];
     }
 }
 
