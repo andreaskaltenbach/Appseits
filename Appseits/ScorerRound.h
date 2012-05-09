@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) ScorerTips *scorerTips;
 
++ (id) init:(ScorerTips*) scorerTips;
+
 @end

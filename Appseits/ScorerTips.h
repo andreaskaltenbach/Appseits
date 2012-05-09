@@ -15,4 +15,6 @@
 @property (nonatomic, strong) Player *secondPlayer;
 @property (nonatomic, strong) Player *thirdPlayer;
 
++ (ScorerTips*) fromJson: (NSArray*) jsonData;
+
 @end

@@ -35,9 +35,11 @@ static NSString *userId;
 
 static NSArray *teams;
 static NSMutableDictionary *teamDictionary;
+static NSMutableArray *players;
+static NSMutableDictionary *playerDictionary;
 
 static Top4Round *top4Round;
-static Top4Round *scorerRound;
+static ScorerRound *scorerRound;
 
 #define FLAG_URL @"http://img.uefa.com/imgml/flags/32x32/%@.png"
 
@@ -45,6 +47,7 @@ static Top4Round *scorerRound;
 #define ROUNDS_URL @"http://emtipset.dev.stendahls.se/api/rounds"
 #define BET_URL @"http://emtipset.dev.stendahls.se/api/bet"
 #define TOP4_URL @"http://emtipset.dev.stendahls.se/api/winners"
+#define SCORER_URL @"http://emtipset.dev.stendahls.se/api/topscorer"
 #define TEAMS_URL @"http://emtipset.dev.stendahls.se/api/teams"
 
 @implementation BackendAdapter
@@ -190,7 +193,6 @@ static Top4Round *scorerRound;
         BOOL successRoad = [self loadCompleteTournament];
         if (successRoad) {
             successRoad = [self loadLeagues];
-        
         }
         if (successRoad) {
             successRoad = [self loadRankings];
@@ -204,6 +206,9 @@ static Top4Round *scorerRound;
         }
         if (successRoad) {
             successRoad = [self loadTop4];
+        }
+        if (successRoad) {
+            successRoad = [self loadScorer];
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -360,6 +365,38 @@ static Top4Round *scorerRound;
     top4Round.startDate = firstMatchRound.startDate;
     top4Round.lockDate = firstMatchRound.lockDate;
     NSLog(@"Fetched top 4 tips: %@", top4Round.top4Tips);
+    
+    return YES;
+}
+
++ (BOOL) loadScorer {
+    NSMutableURLRequest *request = [self requestForUrl:SCORER_URL];
+    
+    NSError *error;
+    NSURLResponse *response;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    
+    if (error) {
+        [self showErrorAlert:@"Error while downloading Top Scorer tips"];
+        return NO;
+    }
+    
+    // parse the result
+    NSError *parseError = nil;
+    NSArray *tipsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
+    
+    if (parseError) {
+        [self showErrorAlert:@"Error while parsing Top scorer tips data from server"];
+        return NO;
+    }
+    
+    ScorerTips *scorerTips = [ScorerTips fromJson:tipsData];
+    scorerRound = [ScorerRound init:scorerTips];
+    
+    MatchRound *firstMatchRound = [rounds objectAtIndex:0];
+    scorerRound.startDate = firstMatchRound.startDate;
+    scorerRound.lockDate = firstMatchRound.lockDate;
+    NSLog(@"Fetched scorer tips: %@", scorerRound.scorerTips);
     
     return YES;
     
@@ -559,16 +596,30 @@ static Top4Round *scorerRound;
         return NO;
     }
     
-    teams = [Team teamsFromJson:teamsData];
-    teamDictionary = [NSMutableDictionary dictionary];
-    for (Team* team in teams) {
-        [teamDictionary setObject:team forKey:team.teamId];
-    }
-
+    [self setTeams:[Team teamsFromJson:teamsData]];
     
     NSLog(@"Fetched %i teams", [teams count]);
     
     return YES;
+}
+
++ (void) setTeams:(NSArray*) allTeams {
+    teams = allTeams;
+    
+    // create team ID to team dictionary, player list and player to player ID dictionary
+    teamDictionary = [NSMutableDictionary dictionary];
+    players = [NSMutableArray array];
+    playerDictionary = [NSMutableDictionary dictionary]; 
+    for (Team* team in teams) {
+        
+        [teamDictionary setObject:team forKey:team.teamId];
+        
+        [players addObjectsFromArray:team.players];
+        
+        for (Player *teamPlayer in team.players) {
+            [playerDictionary setObject:teamPlayer forKey:teamPlayer.playerId];
+        }
+    }
 }
 
 + (NSArray*) teamList {
@@ -577,6 +628,14 @@ static Top4Round *scorerRound;
     
 + (NSDictionary*) teams {
     return teamDictionary;
+}
+
++ (NSArray*) playerList {
+    return players;
+}
+
++ (NSDictionary*) players {
+    return playerDictionary;
 }
 
 
