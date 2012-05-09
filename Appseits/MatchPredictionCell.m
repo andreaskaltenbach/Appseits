@@ -143,6 +143,10 @@
 	return view;
 }
 
+- (void) updateViewSelection:(iCarousel*) carousel {
+    
+}
+
 - (NSUInteger)numberOfVisibleItemsInCarousel:(iCarousel *)carousel {
     return 5;
 }
@@ -152,7 +156,7 @@
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
     
     NSNumber *prediction = nil;
-    if (carousel.currentItemIndex > 10) {
+    if (carousel.currentItemIndex < 10) {
         prediction = [NSNumber numberWithInt:carousel.currentItemIndex];
     }
     
@@ -180,10 +184,20 @@
     }
     
     if (updateRequired) {
+        self.match.firstTeamPrediction = self.firstTeamPrediction;
+        self.match.secondTeamPrediction = self.secondTeamPrediction;
         [BackendAdapter postPrediction:self.match.matchId :self.firstTeamPrediction :self.secondTeamPrediction :^(bool success) {
-            //TODO - mark carousel green, meaning that the change is saved
-            // TODO - use sequence ID to identify the last change
-            NSLog(@"Update performed!!!");
+            
+
+            if (success) {
+                // mark carousel green, meaning that the change is saved
+                [carousel scrollToItemAtIndex:carousel.currentItemIndex animated:NO];
+                [carousel reloadData];
+                
+                
+                // TODO - use sequence ID to identify the last change
+                NSLog(@"Update performed!!!");
+            }
             
             //TODO handle error
         }];

@@ -510,7 +510,7 @@ static Top4Round *top4Round;
     request.HTTPBody = data;
     
    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-       
+       onDone(!error);
    }];
 }
 
