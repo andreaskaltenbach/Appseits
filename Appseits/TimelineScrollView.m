@@ -73,6 +73,10 @@ static UIImage *darkRight;
     float width = [tournamentRounds count] * ROUND_WIDTH + 2*SIDE_OFFSET;
     self.contentSize = CGSizeMake(width, self.frame.size.height);
     
+    UIView *background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, self.frame.size.height)];
+    background.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timelineBackground"]];
+    [self addSubview:background]; 
+    
     self.contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, self.frame.size.height)];
     [self addSubview:self.contentView];
     
@@ -92,17 +96,8 @@ static UIImage *darkRight;
     self.sections = [NSArray arrayWithArray:sections];
     
     // select current round
-    TimelineScrollViewRoundSection *activeSection;
-    for (TimelineScrollViewRoundSection *section in self.sections) {
-        if (section.round.roundState == OPEN) {
-            activeSection = section;
-        }
-    }
+    TimelineScrollViewRoundSection *activeSection = [self activeSection];
     
-    // if no active section can be identified, we take the first one
-    if (!activeSection) activeSection = [self.sections objectAtIndex:0];
-    
-    // TODO better logic to decide which round to select initially
     [self selectTournamentRound:activeSection];
     
     
@@ -118,6 +113,17 @@ static UIImage *darkRight;
     [self layoutProgressWaves:activeSection];
 
     [self setNeedsDisplay];
+}
+
+- (TimelineScrollViewRoundSection*) activeSection {
+    for (TimelineScrollViewRoundSection *section in self.sections) {
+        if (section.round.open) {
+            return section;
+        }
+    }
+
+    // if no active section can be identified, we take the first one
+    return [self.sections objectAtIndex:0];
 }
 
 - (void) selectTournamentRound:(TimelineScrollViewRoundSection*) selectedSection {

@@ -8,22 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
-    CLOSED,
-    OPEN,
-    FUTURE
-} RoundState;
-
 @interface TournamentRound : NSObject
 
 @property (nonatomic, strong) NSDate *startDate;
 @property (nonatomic, strong) NSDate *lockDate;
 @property (nonatomic, strong) NSString *roundName;
 
-- (RoundState) roundState;
-
 - (int) points;
 
 - (float) progress;
+
+- (BOOL) open;
+
+- (BOOL) allPredictionsDone;
 
 @end

@@ -22,4 +22,9 @@
     return round;
 }
 
+- (BOOL) allPredictionsDone {
+    // TODO - return YES if all four teams are set
+    return NO;
+}
+
 @end

@@ -14,22 +14,6 @@
 @synthesize lockDate = _lockDate;
 @synthesize startDate = _startDate;
 
-
-- (RoundState) roundState {
-    NSDate *now = [NSDate date];
-    if ([now compare:self.lockDate] == NSOrderedDescending) {
-        // lock date has passed
-        return CLOSED;
-    }
-    if ([now compare: self.startDate] == NSOrderedDescending) {
-        // start date has passed and lock date has not passed 
-        return OPEN;
-    }
-    
-    // start date has not yet reached
-    return FUTURE;
-}
-
 - (BOOL) locked {
     if (!self.lockDate) return NO;
     return [self.lockDate compare:[NSDate date]] == NSOrderedAscending;
@@ -45,6 +29,16 @@
 
 - (float) progress {
     return 0;
+}
+
+- (BOOL) open {
+    NSDate *now = [NSDate date];
+    // locked date has not passed
+    return ([now compare:self.lockDate] == NSOrderedAscending);
+}
+
+- (BOOL) allPredictionsDone {
+    return NO;
 }
 
 @end

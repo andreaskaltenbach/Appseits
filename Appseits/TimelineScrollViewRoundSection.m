@@ -18,12 +18,11 @@
 #define LOCK_SIZE 24
 #define LOCK_X_OFFSET 100
 
-static UIImage *lockClosed;
 static UIImage *lockClosedInset;
-static UIImage *lockOpen;
 static UIImage *lockOpenInset;
-static UIImage *lockFuture;
-static UIImage *lockFutureInset;
+static UIImage *lockGreenOpen;
+static UIImage *lockGrayOpen;
+static UIImage *lockGreenClosed;
 
 @interface TimelineScrollViewRoundSection()
 @property (nonatomic, strong) SSGradientView *selectedGradient;
@@ -37,12 +36,11 @@ static UIImage *lockFutureInset;
 @synthesize lockIcon = _lockIcon;
 
 + (void) initialize {
-    lockClosed = [UIImage imageNamed:@"lockClosed"];
     lockClosedInset = [UIImage imageNamed:@"lockClosedInset"];
-    lockOpen = [UIImage imageNamed:@"lockOpen"];
     lockOpenInset = [UIImage imageNamed:@"lockOpenInset"];
-    lockFuture = [UIImage imageNamed:@"lockFuture"];
-    lockFutureInset = [UIImage imageNamed:@"lockFutureInset"];
+    lockGreenOpen = [UIImage imageNamed:@"lockGreenOpen"];
+    lockGrayOpen = [UIImage imageNamed:@"lockGrayOpen"];
+    lockGreenClosed = [UIImage imageNamed:@"lockGreenClosed"];
 }
 
 + (TimelineScrollViewRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent {
@@ -97,24 +95,25 @@ static UIImage *lockFutureInset;
 }
 
 - (UIImage*) selectedImage {
-    switch (self.round.roundState) {
-        case CLOSED:
-            return lockClosedInset;
-        case OPEN:
-            return lockOpenInset;
-        default:
-            return lockFutureInset;
+    if (self.round.open) {
+        return lockOpenInset;
+    }
+    else {
+        return lockClosedInset;
     }
 }
 
 - (UIImage*) deselectedImage {
-    switch (self.round.roundState) {
-        case CLOSED:
-            return lockClosed;
-        case OPEN:
-            return lockOpen;
-        default:
-            return lockFuture;
+    if (self.round.open) {
+        if (self.round.allPredictionsDone) {
+            return lockGreenOpen;
+        }
+        else {
+            return lockGrayOpen;
+        }
+    }
+    else {
+        return lockGreenClosed;
     }
 }
 

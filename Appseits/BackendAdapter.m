@@ -252,8 +252,6 @@ static Top4Round *top4Round;
             }
             
             NSLog(@"Dowloaded flag for %@", teamName);
-            
-            
         }
         
     }
@@ -355,6 +353,10 @@ static Top4Round *top4Round;
     }
     
     top4Round = [Top4Round init:[Top4Tips fromJson:tipsData]];
+    
+    MatchRound *firstMatchRound = [rounds objectAtIndex:0];
+    top4Round.startDate = firstMatchRound.startDate;
+    top4Round.lockDate = firstMatchRound.lockDate;
     NSLog(@"Fetched top 4 tips: %@", top4Round.top4Tips);
     
     return YES;

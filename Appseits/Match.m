@@ -90,4 +90,8 @@
     return self.firstTeamGoals && self.secondTeamGoals;
 }
 
+- (BOOL) hasPrediction {
+    return self.firstTeamPrediction && self.secondTeamPrediction;
+}
+
 @end

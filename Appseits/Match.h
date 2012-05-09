@@ -26,4 +26,6 @@
 
 - (BOOL) finished;
 
+- (BOOL) hasPrediction;
+
 @end

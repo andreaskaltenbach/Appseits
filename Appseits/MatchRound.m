@@ -14,8 +14,6 @@
 
 @synthesize matches = _matches;
 
-
-
 - (int) points {
     int points = 0;
     for(Match *game in self.matches) {
@@ -28,7 +26,10 @@
     MatchRound *round = [[MatchRound alloc] init];
     round.roundName = [jsonData objectForKey:@"name"];
     round.matches = [Match matchFromJson: [jsonData objectForKey:@"matches"]];
+    round.startDate = [NSDate fromJsonTimestamp:[jsonData objectForKey:@"startDate"]];
     round.lockDate = [NSDate fromJsonTimestamp:[jsonData objectForKey:@"lockedDate"]];
+    
+    NSLog(@"Start date %@", round.startDate);
     return round;
 }
 
@@ -58,6 +59,15 @@
 
     NSLog(@"Final percentage: %f", matchPercentage);
     return progress;
+}
+
+- (BOOL) allPredictionsDone {
+    for (Match* match in self.matches) {
+        if (!match.hasPrediction) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 

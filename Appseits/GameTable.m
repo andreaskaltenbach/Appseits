@@ -12,6 +12,10 @@
 #import "UIColor+AppColors.h"
 #import "TournamentRound.h"
 
+static    NSString *matchCell;
+static    NSString *matchResultCell;
+static    NSString *matchPredictionCell;
+
 @interface GameTable()
 @property (nonatomic, strong) NSMutableArray *matchDays;
 @property (nonatomic, strong) NSMutableArray *matches;
@@ -21,6 +25,12 @@
 @synthesize round = _round;
 @synthesize matchDays = _matchDays;
 @synthesize matches = _matches;
+
++ (void) initialize {
+    matchCell= @"matchCell";
+    matchResultCell = @"matchResultCell";
+    matchPredictionCell = @"matchPredictionCell";
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -65,7 +75,6 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@"Match days : %i", [self.matchDays count]);
     return [self.matchDays count]; 
 }
 
@@ -76,22 +85,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *gameResultCell = @"gameResultCell";
-    NSString *gamePredictionCell = @"gamePredictionCell";
+    NSArray *matches = [self.matches objectAtIndex:indexPath.section];
+    Match *match = [matches objectAtIndex:indexPath.row];
     
-    NSArray *games = [self.matches objectAtIndex:indexPath.section];
-    Match *match = [games objectAtIndex:indexPath.row];
+    MatchCell *cell; 
     
-    if ((match.firstTeamGoals && match.secondTeamGoals) || self.round.roundState == CLOSED) {
-        MatchResultCell * cell = [tableView dequeueReusableCellWithIdentifier:gameResultCell];
-        cell.match = match;
-        return cell;
+    if (self.round.open) {
+        
+        if (match.unknownOpponents) {
+            cell = [tableView dequeueReusableCellWithIdentifier:matchCell];
+        }
+        else {
+            cell = [tableView dequeueReusableCellWithIdentifier:matchPredictionCell];
+        }
+        
     }
     else {
-        MatchPredictionCell * cell = [tableView dequeueReusableCellWithIdentifier:gamePredictionCell];
-        cell.match = match;
-        return cell;
+        cell = [tableView dequeueReusableCellWithIdentifier:matchResultCell];
     }
+    cell.match = match;
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
