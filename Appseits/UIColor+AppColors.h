@@ -46,4 +46,6 @@
 
 + (UIColor *) credentialsBackground;
 + (UIColor *) credentialsSeparator;
+
++ (UIColor *) transparentWhite;
 @end

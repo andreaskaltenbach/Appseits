@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GameTable.h"
+#import "MatchTable.h"
 #import "MatchResultCell.h"
 #import "MatchPredictionCell.h"
 #import "UIColor+AppColors.h"
@@ -16,12 +16,12 @@ static    NSString *matchCell;
 static    NSString *matchResultCell;
 static    NSString *matchPredictionCell;
 
-@interface GameTable()
+@interface MatchTable()
 @property (nonatomic, strong) NSMutableArray *matchDays;
 @property (nonatomic, strong) NSMutableArray *matches;
 @end
 
-@implementation GameTable
+@implementation MatchTable
 @synthesize round = _round;
 @synthesize matchDays = _matchDays;
 @synthesize matches = _matches;

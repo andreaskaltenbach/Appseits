@@ -14,7 +14,7 @@
 #import "TimelineScrollView.h"
 #import "Menu.h"
 #import "Timeline.h"
-#import "GameTable.h"
+#import "MatchTable.h"
 #import "MenuDependendScrollView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "RankingTable.h"
@@ -38,7 +38,7 @@ static UIImage *trendDown;
 static UIImage *cogWheel;
 
 @interface OverviewViewController()
-@property (strong, nonatomic) IBOutlet GameTable *gameTable;
+@property (strong, nonatomic) IBOutlet MatchTable *gameTable;
 @property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
 @property (strong, nonatomic) IBOutlet LeaguePickerView *leaguePicker;
 

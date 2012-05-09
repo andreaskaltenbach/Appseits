@@ -87,7 +87,7 @@
 		5B007EEF1548754B00AE6518 /* cogwheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B007EED1548754B00AE6518 /* cogwheel.png */; };
 		5B007EF01548754B00AE6518 /* cogwheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B007EEE1548754B00AE6518 /* cogwheel@2x.png */; };
 		5B1AEB041537736A00786199 /* LeaguePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AEB031537736A00786199 /* LeaguePickerView.m */; };
-		5B1EE8B115274DFC00D01564 /* GameTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* GameTable.m */; };
+		5B1EE8B115274DFC00D01564 /* MatchTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* MatchTable.m */; };
 		5B24E311154753D10011EBED /* forgotPassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B24E30F154753D10011EBED /* forgotPassword@2x.png */; };
 		5B24E312154753D10011EBED /* forgotPassword.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B24E310154753D10011EBED /* forgotPassword.png */; };
 		5B3797D7155862BC00B643CE /* TeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3797D6155862BC00B643CE /* TeamCell.m */; };
@@ -344,8 +344,8 @@
 		5B1AEB021537736A00786199 /* LeaguePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguePickerView.h; sourceTree = "<group>"; };
 		5B1AEB031537736A00786199 /* LeaguePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguePickerView.m; sourceTree = "<group>"; };
 		5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TournamentRoundSelectDelegate.h; sourceTree = "<group>"; };
-		5B1EE8AF15274DFC00D01564 /* GameTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTable.h; sourceTree = "<group>"; };
-		5B1EE8B015274DFC00D01564 /* GameTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTable.m; sourceTree = "<group>"; };
+		5B1EE8AF15274DFC00D01564 /* MatchTable.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MatchTable.h; sourceTree = "<group>"; };
+		5B1EE8B015274DFC00D01564 /* MatchTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchTable.m; sourceTree = "<group>"; };
 		5B24E30F154753D10011EBED /* forgotPassword@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forgotPassword@2x.png"; sourceTree = "<group>"; };
 		5B24E310154753D10011EBED /* forgotPassword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forgotPassword.png; sourceTree = "<group>"; };
 		5B3797D5155862BC00B643CE /* TeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamCell.h; sourceTree = "<group>"; };
@@ -778,8 +778,8 @@
 				5BD4B15215262263004FE21B /* TimelineRoundSection.h */,
 				5BD4B15315262263004FE21B /* TimelineRoundSection.m */,
 				5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */,
-				5B1EE8AF15274DFC00D01564 /* GameTable.h */,
-				5B1EE8B015274DFC00D01564 /* GameTable.m */,
+				5B1EE8AF15274DFC00D01564 /* MatchTable.h */,
+				5B1EE8B015274DFC00D01564 /* MatchTable.m */,
 				5B7F2B10152901D1006A3687 /* MenuDependendScrollView.h */,
 				5B7F2B11152901D1006A3687 /* MenuDependendScrollView.m */,
 				5B7F2B14152902C6006A3687 /* RankingTable.h */,
@@ -1005,7 +1005,7 @@
 				5BBE7ECF15263ADA00FA980E /* SSBorderedView.m in Sources */,
 				5BBE7ED215263B2100FA980E /* SSDrawingUtilities.m in Sources */,
 				5BA4B8A2152737ED006450B7 /* TimelineScrollViewRoundSection.m in Sources */,
-				5B1EE8B115274DFC00D01564 /* GameTable.m in Sources */,
+				5B1EE8B115274DFC00D01564 /* MatchTable.m in Sources */,
 				5B7F2B12152901D1006A3687 /* MenuDependendScrollView.m in Sources */,
 				5B7F2B16152902C6006A3687 /* RankingTable.m in Sources */,
 				5B7F2B1915290392006A3687 /* Ranking.m in Sources */,

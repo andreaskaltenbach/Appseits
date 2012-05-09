@@ -54,10 +54,7 @@ static UIImage* matchLock;
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.firstTeamGoals = (UILabel*) [self viewWithTag:15];
-        self.firstTeamPrediction = (UILabel*) [self viewWithTag:17];
-        
         self.secondTeamGoals = (UILabel*) [self viewWithTag:25];        
-        self.secondTeamPrediction = (UILabel*) [self viewWithTag:27];
         
         self.pointsBackground = (UIImageView*) [self viewWithTag:30];
         self.pointsLabel = (UILabel*) [self viewWithTag:31];
@@ -66,7 +63,10 @@ static UIImage* matchLock;
         self.matchLock.image = matchLock;
         
         self.leftPointsBackground = (UIView*) [self viewWithTag:180];
+        self.firstTeamPrediction = (UILabel*) [self viewWithTag:181];
+        
         self.rightPointsBackground = (UIView*) [self viewWithTag:280];
+        self.secondTeamPrediction = (UILabel*) [self viewWithTag:281];
     }
     return self;
 }
@@ -75,65 +75,64 @@ static UIImage* matchLock;
     [super setMatch:game];
 
     // set match result
-    if (game.firstTeamGoals && game.secondTeamGoals) {
-        self.firstTeamGoals.text = [NSString stringWithFormat:@"%i", game.firstTeamGoals.intValue];
-        self.secondTeamGoals.text = [NSString stringWithFormat:@"%i", game.secondTeamGoals.intValue];
-    } else {
-        self.firstTeamGoals.text = @"-";
-        self.secondTeamGoals.text = @"-";
-    }
+    self.firstTeamGoals.text = [NSString stringWithFormat:@"%i", game.firstTeamGoals.intValue];
+    self.secondTeamGoals.text = [NSString stringWithFormat:@"%i", game.secondTeamGoals.intValue];
     
-    if (!game.firstTeamPrediction || !game.secondTeamPrediction) {
-        // player does not set any prediction:
-        self.leftPointsBackground.backgroundColor = [UIColor clearColor];
-        self.rightPointsBackground.backgroundColor = pointsBackground;
-    }
-    else if (game.firstTeamGoals == game.firstTeamPrediction
-        && game.secondTeamGoals == game.secondTeamPrediction) {
-        // the player did bet the exact result
-        self.leftPointsBackground.backgroundColor = pointsBackground;
-        self.rightPointsBackground.backgroundColor = pointsBackground;
-    }
-    else if (game.firstTeamGoals.intValue - game.secondTeamGoals.intValue
-        == game.firstTeamPrediction.intValue - game.secondTeamPrediction.intValue) {
-        // the player did bet on the correct goal difference
-        self.leftPointsBackground.backgroundColor = pointsBackground;
-        self.rightPointsBackground.backgroundColor = pointsBackground;
-    }
-    else if (game.firstTeamGoals > game.secondTeamGoals &&
-             game.firstTeamPrediction > game.secondTeamPrediction) {
-        // first team did win and player betted on that
-        self.leftPointsBackground.backgroundColor = pointsBackground;
-        self.rightPointsBackground.backgroundColor = [UIColor clearColor];
-    }
-    else if (game.firstTeamGoals < game.secondTeamGoals &&
-             game.firstTeamPrediction < game.secondTeamPrediction) {
-        // first team did win and player betted on that
-        self.leftPointsBackground.backgroundColor = pointsBackground;
-        self.rightPointsBackground.backgroundColor = [UIColor clearColor];
+    // set predictions
+    self.firstTeamPrediction.text = [NSString stringWithFormat:@"%i", game.firstTeamPrediction.intValue];
+    self.secondTeamPrediction.text = [NSString stringWithFormat:@"%i", game.secondTeamPrediction.intValue];
+    
+    if (game.firstTeamPrediction.intValue == game.firstTeamGoals.intValue
+        && game.secondTeamPrediction.intValue == game.secondTeamGoals.intValue) {
+        // correct result predicted -> show both green boxes:
+        [self switchLeftPrediction:YES];
+        [self switchRightPrediction:YES];
     }
     else {
-        // the bet was not correct at all
-        self.leftPointsBackground.backgroundColor = [UIColor clearColor];
-        self.rightPointsBackground.backgroundColor = [UIColor clearColor];
+        int resultDiff = game.firstTeamGoals.intValue - game.secondTeamGoals.intValue;
+        int predictionDiff = game.firstTeamPrediction.intValue - game.secondTeamPrediction.intValue;
+        
+        if (resultDiff == predictionDiff && game.firstTeamGoals.intValue == game.firstTeamPrediction.intValue) {
+          // X was predicted correctly
+            [self switchLeftPrediction:YES];
+            [self switchRightPrediction:YES]; 
+            
+        } else if (resultDiff * predictionDiff > 0) {
+            // 1 or 2 was predicted correctly
+            
+            if (resultDiff > 0) {
+                [self switchLeftPrediction:YES];
+                [self switchRightPrediction:NO]; 
+            }
+            else {
+                [self switchLeftPrediction:NO];
+                [self switchRightPrediction:YES];
+            }
+        } else {
+            [self switchLeftPrediction:NO];
+            [self switchRightPrediction:NO];
+        }
     }
-    
-    // set the user's predictions
-    if (game.firstTeamPrediction && game.secondTeamPrediction) {
-        self.firstTeamPrediction.text = [NSString stringWithFormat:@"%i", game.firstTeamPrediction.intValue];
-        self.secondTeamPrediction.text = [NSString stringWithFormat:@"%i", game.secondTeamPrediction.intValue];
-    }    
+}
+
+- (void) switchLeftPrediction:(BOOL) userGetsPoints {
+    if (userGetsPoints) {
+        self.leftPointsBackground.backgroundColor = pointsBackground;
+        self.firstTeamPrediction.textColor = [UIColor whiteColor];
+    }
     else {
-        self.firstTeamPrediction.text = @"-";
-        self.secondTeamPrediction.text = @"-";
+        self.leftPointsBackground.backgroundColor = [UIColor clearColor];
+        self.firstTeamPrediction.textColor = [UIColor transparentWhite];
     }
-    
-    if (game.points.intValue > 0) {
-        self.pointsBackground.image = greenBall;
-        self.pointsLabel.text = [NSString stringWithFormat:@"%i",game.points.intValue];
-    } else {
-        self.pointsBackground.image = grayBall;
-        self.pointsLabel.text = [NSString stringWithFormat:@"%i",0];
+}
+- (void) switchRightPrediction:(BOOL) userGetsPoints {
+    if (userGetsPoints) {
+        self.rightPointsBackground.backgroundColor = pointsBackground;
+        self.secondTeamPrediction.textColor = [UIColor whiteColor];
+    }
+    else {
+        self.rightPointsBackground.backgroundColor = [UIColor clearColor];
+        self.secondTeamPrediction.textColor = [UIColor transparentWhite];
     }
 }
 

@@ -10,7 +10,7 @@
 #import "MatchRound.h"
 #import "ScrollTriggeringTableView.h"
 
-@interface GameTable : ScrollTriggeringTableView<UITableViewDataSource>
+@interface MatchTable : ScrollTriggeringTableView<UITableViewDataSource>
 
 @property (nonatomic, strong) MatchRound *round;
 

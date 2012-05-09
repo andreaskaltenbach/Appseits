@@ -43,8 +43,8 @@
     NSDictionary *result = [gameData objectForKey:@"result"];
     if (result) {
         
-        id homeGoals = [result objectForKey:@"homeTeamScore"];
-        id awayGoals = [result objectForKey:@"awayTeamScore"];
+        id homeGoals = [result objectForKey:@"homeTeamGoals"];
+        id awayGoals = [result objectForKey:@"awayTeamGoals"];
         
         if (homeGoals && homeGoals != [NSNull null]) {
             match.firstTeamGoals = homeGoals;
@@ -69,7 +69,7 @@
         }
     }
     
-    match.points = [gameData valueForKey:@"matchPoints"];
+    match.points = [gameData valueForKey:@"score"];
     
     return match;
 }
