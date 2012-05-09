@@ -47,8 +47,8 @@
         self.secondTeamPredictionCarousel.dataSource = self;
         self.secondTeamPredictionCarousel.delegate = self;
         self.secondTeamPredictionCarousel.type = iCarouselTypeCylinder;
+        
     }
-    self.backgroundColor = [UIColor blueColor];
     
     return self;
 }
@@ -58,17 +58,24 @@
     
     if (match.firstTeamPrediction) {
         [self.firstTeamPredictionCarousel scrollToItemAtIndex:match.firstTeamPrediction.intValue animated:YES];
+        self.firstTeamPrediction = match.firstTeamPrediction;
     }
     else {
         [self.firstTeamPredictionCarousel scrollToItemAtIndex:MAX_GOALS-1 animated:YES];
+        self.firstTeamPrediction = [NSNumber numberWithInt:-1];
     }
     
     if (match.secondTeamPrediction) {
         [self.secondTeamPredictionCarousel scrollToItemAtIndex:match.secondTeamPrediction.intValue animated:YES];
+        self.secondTeamPrediction = match.secondTeamPrediction;
     }
     else {
         [self.secondTeamPredictionCarousel scrollToItemAtIndex:MAX_GOALS-1 animated:YES];
+        self.secondTeamPrediction = [NSNumber numberWithInt:-1];
     }
+    
+    [self.firstTeamPredictionCarousel reloadData];
+    [self.secondTeamPredictionCarousel reloadData];
 }
 
 #pragma mark iCarouselDataSource implementation
@@ -112,16 +119,17 @@
        label.text = [NSString stringWithFormat:@"%i", index];
     }
     
-    NSLog(@"Match %@ - %@", self.match.firstTeamName, self.match.secondTeamName);
+    NSLog(@"Match %@ ", self.match);
     
     NSLog(@"FirstCar: %i", self.firstTeamPredictionCarousel == carousel);
     NSLog(@"FirstPred: %i", self.firstTeamPrediction.intValue);
-
+    
+   
     NSLog(@"SecCar: %i", self.secondTeamPredictionCarousel == carousel);
     NSLog(@"SecPred: %i", self.secondTeamPrediction.intValue);
     
-    if ((carousel == self.firstTeamPredictionCarousel && index == self.firstTeamPrediction.intValue)
-        || (carousel == self.secondTeamPredictionCarousel && index == self.secondTeamPrediction.intValue)) {
+    if ((carousel == self.firstTeamPredictionCarousel && self.firstTeamPrediction.intValue !=  -1 && index == self.firstTeamPrediction.intValue)
+        || (carousel == self.secondTeamPredictionCarousel && self.secondTeamPrediction.intValue !=  -1 && index == self.secondTeamPrediction.intValue)) {
         // current prediction is displayed in green
         label.textColor = [UIColor whiteColor];
         gradientView.colors = [UIColor greenGradient];
