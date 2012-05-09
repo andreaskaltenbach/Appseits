@@ -41,9 +41,8 @@ static Top4Round *top4Round;
 #define LOGIN_URL @"http://emtipset.dev.stendahls.se/api/login"
 #define ROUNDS_URL @"http://emtipset.dev.stendahls.se/api/rounds"
 #define BET_URL @"http://emtipset.dev.stendahls.se/api/bet"
+#define TOP4_URL @"http://emtipset.dev.stendahls.se/api/winners"
 #define TEAMS_URL @"http://emtipset.dev.stendahls.se/api/teams"
-
-#define TOP4_URL @"http://dl.dropbox.com/u/15650647/top4.json"
 
 @implementation BackendAdapter
 
@@ -332,7 +331,7 @@ static Top4Round *top4Round;
 }
 
 + (BOOL) loadTop4 {
-    NSMutableURLRequest *request = [self requestForUrl:TOP4_URL];
+    NSMutableURLRequest *request = [self requestForUrl:@"http://dl.dropbox.com/u/15650647/top4.json"];
     
     NSError *error;
     NSURLResponse *response;
@@ -512,6 +511,28 @@ static Top4Round *top4Round;
    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
        onDone(!error);
    }];
+}
+
++ (void) postPredictionForPlace:(int) place andTeam: (NSNumber*) teamId: (FinishedBlock) onDone {
+    NSMutableURLRequest *request = [self requestForUrl:TOP4_URL];
+    
+    [request setHTTPMethod:@"POST"];
+    
+    // build JSON payload
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSDictionary *jsonData = [NSDictionary dictionaryWithObjectsAndKeys:
+                              teamId,@"teamId",
+                              [NSNumber numberWithInt:place],@"place",
+                              nil];
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:jsonData options:kNilOptions error:&error];
+    request.HTTPBody = data;
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        onDone(!error);
+    }];
+
+    
 }
 
 + (BOOL) fetchTeams {

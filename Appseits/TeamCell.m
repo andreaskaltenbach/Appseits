@@ -31,6 +31,7 @@
 }
 
 - (void) setTeam:(Team *)team {
+    _team = team;
     self.flag.image = team.flag;
     self.name.text = team.name;
 }

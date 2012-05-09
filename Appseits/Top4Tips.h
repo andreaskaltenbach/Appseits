@@ -18,4 +18,6 @@
 
 + (Top4Tips*) fromJson: (NSDictionary*) jsonData;
 
+- (BOOL) isValid;
+
 @end

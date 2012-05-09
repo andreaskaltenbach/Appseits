@@ -320,7 +320,17 @@ static UIImage *cogWheel;
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self dismissModalViewControllerAnimated:YES];
+    
+    TeamCell *teamCell = (TeamCell*) [tableView cellForRowAtIndexPath:indexPath];
+    
+    NSLog(@"Selected %@ on place %i", teamCell.team.name, self.currentTeamPlace);
+    
+    [self.top4View updatePlace:self.currentTeamPlace withTeam:teamCell.team :^(bool success) {
+        if (!success) {
+            NSLog(@"Nothing stored!");
+        }
+        [self dismissModalViewControllerAnimated:YES];
+    }];
 }
 
 

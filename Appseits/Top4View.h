@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Top4Tips.h"
 #import "Team.h"
+#import "BackendAdapter.h"
 
 @protocol TeamSelectDelegate
 
@@ -21,4 +22,7 @@
 
 @property (nonatomic, strong) Top4Tips *top4Tips;
 @property (nonatomic, strong) id<TeamSelectDelegate> delegate;
+
+- (void) updatePlace:(int) place withTeam:(Team*) team: (FinishedBlock) onDone;
+
 @end

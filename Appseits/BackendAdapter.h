@@ -52,6 +52,8 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 
 + (void) postPrediction:(NSNumber*) matchId: (NSNumber*) firstTeamGoals: (NSNumber*) secondTeamGoals: (FinishedBlock) onDone;
 
++ (void) postPredictionForPlace:(int) place andTeam: (NSNumber*) teamId: (FinishedBlock) onDone;
+
 
 
 

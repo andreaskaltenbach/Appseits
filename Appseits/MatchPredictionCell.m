@@ -156,7 +156,7 @@
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)carousel {
     
     NSNumber *prediction = nil;
-    if (carousel.currentItemIndex < 10) {
+    if (carousel.currentItemIndex <= 10) {
         prediction = [NSNumber numberWithInt:carousel.currentItemIndex];
     }
     
@@ -198,11 +198,9 @@
                 // TODO - use sequence ID to identify the last change
                 NSLog(@"Update performed!!!");
             }
-            
             //TODO handle error
         }];
     }
-    
 
     NSLog(@"Selected %i", carousel.currentItemIndex);
     
