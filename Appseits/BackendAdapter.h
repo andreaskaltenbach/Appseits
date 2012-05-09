@@ -38,7 +38,8 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 + (NSArray*) tournamentRounds;
 + (NSArray*) rankings;
 + (NSArray*) leagues;
-+ (NSArray*) teams;
++ (NSArray*) teamList;
++ (NSDictionary*) teams;
 
 + (UIImage*) imageForTeam:(NSString*) teamName;
 

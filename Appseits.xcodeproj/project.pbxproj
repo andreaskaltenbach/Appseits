@@ -52,6 +52,8 @@
 		4E38B707155AABCA00DD691C /* lockClosedInset.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38B6FD155AABCA00DD691C /* lockClosedInset.png */; };
 		4E38B70A155AB3E100DD691C /* timelineBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38B708155AB3E100DD691C /* timelineBackground@2x.png */; };
 		4E38B70B155AB3E100DD691C /* timelineBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38B709155AB3E100DD691C /* timelineBackground.png */; };
+		4E38B70E155ADAC900DD691C /* ScorerRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E38B70D155ADAC800DD691C /* ScorerRound.m */; };
+		4E38B711155ADB0E00DD691C /* ScorerTips.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E38B710155ADB0E00DD691C /* ScorerTips.m */; };
 		4E45D5C8153C63110036098A /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E45D5C7153C63110036098A /* libCorePlot-CocoaTouch.a */; };
 		4E531C16151CAB050003CAD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C15151CAB050003CAD1 /* UIKit.framework */; };
 		4E531C18151CAB050003CAD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C17151CAB050003CAD1 /* Foundation.framework */; };
@@ -209,6 +211,10 @@
 		4E38B6FD155AABCA00DD691C /* lockClosedInset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockClosedInset.png; sourceTree = "<group>"; };
 		4E38B708155AB3E100DD691C /* timelineBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timelineBackground@2x.png"; sourceTree = "<group>"; };
 		4E38B709155AB3E100DD691C /* timelineBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timelineBackground.png; sourceTree = "<group>"; };
+		4E38B70C155ADAC800DD691C /* ScorerRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScorerRound.h; sourceTree = "<group>"; };
+		4E38B70D155ADAC800DD691C /* ScorerRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScorerRound.m; sourceTree = "<group>"; };
+		4E38B70F155ADB0D00DD691C /* ScorerTips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScorerTips.h; sourceTree = "<group>"; };
+		4E38B710155ADB0E00DD691C /* ScorerTips.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScorerTips.m; sourceTree = "<group>"; };
 		4E45D578153C62450036098A /* _CPTConstraintsFixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CPTConstraintsFixed.h; sourceTree = "<group>"; };
 		4E45D579153C62450036098A /* _CPTConstraintsRelative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CPTConstraintsRelative.h; sourceTree = "<group>"; };
 		4E45D57A153C62450036098A /* _CPTDarkGradientTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CPTDarkGradientTheme.h; sourceTree = "<group>"; };
@@ -733,6 +739,10 @@
 				5B9A0DC11555391E006841EA /* Team.m */,
 				5B9A0DC41555399F006841EA /* Player.h */,
 				5B9A0DC51555399F006841EA /* Player.m */,
+				4E38B70C155ADAC800DD691C /* ScorerRound.h */,
+				4E38B70D155ADAC800DD691C /* ScorerRound.m */,
+				4E38B70F155ADB0D00DD691C /* ScorerTips.h */,
+				4E38B710155ADB0E00DD691C /* ScorerTips.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1026,6 +1036,8 @@
 				5B3797D7155862BC00B643CE /* TeamCell.m in Sources */,
 				5B3797DA1558650E00B643CE /* AppseitsSelectionCell.m in Sources */,
 				4ED46E4815594BEA00B75582 /* VersionEnforcer.m in Sources */,
+				4E38B70E155ADAC900DD691C /* ScorerRound.m in Sources */,
+				4E38B711155ADB0E00DD691C /* ScorerTips.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,30 +16,25 @@
 @synthesize thirdTeam = _thirdTeam;
 @synthesize fourthTeam = _fourthTeam;
 
-+ (Top4Tips*) fromJson: (NSDictionary*) jsonData {
++ (Top4Tips*) fromJson: (NSArray*) jsonData {
     
-    NSArray* allTeams = [BackendAdapter teams];
+    NSDictionary* allTeams = [BackendAdapter teams];
     
     Top4Tips *tips = [[Top4Tips alloc] init];
+    NSLog(@"JSON: %@", jsonData);
     
-    NSNumber *first = [jsonData objectForKey:@"first"];
-    NSNumber *second = [jsonData objectForKey:@"second"];
-    NSNumber *third = [jsonData objectForKey:@"third"];
-    NSNumber *fourth = [jsonData objectForKey:@"fourth"];
-    
-    for (Team* team in allTeams) {
+    for (NSDictionary *prediction in jsonData) {
+        NSNumber *place = [prediction valueForKey:@"place"];
+        NSNumber *teamId = [prediction valueForKey:@"teamId"];
         
-        if (first && [team.teamId isEqualToNumber:first]) {
-            tips.firstTeam = team;
-        }
-        if (second && [team.teamId isEqualToNumber:second]) {
-            tips.secondTeam = team;
-        }
-        if (third && [team.teamId isEqualToNumber:third]) {
-            tips.thirdTeam = team;
-        }
-        if (fourth && [team.teamId isEqualToNumber:fourth]) {
-            tips.fourthTeam = team;
+        if (place.intValue != 0 && teamId != 0) {
+            
+            Team *team = [allTeams objectForKey:teamId];
+            
+            if (place.intValue == 1) tips.firstTeam = team;
+            if (place.intValue == 2) tips.secondTeam = team;
+            if (place.intValue == 3) tips.thirdTeam = team;
+            if (place.intValue == 4) tips.fourthTeam = team;
         }
     }
     

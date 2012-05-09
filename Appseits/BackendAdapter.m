@@ -15,6 +15,7 @@
 #import "Top4Tips.h"
 #import "Top4Round.h"
 #import "Team.h"
+#import "ScorerRound.h"
 
 static NSString *leagueUrl;
 static NSString *rankingUrl;
@@ -33,8 +34,10 @@ static NSString *userName;
 static NSString *userId;
 
 static NSArray *teams;
+static NSMutableDictionary *teamDictionary;
 
 static Top4Round *top4Round;
+static Top4Round *scorerRound;
 
 #define FLAG_URL @"http://img.uefa.com/imgml/flags/32x32/%@.png"
 
@@ -331,7 +334,7 @@ static Top4Round *top4Round;
 }
 
 + (BOOL) loadTop4 {
-    NSMutableURLRequest *request = [self requestForUrl:@"http://dl.dropbox.com/u/15650647/top4.json"];
+    NSMutableURLRequest *request = [self requestForUrl:TOP4_URL];
     
     NSError *error;
     NSURLResponse *response;
@@ -418,7 +421,7 @@ static Top4Round *top4Round;
 }
 
 + (NSArray*) tournamentRounds {
-    NSArray *staticRound = [NSArray arrayWithObjects:top4Round, nil];
+    NSArray *staticRound = [NSArray arrayWithObjects:top4Round, scorerRound, nil];
     return [staticRound arrayByAddingObjectsFromArray:rounds];
 }
 
@@ -557,14 +560,24 @@ static Top4Round *top4Round;
     }
     
     teams = [Team teamsFromJson:teamsData];
+    teamDictionary = [NSMutableDictionary dictionary];
+    for (Team* team in teams) {
+        [teamDictionary setObject:team forKey:team.teamId];
+    }
+
     
     NSLog(@"Fetched %i teams", [teams count]);
     
     return YES;
 }
 
-+ (NSArray*) teams {
++ (NSArray*) teamList {
     return teams;
 }
+    
++ (NSDictionary*) teams {
+    return teamDictionary;
+}
+
 
 @end

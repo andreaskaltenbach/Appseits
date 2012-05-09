@@ -32,8 +32,8 @@
 
 + (NSArray *) selectedSection {
     return [NSArray arrayWithObjects: 
-            [UIColor colorWithRed:50.0/255.0f green:98.0f/255.0f blue:10.0f/255.0f alpha:1],
             [UIColor colorWithRed:116.0/255.0f green:173.0f/255.0f blue:53.0f/255.0f alpha:1],
+            [UIColor colorWithRed:50.0/255.0f green:98.0f/255.0f blue:10.0f/255.0f alpha:1],
             nil];  
 }
 

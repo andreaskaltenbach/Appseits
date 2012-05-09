@@ -29,6 +29,8 @@
 #import "Top4View.h"
 #import "TeamViewController.h"
 #import "TeamCell.h"
+#import "ScorerTips.h"
+#import "ScorerRound.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -183,7 +185,7 @@ static UIImage *cogWheel;
     // check credentials and open login view if required!
     
 
-    self.allTeams = [BackendAdapter teams];
+    self.allTeams = [BackendAdapter teamList];
    
     // setup top4 view
     self.top4View.delegate = self;
@@ -232,6 +234,10 @@ static UIImage *cogWheel;
         self.top4View.top4Tips = top4Round.top4Tips;
         self.top4View.hidden = NO;
         self.gameTable.hidden = YES;
+    }
+    if (round.class == [ScorerRound class]) {
+        ScorerRound *top4Round = (ScorerRound*) round;
+        //TODO
     }
 }
 
