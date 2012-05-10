@@ -124,7 +124,7 @@ static ScorerRound *scorerRound;
             NSData *userData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
             NSLog(@"Error: %@", error);
             
-            if (response.statusCode != 200) {
+            if (response.statusCode != 200) {   
                 // an error occured
                 if(response.statusCode == 0) {
                     dispatch_async(dispatch_get_main_queue(), ^{

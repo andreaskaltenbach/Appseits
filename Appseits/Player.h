@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Team.h"
 
 @interface Player : NSObject
 
+@property (nonatomic, strong) Team *team;
 @property (nonatomic, strong) NSNumber *playerId;
 @property (nonatomic, strong) NSString *name;
+
++ (NSArray*) playersFromJson:(NSArray*) jsonData forTeam:(Team*) team;
 
 @end

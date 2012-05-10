@@ -31,6 +31,7 @@
 #import "TeamCell.h"
 #import "ScorerTips.h"
 #import "ScorerRound.h"
+#import "ScorerView.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -60,6 +61,7 @@ static UIImage *cogWheel;
 @property (weak, nonatomic) IBOutlet RoundLastUpdatedView *roundLastUpdatedView;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (strong, nonatomic) IBOutlet Top4View *top4View;
+@property (strong, nonatomic) IBOutlet ScorerView *scorerView;
 @end
 
 @implementation OverviewViewController
@@ -84,6 +86,7 @@ static UIImage *cogWheel;
 @synthesize roundLastUpdatedView = _roundLastUpdatedView;
 @synthesize logoutButton = _logoutButton;
 @synthesize top4View = _top4View;
+@synthesize scorerView = _scorerView;
 @synthesize currentTeamSelection = _currentTeamSelection;
 @synthesize currentTeamPlace = _currentTeamPlace;
 @synthesize allTeams = _allTeams;
@@ -218,6 +221,7 @@ static UIImage *cogWheel;
     [self setRoundLastUpdatedView:nil];
     [self setLogoutButton:nil];
     [self setTop4View:nil];
+    [self setScorerView:nil];
     [super viewDidUnload];
 }
 
@@ -227,17 +231,22 @@ static UIImage *cogWheel;
     if (round.class == [MatchRound class]) {
         self.gameTable.round = (MatchRound*) round;
         self.top4View.hidden = YES;
+        self.scoreView.hidden = YES;
         self.gameTable.hidden = NO;
     }
     if (round.class == [Top4Round class]) {
         Top4Round *top4Round = (Top4Round*) round;
         self.top4View.top4Tips = top4Round.top4Tips;
         self.top4View.hidden = NO;
+        self.scoreView.hidden = YES;
         self.gameTable.hidden = YES;
     }
     if (round.class == [ScorerRound class]) {
-        ScorerRound *top4Round = (ScorerRound*) round;
-        //TODO
+        ScorerRound *scorerRound = (ScorerRound*) round;
+        self.scorerView.scorerTips = scorerRound.scorerTips;
+        self.top4View.hidden = YES;
+        self.scoreView.hidden = NO;
+        self.gameTable.hidden = YES;
     }
 }
 

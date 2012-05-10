@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Team.h"
+#import "Selector.h"
 
-@interface Top4Selector : UIButton
+@interface Top4Selector : Selector
 
 @property (nonatomic, strong) Team *team;
-
-+ (id) selector;
 
 
 @end

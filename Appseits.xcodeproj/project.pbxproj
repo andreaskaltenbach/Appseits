@@ -93,6 +93,9 @@
 		4EE7C2DD155BDB6B00DD1D9C /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE7C2D5155BDB6B00DD1D9C /* plus.png */; };
 		4EE7C2DE155BDB6B00DD1D9C /* minus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE7C2D6155BDB6B00DD1D9C /* minus@2x.png */; };
 		4EE7C2DF155BDB6B00DD1D9C /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE7C2D7155BDB6B00DD1D9C /* minus.png */; };
+		4EE7C2E2155C0A3600DD1D9C /* ScorerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7C2E1155C0A3600DD1D9C /* ScorerView.m */; };
+		4EE7C2E8155C0CC600DD1D9C /* ScorerSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7C2E7155C0CC600DD1D9C /* ScorerSelector.m */; };
+		4EE7C2EB155C0CE200DD1D9C /* Selector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7C2EA155C0CE200DD1D9C /* Selector.m */; };
 		4EE945D5152B228200E6A62A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE945D4152B228200E6A62A /* Constants.m */; };
 		4EFD60D5155BBE4300BA8ABD /* matchBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EFD60D3155BBE4300BA8ABD /* matchBackground@2x.png */; };
 		4EFD60D6155BBE4300BA8ABD /* matchBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EFD60D4155BBE4300BA8ABD /* matchBackground.png */; };
@@ -375,6 +378,12 @@
 		4EE7C2D5155BDB6B00DD1D9C /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		4EE7C2D6155BDB6B00DD1D9C /* minus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "minus@2x.png"; sourceTree = "<group>"; };
 		4EE7C2D7155BDB6B00DD1D9C /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
+		4EE7C2E0155C0A3600DD1D9C /* ScorerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScorerView.h; sourceTree = "<group>"; };
+		4EE7C2E1155C0A3600DD1D9C /* ScorerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScorerView.m; sourceTree = "<group>"; };
+		4EE7C2E6155C0CC600DD1D9C /* ScorerSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScorerSelector.h; sourceTree = "<group>"; };
+		4EE7C2E7155C0CC600DD1D9C /* ScorerSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScorerSelector.m; sourceTree = "<group>"; };
+		4EE7C2E9155C0CE100DD1D9C /* Selector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selector.h; sourceTree = "<group>"; };
+		4EE7C2EA155C0CE200DD1D9C /* Selector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Selector.m; sourceTree = "<group>"; };
 		4EE945D3152B228200E6A62A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		4EE945D4152B228200E6A62A /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		4EFD60D3155BBE4300BA8ABD /* matchBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "matchBackground@2x.png"; sourceTree = "<group>"; };
@@ -752,7 +761,6 @@
 				4E531C3E151CAE500003CAD1 /* LoginViewController.m */,
 				4E050D7D15220A320063EDED /* UIColor+AppColors.h */,
 				4E050D7E15220A320063EDED /* UIColor+AppColors.m */,
-				4E050D8D15235A8F0063EDED /* Entitlements.plist */,
 				5BEC888E153F3EFD00EDC6BA /* CPTColor+AppColors.h */,
 				5BEC888F153F3EFE00EDC6BA /* CPTColor+AppColors.m */,
 			);
@@ -762,6 +770,7 @@
 		4E531C1C151CAB060003CAD1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4E050D8D15235A8F0063EDED /* Entitlements.plist */,
 				5BE5E09E154A88BA00AA2679 /* InfoPlist.strings */,
 				4E531C1D151CAB060003CAD1 /* Appseits-Info.plist */,
 				4E531C21151CAB060003CAD1 /* main.m */,
@@ -860,6 +869,12 @@
 				5B3797D6155862BC00B643CE /* TeamCell.m */,
 				5B3797D81558650E00B643CE /* AppseitsSelectionCell.h */,
 				5B3797D91558650E00B643CE /* AppseitsSelectionCell.m */,
+				4EE7C2E0155C0A3600DD1D9C /* ScorerView.h */,
+				4EE7C2E1155C0A3600DD1D9C /* ScorerView.m */,
+				4EE7C2E6155C0CC600DD1D9C /* ScorerSelector.h */,
+				4EE7C2E7155C0CC600DD1D9C /* ScorerSelector.m */,
+				4EE7C2E9155C0CE100DD1D9C /* Selector.h */,
+				4EE7C2EA155C0CE200DD1D9C /* Selector.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1150,6 +1165,9 @@
 				4E38B70E155ADAC900DD691C /* ScorerRound.m in Sources */,
 				4E38B711155ADB0E00DD691C /* ScorerTips.m in Sources */,
 				4EE7C2CF155BD78700DD1D9C /* MatchPredictionViewController.m in Sources */,
+				4EE7C2E2155C0A3600DD1D9C /* ScorerView.m in Sources */,
+				4EE7C2E8155C0CC600DD1D9C /* ScorerSelector.m in Sources */,
+				4EE7C2EB155C0CE200DD1D9C /* Selector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1323,7 +1341,7 @@
 			buildSettings = {
 				ALTERNATE_GROUP = "$(SDKROOT)/ResourceRules.plist";
 				ALTERNATE_MODE = Appseits/Entitlements.plist;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = Appseits/Entitlements.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Stendahls Reklambyra AB";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stendahls Reklambyra AB";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";

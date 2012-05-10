@@ -8,6 +8,7 @@
 
 #import "Team.h"
 #import "BackendAdapter.h"
+#import "Player.h"
 
 @implementation Team
 
@@ -30,7 +31,10 @@
     team.name = [teamData objectForKey:@"name"];
     team.shortName = [teamData objectForKey:@"shortName"];
     
-    // TODO - add players
+    NSArray *playerData = [teamData objectForKey:@"players"];
+    
+    NSArray *teamPlayers = [Player playersFromJson:playerData forTeam:team];
+    team.players = teamPlayers;
     
     return team;
 }
