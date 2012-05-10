@@ -35,6 +35,7 @@ static NSString *userId;
 
 static NSArray *teams;
 static NSMutableDictionary *teamDictionary;
+static NSMutableDictionary *teamNames;
 static NSMutableArray *players;
 static NSMutableDictionary *playerDictionary;
 
@@ -121,10 +122,9 @@ static ScorerRound *scorerRound;
             NSHTTPURLResponse *response;
             
             NSData *userData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+            NSLog(@"Error: %@", error);
             
             if (response.statusCode != 200) {
-                
-                
                 // an error occured
                 if(response.statusCode == 0) {
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -190,7 +190,11 @@ static ScorerRound *scorerRound;
     dispatch_queue_t initQueue = dispatch_queue_create("initialization", NULL);
 
     dispatch_async(initQueue, ^{
-        BOOL successRoad = [self loadCompleteTournament];
+        
+        BOOL successRoad = [self fetchTeams];
+        if (successRoad) {
+            successRoad = [self loadCompleteTournament];
+        }
         if (successRoad) {
             successRoad = [self loadLeagues];
         }
@@ -199,10 +203,6 @@ static ScorerRound *scorerRound;
         }
         if (successRoad) {
             successRoad = [self loadFlags];
-        }
-        
-        if (successRoad) {
-            successRoad = [self fetchTeams];
         }
         if (successRoad) {
             successRoad = [self loadTop4];
@@ -218,21 +218,13 @@ static ScorerRound *scorerRound;
 }
 
 + (BOOL) loadFlags {
-    // collect all unique team names
-    NSMutableSet *teamNames = [NSMutableSet set];
-    for (MatchRound *round in rounds) {
-        for (Match *match in round.matches) {
-            [teamNames addObject:match.firstTeamName];
-            [teamNames addObject:match.secondTeamName];
-        }
-    }
     
     // prepare the file path
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    for (NSString *teamName in teamNames) {
+    for (NSString *teamName in teamNames.allKeys) {
         
         NSString *filePath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", teamName]];
         
@@ -308,6 +300,8 @@ static ScorerRound *scorerRound;
 + (UIImage*) imageForTeam:(NSString*) teamName {
     
     NSString *flagFileName = [NSString stringWithFormat:@"%@.png", teamName];
+    
+    NSLog(@"FlagFile %@", flagFileName);
     
     // prepare the file path
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -608,10 +602,12 @@ static ScorerRound *scorerRound;
     
     // create team ID to team dictionary, player list and player to player ID dictionary
     teamDictionary = [NSMutableDictionary dictionary];
+    teamNames = [NSMutableDictionary dictionary];
     players = [NSMutableArray array];
     playerDictionary = [NSMutableDictionary dictionary]; 
     for (Team* team in teams) {
         
+        [teamNames setObject:team forKey:team.shortName];
         [teamDictionary setObject:team forKey:team.teamId];
         
         [players addObjectsFromArray:team.players];
@@ -628,6 +624,10 @@ static ScorerRound *scorerRound;
     
 + (NSDictionary*) teams {
     return teamDictionary;
+}
+
++ (NSDictionary*) teamNames {
+    return teamNames;
 }
 
 + (NSArray*) playerList {

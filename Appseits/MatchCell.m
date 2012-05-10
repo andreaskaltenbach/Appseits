@@ -62,13 +62,13 @@ static UIImage *selectedBackgroundImage;
     
     _match = match;
     
-    NSString *firstTeam = [match.firstTeamName uppercaseString];
-    NSString *secondTeam = [match.secondTeamName uppercaseString];
+    NSString *firstTeam = [match.firstTeam.shortName uppercaseString];
+    NSString *secondTeam = [match.secondTeam.shortName uppercaseString];
     self.firstTeamName.text = firstTeam;
     self.secondTeamName.text = secondTeam;
     
-    self.firstTeamImage.image = [BackendAdapter imageForTeam:firstTeam];
-    self.secondTeamImage.image = [BackendAdapter imageForTeam:secondTeam];
+    self.firstTeamImage.image = match.firstTeam.flag;
+    self.secondTeamImage.image = match.secondTeam.flag;
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"HH:mm";

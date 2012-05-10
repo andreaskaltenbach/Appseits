@@ -1,14 +1,12 @@
 //
 //  AppseitsAppDelegate.m
-//  Appseits
+//  EmTipset
 //
-//  Created by AndreasKaltenbach on 2012-03-23.
+//  Created by AndreasKaltenbach on 2012-05-10.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "AppseitsAppDelegate.h"
-#import "TestFlight.h"
-#import "VersionEnforcer.h"
 
 @implementation AppseitsAppDelegate
 
@@ -17,10 +15,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
-    // Test Flight
-    [TestFlight takeOff:@"a6badd340afc21aca5e16d40e68bf450_NzU4OTgyMDEyLTA0LTI2IDEzOjMwOjI3LjAyODIwOA"];
-    
     return YES;
 }
 							
@@ -43,26 +37,12 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    NSLog(@"Active!");
-    
-    VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
-    [versionEnforcer checkVersion:@"http://dl.dropbox.com/u/15650647/version.json"];
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-#pragma marks VersionDelegate
-
-- (void) updateRequired:(NSString*) versionNumber {
-    NSLog(@"Update required: %@", versionNumber);
-}
-
-- (void) newVersionAvailable:(NSString*) versionNumber {
-    NSLog(@"New version available: %@", versionNumber);
-}
-
 
 @end

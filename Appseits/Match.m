@@ -8,11 +8,12 @@
 
 #import "Match.h"
 #import "NSDate+DateConversion.h"
+#import "BackendAdapter.h"
 
 @implementation Match
 
-@synthesize firstTeamName = _firstTeamName;
-@synthesize secondTeamName = _secondTeamName;
+@synthesize firstTeam = _firstTeam;
+@synthesize secondTeam = _secondTeam;
 @synthesize firstTeamGoals = _firstTeamGoals;
 @synthesize secondTeamGoals = _secondTeamGoals;
 @synthesize firstTeamPrediction = _firstTeamPrediction;
@@ -28,12 +29,15 @@
     
     match.matchId = [gameData objectForKey:@"matchId"];
     
-
-    match.firstTeamName = [gameData objectForKey:@"firstTeam"];
-    match.secondTeamName = [gameData objectForKey:@"secondTeam"];
+    NSDictionary *teamNames = [BackendAdapter teamNames];
+    
+    NSString *firstTeamName = [gameData objectForKey:@"firstTeam"];
+    match.firstTeam = [teamNames objectForKey:firstTeamName];
+    NSString *secondTeamName = [gameData objectForKey:@"secondTeam"];
+    match.secondTeam = [teamNames objectForKey:secondTeamName];
     
     // if a 'TBD' is found, we do not have any opponents yet!
-    if ([match.firstTeamName rangeOfString:@"tbd"].location != NSNotFound) {
+    if ([match.firstTeam.shortName rangeOfString:@"tbd"].location != NSNotFound) {
         match.unknownOpponents = YES;
     }
     
@@ -83,7 +87,7 @@
 }
 
 - (NSString *) description {
-    return [NSString stringWithFormat:@"Match %@ - %@", self.firstTeamName, self.secondTeamName];
+    return [NSString stringWithFormat:@"Match %@ - %@", self.firstTeam.shortName, self.secondTeam.shortName];
 }
 
 - (BOOL) finished {

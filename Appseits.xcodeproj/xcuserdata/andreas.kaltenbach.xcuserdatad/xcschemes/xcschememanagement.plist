@@ -9,10 +9,30 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>EmTipset.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>asd.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>4E531C10151CAB050003CAD1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4EE7C295155BC45B00DD1D9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4EE7C2B7155BC46600DD1D9C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

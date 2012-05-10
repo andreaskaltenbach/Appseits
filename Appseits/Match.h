@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Team.h"
 
 @interface Match : NSObject
 
-@property (nonatomic, strong) NSString *firstTeamName;
-@property (nonatomic, strong) NSString *secondTeamName;
+@property (nonatomic, strong) Team *firstTeam;
+@property (nonatomic, strong) Team *secondTeam;
 @property (nonatomic, strong) NSDate *kickOff;
 @property (nonatomic, strong) NSNumber *firstTeamGoals;
 @property (nonatomic, strong) NSNumber *secondTeamGoals;

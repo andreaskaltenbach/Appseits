@@ -68,6 +68,8 @@
 		4E86FF5C152B275F00958DDE /* RankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E86FF5B152B275F00958DDE /* RankingCell.m */; };
 		4E890C4915526C9700F67CD9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BC662DA154AE16A0070C304 /* Default.png */; };
 		4E890C4B15526C9D00F67CD9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BC662D8154AE1620070C304 /* Default@2x.png */; };
+		4E920AFC155BA33600775B3B /* matchBackgroundSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E920AFA155BA33600775B3B /* matchBackgroundSelected@2x.png */; };
+		4E920AFD155BA33600775B3B /* matchBackgroundSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E920AFB155BA33600775B3B /* matchBackgroundSelected.png */; };
 		4E9D96E91536FF770092DA78 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9D96E81536FF770092DA78 /* iCarousel.m */; };
 		4ED46E4815594BEA00B75582 /* VersionEnforcer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED46E4715594BEA00B75582 /* VersionEnforcer.m */; };
 		4ED8107C154AA28E0084C918 /* stroke.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED8107A154AA28E0084C918 /* stroke.png */; };
@@ -84,6 +86,8 @@
 		4EE59DA215404C4E0082193D /* pageControl_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE59DA015404C4E0082193D /* pageControl_active.png */; };
 		4EE59DA5154050FB0082193D /* PagedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE59DA4154050FB0082193D /* PagedView.m */; };
 		4EE945D5152B228200E6A62A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE945D4152B228200E6A62A /* Constants.m */; };
+		4EFD60D5155BBE4300BA8ABD /* matchBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EFD60D3155BBE4300BA8ABD /* matchBackground@2x.png */; };
+		4EFD60D6155BBE4300BA8ABD /* matchBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EFD60D4155BBE4300BA8ABD /* matchBackground.png */; };
 		5B007EEF1548754B00AE6518 /* cogwheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B007EED1548754B00AE6518 /* cogwheel.png */; };
 		5B007EF01548754B00AE6518 /* cogwheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B007EEE1548754B00AE6518 /* cogwheel@2x.png */; };
 		5B1AEB041537736A00786199 /* LeaguePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AEB031537736A00786199 /* LeaguePickerView.m */; };
@@ -316,6 +320,8 @@
 		4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPredictionCell.m; sourceTree = "<group>"; };
 		4E86FF5A152B275F00958DDE /* RankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingCell.h; sourceTree = "<group>"; };
 		4E86FF5B152B275F00958DDE /* RankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingCell.m; sourceTree = "<group>"; };
+		4E920AFA155BA33600775B3B /* matchBackgroundSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "matchBackgroundSelected@2x.png"; sourceTree = "<group>"; };
+		4E920AFB155BA33600775B3B /* matchBackgroundSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = matchBackgroundSelected.png; sourceTree = "<group>"; };
 		4E9D96E71536FF770092DA78 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		4E9D96E81536FF770092DA78 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		4ED46E4615594BEA00B75582 /* VersionEnforcer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionEnforcer.h; sourceTree = "<group>"; };
@@ -337,14 +343,32 @@
 		4EE59DA015404C4E0082193D /* pageControl_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageControl_active.png; sourceTree = "<group>"; };
 		4EE59DA3154050FB0082193D /* PagedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagedView.h; sourceTree = "<group>"; };
 		4EE59DA4154050FB0082193D /* PagedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagedView.m; sourceTree = "<group>"; };
+		4EE7C29D155BC45B00DD1D9C /* EmTipset-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EmTipset-Info.plist"; sourceTree = "<group>"; };
+		4EE7C29F155BC45B00DD1D9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4EE7C2A1155BC45B00DD1D9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4EE7C2A3155BC45B00DD1D9C /* EmTipset-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EmTipset-Prefix.pch"; sourceTree = "<group>"; };
+		4EE7C2A4155BC45B00DD1D9C /* AppseitsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppseitsAppDelegate.h; sourceTree = "<group>"; };
+		4EE7C2A5155BC45B00DD1D9C /* AppseitsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppseitsAppDelegate.m; sourceTree = "<group>"; };
+		4EE7C2A8155BC45B00DD1D9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		4EE7C2AB155BC45B00DD1D9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		4EE7C2AD155BC45B00DD1D9C /* AppseitsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppseitsViewController.h; sourceTree = "<group>"; };
+		4EE7C2AE155BC45B00DD1D9C /* AppseitsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppseitsViewController.m; sourceTree = "<group>"; };
+		4EE7C2BF155BC46600DD1D9C /* asd-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "asd-Info.plist"; sourceTree = "<group>"; };
+		4EE7C2C1155BC46600DD1D9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4EE7C2C3155BC46600DD1D9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4EE7C2C5155BC46600DD1D9C /* asd-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "asd-Prefix.pch"; sourceTree = "<group>"; };
+		4EE7C2C6155BC46600DD1D9C /* AppseitsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppseitsAppDelegate.h; sourceTree = "<group>"; };
+		4EE7C2C7155BC46600DD1D9C /* AppseitsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppseitsAppDelegate.m; sourceTree = "<group>"; };
 		4EE945D3152B228200E6A62A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		4EE945D4152B228200E6A62A /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		4EFD60D3155BBE4300BA8ABD /* matchBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "matchBackground@2x.png"; sourceTree = "<group>"; };
+		4EFD60D4155BBE4300BA8ABD /* matchBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = matchBackground.png; sourceTree = "<group>"; };
 		5B007EED1548754B00AE6518 /* cogwheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cogwheel.png; sourceTree = "<group>"; };
 		5B007EEE1548754B00AE6518 /* cogwheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cogwheel@2x.png"; sourceTree = "<group>"; };
 		5B1AEB021537736A00786199 /* LeaguePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguePickerView.h; sourceTree = "<group>"; };
 		5B1AEB031537736A00786199 /* LeaguePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguePickerView.m; sourceTree = "<group>"; };
 		5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TournamentRoundSelectDelegate.h; sourceTree = "<group>"; };
-		5B1EE8AF15274DFC00D01564 /* MatchTable.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MatchTable.h; sourceTree = "<group>"; };
+		5B1EE8AF15274DFC00D01564 /* MatchTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchTable.h; sourceTree = "<group>"; };
 		5B1EE8B015274DFC00D01564 /* MatchTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchTable.m; sourceTree = "<group>"; };
 		5B24E30F154753D10011EBED /* forgotPassword@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forgotPassword@2x.png"; sourceTree = "<group>"; };
 		5B24E310154753D10011EBED /* forgotPassword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forgotPassword.png; sourceTree = "<group>"; };
@@ -457,6 +481,10 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4EFD60D3155BBE4300BA8ABD /* matchBackground@2x.png */,
+				4EFD60D4155BBE4300BA8ABD /* matchBackground.png */,
+				4E920AFA155BA33600775B3B /* matchBackgroundSelected@2x.png */,
+				4E920AFB155BA33600775B3B /* matchBackgroundSelected.png */,
 				4E38B708155AB3E100DD691C /* timelineBackground@2x.png */,
 				4E38B709155AB3E100DD691C /* timelineBackground.png */,
 				4E38B6F4155AABCA00DD691C /* lockGrayOpen@2x.png */,
@@ -653,6 +681,8 @@
 				5BC662D8154AE1620070C304 /* Default@2x.png */,
 				5B3E6FFD1549BD7900190AE9 /* libz.dylib */,
 				4E531C1B151CAB060003CAD1 /* Appseits */,
+				4EE7C29B155BC45B00DD1D9C /* EmTipset */,
+				4EE7C2BD155BC46600DD1D9C /* asd */,
 				4E531C14151CAB050003CAD1 /* Frameworks */,
 				4E531C12151CAB050003CAD1 /* Products */,
 			);
@@ -810,6 +840,52 @@
 				5B3797D91558650E00B643CE /* AppseitsSelectionCell.m */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		4EE7C29B155BC45B00DD1D9C /* EmTipset */ = {
+			isa = PBXGroup;
+			children = (
+				4EE7C2A4155BC45B00DD1D9C /* AppseitsAppDelegate.h */,
+				4EE7C2A5155BC45B00DD1D9C /* AppseitsAppDelegate.m */,
+				4EE7C2A7155BC45B00DD1D9C /* MainStoryboard_iPhone.storyboard */,
+				4EE7C2AA155BC45B00DD1D9C /* MainStoryboard_iPad.storyboard */,
+				4EE7C2AD155BC45B00DD1D9C /* AppseitsViewController.h */,
+				4EE7C2AE155BC45B00DD1D9C /* AppseitsViewController.m */,
+				4EE7C29C155BC45B00DD1D9C /* Supporting Files */,
+			);
+			path = EmTipset;
+			sourceTree = "<group>";
+		};
+		4EE7C29C155BC45B00DD1D9C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4EE7C29D155BC45B00DD1D9C /* EmTipset-Info.plist */,
+				4EE7C29E155BC45B00DD1D9C /* InfoPlist.strings */,
+				4EE7C2A1155BC45B00DD1D9C /* main.m */,
+				4EE7C2A3155BC45B00DD1D9C /* EmTipset-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4EE7C2BD155BC46600DD1D9C /* asd */ = {
+			isa = PBXGroup;
+			children = (
+				4EE7C2C6155BC46600DD1D9C /* AppseitsAppDelegate.h */,
+				4EE7C2C7155BC46600DD1D9C /* AppseitsAppDelegate.m */,
+				4EE7C2BE155BC46600DD1D9C /* Supporting Files */,
+			);
+			path = asd;
+			sourceTree = "<group>";
+		};
+		4EE7C2BE155BC46600DD1D9C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4EE7C2BF155BC46600DD1D9C /* asd-Info.plist */,
+				4EE7C2C0155BC46600DD1D9C /* InfoPlist.strings */,
+				4EE7C2C3155BC46600DD1D9C /* main.m */,
+				4EE7C2C5155BC46600DD1D9C /* asd-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		5B3E6FF51549BD2B00190AE9 /* TestFlightSDK1.0 */ = {
@@ -975,6 +1051,10 @@
 				4E38B707155AABCA00DD691C /* lockClosedInset.png in Resources */,
 				4E38B70A155AB3E100DD691C /* timelineBackground@2x.png in Resources */,
 				4E38B70B155AB3E100DD691C /* timelineBackground.png in Resources */,
+				4E920AFC155BA33600775B3B /* matchBackgroundSelected@2x.png in Resources */,
+				4E920AFD155BA33600775B3B /* matchBackgroundSelected.png in Resources */,
+				4EFD60D5155BBE4300BA8ABD /* matchBackground@2x.png in Resources */,
+				4EFD60D6155BBE4300BA8ABD /* matchBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1043,6 +1123,41 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		4EE7C29E155BC45B00DD1D9C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EE7C29F155BC45B00DD1D9C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4EE7C2A7155BC45B00DD1D9C /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EE7C2A8155BC45B00DD1D9C /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		4EE7C2AA155BC45B00DD1D9C /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EE7C2AB155BC45B00DD1D9C /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		4EE7C2C0155BC46600DD1D9C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EE7C2C1155BC46600DD1D9C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		4E531C30151CAB060003CAD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1051,7 +1166,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stendahls Reklambyra AB";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1066,7 +1181,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1080,7 +1195,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1089,6 +1204,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1099,8 +1215,11 @@
 		4E531C33151CAB060003CAD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Appseits/Entitlements.plist;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stendahls Reklambyra AB";
+				ALTERNATE_GROUP = "$(SDKROOT)/ResourceRules.plist";
+				ALTERNATE_MODE = Appseits/Entitlements.plist;
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
 				INFOPLIST_FILE = "Appseits/Appseits-Info.plist";
@@ -1111,9 +1230,9 @@
 					"\"$(SRCROOT)/Appseits/TestFlightSDK1.0\"",
 					"\"$(SRCROOT)/TestFlightSDK1.0\"",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1121,8 +1240,11 @@
 		4E531C34151CAB060003CAD1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Appseits/Entitlements.plist;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stendahls Reklambyra AB";
+				ALTERNATE_GROUP = "$(SDKROOT)/ResourceRules.plist";
+				ALTERNATE_MODE = Appseits/Entitlements.plist;
+				CODE_SIGN_ENTITLEMENTS = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
 				INFOPLIST_FILE = "Appseits/Appseits-Info.plist";
@@ -1133,9 +1255,9 @@
 					"\"$(SRCROOT)/Appseits/TestFlightSDK1.0\"",
 					"\"$(SRCROOT)/TestFlightSDK1.0\"",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1147,7 +1269,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stendahls Reklambyra AB";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1156,6 +1278,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1166,9 +1289,12 @@
 		4ED81071154A93310084C918 /* Ad Hoc Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = Appseits/Entitlements.plist;
-				CODE_SIGN_IDENTITY = "";
+				ALTERNATE_GROUP = "$(SDKROOT)/ResourceRules.plist";
+				ALTERNATE_MODE = Appseits/Entitlements.plist;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Stendahls Reklambyra AB";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stendahls Reklambyra AB";
+				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
 				INFOPLIST_FILE = "Appseits/Appseits-Info.plist";
@@ -1179,8 +1305,9 @@
 					"\"$(SRCROOT)/Appseits/TestFlightSDK1.0\"",
 					"\"$(SRCROOT)/TestFlightSDK1.0\"",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
 				WRAPPER_EXTENSION = app;
 			};

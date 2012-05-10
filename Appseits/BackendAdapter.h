@@ -40,6 +40,7 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 + (NSArray*) leagues;
 + (NSArray*) teamList;
 + (NSDictionary*) teams;
++ (NSDictionary*) teamNames;
 + (NSArray*) playerList;
 + (NSDictionary*) players;
 
