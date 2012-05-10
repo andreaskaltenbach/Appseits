@@ -42,11 +42,17 @@ static UIImage *grayBall;
 static UIColor* pointsBackground;
 static UIImage* matchLock;
 
+static UIImage *resultBackgroundImage;
+static UIImage *resultSelectedBackgroundImage;
+
 + (void) initialize {
     greenBall = [UIImage imageNamed:@"greenBall"];
     grayBall = [UIImage imageNamed:@"grayBall"];
     pointsBackground = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pointsBackgroundGreen"]];
     matchLock = [UIImage imageNamed:@"matchLock"];
+    
+    resultBackgroundImage = [UIImage imageNamed:@"matchBoxGray"];
+    resultSelectedBackgroundImage = [UIImage imageNamed:@"matchBoxGreen"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -133,6 +139,17 @@ static UIImage* matchLock;
     else {
         self.rightPointsBackground.backgroundColor = [UIColor clearColor];
         self.secondTeamPrediction.textColor = [UIColor transparentWhite];
+    }
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+    
+    if (selected) {
+        self.backgroundColor = [UIColor colorWithPatternImage:resultSelectedBackgroundImage];
+    }
+    else {
+        self.backgroundColor = [UIColor colorWithPatternImage:resultBackgroundImage];
     }
 }
 

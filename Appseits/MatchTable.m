@@ -108,7 +108,13 @@ static    NSString *matchPredictionCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 108;
+    
+    if (self.round.open) {
+        return 70;
+    }
+    else {
+        return 108;
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

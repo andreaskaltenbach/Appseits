@@ -301,8 +301,6 @@ static ScorerRound *scorerRound;
     
     NSString *flagFileName = [NSString stringWithFormat:@"%@.png", teamName];
     
-    NSLog(@"FlagFile %@", flagFileName);
-    
     // prepare the file path
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -319,7 +317,6 @@ static ScorerRound *scorerRound;
         return nil;
     }
 }
-
 
 + (void) showErrorAlert:(NSString*) message {
     UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];

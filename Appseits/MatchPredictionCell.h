@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Match.h"
 #import "MatchCell.h"
-#import "iCarousel.h"
 
-@interface MatchPredictionCell : MatchCell<iCarouselDataSource, iCarouselDelegate>
+@interface MatchPredictionCell : MatchCell
 
 @end

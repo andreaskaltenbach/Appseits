@@ -35,8 +35,8 @@ static UIImage *backgroundImage;
 static UIImage *selectedBackgroundImage;
 
 + (void) initialize {
-    backgroundImage = [UIImage imageNamed:@"matchBoxGray"];
-    selectedBackgroundImage = [UIImage imageNamed:@"matchBoxGreen"];
+    backgroundImage = [UIImage imageNamed:@"matchBackground"];
+    selectedBackgroundImage = [UIImage imageNamed:@"matchBackgroundSelected"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -64,8 +64,8 @@ static UIImage *selectedBackgroundImage;
     
     NSString *firstTeam = [match.firstTeam.shortName uppercaseString];
     NSString *secondTeam = [match.secondTeam.shortName uppercaseString];
-    self.firstTeamName.text = firstTeam;
-    self.secondTeamName.text = secondTeam;
+    self.firstTeamName.text =  (firstTeam) ? firstTeam : @"TDB";
+    self.secondTeamName.text = (secondTeam) ? secondTeam : @"TBD";
     
     self.firstTeamImage.image = match.firstTeam.flag;
     self.secondTeamImage.image = match.secondTeam.flag;
