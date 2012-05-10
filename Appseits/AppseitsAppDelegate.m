@@ -21,6 +21,8 @@
     // Test Flight
     [TestFlight takeOff:@"a6badd340afc21aca5e16d40e68bf450_NzU4OTgyMDEyLTA0LTI2IDEzOjMwOjI3LjAyODIwOA"];
     
+    [application setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    
     return YES;
 }
 							

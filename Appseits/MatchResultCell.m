@@ -92,7 +92,7 @@ static UIImage* matchLock;
         int resultDiff = game.firstTeamGoals.intValue - game.secondTeamGoals.intValue;
         int predictionDiff = game.firstTeamPrediction.intValue - game.secondTeamPrediction.intValue;
         
-        if (resultDiff == predictionDiff && game.firstTeamGoals.intValue == game.firstTeamPrediction.intValue) {
+        if (resultDiff == 0 && predictionDiff == 0) {
           // X was predicted correctly
             [self switchLeftPrediction:YES];
             [self switchRightPrediction:YES]; 
