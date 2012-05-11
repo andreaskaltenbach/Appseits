@@ -231,21 +231,21 @@ static UIImage *cogWheel;
     if (round.class == [MatchRound class]) {
         self.gameTable.round = (MatchRound*) round;
         self.top4View.hidden = YES;
-        self.scoreView.hidden = YES;
+        self.scorerView.hidden = YES;
         self.gameTable.hidden = NO;
     }
     if (round.class == [Top4Round class]) {
         Top4Round *top4Round = (Top4Round*) round;
         self.top4View.top4Tips = top4Round.top4Tips;
         self.top4View.hidden = NO;
-        self.scoreView.hidden = YES;
+        self.scorerView.hidden = YES;
         self.gameTable.hidden = YES;
     }
     if (round.class == [ScorerRound class]) {
         ScorerRound *scorerRound = (ScorerRound*) round;
         self.scorerView.scorerTips = scorerRound.scorerTips;
         self.top4View.hidden = YES;
-        self.scoreView.hidden = NO;
+        self.scorerView.hidden = NO;
         self.gameTable.hidden = YES;
     }
 }

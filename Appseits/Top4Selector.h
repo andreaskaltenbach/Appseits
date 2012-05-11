@@ -14,5 +14,4 @@
 
 @property (nonatomic, strong) Team *team;
 
-
 @end

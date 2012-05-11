@@ -17,15 +17,15 @@
 
 + (NSArray*) playersFromJson:(NSArray*) jsonData forTeam:(Team*) team {
     NSMutableArray *players = [NSMutableArray array];
-    for (NSArray *playerData in jsonData) {
-        [players addObject:[self playersFromJson:playerData forTeam:team]];
+    for (NSDictionary *playerData in jsonData) {
+        [players addObject:[self playerFromJson:playerData forTeam:team]];
     }
     return players;
 }
 
 + (Player*) playerFromJson:(NSDictionary*) jsonData forTeam:(Team*) team {
     Player *player = [[Player alloc] init];
-    player.playerId = [jsonData valueForKey:@"playerId"];
+    player.playerId = [jsonData valueForKey:@"id"];
     player.name = [jsonData valueForKey:@"name"];
     
     player.team = team;
