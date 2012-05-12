@@ -14,6 +14,4 @@
 
 @property (nonatomic, strong) Team *team;
 
-+ (id) selector;
-
 @end

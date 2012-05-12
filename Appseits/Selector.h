@@ -12,9 +12,7 @@
 
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UIImageView *flag;
+@property BOOL selectable;
 
-+ (void) initialize;
-
-- (void) initialize;
-
+- (id) init:(UIImage*) image;
 @end

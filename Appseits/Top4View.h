@@ -11,6 +11,9 @@
 #import "Team.h"
 #import "BackendAdapter.h"
 
+#define Y_OFFSET 5
+#define MARGIN 60
+
 @protocol TeamSelectDelegate
 
 - (void) selectTeamFor:(int) place currentSelection: (Team*) team;

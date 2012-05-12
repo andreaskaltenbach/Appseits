@@ -14,12 +14,6 @@
 
 @synthesize team = _team;
 
-+ (id) selector {
-    Top4Selector *selector = [[Top4Selector alloc] init];
-    [selector initialize];
-    return selector;
-}
-
 - (void) setTeam:(Team*) team {
     _team = team;
     
