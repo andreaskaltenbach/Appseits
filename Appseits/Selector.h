@@ -13,6 +13,8 @@
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UIImageView *flag;
 
-+ (id) selector;
++ (void) initialize;
+
+- (void) initialize;
 
 @end

@@ -81,22 +81,16 @@
 }
 
 - (void) updatePlace:(int) place withTeam:(Team*) team: (FinishedBlock) onDone {
-    if (self.top4Tips.isValid) {
-        if (place == 1) self.top4Tips.firstTeam = team;
-        if (place == 2) self.top4Tips.secondTeam = team;
-        if (place == 3) self.top4Tips.thirdTeam = team;
-        if (place == 4) self.top4Tips.fourthTeam = team;
-        
-        Top4Selector *selector = [self.top4Selectors objectAtIndex:place - 1];
-        selector.team = team;
-        
-        // send update to server
-        [BackendAdapter postPredictionForPlace:place andTeam:team.teamId :onDone];
-    }
-    else {
-        //TODO react on invalid data: 
-        onDone(NO);
-    }
+    if (place == 1) self.top4Tips.firstTeam = team;
+    if (place == 2) self.top4Tips.secondTeam = team;
+    if (place == 3) self.top4Tips.thirdTeam = team;
+    if (place == 4) self.top4Tips.fourthTeam = team;
+    
+    Top4Selector *selector = [self.top4Selectors objectAtIndex:place - 1];
+    selector.team = team;
+    
+    // send update to server
+    [BackendAdapter postPredictionForPlace:place andTeam:team.teamId :onDone];
 }
 
 @end

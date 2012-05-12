@@ -32,7 +32,7 @@ static UIImage *trendDown;
 @synthesize ranking = _ranking;
 @synthesize background = _background;
 
-+ (void) initialize {
+- (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
     trendConstant = [UIImage imageNamed:@"trendNeutral.png"];
     trendDown = [UIImage imageNamed:@"trendDown.png"];

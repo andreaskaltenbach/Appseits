@@ -9,6 +9,7 @@
 #import "TeamViewController.h"
 #import "BackendAdapter.h"
 #import "TeamCell.h"
+#import "UIColor+AppColors.h"
 
 @interface TeamViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
@@ -42,6 +43,8 @@
     [super viewDidLoad];
     self.table.delegate = self.overviewController;
     self.table.dataSource = self;
+    self.table.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor squareBackground];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -72,6 +75,12 @@
     
     return cell;
     
+}
+
+
+
+- (IBAction)backButtonPressed:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

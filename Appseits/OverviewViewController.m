@@ -332,8 +332,6 @@ static UIImage *cogWheel;
 
 # pragma mark UITableViewDelegate
 
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     TeamCell *teamCell = (TeamCell*) [tableView cellForRowAtIndexPath:indexPath];
@@ -346,6 +344,10 @@ static UIImage *cogWheel;
         }
         [self dismissModalViewControllerAnimated:YES];
     }];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 49;
 }
 
 

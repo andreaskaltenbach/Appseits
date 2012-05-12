@@ -47,4 +47,9 @@
     }
 }
 
+- (void)setHighlighted: (BOOL)highlighted animated: (BOOL)animated
+{
+    [super setHighlighted:NO animated:animated];
+}
+
 @end

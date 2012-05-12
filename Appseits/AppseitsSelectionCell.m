@@ -21,27 +21,26 @@ static UIImage *selectedImage;
 @synthesize background = _background;
 
 + (void) initialize {
-    unselectedImage = [UIImage imageNamed:@"unselectedBackground"];
-    selectedImage = [UIImage imageNamed:@"selectedBackground"];
+    unselectedImage = [UIImage imageNamed:@"itemUnselected"];
+    selectedImage = [UIImage imageNamed:@"itemSelected"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-
-        self.background = [[UIView alloc] initWithFrame:self.bounds];
-        self.background.backgroundColor = [UIColor colorWithPatternImage:unselectedImage];
+        self.background = [[UIView alloc] init];
+        self.background.frame = CGRectMake(3, 3, 314, 43);
         [self addSubview:self.background];
         [self sendSubviewToBack:self.background];
+        
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    [super setSelected:selected animated:animated];
-    
     if (selected) {
         self.background.backgroundColor = [UIColor colorWithPatternImage:selectedImage];
     }
