@@ -43,8 +43,7 @@
     [super viewDidLoad];
     self.table.delegate = self.overviewController;
     self.table.dataSource = self;
-    self.table.backgroundColor = [UIColor clearColor];
-    self.view.backgroundColor = [UIColor squareBackground];
+    self.table.backgroundColor = [UIColor squareBackground];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
