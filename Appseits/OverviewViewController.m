@@ -363,7 +363,7 @@ static UIImage *cogWheel;
         if (!success) {
             NSLog(@"Nothing stored!");
         }
-        [self dismissModalViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
 }
 
