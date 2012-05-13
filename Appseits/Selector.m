@@ -38,7 +38,7 @@ static UIImage *background;
         [self addSubview:self.image];
         
         // setup label
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(120, 0, 190, 50)];
+        self.label = [[UILabel alloc] initWithFrame:CGRectMake(120, 0, 180, 50)];
         self.label.backgroundColor = [UIColor clearColor];
         self.label.adjustsFontSizeToFitWidth = YES;
         self.label.font = [UIFont boldSystemFontOfSize:22];
