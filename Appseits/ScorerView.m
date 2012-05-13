@@ -25,7 +25,6 @@
 {
     self = [super initWithCoder:aDecoder];
     
-    
     if (self) {
         
         self.backgroundColor = [UIColor blackBackground];
@@ -41,12 +40,27 @@
             selector.frame = CGRectMake(5, yOffset, 310, 50);    
             [self addSubview:selector];
             
-            [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(teamSelection:)]];
+            [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playerSelection:)]];
             
             yOffset+= MARGIN;
         }
     }
     return self;
+}
+
+- (void)playerSelection:(UITapGestureRecognizer *)tapGesture {
+    // call delegate to react on wish to select a player for scorer round
+    int index = [self.scorerSelectors indexOfObject:tapGesture.view];
+    ScorerSelector *scorerSelector = [self.scorerSelectors objectAtIndex:index];
+    [self.delegate selectPlayerFor:index + 1 currentSelection:scorerSelector.player];
+}
+
+- (void) setScorerTips:(ScorerTips *)scorerTips {
+    _scorerTips = scorerTips;
+    
+    [[self.scorerSelectors objectAtIndex:0] setPlayer:scorerTips.firstPlayer];
+    [[self.scorerSelectors objectAtIndex:1] setPlayer:scorerTips.secondPlayer];
+    [[self.scorerSelectors objectAtIndex:2] setPlayer:scorerTips.thirdPlayer];
 }
 
 @end

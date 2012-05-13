@@ -11,10 +11,6 @@
 #import "TeamCell.h"
 #import "UIColor+AppColors.h"
 
-@interface TeamViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *table;
-@end
-
 @implementation TeamViewController
 @synthesize overviewController = _overviewController;
 @synthesize table = _table;
@@ -76,10 +72,8 @@
     
 }
 
-
-
 - (IBAction)backButtonPressed:(id)sender {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

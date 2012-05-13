@@ -97,6 +97,7 @@
 		4EFD60D6155BBE4300BA8ABD /* matchBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EFD60D4155BBE4300BA8ABD /* matchBackground.png */; };
 		5B007EEF1548754B00AE6518 /* cogwheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B007EED1548754B00AE6518 /* cogwheel.png */; };
 		5B007EF01548754B00AE6518 /* cogwheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B007EEE1548754B00AE6518 /* cogwheel@2x.png */; };
+		5B00E2E715605E42007A519F /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B00E2E615605E42007A519F /* PlayerCell.m */; };
 		5B1AEB041537736A00786199 /* LeaguePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AEB031537736A00786199 /* LeaguePickerView.m */; };
 		5B1EE8B115274DFC00D01564 /* MatchTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* MatchTable.m */; };
 		5B24E311154753D10011EBED /* forgotPassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B24E30F154753D10011EBED /* forgotPassword@2x.png */; };
@@ -160,6 +161,9 @@
 		5BE5E09F154A88BA00AA2679 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5E09E154A88BA00AA2679 /* InfoPlist.strings */; };
 		5BE5E0A2154A88C700AA2679 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5E0A0154A88C700AA2679 /* MainStoryboard_iPad.storyboard */; };
 		5BE5E0A3154A88C700AA2679 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5E0A1154A88C700AA2679 /* MainStoryboard_iPhone.storyboard */; };
+		5BE73EFE15604EBF0055CD4C /* PlayerTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE73EFD15604EBF0055CD4C /* PlayerTeamViewController.m */; };
+		5BE73F02156054860055CD4C /* PlayerTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE73F01156054860055CD4C /* PlayerTeamCell.m */; };
+		5BE73F05156057890055CD4C /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE73F04156057890055CD4C /* PlayerViewController.m */; };
 		5BEC8890153F3EFE00EDC6BA /* CPTColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC888F153F3EFE00EDC6BA /* CPTColor+AppColors.m */; };
 		5BF4E863151D025300CC3AE9 /* MatchDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF4E862151D025300CC3AE9 /* MatchDetailsViewController.m */; };
 		5BF617A4155EABEC0067F96E /* itemSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BF617A0155EABEC0067F96E /* itemSelected@2x.png */; };
@@ -390,6 +394,8 @@
 		4EFD60D4155BBE4300BA8ABD /* matchBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = matchBackground.png; sourceTree = "<group>"; };
 		5B007EED1548754B00AE6518 /* cogwheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cogwheel.png; sourceTree = "<group>"; };
 		5B007EEE1548754B00AE6518 /* cogwheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cogwheel@2x.png"; sourceTree = "<group>"; };
+		5B00E2E515605E42007A519F /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
+		5B00E2E615605E42007A519F /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 		5B1AEB021537736A00786199 /* LeaguePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguePickerView.h; sourceTree = "<group>"; };
 		5B1AEB031537736A00786199 /* LeaguePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguePickerView.m; sourceTree = "<group>"; };
 		5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TournamentRoundSelectDelegate.h; sourceTree = "<group>"; };
@@ -479,6 +485,12 @@
 		5BE5E09E154A88BA00AA2679 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		5BE5E0A0154A88C700AA2679 /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		5BE5E0A1154A88C700AA2679 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		5BE73EFC15604EBF0055CD4C /* PlayerTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTeamViewController.h; sourceTree = "<group>"; };
+		5BE73EFD15604EBF0055CD4C /* PlayerTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTeamViewController.m; sourceTree = "<group>"; };
+		5BE73F00156054860055CD4C /* PlayerTeamCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTeamCell.h; sourceTree = "<group>"; };
+		5BE73F01156054860055CD4C /* PlayerTeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTeamCell.m; sourceTree = "<group>"; };
+		5BE73F03156057890055CD4C /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		5BE73F04156057890055CD4C /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		5BEC888E153F3EFD00EDC6BA /* CPTColor+AppColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CPTColor+AppColors.h"; sourceTree = "<group>"; };
 		5BEC888F153F3EFE00EDC6BA /* CPTColor+AppColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CPTColor+AppColors.m"; sourceTree = "<group>"; };
 		5BF4E861151D025300CC3AE9 /* MatchDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDetailsViewController.h; sourceTree = "<group>"; };
@@ -887,6 +899,10 @@
 				4EE7C2E7155C0CC600DD1D9C /* ScorerSelector.m */,
 				4EE7C2E9155C0CE100DD1D9C /* Selector.h */,
 				4EE7C2EA155C0CE200DD1D9C /* Selector.m */,
+				5BE73F00156054860055CD4C /* PlayerTeamCell.h */,
+				5BE73F01156054860055CD4C /* PlayerTeamCell.m */,
+				5B00E2E515605E42007A519F /* PlayerCell.h */,
+				5B00E2E615605E42007A519F /* PlayerCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -963,6 +979,10 @@
 				5B9A0DC815553DD5006841EA /* TeamViewController.m */,
 				4EE7C2CD155BD78700DD1D9C /* MatchPredictionViewController.h */,
 				4EE7C2CE155BD78700DD1D9C /* MatchPredictionViewController.m */,
+				5BE73EFC15604EBF0055CD4C /* PlayerTeamViewController.h */,
+				5BE73EFD15604EBF0055CD4C /* PlayerTeamViewController.m */,
+				5BE73F03156057890055CD4C /* PlayerViewController.h */,
+				5BE73F04156057890055CD4C /* PlayerViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -1184,6 +1204,10 @@
 				4EE7C2E2155C0A3600DD1D9C /* ScorerView.m in Sources */,
 				4EE7C2E8155C0CC600DD1D9C /* ScorerSelector.m in Sources */,
 				4EE7C2EB155C0CE200DD1D9C /* Selector.m in Sources */,
+				5BE73EFE15604EBF0055CD4C /* PlayerTeamViewController.m in Sources */,
+				5BE73F02156054860055CD4C /* PlayerTeamCell.m in Sources */,
+				5BE73F05156057890055CD4C /* PlayerViewController.m in Sources */,
+				5B00E2E715605E42007A519F /* PlayerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

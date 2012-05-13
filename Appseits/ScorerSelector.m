@@ -17,9 +17,11 @@
     
     if (player) {
         self.label.text = player.name;
+        self.label.textColor = [UIColor blackColor];
     }
     else {
-        self.label.text = @"---";
+        self.label.text = @"Välj spelare";
+        self.label.textColor = [UIColor grayColor];
     }
     self.flag.image = player.team.flag;
 }

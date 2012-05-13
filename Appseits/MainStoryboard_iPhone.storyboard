@@ -659,7 +659,8 @@
                         <outlet property="timelineScrollView" destination="Xl4-xp-0TF" id="UBJ-xT-heh"/>
                         <outlet property="top4View" destination="Lcj-b4-Udg" id="wGI-LT-Ji4"/>
                         <outlet property="trendImage" destination="OQs-YT-d0P" id="aTb-7X-XZC"/>
-                        <segue destination="aOb-qA-Le6" kind="modal" identifier="toTeamList" id="DHo-qL-Sdf"/>
+                        <segue destination="aOb-qA-Le6" kind="push" identifier="toTeamList" id="DHo-qL-Sdf"/>
+                        <segue destination="HA9-ls-g95" kind="push" identifier="toPlayerTeamList" id="9gv-1C-j4F"/>
                     </connections>
                 </viewController>
                 <tapGestureRecognizer id="MiS-WY-3ru">
@@ -673,77 +674,207 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-46" y="68"/>
+            <point key="canvasLocation" x="672" y="-167"/>
         </scene>
         <!--Team View Controller-->
         <scene sceneID="Fa7-Kg-hqd">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3V-Y9-b3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="aOb-qA-Le6" customClass="TeamViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VSX-Yh-r7E">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4kC-s7-7Pn">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4kC-s7-7Pn">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="IMi-q4-Wkj">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="IMi-q4-Wkj">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dLY-hH-XD5">
+                                    <rect key="frame" x="20" y="3" width="80" height="37"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                                    <state key="normal" title="       TILLBAKA" backgroundImage="backButton.png">
+                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="backButtonPressed:" destination="aOb-qA-Le6" eventType="touchUpInside" id="y71-Ao-QTs"/>
+                                        <action selector="backButtonTapped:" destination="yhp-JU-dlz" eventType="touchUpInside" id="nsJ-Gg-5Bn"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamCell" rowHeight="49" id="hhh-9W-g4c" customClass="TeamCell">
+                                <rect key="frame" x="0.0" y="66" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dLY-hH-XD5">
-                                            <rect key="frame" x="20" y="3" width="80" height="37"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Sverige" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="b5o-nB-X1u">
+                                            <rect key="frame" x="74" y="13" width="204" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
-                                            <state key="normal" title="       TILLBAKA" backgroundImage="backButton.png">
-                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="highlighted">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="backButtonPressed:" destination="aOb-qA-Le6" eventType="touchUpInside" id="y71-Ao-QTs"/>
-                                                <action selector="backButtonTapped:" destination="yhp-JU-dlz" eventType="touchUpInside" id="nsJ-Gg-5Bn"/>
-                                            </connections>
-                                        </button>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="qPP-FU-1da">
+                                            <rect key="frame" x="22" y="16" width="16" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamCell" rowHeight="49" id="hhh-9W-g4c" customClass="TeamCell">
-                                        <rect key="frame" x="0.0" y="66" width="320" height="49"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Sverige" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="b5o-nB-X1u">
-                                                    <rect key="frame" x="74" y="13" width="204" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="qPP-FU-1da">
-                                                    <rect key="frame" x="22" y="16" width="16" height="16"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
                     <connections>
                         <outlet property="table" destination="4kC-s7-7Pn" id="eVq-uc-rqw"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2" y="637"/>
+            <point key="canvasLocation" x="1167" y="52"/>
+        </scene>
+        <!--Player Team View Controller-->
+        <scene sceneID="QID-tl-DCp">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e1Q-7I-NHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="HA9-ls-g95" customClass="PlayerTeamViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eqv-dc-sJG">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="9Td-yd-VBI">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EkS-am-rqK">
+                                    <rect key="frame" x="20" y="3" width="80" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                                    <state key="normal" title="       TILLBAKA" backgroundImage="backButton.png">
+                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="backButtonPressed:" destination="aOb-qA-Le6" eventType="touchUpInside" id="0HW-Mi-DAQ"/>
+                                        <action selector="backButtonPressed:" destination="HA9-ls-g95" eventType="touchUpInside" id="bDc-fa-m8X"/>
+                                        <action selector="backButtonPushed:" destination="HA9-ls-g95" eventType="touchUpInside" id="svp-eJ-Giz"/>
+                                        <action selector="backButtonTapped:" destination="yhp-JU-dlz" eventType="touchUpInside" id="Lqk-EP-NyN"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamCell" rowHeight="49" id="p9A-Jt-UMS" customClass="PlayerTeamCell">
+                                <rect key="frame" x="0.0" y="66" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="48"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Sverige" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6jC-ct-OC0">
+                                            <rect key="frame" x="74" y="13" width="204" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="vP8-it-ggX">
+                                            <rect key="frame" x="22" y="16" width="16" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="1j4-57-w0D" kind="push" id="Zrd-g8-UX1"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <connections>
+                        <outlet property="table" destination="eqv-dc-sJG" id="ghk-Zj-YJv"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1162" y="626"/>
+        </scene>
+        <!--Player View Controller-->
+        <scene sceneID="Baj-WZ-nE1">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I4V-lc-GD6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="1j4-57-w0D" customClass="PlayerViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dha-Fw-pDm">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="uWh-0u-kLJ">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="21t-0Y-Dwk">
+                                    <rect key="frame" x="20" y="3" width="80" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                                    <state key="normal" title="       TILLBAKA" backgroundImage="backButton.png">
+                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="backButtonPressed:" destination="aOb-qA-Le6" eventType="touchUpInside" id="csr-n2-KIe"/>
+                                        <action selector="backButtonPressed:" destination="1j4-57-w0D" eventType="touchUpInside" id="seZ-lc-IRO"/>
+                                        <action selector="backButtonTapped:" destination="yhp-JU-dlz" eventType="touchUpInside" id="yIk-CY-PFD"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="playerCell" rowHeight="49" id="7Li-eH-PXW" customClass="PlayerCell">
+                                <rect key="frame" x="0.0" y="66" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Zlatan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xiS-Tg-kdh">
+                                            <rect key="frame" x="74" y="13" width="204" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="YxO-SS-LM5">
+                                            <rect key="frame" x="22" y="16" width="16" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1j4-57-w0D" id="20r-L7-zSZ"/>
+                            <outlet property="delegate" destination="1j4-57-w0D" id="gcA-W8-ZM4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="dQY-hw-nPo"/>
+                    <connections>
+                        <outlet property="table" destination="dha-Fw-pDm" id="vcq-UZ-Dnr"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1540" y="634"/>
         </scene>
         <!--Match Prediction View Controller-->
         <scene sceneID="x5X-T3-jjI">
@@ -833,7 +964,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="362" y="647"/>
+            <point key="canvasLocation" x="1167" y="1752"/>
         </scene>
         <!--Unfinished Match View Controller-->
         <scene sceneID="RWE-8g-Iey">
@@ -918,7 +1049,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="429" y="68"/>
+            <point key="canvasLocation" x="1173" y="-529"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XMU-6v-OB7">
@@ -935,6 +1066,57 @@
                         <segue destination="2" kind="relationship" relationship="rootViewController" id="wXD-RF-hfN"/>
                     </connections>
                 </navigationController>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OyT-bD-hSd">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <view key="tableHeaderView" contentMode="scaleToFill" id="Jjz-bc-0sf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YzE-gs-6os">
+                                <rect key="frame" x="20" y="3" width="80" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                                <state key="normal" title="       TILLBAKA" backgroundImage="backButton.png">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="aOb-qA-Le6" eventType="touchUpInside" id="E9U-J3-pvM"/>
+                                    <action selector="backButtonTapped:" destination="yhp-JU-dlz" eventType="touchUpInside" id="2ZW-0A-LVc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <prototypes>
+                        <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamCell" rowHeight="49" id="Jjh-J4-Bgg" customClass="TeamCell">
+                            <rect key="frame" x="0.0" y="66" width="320" height="49"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Sverige" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="fen-LI-N5V">
+                                        <rect key="frame" x="74" y="13" width="204" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="0Do-px-un2">
+                                        <rect key="frame" x="22" y="16" width="16" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </tableViewCell>
+                    </prototypes>
+                </tableView>
             </objects>
             <point key="canvasLocation" x="-249" y="-501"/>
         </scene>
@@ -1037,6 +1219,21 @@
         </class>
         <class className="PagedView" superclassName="UIScrollView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PagedView.h"/>
+        </class>
+        <class className="PlayerCell" superclassName="AppseitsSelectionCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerCell.h"/>
+        </class>
+        <class className="PlayerTeamCell" superclassName="TeamCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerTeamCell.h"/>
+        </class>
+        <class className="PlayerTeamViewController" superclassName="TeamViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerTeamViewController.h"/>
+        </class>
+        <class className="PlayerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
+            </relationships>
         </class>
         <class className="RankingCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingCell.h"/>

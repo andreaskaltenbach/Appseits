@@ -19,9 +19,11 @@
     
     if (team) {
         self.label.text = team.name;
+        self.label.textColor = [UIColor blackColor];
     }
     else {
-        self.label.text = @"---";
+        self.label.text = @"Välj land";
+        self.label.textColor = [UIColor grayColor];
     }
     self.flag.image = team.flag;
 }

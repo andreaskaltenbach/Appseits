@@ -15,9 +15,7 @@
 #define MARGIN 60
 
 @protocol TeamSelectDelegate
-
 - (void) selectTeamFor:(int) place currentSelection: (Team*) team;
-
 @end
 
 @interface Top4View : UIView

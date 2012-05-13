@@ -32,6 +32,7 @@
 #import "ScorerTips.h"
 #import "ScorerRound.h"
 #import "ScorerView.h"
+#import "PlayerTeamCell.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -90,6 +91,8 @@ static UIImage *cogWheel;
 @synthesize currentTeamSelection = _currentTeamSelection;
 @synthesize currentTeamPlace = _currentTeamPlace;
 @synthesize allTeams = _allTeams;
+@synthesize currentPlayerPlace = _currentPlayerPlace;
+@synthesize currentPlayerSelection = _currentPlayerSelection;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -98,7 +101,6 @@ static UIImage *cogWheel;
     
     cogWheel = [UIImage imageNamed:@"cogwheel"];
 }
-
 
 - (void) scroll:(int) offset {
     
@@ -192,6 +194,9 @@ static UIImage *cogWheel;
    
     // setup top4 view
     self.top4View.delegate = self;
+    
+    // setup scorer view
+    self.scorerView.delegate = self;
         
     self.gameTable.backgroundColor = [UIColor blackBackground];
     
@@ -323,8 +328,19 @@ static UIImage *cogWheel;
     [self performSegueWithIdentifier:@"toTeamList" sender:self];
 }
 
+#pragma mark PlayerSelectDelegate
+- (void) selectPlayerFor:(int) place currentSelection: (Player*) player {
+    self.currentPlayerSelection = player;
+    self.currentPlayerPlace = place;
+    [self performSegueWithIdentifier:@"toPlayerTeamList" sender:self];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toTeamList"]) {
+        TeamViewController *teamViewController = segue.destinationViewController;
+        teamViewController.overviewController = self;
+    }
+    if ([segue.identifier isEqualToString:@"toPlayerTeamList"]) {
         TeamViewController *teamViewController = segue.destinationViewController;
         teamViewController.overviewController = self;
     }
@@ -336,8 +352,13 @@ static UIImage *cogWheel;
     
     TeamCell *teamCell = (TeamCell*) [tableView cellForRowAtIndexPath:indexPath];
     
-    NSLog(@"Selected %@ on place %i", teamCell.team.name, self.currentTeamPlace);
-    
+    if (![teamCell isKindOfClass:PlayerTeamCell.class]) {
+        NSLog(@"Selected %@ on place %i", teamCell.team.name, self.currentTeamPlace);
+        [self updateTop4Tip:teamCell];
+    }
+}
+
+- (void) updateTop4Tip:(TeamCell*) teamCell {
     [self.top4View updatePlace:self.currentTeamPlace withTeam:teamCell.team :^(bool success) {
         if (!success) {
             NSLog(@"Nothing stored!");

@@ -11,9 +11,7 @@
 #import "ScorerTips.h"
 
 @protocol PlayerSelectDelegate
-
 - (void) selectPlayerFor:(int) place currentSelection: (Player*) player;
-
 @end
 
 @interface ScorerView : UIView
