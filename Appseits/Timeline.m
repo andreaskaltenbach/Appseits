@@ -63,6 +63,7 @@
     NSMutableArray *sections = [NSMutableArray array];
     
     // count all the games
+    
     self.games = 0;
     for (MatchRound *round in rounds) {
         self.games += [round.matches count];

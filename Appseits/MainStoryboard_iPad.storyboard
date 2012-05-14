@@ -16,11 +16,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="O6v-nD-ftV">
-                                <rect key="frame" x="224" y="382" width="320" height="240"/>
+                                <rect key="frame" x="224" y="307" width="320" height="315"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="jp9-GA-wSh">
+                                        <rect key="frame" x="150" y="60" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
                                     <view contentMode="scaleToFill" id="7Vd-hm-a5Z">
-                                        <rect key="frame" x="10" y="10" width="300" height="100"/>
+                                        <rect key="frame" x="10" y="85" width="300" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Epostadress" minimumFontSize="17" id="whM-O2-ULK" userLabel="emailInput">
@@ -44,7 +48,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QIy-kS-li3">
-                                        <rect key="frame" x="10" y="121" width="300" height="54"/>
+                                        <rect key="frame" x="10" y="196" width="300" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" backgroundImage="login.png">
@@ -59,7 +63,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="97d-K4-AlF">
-                                        <rect key="frame" x="10" y="186" width="300" height="44"/>
+                                        <rect key="frame" x="10" y="261" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" image="forgotPassword.png">
@@ -72,10 +76,6 @@
                                     </button>
                                 </subviews>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="jp9-GA-wSh">
-                                <rect key="frame" x="374" y="333" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -339,9 +339,6 @@
         <image name="tipBar.png" width="302" height="36"/>
     </resources>
     <classes>
-        <class className="GameTable" superclassName="ScrollTriggeringTableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameTable.h"/>
-        </class>
         <class className="LastUpdateView" superclassName="SSGradientView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LastUpdateView.h"/>
         </class>
@@ -352,6 +349,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="emailInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="errorMessage" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="forgotPasswordButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="inputBackgroundView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
@@ -360,11 +358,22 @@
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="separator" candidateClass="UIView"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="usernameField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="MainScrollView" superclassName="UIScrollView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainScrollView.h"/>
+        </class>
+        <class className="MatchCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchCell.h"/>
+        </class>
+        <class className="MatchPredictionCell" superclassName="MatchCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchPredictionCell.h"/>
+        </class>
+        <class className="MatchResultCell" superclassName="MatchCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchResultCell.h"/>
+        </class>
+        <class className="MatchTable" superclassName="ScrollTriggeringTableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchTable.h"/>
         </class>
         <class className="Menu" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Menu.h"/>
@@ -375,7 +384,7 @@
         <class className="OverviewViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OverviewViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="gameTable" candidateClass="GameTable"/>
+                <relationship kind="outlet" name="gameTable" candidateClass="MatchTable"/>
                 <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="leagueInput" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="leaguePicker" candidateClass="LeaguePickerView"/>
@@ -391,8 +400,10 @@
                 <relationship kind="outlet" name="resultMenuItem" candidateClass="UIView"/>
                 <relationship kind="outlet" name="roundLastUpdatedView" candidateClass="RoundLastUpdatedView"/>
                 <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scorerView" candidateClass="ScorerView"/>
                 <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
                 <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
+                <relationship kind="outlet" name="top4View" candidateClass="Top4View"/>
                 <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
             </relationships>
         </class>
@@ -408,6 +419,9 @@
         <class className="SSGradientView" superclassName="SSBorderedView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SSGradientView.h"/>
         </class>
+        <class className="ScorerView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScorerView.h"/>
+        </class>
         <class className="ScrollTriggeringTableView" superclassName="UITableView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ScrollTriggeringTableView.h"/>
         </class>
@@ -416,6 +430,9 @@
         </class>
         <class className="TimelineScrollView" superclassName="UIScrollView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
+        </class>
+        <class className="Top4View" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Top4View.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
