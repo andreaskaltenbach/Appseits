@@ -544,6 +544,26 @@ static ScorerRound *scorerRound;
    }];
 }
 
++ (void) postPredictionForPlace:(int) place andPlayer: (NSNumber*) playerId: (FinishedBlock) onDone {
+    NSMutableURLRequest *request = [self requestForUrl:SCORER_URL];
+    
+    [request setHTTPMethod:@"POST"];
+    
+    // build JSON payload
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    NSDictionary *jsonData = [NSDictionary dictionaryWithObjectsAndKeys:
+                              playerId,@"playerId",
+                              [NSNumber numberWithInt:place],@"place",
+                              nil];
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:jsonData options:kNilOptions error:&error];
+    request.HTTPBody = data;
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        onDone(!error);
+    }];
+}
+
 + (void) postPredictionForPlace:(int) place andTeam: (NSNumber*) teamId: (FinishedBlock) onDone {
     NSMutableURLRequest *request = [self requestForUrl:TOP4_URL];
     
@@ -563,7 +583,6 @@ static ScorerRound *scorerRound;
         onDone(!error);
     }];
 
-    
 }
 
 + (BOOL) fetchTeams {

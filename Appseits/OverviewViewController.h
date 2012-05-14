@@ -18,6 +18,9 @@
 
 @interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate>
 
+@property (strong, nonatomic) IBOutlet Top4View *top4View;
+@property (strong, nonatomic) IBOutlet ScorerView *scorerView;
+
 @property (nonatomic, strong) NSArray *allTeams;
 @property (nonatomic, strong) Team *currentTeamSelection;
 @property int currentTeamPlace;

@@ -9,6 +9,7 @@
 #import "PlayerViewController.h"
 #import "UIColor+AppColors.h"
 #import "PlayerCell.h"
+#import "ScorerView.h"
 
 @interface PlayerViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
@@ -57,6 +58,17 @@
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    PlayerCell *playerCell = (PlayerCell*) [tableView cellForRowAtIndexPath:indexPath];
+    
+    [self.overviewViewController.scorerView updatePlace:self.overviewViewController.currentPlayerPlace withPlayer:playerCell.player :^(bool success) {
+       
+        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:1] animated:YES];
+    }];
+}
+
 
 
 @end

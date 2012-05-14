@@ -61,8 +61,6 @@ static UIImage *cogWheel;
 @property (nonatomic, strong) PullToRefreshView *pullToRefreshView;
 @property (weak, nonatomic) IBOutlet RoundLastUpdatedView *roundLastUpdatedView;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
-@property (strong, nonatomic) IBOutlet Top4View *top4View;
-@property (strong, nonatomic) IBOutlet ScorerView *scorerView;
 @end
 
 @implementation OverviewViewController

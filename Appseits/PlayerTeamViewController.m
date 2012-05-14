@@ -14,6 +14,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     PlayerViewController *playerViewController = segue.destinationViewController;
+    playerViewController.overviewViewController = self.overviewController;
     NSIndexPath *selectedRow = self.table.indexPathForSelectedRow;
     Team *selectedTeam = [self.overviewController.allTeams objectAtIndex:selectedRow.row];
     playerViewController.team = selectedTeam;

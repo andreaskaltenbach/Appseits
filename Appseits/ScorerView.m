@@ -35,7 +35,7 @@
                               [[ScorerSelector alloc] init:[UIImage imageNamed:@"scorer"]],
                               nil];
         
-        int yOffset = Y_OFFSET;
+        int yOffset = Y_OFFSET + 20;
         for (ScorerSelector *selector in self.scorerSelectors) {
             selector.frame = CGRectMake(5, yOffset, 310, 50);    
             [self addSubview:selector];
@@ -61,6 +61,19 @@
     [[self.scorerSelectors objectAtIndex:0] setPlayer:scorerTips.firstPlayer];
     [[self.scorerSelectors objectAtIndex:1] setPlayer:scorerTips.secondPlayer];
     [[self.scorerSelectors objectAtIndex:2] setPlayer:scorerTips.thirdPlayer];
+}
+
+- (void) updatePlace:(int) place withPlayer:(Player*) player: (FinishedBlock) onDone {
+    
+    if (place == 1) self.scorerTips.firstPlayer = player;
+    if (place == 2) self.scorerTips.secondPlayer = player;
+    if (place == 3) self.scorerTips.thirdPlayer = player;
+    
+    ScorerSelector *selector = [self.scorerSelectors objectAtIndex:place - 1];
+    selector.player = player;
+    
+    // send update to server
+    [BackendAdapter postPredictionForPlace:place andPlayer:player.playerId :onDone];
 }
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Player.h"
 #import "ScorerTips.h"
+#import "BackendAdapter.h"
 
 @protocol PlayerSelectDelegate
 - (void) selectPlayerFor:(int) place currentSelection: (Player*) player;
@@ -18,5 +19,7 @@
 
 @property (nonatomic, strong) ScorerTips *scorerTips;
 @property (nonatomic, strong) id<PlayerSelectDelegate> delegate;
+
+- (void) updatePlace:(int) place withPlayer:(Player*) player: (FinishedBlock) onDone;
 
 @end

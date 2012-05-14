@@ -58,6 +58,8 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 
 + (void) postPredictionForPlace:(int) place andTeam: (NSNumber*) teamId: (FinishedBlock) onDone;
 
++ (void) postPredictionForPlace:(int) place andPlayer: (NSNumber*) playerId: (FinishedBlock) onDone;
+
 
 
 
