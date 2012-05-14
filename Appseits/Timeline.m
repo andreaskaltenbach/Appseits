@@ -15,6 +15,8 @@
 
 #define ROUND_LABEL_HEIGHT 30
 
+#define TOP4_AND_SCORER_OFFSET 120
+
 @interface Timeline()
 @property (nonatomic, strong) NSArray *timelineSections;
 @property (nonatomic, strong) UIView *roundLabelGradient;
@@ -25,7 +27,7 @@
 
 @implementation Timeline
 
-@synthesize rounds = _rounds;
+@synthesize matchRounds = _matchRounds;
 @synthesize timelineSections = _timelineSections;
 @synthesize totalWidth = _totalWidth;
 @synthesize games = _games;
@@ -43,7 +45,7 @@
 }
 - (void) setFrame:(CGRect)frame {
     
-    float xOffset = 0;
+    float xOffset = TOP4_AND_SCORER_OFFSET;
     float widthPerGame = frame.size.width/self.games;
 
     for (TimelineRoundSection *section in self.subviews) {
@@ -57,21 +59,21 @@
     [super setFrame:frame];
 }
 
--(void) setRounds:(NSArray *)rounds {
-    _rounds = rounds;
+-(void) setMatchRounds:(NSArray *)matchRounds {
+    _matchRounds = matchRounds;
     
     NSMutableArray *sections = [NSMutableArray array];
     
     // count all the games
     
     self.games = 0;
-    for (MatchRound *round in rounds) {
-        self.games += [round.matches count];
+    for (MatchRound *matchRound in matchRounds) {
+        self.games += [matchRound.matches count];
     }
 
     // add a section for each tournament round
-    for (MatchRound *round in rounds) {
-        TimelineRoundSection *roundSection = [TimelineRoundSection initWithRound:round :self];
+    for (MatchRound *matchRound in matchRounds) {
+        TimelineRoundSection *roundSection = [TimelineRoundSection initWithRound:matchRound :self];
         [sections addObject:roundSection];
     }
     self.timelineSections = sections;

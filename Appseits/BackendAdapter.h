@@ -35,6 +35,7 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 + (League*) currentLeague;
 + (void) setCurrentLeague:(League*) league:(FinishedBlock) onDone;
 
++ (NSArray*) matchRounds;
 + (NSArray*) tournamentRounds;
 + (NSArray*) rankings;
 + (NSArray*) leagues;

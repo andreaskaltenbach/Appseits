@@ -61,6 +61,7 @@ static UIImage *cogWheel;
 @property (nonatomic, strong) PullToRefreshView *pullToRefreshView;
 @property (weak, nonatomic) IBOutlet RoundLastUpdatedView *roundLastUpdatedView;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (weak, nonatomic) IBOutlet UIView *separatorView;
 @end
 
 @implementation OverviewViewController
@@ -84,6 +85,7 @@ static UIImage *cogWheel;
 @synthesize pullToRefreshView = _pullToRefreshView;
 @synthesize roundLastUpdatedView = _roundLastUpdatedView;
 @synthesize logoutButton = _logoutButton;
+@synthesize separatorView = _separatorView;
 @synthesize top4View = _top4View;
 @synthesize scorerView = _scorerView;
 @synthesize currentTeamSelection = _currentTeamSelection;
@@ -131,6 +133,7 @@ static UIImage *cogWheel;
     self.menuDependingScrollView.scrollsToTop = NO;
     
     self.headerView.backgroundColor = [UIColor headerBackground];
+    self.separatorView.backgroundColor = [UIColor headerBackground];
     
     self.gameTable.scrollDelegate = self;
     self.rankingTable.scrollDelegate = self;
@@ -141,8 +144,9 @@ static UIImage *cogWheel;
     self.timelineScrollView.roundSelectDelegate = self;
     self.timelineScrollView.tournamentRounds = [BackendAdapter tournamentRounds];
     self.timelineScrollView.backgroundColor = [UIColor blackBackground];
+    
     self.timeline.roundSelectDelegate = self;
-    self.timeline.rounds = [BackendAdapter tournamentRounds];
+    self.timeline.matchRounds = [BackendAdapter matchRounds];
 
     // setup league input
     self.leagueInput.backgroundColor = [UIColor clearColor];
@@ -225,6 +229,7 @@ static UIImage *cogWheel;
     [self setLogoutButton:nil];
     [self setTop4View:nil];
     [self setScorerView:nil];
+    [self setSeparatorView:nil];
     [super viewDidUnload];
 }
 

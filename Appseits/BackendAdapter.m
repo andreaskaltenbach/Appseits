@@ -453,6 +453,10 @@ static ScorerRound *scorerRound;
     return [staticRound arrayByAddingObjectsFromArray:rounds];
 }
 
++ (NSArray*) matchRounds {
+    return rounds;
+}
+
 + (NSArray*) rankings {
     return rankings;
 }
