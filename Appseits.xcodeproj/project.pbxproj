@@ -14,7 +14,6 @@
 		4E050D86152219F60063EDED /* MatchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D85152219F60063EDED /* MatchResultCell.m */; };
 		4E050D8915233C560063EDED /* TimelineScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D8815233C560063EDED /* TimelineScrollView.m */; };
 		4E050D8C15234F060063EDED /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D8B15234F060063EDED /* MatchCell.m */; };
-		4E050D8E15235A8F0063EDED /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D8D15235A8F0063EDED /* Entitlements.plist */; };
 		4E050D9415236C6B0063EDED /* result.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D9315236C6B0063EDED /* result.png */; };
 		4E059D061525FA2E005ABD20 /* NSDate+DateConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E059D051525FA2E005ABD20 /* NSDate+DateConversion.m */; };
 		4E059D091525FFBC005ABD20 /* Timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E059D081525FFBC005ABD20 /* Timeline.m */; };
@@ -188,7 +187,6 @@
 		4E050D8815233C560063EDED /* TimelineScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineScrollView.m; sourceTree = "<group>"; };
 		4E050D8A15234F060063EDED /* MatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchCell.h; sourceTree = "<group>"; };
 		4E050D8B15234F060063EDED /* MatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
-		4E050D8D15235A8F0063EDED /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		4E050D9315236C6B0063EDED /* result.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = result.png; sourceTree = "<group>"; };
 		4E059D041525FA2E005ABD20 /* NSDate+DateConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateConversion.h"; sourceTree = "<group>"; };
 		4E059D051525FA2E005ABD20 /* NSDate+DateConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateConversion.m"; sourceTree = "<group>"; };
@@ -356,22 +354,6 @@
 		4EE59DA015404C4E0082193D /* pageControl_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageControl_active.png; sourceTree = "<group>"; };
 		4EE59DA3154050FB0082193D /* PagedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagedView.h; sourceTree = "<group>"; };
 		4EE59DA4154050FB0082193D /* PagedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagedView.m; sourceTree = "<group>"; };
-		4EE7C29D155BC45B00DD1D9C /* EmTipset-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EmTipset-Info.plist"; sourceTree = "<group>"; };
-		4EE7C29F155BC45B00DD1D9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4EE7C2A1155BC45B00DD1D9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4EE7C2A3155BC45B00DD1D9C /* EmTipset-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EmTipset-Prefix.pch"; sourceTree = "<group>"; };
-		4EE7C2A4155BC45B00DD1D9C /* AppseitsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppseitsAppDelegate.h; sourceTree = "<group>"; };
-		4EE7C2A5155BC45B00DD1D9C /* AppseitsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppseitsAppDelegate.m; sourceTree = "<group>"; };
-		4EE7C2A8155BC45B00DD1D9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		4EE7C2AB155BC45B00DD1D9C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		4EE7C2AD155BC45B00DD1D9C /* AppseitsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppseitsViewController.h; sourceTree = "<group>"; };
-		4EE7C2AE155BC45B00DD1D9C /* AppseitsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppseitsViewController.m; sourceTree = "<group>"; };
-		4EE7C2BF155BC46600DD1D9C /* asd-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "asd-Info.plist"; sourceTree = "<group>"; };
-		4EE7C2C1155BC46600DD1D9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		4EE7C2C3155BC46600DD1D9C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4EE7C2C5155BC46600DD1D9C /* asd-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "asd-Prefix.pch"; sourceTree = "<group>"; };
-		4EE7C2C6155BC46600DD1D9C /* AppseitsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppseitsAppDelegate.h; sourceTree = "<group>"; };
-		4EE7C2C7155BC46600DD1D9C /* AppseitsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppseitsAppDelegate.m; sourceTree = "<group>"; };
 		4EE7C2CD155BD78700DD1D9C /* MatchPredictionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPredictionViewController.h; sourceTree = "<group>"; };
 		4EE7C2CE155BD78700DD1D9C /* MatchPredictionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPredictionViewController.m; sourceTree = "<group>"; };
 		4EE7C2D0155BDB6B00DD1D9C /* predictionInput@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "predictionInput@2x.png"; sourceTree = "<group>"; };
@@ -736,8 +718,6 @@
 				5BC662D8154AE1620070C304 /* Default@2x.png */,
 				5B3E6FFD1549BD7900190AE9 /* libz.dylib */,
 				4E531C1B151CAB060003CAD1 /* Appseits */,
-				4EE7C29B155BC45B00DD1D9C /* EmTipset */,
-				4EE7C2BD155BC46600DD1D9C /* asd */,
 				4E531C14151CAB050003CAD1 /* Frameworks */,
 				4E531C12151CAB050003CAD1 /* Products */,
 			);
@@ -794,7 +774,6 @@
 		4E531C1C151CAB060003CAD1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4E050D8D15235A8F0063EDED /* Entitlements.plist */,
 				5BE5E09E154A88BA00AA2679 /* InfoPlist.strings */,
 				4E531C1D151CAB060003CAD1 /* Appseits-Info.plist */,
 				4E531C21151CAB060003CAD1 /* main.m */,
@@ -907,52 +886,6 @@
 			name = view;
 			sourceTree = "<group>";
 		};
-		4EE7C29B155BC45B00DD1D9C /* EmTipset */ = {
-			isa = PBXGroup;
-			children = (
-				4EE7C2A4155BC45B00DD1D9C /* AppseitsAppDelegate.h */,
-				4EE7C2A5155BC45B00DD1D9C /* AppseitsAppDelegate.m */,
-				4EE7C2A7155BC45B00DD1D9C /* MainStoryboard_iPhone.storyboard */,
-				4EE7C2AA155BC45B00DD1D9C /* MainStoryboard_iPad.storyboard */,
-				4EE7C2AD155BC45B00DD1D9C /* AppseitsViewController.h */,
-				4EE7C2AE155BC45B00DD1D9C /* AppseitsViewController.m */,
-				4EE7C29C155BC45B00DD1D9C /* Supporting Files */,
-			);
-			path = EmTipset;
-			sourceTree = "<group>";
-		};
-		4EE7C29C155BC45B00DD1D9C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4EE7C29D155BC45B00DD1D9C /* EmTipset-Info.plist */,
-				4EE7C29E155BC45B00DD1D9C /* InfoPlist.strings */,
-				4EE7C2A1155BC45B00DD1D9C /* main.m */,
-				4EE7C2A3155BC45B00DD1D9C /* EmTipset-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4EE7C2BD155BC46600DD1D9C /* asd */ = {
-			isa = PBXGroup;
-			children = (
-				4EE7C2C6155BC46600DD1D9C /* AppseitsAppDelegate.h */,
-				4EE7C2C7155BC46600DD1D9C /* AppseitsAppDelegate.m */,
-				4EE7C2BE155BC46600DD1D9C /* Supporting Files */,
-			);
-			path = asd;
-			sourceTree = "<group>";
-		};
-		4EE7C2BE155BC46600DD1D9C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4EE7C2BF155BC46600DD1D9C /* asd-Info.plist */,
-				4EE7C2C0155BC46600DD1D9C /* InfoPlist.strings */,
-				4EE7C2C3155BC46600DD1D9C /* main.m */,
-				4EE7C2C5155BC46600DD1D9C /* asd-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		5B3E6FF51549BD2B00190AE9 /* TestFlightSDK1.0 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1040,7 +973,6 @@
 			files = (
 				4E050D7C152209BA0063EDED /* blck.png in Resources */,
 				4E050D8115220E710063EDED /* square.png in Resources */,
-				4E050D8E15235A8F0063EDED /* Entitlements.plist in Resources */,
 				4E050D9415236C6B0063EDED /* result.png in Resources */,
 				5BD4B14115238F06004FE21B /* progress.png in Resources */,
 				5BD4B144152395AF004FE21B /* separator.png in Resources */,
@@ -1213,41 +1145,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		4EE7C29E155BC45B00DD1D9C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4EE7C29F155BC45B00DD1D9C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		4EE7C2A7155BC45B00DD1D9C /* MainStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4EE7C2A8155BC45B00DD1D9C /* en */,
-			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		4EE7C2AA155BC45B00DD1D9C /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4EE7C2AB155BC45B00DD1D9C /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		4EE7C2C0155BC46600DD1D9C /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4EE7C2C1155BC46600DD1D9C /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		4E531C30151CAB060003CAD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1255,8 +1152,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andreas Kaltenbach (WXWH5CH3RH)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1271,7 +1167,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "CB105931-5784-49F2-8E57-A35362CB6425";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1284,8 +1180,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Stendahls Reklambyra AB";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1294,7 +1189,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
 				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1307,8 +1202,7 @@
 			buildSettings = {
 				ALTERNATE_GROUP = "$(SDKROOT)/ResourceRules.plist";
 				ALTERNATE_MODE = Appseits/Entitlements.plist;
-				CODE_SIGN_ENTITLEMENTS = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andreas Kaltenbach (WXWH5CH3RH)";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
@@ -1322,7 +1216,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "CB105931-5784-49F2-8E57-A35362CB6425";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1332,8 +1226,7 @@
 			buildSettings = {
 				ALTERNATE_GROUP = "$(SDKROOT)/ResourceRules.plist";
 				ALTERNATE_MODE = Appseits/Entitlements.plist;
-				CODE_SIGN_ENTITLEMENTS = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Stendahls Reklambyra AB";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
@@ -1347,7 +1240,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1358,6 +1251,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stendahls Reklambyra AB";
 				COPY_PHASE_STRIP = NO;
@@ -1381,9 +1275,8 @@
 			buildSettings = {
 				ALTERNATE_GROUP = "$(SDKROOT)/ResourceRules.plist";
 				ALTERNATE_MODE = Appseits/Entitlements.plist;
-				CODE_SIGN_ENTITLEMENTS = Appseits/Entitlements.plist;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Stendahls Reklambyra AB";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Stendahls Reklambyra AB";
 				CODE_SIGN_RESOURCE_RULES_PATH = "$(SDKROOT)/ResourceRules.plist";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Appseits/Appseits-Prefix.pch";
@@ -1398,7 +1291,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AB053E97-EE2C-4D06-869F-A76C5557F17E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Ad Hoc Distribution";
