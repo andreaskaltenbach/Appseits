@@ -159,6 +159,7 @@
 		5BD4B14115238F06004FE21B /* progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4B14015238F06004FE21B /* progress.png */; };
 		5BD4B144152395AF004FE21B /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4B143152395AF004FE21B /* separator.png */; };
 		5BD4B15415262263004FE21B /* TimelineRoundSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4B15315262263004FE21B /* TimelineRoundSection.m */; };
+		5BDBD2A21562F35400F0E9C7 /* AppseitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBD2A11562F35400F0E9C7 /* AppseitsViewController.m */; };
 		5BE5E09F154A88BA00AA2679 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5E09E154A88BA00AA2679 /* InfoPlist.strings */; };
 		5BE5E0A2154A88C700AA2679 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5E0A0154A88C700AA2679 /* MainStoryboard_iPad.storyboard */; };
 		5BE5E0A3154A88C700AA2679 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5E0A1154A88C700AA2679 /* MainStoryboard_iPhone.storyboard */; };
@@ -472,6 +473,8 @@
 		5BD4B143152395AF004FE21B /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator.png; sourceTree = "<group>"; };
 		5BD4B15215262263004FE21B /* TimelineRoundSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineRoundSection.h; sourceTree = "<group>"; };
 		5BD4B15315262263004FE21B /* TimelineRoundSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineRoundSection.m; sourceTree = "<group>"; };
+		5BDBD2A01562F35400F0E9C7 /* AppseitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppseitsViewController.h; sourceTree = "<group>"; };
+		5BDBD2A11562F35400F0E9C7 /* AppseitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppseitsViewController.m; sourceTree = "<group>"; };
 		5BE5E09E154A88BA00AA2679 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		5BE5E0A0154A88C700AA2679 /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		5BE5E0A1154A88C700AA2679 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
@@ -934,6 +937,8 @@
 				5BE73F04156057890055CD4C /* PlayerViewController.m */,
 				5B070E431562CD560033B504 /* SettingsViewController.h */,
 				5B070E441562CD560033B504 /* SettingsViewController.m */,
+				5BDBD2A01562F35400F0E9C7 /* AppseitsViewController.h */,
+				5BDBD2A11562F35400F0E9C7 /* AppseitsViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -1164,6 +1169,7 @@
 				5BE73F05156057890055CD4C /* PlayerViewController.m in Sources */,
 				5B00E2E715605E42007A519F /* PlayerCell.m in Sources */,
 				5B070E451562CD560033B504 /* SettingsViewController.m in Sources */,
+				5BDBD2A21562F35400F0E9C7 /* AppseitsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

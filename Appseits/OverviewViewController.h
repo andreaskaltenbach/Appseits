@@ -15,8 +15,9 @@
 #import "ScorerView.h"
 #import "Team.h"
 #import "Player.h"
+#import "AppseitsViewController.h"
 
-@interface OverviewViewController : UIViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate>
+@interface OverviewViewController : AppseitsViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate>
 
 @property (strong, nonatomic) IBOutlet Top4View *top4View;
 @property (strong, nonatomic) IBOutlet ScorerView *scorerView;

@@ -117,6 +117,8 @@ static UIImage *cogWheel;
     
     [super viewDidLoad];
     
+    [self showInfo:@"Next level quis sartorial consequat, esse incididunt 8-bit mixtape quinoa eiusmod wes anderson. Wayfarers odio raw denim tempor non enim. Velit single-origin coffee selvage quinoa art party nihil beard, organic laborum qui."];
+    
     self.lastUpdated = [NSDate date];
     
     self.pullToRefreshView = [[PullToRefreshView alloc] initWithScrollView:self.mainScrollView];
