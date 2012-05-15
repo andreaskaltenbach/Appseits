@@ -20,6 +20,8 @@
 
 - (BOOL) open;
 
+- (BOOL) closed;
+
 - (BOOL) allPredictionsDone;
 
 @end

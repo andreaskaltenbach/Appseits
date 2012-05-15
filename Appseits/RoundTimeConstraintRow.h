@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SSGradientView.h"
+#import "TournamentRound.h"
 
-@interface LastUpdateView : SSGradientView
+@interface RoundTimeConstraintRow : SSGradientView
 
-@property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) TournamentRound *round;
 
 @end

@@ -26,9 +26,6 @@ static NSArray *leagues;
 
 static League *currentLeague;
 
-static NSMutableSet *matchUpdateDelegates;
-static NSMutableSet *rankingUpdateDelegates;
-
 static NSString *token;
 static NSString *userName;
 static NSString *userId;
@@ -56,32 +53,6 @@ static ScorerRound *scorerRound;
 + (void) initialize {
     leagueUrl = @"http://dl.dropbox.com/u/15650647/leagues.json";
     rankingUrl = @"http://dl.dropbox.com/u/15650647/ranking.json";
-    
-    matchUpdateDelegates = [NSMutableSet set];
-    rankingUpdateDelegates = [NSMutableSet set];
-}
-
-+ (void) updateMatches {
-    for (id<MatchUpdateDelegate> matchUpdateDelegate in matchUpdateDelegates) {
-        [matchUpdateDelegate matchesUpdated:nil];
-    }
-}
-
-+ (void) updateRankings {
-    for (id<RankingUpdateDelegate> rankingUpdateDelegate in rankingUpdateDelegates) {
-        [rankingUpdateDelegate rankingsUpdated:nil];
-    }
-}
-
-+ (void) addMatchUpdateDelegate:(id<MatchUpdateDelegate>) delegate {
-    if (delegate) {
-        [matchUpdateDelegates addObject:delegate];
-    }
-}
-+ (void) addRankingUpdateDelegate:(id<RankingUpdateDelegate>) delegate {
-    if (delegate) {
-        [rankingUpdateDelegates addObject:delegate];
-    }
 }
 
 + (BOOL) credentialsAvailable {
@@ -183,6 +154,32 @@ static ScorerRound *scorerRound;
     [userDefaults removeObjectForKey:@"email"];
     [userDefaults removeObjectForKey:@"password"];
     [userDefaults synchronize];
+}
+
++ (void) refreshModel:(FinishedBlock) onFinished {
+    dispatch_queue_t refreshQueue = dispatch_queue_create("refresh", NULL);
+    
+    dispatch_async(refreshQueue, ^{
+        
+        BOOL successRoad = [self loadCompleteTournament];
+        
+        if (successRoad) {
+            successRoad = [self loadLeagues];
+        }
+        if (successRoad) {
+            successRoad = [self loadRankings];
+        }
+        if (successRoad) {
+            successRoad = [self loadTop4];
+        }
+        if (successRoad) {
+            successRoad = [self loadScorer];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            onFinished(YES);
+        });
+    });
 }
 
 + (void) initializeModel:(FinishedBlock) onFinished {

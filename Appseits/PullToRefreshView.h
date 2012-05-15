@@ -38,7 +38,7 @@ typedef enum {
 
 @protocol PullToRefreshViewDelegate;
 
-@interface PullToRefreshView : UIView<MatchUpdateDelegate, RankingUpdateDelegate> {
+@interface PullToRefreshView : UIView {
 	id<PullToRefreshViewDelegate> __unsafe_unretained delegate;
     UIScrollView *__weak scrollView;
 	PullToRefreshViewState state;

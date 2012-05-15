@@ -14,14 +14,6 @@
 typedef void(^FinishedBlock)(bool success);
 typedef void(^TeamsFetchedBlock)(NSArray* teams);
 
-@protocol MatchUpdateDelegate
-- (void) matchesUpdated:(MatchRound*) round;
-@end
-
-@protocol RankingUpdateDelegate
-- (void) rankingsUpdated:(NSArray*) rankings;
-@end
-
 @interface BackendAdapter : NSObject
 
 + (BOOL) credentialsAvailable;
@@ -29,6 +21,7 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 + (void) validateCredentials:(FinishedBlock) onFinished;
 
 + (void) initializeModel:(FinishedBlock) onFinished;
++ (void) refreshModel:(FinishedBlock) onFinished;
 
 + (void) logout;
 
@@ -48,12 +41,6 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 + (UIImage*) imageForTeam:(NSString*) teamName;
 
 + (Top4Tips*) top4;
-
-+ (void) addMatchUpdateDelegate:(id<MatchUpdateDelegate>) delegate;
-+ (void) addRankingUpdateDelegate:(id<RankingUpdateDelegate>) delegate;
-
-+ (void) updateMatches;
-+ (void) updateRankings;
 
 + (void) postPrediction:(NSNumber*) matchId: (NSNumber*) firstTeamGoals: (NSNumber*) secondTeamGoals: (FinishedBlock) onDone;
 

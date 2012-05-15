@@ -149,11 +149,10 @@
 		5BD38CD715429D2200551FB9 /* menuSelectedBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD38CD615429D2200551FB9 /* menuSelectedBackground.png */; };
 		5BD38CDA1542A2B300551FB9 /* ScrollTriggeringTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD38CD91542A2B300551FB9 /* ScrollTriggeringTableView.m */; };
 		5BD38CDC1542A53400551FB9 /* 11-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD38CDB1542A53400551FB9 /* 11-clock.png */; };
-		5BD38CDF1542BA2B00551FB9 /* LastUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD38CDE1542BA2B00551FB9 /* LastUpdateView.m */; };
+		5BD38CDF1542BA2B00551FB9 /* RoundTimeConstraintRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD38CDE1542BA2B00551FB9 /* RoundTimeConstraintRow.m */; };
 		5BD38CE215433C9A00551FB9 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD38CE115433C9A00551FB9 /* PullToRefreshView.m */; };
 		5BD38CE515433CC100551FB9 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD38CE315433CC100551FB9 /* arrow.png */; };
 		5BD38CE615433CC100551FB9 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD38CE415433CC100551FB9 /* arrow@2x.png */; };
-		5BD38CE915440A3E00551FB9 /* RoundLastUpdatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD38CE815440A3D00551FB9 /* RoundLastUpdatedView.m */; };
 		5BD4B14115238F06004FE21B /* progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4B14015238F06004FE21B /* progress.png */; };
 		5BD4B144152395AF004FE21B /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4B143152395AF004FE21B /* separator.png */; };
 		5BD4B15415262263004FE21B /* TimelineRoundSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4B15315262263004FE21B /* TimelineRoundSection.m */; };
@@ -452,14 +451,12 @@
 		5BD38CD81542A2B300551FB9 /* ScrollTriggeringTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTriggeringTableView.h; sourceTree = "<group>"; };
 		5BD38CD91542A2B300551FB9 /* ScrollTriggeringTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTriggeringTableView.m; sourceTree = "<group>"; };
 		5BD38CDB1542A53400551FB9 /* 11-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock.png"; sourceTree = "<group>"; };
-		5BD38CDD1542BA2B00551FB9 /* LastUpdateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastUpdateView.h; sourceTree = "<group>"; };
-		5BD38CDE1542BA2B00551FB9 /* LastUpdateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastUpdateView.m; sourceTree = "<group>"; };
+		5BD38CDD1542BA2B00551FB9 /* RoundTimeConstraintRow.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RoundTimeConstraintRow.h; sourceTree = "<group>"; };
+		5BD38CDE1542BA2B00551FB9 /* RoundTimeConstraintRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundTimeConstraintRow.m; sourceTree = "<group>"; };
 		5BD38CE015433C9A00551FB9 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
 		5BD38CE115433C9A00551FB9 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
 		5BD38CE315433CC100551FB9 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		5BD38CE415433CC100551FB9 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
-		5BD38CE715440A3D00551FB9 /* RoundLastUpdatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundLastUpdatedView.h; sourceTree = "<group>"; };
-		5BD38CE815440A3D00551FB9 /* RoundLastUpdatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundLastUpdatedView.m; sourceTree = "<group>"; };
 		5BD4B14015238F06004FE21B /* progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress.png; sourceTree = "<group>"; };
 		5BD4B143152395AF004FE21B /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator.png; sourceTree = "<group>"; };
 		5BD4B15215262263004FE21B /* TimelineRoundSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineRoundSection.h; sourceTree = "<group>"; };
@@ -860,10 +857,8 @@
 				4EDF7A7C1541A6B4000C81AD /* MainScrollView.m */,
 				5BD38CD81542A2B300551FB9 /* ScrollTriggeringTableView.h */,
 				5BD38CD91542A2B300551FB9 /* ScrollTriggeringTableView.m */,
-				5BD38CDD1542BA2B00551FB9 /* LastUpdateView.h */,
-				5BD38CDE1542BA2B00551FB9 /* LastUpdateView.m */,
-				5BD38CE715440A3D00551FB9 /* RoundLastUpdatedView.h */,
-				5BD38CE815440A3D00551FB9 /* RoundLastUpdatedView.m */,
+				5BD38CDD1542BA2B00551FB9 /* RoundTimeConstraintRow.h */,
+				5BD38CDE1542BA2B00551FB9 /* RoundTimeConstraintRow.m */,
 				4E246D6915541D5F00739D33 /* Top4View.h */,
 				4E246D6A15541D5F00739D33 /* Top4View.m */,
 				4E246D6C15541EF000739D33 /* Top4Selector.h */,
@@ -1116,9 +1111,8 @@
 				4EE59DA5154050FB0082193D /* PagedView.m in Sources */,
 				4EDF7A7D1541A6B4000C81AD /* MainScrollView.m in Sources */,
 				5BD38CDA1542A2B300551FB9 /* ScrollTriggeringTableView.m in Sources */,
-				5BD38CDF1542BA2B00551FB9 /* LastUpdateView.m in Sources */,
+				5BD38CDF1542BA2B00551FB9 /* RoundTimeConstraintRow.m in Sources */,
 				5BD38CE215433C9A00551FB9 /* PullToRefreshView.m in Sources */,
-				5BD38CE915440A3E00551FB9 /* RoundLastUpdatedView.m in Sources */,
 				4E246D4B1554075800739D33 /* TournamentRound.m in Sources */,
 				4E246D4E15540B7200739D33 /* Top4Round.m in Sources */,
 				4E246D5115540BB700739D33 /* Top4Tips.m in Sources */,

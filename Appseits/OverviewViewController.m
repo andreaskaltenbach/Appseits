@@ -23,7 +23,6 @@
 #import "BackendAdapter.h"
 #import "MainScrollView.h"
 #import "PullToRefreshView.h"
-#import "RoundLastUpdatedView.h"
 #import "MatchRound.h"
 #import "Top4Round.h"
 #import "Top4View.h"
@@ -33,6 +32,7 @@
 #import "ScorerRound.h"
 #import "ScorerView.h"
 #import "PlayerTeamCell.h"
+#import "RoundTimeConstraintRow.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -59,9 +59,10 @@ static UIImage *cogWheel;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet MainScrollView *mainScrollView;
 @property (nonatomic, strong) PullToRefreshView *pullToRefreshView;
-@property (weak, nonatomic) IBOutlet RoundLastUpdatedView *roundLastUpdatedView;
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UIView *separatorView;
+@property (nonatomic, strong) NSDate *lastUpdated;
+@property (strong, nonatomic) IBOutlet RoundTimeConstraintRow *roundConstraintBar;
 @end
 
 @implementation OverviewViewController
@@ -83,7 +84,6 @@ static UIImage *cogWheel;
 @synthesize headerView = _headerView;
 @synthesize mainScrollView = _mainScrollView;
 @synthesize pullToRefreshView = _pullToRefreshView;
-@synthesize roundLastUpdatedView = _roundLastUpdatedView;
 @synthesize logoutButton = _logoutButton;
 @synthesize separatorView = _separatorView;
 @synthesize top4View = _top4View;
@@ -93,6 +93,8 @@ static UIImage *cogWheel;
 @synthesize allTeams = _allTeams;
 @synthesize currentPlayerPlace = _currentPlayerPlace;
 @synthesize currentPlayerSelection = _currentPlayerSelection;
+@synthesize lastUpdated = _lastUpdated;
+@synthesize roundConstraintBar = _roundConstraintBar;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -103,19 +105,16 @@ static UIImage *cogWheel;
 }
 
 - (void) scroll:(int) offset {
-    
-    NSLog(@"Scroll: %i", offset);
     self.mainScrollView.contentOffset = CGPointMake(0, self.mainScrollView.contentOffset.y + offset);
-    
 }
+
 - (void) snapBack {
-    
-    //self.mainScrollView.contentOffset = CGPointZero;
-    NSLog(@"Snap back!");
     [self.mainScrollView scrollRectToVisible:CGRectMake(0, 0, self.mainScrollView.frame.size.width, self.mainScrollView.frame.size.height) animated:YES];
 }
 
 - (void) viewDidLoad {
+    
+    self.lastUpdated = [NSDate date];
     
     self.logoutButton.backgroundColor = [UIColor colorWithPatternImage:cogWheel];
     
@@ -123,10 +122,6 @@ static UIImage *cogWheel;
     self.pullToRefreshView.delegate = self;
     [self.pullToRefreshView addWatchedScrollView:self.gameTable];
     [self.pullToRefreshView addWatchedScrollView:self.rankingTable];
-    [BackendAdapter addMatchUpdateDelegate:self.pullToRefreshView];
-    [BackendAdapter addRankingUpdateDelegate:self.pullToRefreshView];
-    
-    [BackendAdapter addMatchUpdateDelegate:self.roundLastUpdatedView];
     
     [self.mainScrollView addSubview:self.pullToRefreshView];
     
@@ -189,9 +184,6 @@ static UIImage *cogWheel;
     }
     
     
-    // check credentials and open login view if required!
-    
-
     self.allTeams = [BackendAdapter teamList];
    
     // setup top4 view
@@ -225,11 +217,11 @@ static UIImage *cogWheel;
     [self setRankingTableHeader:nil];
     [self setHeaderView:nil];
     [self setMainScrollView:nil];
-    [self setRoundLastUpdatedView:nil];
     [self setLogoutButton:nil];
     [self setTop4View:nil];
     [self setScorerView:nil];
     [self setSeparatorView:nil];
+    [self setRoundConstraintBar:nil];
     [super viewDidUnload];
 }
 
@@ -256,6 +248,8 @@ static UIImage *cogWheel;
         self.scorerView.hidden = NO;
         self.gameTable.hidden = YES;
     }
+    
+    self.roundConstraintBar.round = round;
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -309,13 +303,15 @@ static UIImage *cogWheel;
 
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
     NSLog(@"refresh!");
-    [BackendAdapter updateMatches];
-    [BackendAdapter updateRankings];
+    [BackendAdapter refreshModel:^(bool success) {
+        NSLog(@"Refresh done!");
+        self.lastUpdated = [NSDate date];
+        [self.pullToRefreshView finishedLoading];
+    }];
 }
 
 - (NSDate *)pullToRefreshViewLastUpdated:(PullToRefreshView *)view {
-    NSLog(@"view last updated!");
-    return [NSDate date];
+    return self.lastUpdated;
 }
 
 - (IBAction)logout:(id)sender {
