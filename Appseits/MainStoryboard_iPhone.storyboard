@@ -117,11 +117,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="a91-4J-Tjk">
-                                        <rect key="frame" x="289" y="16" width="15" height="15"/>
+                                        <rect key="frame" x="272" y="0.0" width="48" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" backgroundImage="cogwheel.png">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" image="cogwheel.png">
+                                            <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -644,7 +644,6 @@
                         <outlet property="headerView" destination="JbU-Ph-zcW" id="2j6-as-vg0"/>
                         <outlet property="leagueInput" destination="PUQ-s3-g7l" id="kgD-HP-woS"/>
                         <outlet property="leaguePicker" destination="fht-Jl-2O1" id="SQw-sB-DuO"/>
-                        <outlet property="logoutButton" destination="a91-4J-Tjk" id="Ziu-QG-jLS"/>
                         <outlet property="mainScrollView" destination="aer-g7-G9t" id="Siy-BG-FOm"/>
                         <outlet property="menu" destination="aYN-hX-Ic6" id="587-jF-54d"/>
                         <outlet property="menuDependingScrollView" destination="Up8-uV-wwV" id="qhK-Sn-mbw"/>
@@ -657,6 +656,7 @@
                         <outlet property="roundConstraintBar" destination="7vo-g5-A70" id="htm-b0-l31"/>
                         <outlet property="scoreView" destination="DVm-iQ-cdc" id="1fA-Gg-cfU"/>
                         <outlet property="scorerView" destination="9ye-Xl-Kua" id="eSi-Rg-hgu"/>
+                        <outlet property="settingsButton" destination="a91-4J-Tjk" id="frR-lm-1ZC"/>
                         <outlet property="timelineScrollView" destination="Xl4-xp-0TF" id="UBJ-xT-heh"/>
                         <outlet property="top4View" destination="Lcj-b4-Udg" id="wGI-LT-Ji4"/>
                         <outlet property="trendImage" destination="OQs-YT-d0P" id="aTb-7X-XZC"/>
@@ -1267,7 +1267,6 @@
                 <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="leagueInput" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="leaguePicker" candidateClass="LeaguePickerView"/>
-                <relationship kind="outlet" name="logoutButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="mainScrollView" candidateClass="MainScrollView"/>
                 <relationship kind="outlet" name="menu" candidateClass="UIView"/>
                 <relationship kind="outlet" name="menuDependingScrollView" candidateClass="MenuDependendScrollView"/>
@@ -1281,6 +1280,7 @@
                 <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="scorerView" candidateClass="ScorerView"/>
                 <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
                 <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
                 <relationship kind="outlet" name="top4View" candidateClass="Top4View"/>

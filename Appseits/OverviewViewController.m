@@ -44,6 +44,7 @@ static UIImage *cogWheel;
 @property (strong, nonatomic) IBOutlet MatchTable *gameTable;
 @property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
 @property (strong, nonatomic) IBOutlet LeaguePickerView *leaguePicker;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
 @property (strong, nonatomic) IBOutlet UILabel *pointInCurrentRound;
 @property (strong, nonatomic) IBOutlet UILabel *pointsTotal;
@@ -60,7 +61,6 @@ static UIImage *cogWheel;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet MainScrollView *mainScrollView;
 @property (nonatomic, strong) PullToRefreshView *pullToRefreshView;
-@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UIView *separatorView;
 @property (nonatomic, strong) NSDate *lastUpdated;
 @property (strong, nonatomic) IBOutlet RoundTimeConstraintRow *roundConstraintBar;
@@ -70,6 +70,7 @@ static UIImage *cogWheel;
 @synthesize gameTable = _gameTable;
 @synthesize timelineScrollView = _timelineScrollView;
 @synthesize leaguePicker = _leaguePicker;
+@synthesize settingsButton = _settingsButton;
 @synthesize pointInCurrentRound = _pointInCurrentRound;
 @synthesize pointsTotal = _pointsTotal;
 @synthesize timeline = _timeline;
@@ -85,7 +86,6 @@ static UIImage *cogWheel;
 @synthesize headerView = _headerView;
 @synthesize mainScrollView = _mainScrollView;
 @synthesize pullToRefreshView = _pullToRefreshView;
-@synthesize logoutButton = _logoutButton;
 @synthesize separatorView = _separatorView;
 @synthesize top4View = _top4View;
 @synthesize scorerView = _scorerView;
@@ -118,8 +118,6 @@ static UIImage *cogWheel;
     [super viewDidLoad];
     
     self.lastUpdated = [NSDate date];
-    
-    self.logoutButton.backgroundColor = [UIColor colorWithPatternImage:cogWheel];
     
     self.pullToRefreshView = [[PullToRefreshView alloc] initWithScrollView:self.mainScrollView];
     self.pullToRefreshView.delegate = self;
@@ -220,11 +218,11 @@ static UIImage *cogWheel;
     [self setRankingTableHeader:nil];
     [self setHeaderView:nil];
     [self setMainScrollView:nil];
-    [self setLogoutButton:nil];
     [self setTop4View:nil];
     [self setScorerView:nil];
     [self setSeparatorView:nil];
     [self setRoundConstraintBar:nil];
+    [self setSettingsButton:nil];
     [super viewDidUnload];
 }
 
