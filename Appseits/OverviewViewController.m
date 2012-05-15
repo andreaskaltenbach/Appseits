@@ -33,6 +33,7 @@
 #import "ScorerView.h"
 #import "PlayerTeamCell.h"
 #import "RoundTimeConstraintRow.h"
+#import "SettingsViewController.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -114,6 +115,8 @@ static UIImage *cogWheel;
 
 - (void) viewDidLoad {
     
+    [super viewDidLoad];
+    
     self.lastUpdated = [NSDate date];
     
     self.logoutButton.backgroundColor = [UIColor colorWithPatternImage:cogWheel];
@@ -194,7 +197,7 @@ static UIImage *cogWheel;
         
     self.gameTable.backgroundColor = [UIColor blackBackground];
     
-    [super viewDidLoad];
+    
 }
 
 - (void)viewDidUnload {
@@ -315,8 +318,8 @@ static UIImage *cogWheel;
 }
 
 - (IBAction)logout:(id)sender {
-    [BackendAdapter logout];
-    [self.navigationController popViewControllerAnimated:YES];
+    //[BackendAdapter logout];
+    //[self.navigationController popViewControllerAnimated:YES];
 }
 
 # pragma mark TeamSelectDelegate
@@ -342,6 +345,11 @@ static UIImage *cogWheel;
     if ([segue.identifier isEqualToString:@"toPlayerTeamList"]) {
         TeamViewController *teamViewController = segue.destinationViewController;
         teamViewController.overviewController = self;
+    }
+    
+    if ([segue.identifier isEqualToString:@"toSettings"]) {
+        SettingsViewController *settingsViewController = segue.destinationViewController;
+        settingsViewController.overviewViewController = self;
     }
 }
 

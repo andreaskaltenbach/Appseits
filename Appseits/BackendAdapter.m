@@ -29,6 +29,7 @@ static League *currentLeague;
 static NSString *token;
 static NSString *userName;
 static NSString *userId;
+static NSString *userEmail;
 
 static NSArray *teams;
 static NSMutableDictionary *teamDictionary;
@@ -131,6 +132,7 @@ static ScorerRound *scorerRound;
             token = [json objectForKey:@"auth"];
             userName = [json objectForKey:@"name"];
             userId = [json objectForKey:@"userId"];            
+            userEmail = email;
             
             NSLog(@"Token: %@", token);
             NSLog(@"User Name: %@", userName);
@@ -655,5 +657,8 @@ static ScorerRound *scorerRound;
     return playerDictionary;
 }
 
++ (NSString*) email {
+    return userEmail;
+}
 
 @end

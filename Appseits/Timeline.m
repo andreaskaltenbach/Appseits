@@ -16,6 +16,7 @@
 #define ROUND_LABEL_HEIGHT 30
 
 #define TOP4_AND_SCORER_OFFSET 120
+#define MIN_SECTION_PERCENTAGE 0.1f
 
 @interface Timeline()
 @property (nonatomic, strong) NSArray *timelineSections;
@@ -23,6 +24,8 @@
 @property (nonatomic, strong) NSArray *separators;
 @property float totalWidth;
 @property int games;
+
+@property (nonatomic, strong) NSArray *sectionPercentages;
 @end
 
 @implementation Timeline
@@ -34,6 +37,7 @@
 @synthesize roundLabelGradient = _roundLabelGradient;
 @synthesize separators = _separators;
 @synthesize roundSelectDelegate =  _roundSelectDelegate;
+@synthesize sectionPercentages = _sectionPercentages;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -43,6 +47,7 @@
     }
     return self;
 }
+/*
 - (void) setFrame:(CGRect)frame {
     
     float xOffset = TOP4_AND_SCORER_OFFSET;
@@ -57,19 +62,61 @@
     }
     
     [super setFrame:frame];
+}*/
+
+- (int) getMatchCount {
+    int matches = 0;
+    // count all the games
+    for (MatchRound *matchRound in self.matchRounds) {
+        matches += [matchRound.matches count];
+    }
+    return matches;
+}
+
+- (NSArray*) getSectionPercentages {
+    
+    int totalMatchCount = [self getMatchCount];
+    
+    float remainingPercentage = 1.0f;
+    
+    // iterate all matches from final to group phase (from smallest to biggest round
+    
+    int decrement = [self.matchRounds count];
+    
+    for (MatchRound *matchRound in [[self.matchRounds reverseObjectEnumerator] allObjects]) {
+        
+        float deservedPercentage = [matchRound.matches count]/totalMatchCount;
+        
+        float sectionPercentage = MAX(MIN_SECTION_PERCENTAGE, (float) [matchRound.matches count]/remainingPercentage);
+        
+        remainingPercentage -= sectionPercentage;
+        
+        
+        NSLog(@"%@: %f", matchRound.roundName, sectionPercentage);
+        
+              
+        decrement--;
+        
+        
+    }
+    
+    return nil;
+    
+    
 }
 
 -(void) setMatchRounds:(NSArray *)matchRounds {
     _matchRounds = matchRounds;
     
+    
+    NSArray* sectionPercentages = [self getSectionPercentages];
+    
+    
+    
+    
     NSMutableArray *sections = [NSMutableArray array];
     
-    // count all the games
     
-    self.games = 0;
-    for (MatchRound *matchRound in matchRounds) {
-        self.games += [matchRound.matches count];
-    }
 
     // add a section for each tournament round
     for (MatchRound *matchRound in matchRounds) {

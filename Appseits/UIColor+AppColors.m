@@ -124,5 +124,9 @@
     return [UIColor colorWithRed:1 green:1 blue:1 alpha:0.4];
 }
 
++ (UIColor *) settingsTextColor {
+    return [UIColor colorWithRed:166.0/255.0f green:166.0/255.0f blue:166.0/255.0f alpha:1];
+}
+
 
 @end

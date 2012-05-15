@@ -48,4 +48,6 @@
 + (UIColor *) credentialsSeparator;
 
 + (UIColor *) transparentWhite;
+
++ (UIColor *) settingsTextColor;
 @end

@@ -97,6 +97,9 @@
 		5B007EEF1548754B00AE6518 /* cogwheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B007EED1548754B00AE6518 /* cogwheel.png */; };
 		5B007EF01548754B00AE6518 /* cogwheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B007EEE1548754B00AE6518 /* cogwheel@2x.png */; };
 		5B00E2E715605E42007A519F /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B00E2E615605E42007A519F /* PlayerCell.m */; };
+		5B070E451562CD560033B504 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B070E441562CD560033B504 /* SettingsViewController.m */; };
+		5B070E491562CDDE0033B504 /* settingsBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B070E471562CDDE0033B504 /* settingsBackground@2x.png */; };
+		5B070E4A1562CDDE0033B504 /* settingsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B070E481562CDDE0033B504 /* settingsBackground.png */; };
 		5B1AEB041537736A00786199 /* LeaguePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AEB031537736A00786199 /* LeaguePickerView.m */; };
 		5B1EE8B115274DFC00D01564 /* MatchTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* MatchTable.m */; };
 		5B24E311154753D10011EBED /* forgotPassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B24E30F154753D10011EBED /* forgotPassword@2x.png */; };
@@ -162,6 +165,10 @@
 		5BE73EFE15604EBF0055CD4C /* PlayerTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE73EFD15604EBF0055CD4C /* PlayerTeamViewController.m */; };
 		5BE73F02156054860055CD4C /* PlayerTeamCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE73F01156054860055CD4C /* PlayerTeamCell.m */; };
 		5BE73F05156057890055CD4C /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE73F04156057890055CD4C /* PlayerViewController.m */; };
+		5BE9B4C41562D57100F0417D /* extern@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE9B4C01562D57100F0417D /* extern@2x.png */; };
+		5BE9B4C51562D57100F0417D /* extern.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE9B4C11562D57100F0417D /* extern.png */; };
+		5BE9B4C61562D57100F0417D /* envelope@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE9B4C21562D57100F0417D /* envelope@2x.png */; };
+		5BE9B4C71562D57100F0417D /* envelope.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BE9B4C31562D57100F0417D /* envelope.png */; };
 		5BEC8890153F3EFE00EDC6BA /* CPTColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEC888F153F3EFE00EDC6BA /* CPTColor+AppColors.m */; };
 		5BF4E863151D025300CC3AE9 /* MatchDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BF4E862151D025300CC3AE9 /* MatchDetailsViewController.m */; };
 		5BF617A4155EABEC0067F96E /* itemSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BF617A0155EABEC0067F96E /* itemSelected@2x.png */; };
@@ -377,6 +384,10 @@
 		5B007EEE1548754B00AE6518 /* cogwheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cogwheel@2x.png"; sourceTree = "<group>"; };
 		5B00E2E515605E42007A519F /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
 		5B00E2E615605E42007A519F /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
+		5B070E431562CD560033B504 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5B070E441562CD560033B504 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5B070E471562CDDE0033B504 /* settingsBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsBackground@2x.png"; sourceTree = "<group>"; };
+		5B070E481562CDDE0033B504 /* settingsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsBackground.png; sourceTree = "<group>"; };
 		5B1AEB021537736A00786199 /* LeaguePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguePickerView.h; sourceTree = "<group>"; };
 		5B1AEB031537736A00786199 /* LeaguePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguePickerView.m; sourceTree = "<group>"; };
 		5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TournamentRoundSelectDelegate.h; sourceTree = "<group>"; };
@@ -451,7 +462,7 @@
 		5BD38CD81542A2B300551FB9 /* ScrollTriggeringTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTriggeringTableView.h; sourceTree = "<group>"; };
 		5BD38CD91542A2B300551FB9 /* ScrollTriggeringTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTriggeringTableView.m; sourceTree = "<group>"; };
 		5BD38CDB1542A53400551FB9 /* 11-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock.png"; sourceTree = "<group>"; };
-		5BD38CDD1542BA2B00551FB9 /* RoundTimeConstraintRow.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RoundTimeConstraintRow.h; sourceTree = "<group>"; };
+		5BD38CDD1542BA2B00551FB9 /* RoundTimeConstraintRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundTimeConstraintRow.h; sourceTree = "<group>"; };
 		5BD38CDE1542BA2B00551FB9 /* RoundTimeConstraintRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundTimeConstraintRow.m; sourceTree = "<group>"; };
 		5BD38CE015433C9A00551FB9 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
 		5BD38CE115433C9A00551FB9 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
@@ -470,6 +481,10 @@
 		5BE73F01156054860055CD4C /* PlayerTeamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTeamCell.m; sourceTree = "<group>"; };
 		5BE73F03156057890055CD4C /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		5BE73F04156057890055CD4C /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		5BE9B4C01562D57100F0417D /* extern@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "extern@2x.png"; sourceTree = "<group>"; };
+		5BE9B4C11562D57100F0417D /* extern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = extern.png; sourceTree = "<group>"; };
+		5BE9B4C21562D57100F0417D /* envelope@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "envelope@2x.png"; sourceTree = "<group>"; };
+		5BE9B4C31562D57100F0417D /* envelope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = envelope.png; sourceTree = "<group>"; };
 		5BEC888E153F3EFD00EDC6BA /* CPTColor+AppColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CPTColor+AppColors.h"; sourceTree = "<group>"; };
 		5BEC888F153F3EFE00EDC6BA /* CPTColor+AppColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CPTColor+AppColors.m"; sourceTree = "<group>"; };
 		5BF4E861151D025300CC3AE9 /* MatchDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDetailsViewController.h; sourceTree = "<group>"; };
@@ -505,6 +520,12 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5BE9B4C01562D57100F0417D /* extern@2x.png */,
+				5BE9B4C11562D57100F0417D /* extern.png */,
+				5BE9B4C21562D57100F0417D /* envelope@2x.png */,
+				5BE9B4C31562D57100F0417D /* envelope.png */,
+				5B070E471562CDDE0033B504 /* settingsBackground@2x.png */,
+				5B070E481562CDDE0033B504 /* settingsBackground.png */,
 				5BF617B0155ECDB70067F96E /* scorer.png */,
 				5BF617B1155ECDB70067F96E /* scorer@2x.png */,
 				5BF617AC155EB8A60067F96E /* predictionSelector@2x.png */,
@@ -911,6 +932,8 @@
 				5BE73EFD15604EBF0055CD4C /* PlayerTeamViewController.m */,
 				5BE73F03156057890055CD4C /* PlayerViewController.h */,
 				5BE73F04156057890055CD4C /* PlayerViewController.m */,
+				5B070E431562CD560033B504 /* SettingsViewController.h */,
+				5B070E441562CD560033B504 /* SettingsViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -1065,6 +1088,12 @@
 				5BF617AF155EB8A60067F96E /* predictionSelector.png in Resources */,
 				5BF617B2155ECDB70067F96E /* scorer.png in Resources */,
 				5BF617B3155ECDB70067F96E /* scorer@2x.png in Resources */,
+				5B070E491562CDDE0033B504 /* settingsBackground@2x.png in Resources */,
+				5B070E4A1562CDDE0033B504 /* settingsBackground.png in Resources */,
+				5BE9B4C41562D57100F0417D /* extern@2x.png in Resources */,
+				5BE9B4C51562D57100F0417D /* extern.png in Resources */,
+				5BE9B4C61562D57100F0417D /* envelope@2x.png in Resources */,
+				5BE9B4C71562D57100F0417D /* envelope.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1134,6 +1163,7 @@
 				5BE73F02156054860055CD4C /* PlayerTeamCell.m in Sources */,
 				5BE73F05156057890055CD4C /* PlayerViewController.m in Sources */,
 				5B00E2E715605E42007A519F /* PlayerCell.m in Sources */,
+				5B070E451562CD560033B504 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

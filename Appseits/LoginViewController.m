@@ -124,6 +124,8 @@ static UIImage *forgotPasswordButtonImage;
     [self.spinner stopAnimating];
     self.spinner.hidden = YES;
     self.loginView.hidden = NO;
+    self.emailInput.text = nil;
+    self.passwordInput.text = nil;
 }
 
 - (void) login {
