@@ -8,21 +8,28 @@
 
 #import "CPTColor+AppColors.h"
 #import "CorePlot-CocoaTouch.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation CPTColor (AppColors)
 
 +(CPTColor *) darkGreen {
-    CGColorRef color = [[UIColor colorWithRed:49.0/255.0 green:110.0/255.0 blue:9.0/255.0 alpha:1] CGColor];
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    float rgb[4] = {49.0/255.0, 110.0/255.0, 9.0/255.0, 1.0};
+    CGColorRef color = CGColorCreate(colorSpace, rgb);
     return [CPTColor colorWithCGColor:color];
 }
 
 +(CPTColor *) middleGreen {
-    CGColorRef color = [[UIColor colorWithRed:68.0/255.0 green:130.0/255.0 blue:2.0/255.0 alpha:1] CGColor];
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    float rgb[4] = {68.0/255.0, 130.0/255.0, 2.0/255.0, 1.0};
+    CGColorRef color = CGColorCreate(colorSpace, rgb);
     return [CPTColor colorWithCGColor:color];
 }
 
 +(CPTColor *) lightGreen {
-    CGColorRef color = [[UIColor colorWithRed:82.0/255.0 green:150.0/255.0 blue:10.0/255.0 alpha:1] CGColor];
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    float rgb[4] = {82.0/255.0, 150.0/255.0, 10.0/255.0, 1.0};
+    CGColorRef color = CGColorCreate(colorSpace, rgb);
     return [CPTColor colorWithCGColor:color];
 }
 
