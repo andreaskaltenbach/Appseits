@@ -59,9 +59,7 @@ static UIFont *messageFont;
 - (void) layoutNotificationBox:(NSString*) message {
     float messageWidth = self.view.frame.size.width - 2*OFFSET;
     CGSize messageSize = [message sizeWithFont:messageFont constrainedToSize:CGSizeMake(messageWidth, 9999) lineBreakMode:UILineBreakModeWordWrap];
-    NSLog(@"Height: %f", messageSize.height);
     self.notificationBox.frame = CGRectMake(0, -(messageSize.height + 2*OFFSET), self.view.frame.size.width, messageSize.height+ 2*OFFSET);
-    NSLog(@"Not box: %f %f %f %f", self.notificationBox.frame.origin.x, self.notificationBox.frame.origin.y, self.notificationBox.frame.size.width, self.notificationBox.frame.size.height);
     self.notificationLabel.text = message;
     self.notificationBox.hidden = NO;
     
@@ -69,12 +67,12 @@ static UIFont *messageFont;
 
     }];
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        // animate fly-in
         self.notificationBox.frame = CGRectMake(0, 0, self.view.frame.size.width, messageSize.height+ 2*OFFSET);
-        
-        NSLog(@"Not box animated: %f %f %f %f", 0.0f, 0.0f, self.view.frame.size.width, messageSize.height+ 2*OFFSET);
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.3 delay:5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             self.notificationBox.frame = CGRectMake(0, -(messageSize.height + 2*OFFSET), self.view.frame.size.width, messageSize.height+ 2*OFFSET);
+            // animate fly-out after 5 seconds
         } completion:^(BOOL finished) {
             
         }];

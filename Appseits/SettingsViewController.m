@@ -41,7 +41,7 @@ static NSURL *facebookWebUrl;
     envelopeImage = [UIImage imageNamed:@"envelope"];
     externImage = [UIImage imageNamed:@"extern"];
     
-    facebookAppUrl = [NSURL URLWithString:@"fb://feed"];
+    facebookAppUrl = [NSURL URLWithString:@"fb://group/219951568114692/"];
     facebookWebUrl = [NSURL URLWithString:@"http://www.facebook.com/groups/219951568114692/"];
 }
 
