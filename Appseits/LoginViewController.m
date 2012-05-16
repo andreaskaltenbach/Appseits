@@ -67,7 +67,7 @@ static UIImage *forgotPasswordButtonImage;
     self.scrollView.contentOffset = CGPointMake(0, SCROLL_OFFET);
 
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:backgroundImage];
+        self.scrollView.backgroundColor = [[UIColor alloc] initWithPatternImage:backgroundImage];
     }
 
     
@@ -122,8 +122,11 @@ static UIImage *forgotPasswordButtonImage;
     [self.spinner stopAnimating];
     self.spinner.hidden = YES;
     self.loginView.hidden = NO;
-    self.emailInput.text = nil;
-    self.passwordInput.text = nil;
+    
+    if (![BackendAdapter credentialsAvailable]) {
+        self.emailInput.text = nil;
+        self.passwordInput.text = nil;
+    }
 }
 
 - (void) login {
@@ -171,7 +174,7 @@ static UIImage *forgotPasswordButtonImage;
         [self login];
     }
     else {
-        [self showError:@"Epost och lösenord krävs, Epost och lösenord krävs"];
+        [self showError:@"Epost och lösenord krävs"];
     }
 }
 
