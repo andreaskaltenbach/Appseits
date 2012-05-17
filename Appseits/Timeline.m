@@ -47,28 +47,13 @@
     }
     return self;
 }
-/*
-
-    
-    float xOffset = TOP4_AND_SCORER_OFFSET;
-    float widthPerGame = frame.size.width/self.games;
-
-    for (TimelineRoundSection *section in self.subviews) {
-        
-        if ([section isKindOfClass:[TimelineRoundSection class]]) {
-            [section resize:xOffset :widthPerGame];
-            xOffset += section.frame.size.width;
-        }
-    }
-    
-    
-}*/
-
-
 
 - (void) setFrame:(CGRect)frame {
     [super setFrame:frame];
-    
+    [self layoutSections];
+}
+
+- (void) layoutSections {
     NSArray *sectionWidths = [SectionWidth sectionWidths:self.timelineSections :self.frame.size.width];
     
     // resize all sections
@@ -78,23 +63,14 @@
         [sectionWidth.section resize:xOffset :sectionWidth.width];
         xOffset+= sectionWidth.width;
     }
-    
-    
 }
 
 -(void) setMatchRounds:(NSArray *)matchRounds {
     _matchRounds = matchRounds;
     
     
-    //NSArray* sectionPercentages = [self getSectionPercentages];
-    
-    
-    
-    
     NSMutableArray *sections = [NSMutableArray array];
     
-    
-
     // add a section for each tournament round
     for (MatchRound *matchRound in matchRounds) {
         TimelineRoundSection *roundSection = [TimelineRoundSection initWithRound:matchRound :self];
@@ -109,6 +85,7 @@
     
     [self selectTournamentRound:[self.timelineSections objectAtIndex:0]];
     
+    [self layoutSections];
     [self setNeedsDisplay];
 }
 
@@ -121,7 +98,7 @@
             [roundSection unhighlight];
         }
     }
-    [self setNeedsDisplay];
+    
     
     [self.roundSelectDelegate tournamentRoundSelected:section.round];
 }
