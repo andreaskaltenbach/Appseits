@@ -661,4 +661,11 @@ static ScorerRound *scorerRound;
     return userEmail;
 }
 
++ (Top4Round*) top4Round {
+    return top4Round;
+}
++ (ScorerRound*) scorerRound {
+    return scorerRound;
+}
+
 @end

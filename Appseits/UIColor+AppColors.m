@@ -128,5 +128,11 @@
     return [UIColor colorWithRed:166.0/255.0f green:166.0/255.0f blue:166.0/255.0f alpha:1];
 }
 
++ (NSArray *) timelineGradient {
+    return [NSArray arrayWithObjects: 
+            [UIColor whiteColor],
+            [UIColor colorWithRed:202.0/255.0f green:202.0/255.0f blue:202.0/255.0f alpha:1],
+            nil];
+}
 
 @end

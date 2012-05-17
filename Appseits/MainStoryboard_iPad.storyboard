@@ -133,65 +133,69 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="redraw" id="wLZ-Gk-DmQ" customClass="Timeline">
-                                <rect key="frame" x="0.0" y="90" width="768" height="100"/>
+                            <view contentMode="scaleToFill" id="Uyt-t7-YLU" userLabel="separator view">
+                                <rect key="frame" x="0.0" y="232" width="768" height="48"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" id="MhS-82-R74" customClass="Top4AndScorerRoundLabel">
+                                <rect key="frame" x="0.0" y="190" width="170" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="redraw" id="wLZ-Gk-DmQ" customClass="Timeline">
+                                <rect key="frame" x="170" y="90" width="598" height="142"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="47" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="oRb-Na-Nm6">
-                                <rect key="frame" x="0.0" y="71" width="67" height="28"/>
+                                <rect key="frame" x="14" y="110" width="66" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.24313727020000001" green="0.49411767719999999" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TOTALT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="iSt-UP-1Q6">
-                                <rect key="frame" x="90" y="125" width="54" height="21"/>
+                                <rect key="frame" x="118" y="159" width="54" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="47p" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="fMA-uj-POW">
-                                <rect key="frame" x="45" y="107" width="29" height="28"/>
+                                <rect key="frame" x="73" y="141" width="29" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="0.24313727020000001" green="0.49411767719999999" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="241" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="ZBw-4e-CY6">
-                                <rect key="frame" x="75" y="70" width="58" height="29"/>
+                                <rect key="frame" x="89" y="109" width="58" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.73333334920000004" green="0.78039222959999999" blue="0.78431379800000001" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="47p" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="grr-s9-h89">
-                                <rect key="frame" x="90" y="107" width="29" height="28"/>
+                                <rect key="frame" x="118" y="141" width="29" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="0.24313727020000001" green="0.49411767719999999" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="OMGÅNG" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="l2U-aQ-pFB">
-                                <rect key="frame" x="39" y="125" width="55" height="21"/>
+                                <rect key="frame" x="67" y="159" width="55" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="xfi-DI-Fl5">
-                                <rect key="frame" x="67" y="70" width="14" height="29"/>
+                                <rect key="frame" x="81" y="109" width="14" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.73333334920000004" green="0.78039222959999999" blue="0.78431379800000001" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="Uyt-t7-YLU" userLabel="separator view">
-                                <rect key="frame" x="0.0" y="190" width="768" height="48"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3AG-i7-oEt" customClass="MatchTable">
                                 <rect key="frame" x="0.0" y="238" width="320" height="766"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
@@ -425,6 +429,7 @@
                         <outlet property="pointsTotal" destination="grr-s9-h89" id="43I-sF-s0j"/>
                         <outlet property="separatorView" destination="Uyt-t7-YLU" id="UkN-EK-wyj"/>
                         <outlet property="timeline" destination="wLZ-Gk-DmQ" id="y9B-3Q-IgZ"/>
+                        <outlet property="top4AndScorerRoundLabel" destination="MhS-82-R74" id="BqY-Ct-8KS"/>
                     </connections>
                 </viewController>
             </objects>
@@ -458,6 +463,110 @@
         <image name="matchLock.png" width="11" height="13"/>
         <image name="stroke.png" width="100" height="16"/>
     </resources>
+    <classes>
+        <class className="AppseitsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppseitsViewController.h"/>
+        </class>
+        <class className="LeaguePickerView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaguePickerView.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="AppseitsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="emailInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="forgotPasswordButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="inputBackgroundView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loginView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="passwordInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="separator" candidateClass="UIView"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="MainScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainScrollView.h"/>
+        </class>
+        <class className="MatchCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchCell.h"/>
+        </class>
+        <class className="MatchPredictionCell" superclassName="MatchCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchPredictionCell.h"/>
+        </class>
+        <class className="MatchResultCell" superclassName="MatchCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchResultCell.h"/>
+        </class>
+        <class className="MatchTable" superclassName="ScrollTriggeringTableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchTable.h"/>
+        </class>
+        <class className="Menu" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Menu.h"/>
+        </class>
+        <class className="MenuDependendScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuDependendScrollView.h"/>
+        </class>
+        <class className="OverviewViewController" superclassName="AppseitsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverviewViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gameTable" candidateClass="MatchTable"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="leagueInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="leaguePicker" candidateClass="LeaguePickerView"/>
+                <relationship kind="outlet" name="mainScrollView" candidateClass="MainScrollView"/>
+                <relationship kind="outlet" name="menu" candidateClass="UIView"/>
+                <relationship kind="outlet" name="menuDependingScrollView" candidateClass="MenuDependendScrollView"/>
+                <relationship kind="outlet" name="pointInCurrentRound" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pointsTotal" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rankingMenuItem" candidateClass="UIView"/>
+                <relationship kind="outlet" name="rankingTable" candidateClass="RankingTable"/>
+                <relationship kind="outlet" name="rankingTableHeader" candidateClass="UIView"/>
+                <relationship kind="outlet" name="resultMenuItem" candidateClass="UIView"/>
+                <relationship kind="outlet" name="roundConstraintBar" candidateClass="RoundTimeConstraintRow"/>
+                <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scorerView" candidateClass="ScorerView"/>
+                <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
+                <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
+                <relationship kind="outlet" name="top4AndScorerRoundLabel" candidateClass="Top4AndScorerRoundLabel"/>
+                <relationship kind="outlet" name="top4View" candidateClass="Top4View"/>
+                <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="RankingTable" superclassName="ScrollTriggeringTableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingTable.h"/>
+        </class>
+        <class className="RoundTimeConstraintRow" superclassName="SSGradientView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundTimeConstraintRow.h"/>
+        </class>
+        <class className="SSBorderedView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSBorderedView.h"/>
+        </class>
+        <class className="SSGradientView" superclassName="SSBorderedView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSGradientView.h"/>
+        </class>
+        <class className="ScorerView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScorerView.h"/>
+        </class>
+        <class className="ScrollTriggeringTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScrollTriggeringTableView.h"/>
+        </class>
+        <class className="Timeline" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
+        </class>
+        <class className="TimelineRoundLabel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineRoundLabel.h"/>
+        </class>
+        <class className="TimelineScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
+        </class>
+        <class className="Top4AndScorerRoundLabel" superclassName="TimelineRoundLabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Top4AndScorerRoundLabel.h"/>
+        </class>
+        <class className="Top4View" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Top4View.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -10,9 +10,9 @@
 #import "MatchRound.h"
 #import "UIColor+AppColors.h"
 #import <QuartzCore/QuartzCore.h>
-#import "TimelineRoundSection.h"
 #import "SSGradientView.h"
 #import "SectionWidth.h"
+#import "MatchSectionSelector.h"
 
 #define ROUND_LABEL_HEIGHT 30
 
@@ -43,6 +43,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        self.backgroundColor = [UIColor clearColor];
         
     }
     return self;
@@ -71,42 +72,40 @@
     
     NSMutableArray *sections = [NSMutableArray array];
     
-    // add a section for each tournament round
+    // add a section selector for each match round
     for (MatchRound *matchRound in matchRounds) {
-        TimelineRoundSection *roundSection = [TimelineRoundSection initWithRound:matchRound :self];
-        [sections addObject:roundSection];
+        MatchSectionSelector *sectionSelector = [[MatchSectionSelector alloc] init];
+        sectionSelector.round = matchRound;
+        [sectionSelector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionTapped:)]];
+        [self addSubview:sectionSelector];
+        [sections addObject:sectionSelector];
     }
     self.timelineSections = sections;
     
-    // create left border
-    UIView *leftBorder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, self.frame.size.height)];
-    leftBorder.backgroundColor = [UIColor grayColor];
-    [self addSubview:leftBorder];
-    
-    [self selectTournamentRound:[self.timelineSections objectAtIndex:0]];
+       
+    [self selectMatchRound:[self.timelineSections objectAtIndex:0]];
     
     [self layoutSections];
     [self setNeedsDisplay];
 }
 
-- (void) selectTournamentRound:(TimelineRoundSection*) section {
-    for (TimelineRoundSection *roundSection in self.timelineSections) {
-        if (roundSection == section) {
-            [roundSection highlight];
+- (void) selectMatchRound:(MatchSectionSelector*) sectionSel {
+   for (MatchSectionSelector *sectionSelector in self.timelineSections) {
+        if (sectionSelector == sectionSel) {
+            [sectionSelector setSelected:YES];
         }
         else {
-            [roundSection unhighlight];
+            [sectionSelector setSelected:NO];
         }
     }
     
-    
-    [self.roundSelectDelegate tournamentRoundSelected:section.round];
+    [self.roundSelectDelegate tournamentRoundSelected:sectionSel.round];
 }
          
 - (void) sectionTapped:(UITapGestureRecognizer*) sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
-        TimelineRoundSection *section = (TimelineRoundSection*) sender.view;
-        [self selectTournamentRound:section];
+        MatchSectionSelector *sectionSelector = (MatchSectionSelector*) sender.view;
+        [self selectMatchRound:sectionSelector];
     }
 }
 

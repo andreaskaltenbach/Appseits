@@ -7,9 +7,7 @@
 //
 
 #import "SectionWidth.h"
-#import "TimelineRoundSection.h"
 #import "Timeline.h"
-
 
 @implementation SectionWidth
 
@@ -18,13 +16,8 @@
 
 + (NSArray*) sectionWidths:(NSArray*) timelineSections:(float) timelineWidth {
     
-    NSLog(@"Timeline width:%f", timelineWidth);
-    
     int matchCount = [self getMatchCount:timelineSections];
-    NSLog(@"Match count: %i", matchCount);
     float matchWidth = timelineWidth/matchCount;
-    NSLog(@"Match width: %f", matchWidth);
-
     
     // get the remaining width after all sections got their minimum
     float remainingWidth = timelineWidth - [timelineSections count] * MIN_SECTION_WIDTH;
@@ -34,33 +27,25 @@
     int matchesWithMoreWidth = [self matchesDemandingMoreWidth:timelineSections :matchWidth];
 
     NSMutableArray *sectionWidths = [NSMutableArray array];
-    for (TimelineRoundSection *section in timelineSections) {
+    for (MatchSectionSelector *section in timelineSections) {
         float sectionWidth = (float) matchWidth * [section.round.matches count];
         if (sectionWidth > MIN_SECTION_WIDTH) {
             // section demands more width -> calculate it
             
             float sectionWidth = MIN_SECTION_WIDTH + ((float)[section.round.matches count] / matchesWithMoreWidth) *remainingWidth;
-            NSLog(@"Section width:%f", sectionWidth);
             [sectionWidths addObject:[SectionWidth init:section :sectionWidth]];
-            
-
         }
         else {
             // section fits into the minimum width
             [sectionWidths addObject:[SectionWidth init:section :MIN_SECTION_WIDTH]];
         }
-        
-    }
-    
-    
-                     
-                    
+    }               
     return sectionWidths;
 }
 
 + (int) matchesDemandingMoreWidth:(NSArray*) sections:(float) matchWidth  {
     int matchesWithMoreWidth = 0;
-    for (TimelineRoundSection* section in sections) {
+    for (MatchSectionSelector* section in sections) {
         float sectionWidth = (float) matchWidth * [section.round.matches count];
         if (sectionWidth > MIN_SECTION_WIDTH) {
             matchesWithMoreWidth += [section.round.matches count];
@@ -72,13 +57,13 @@
 + (int) getMatchCount:(NSArray*) sections {
     int matches = 0;
     // count all the games
-    for (TimelineRoundSection *section in sections) {
+    for (MatchSectionSelector *section in sections) {
         matches += [section.round.matches count];
     }
     return matches;
 }
 
-+ (SectionWidth*) init:(TimelineRoundSection*) section:(float) width {
++ (SectionWidth*) init:(MatchSectionSelector*) section:(float) width {
     SectionWidth* sectionwidth = [[SectionWidth alloc] init];
     sectionwidth.section = section;
     sectionwidth.width = width;

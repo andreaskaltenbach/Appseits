@@ -9,6 +9,7 @@
 #import "TimelineScrollViewRoundSection.h"
 #import "UIColor+AppColors.h"
 #import "SSGradientView.h"
+#import "LockImageProvider.h"
 
 #define LABEL_MARGIN_LEFT 10
 #define LABEL_ICON_MARGIN 5
@@ -17,12 +18,6 @@
 
 #define LOCK_SIZE 24
 #define LOCK_X_OFFSET 100
-
-static UIImage *lockClosedInset;
-static UIImage *lockOpenInset;
-static UIImage *lockGreenOpen;
-static UIImage *lockGrayOpen;
-static UIImage *lockGreenClosed;
 
 @interface TimelineScrollViewRoundSection()
 @property (nonatomic, strong) SSGradientView *selectedGradient;
@@ -35,13 +30,7 @@ static UIImage *lockGreenClosed;
 @synthesize selectedGradient = _selectedGradient;
 @synthesize lockIcon = _lockIcon;
 
-+ (void) initialize {
-    lockClosedInset = [UIImage imageNamed:@"lockClosedInset"];
-    lockOpenInset = [UIImage imageNamed:@"lockOpenInset"];
-    lockGreenOpen = [UIImage imageNamed:@"lockGreenOpen"];
-    lockGrayOpen = [UIImage imageNamed:@"lockGrayOpen"];
-    lockGreenClosed = [UIImage imageNamed:@"lockGreenClosed"];
-}
+
 
 + (TimelineScrollViewRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent {
     
@@ -84,36 +73,13 @@ static UIImage *lockGreenClosed;
 }
 
 - (void) setSelected:(BOOL) selected {
+
+    self.lockIcon.image = [LockImageProvider imageForTournamentRound:self.round :selected];
     if (selected) {
         self.selectedGradient.hidden = NO;
-        self.lockIcon.image = [self selectedImage];
     }
     else {
         self.selectedGradient.hidden = YES;
-        self.lockIcon.image = [self deselectedImage];
-    }
-}
-
-- (UIImage*) selectedImage {
-    if (self.round.open) {
-        return lockOpenInset;
-    }
-    else {
-        return lockClosedInset;
-    }
-}
-
-- (UIImage*) deselectedImage {
-    if (self.round.open) {
-        if (self.round.allPredictionsDone) {
-            return lockGreenOpen;
-        }
-        else {
-            return lockGrayOpen;
-        }
-    }
-    else {
-        return lockGreenClosed;
     }
 }
 

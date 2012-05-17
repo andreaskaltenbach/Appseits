@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TimelineRoundSection.h"
+#import "MatchSectionSelector.h"
 
 @interface SectionWidth : NSObject
 
-@property (nonatomic, strong) TimelineRoundSection* section;
+@property (nonatomic, strong) MatchSectionSelector* section;
 @property float width;
 
 + (NSArray*) sectionWidths:(NSArray*) timelineSections:(float) timelineWidth;

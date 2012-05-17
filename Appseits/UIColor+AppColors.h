@@ -50,4 +50,6 @@
 + (UIColor *) transparentWhite;
 
 + (UIColor *) settingsTextColor;
+
++ (NSArray *) timelineGradient;
 @end

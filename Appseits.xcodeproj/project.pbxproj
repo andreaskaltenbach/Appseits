@@ -101,6 +101,12 @@
 		5B070E491562CDDE0033B504 /* settingsBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B070E471562CDDE0033B504 /* settingsBackground@2x.png */; };
 		5B070E4A1562CDDE0033B504 /* settingsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B070E481562CDDE0033B504 /* settingsBackground.png */; };
 		5B1695C51565486200F939D1 /* SectionWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695C41565486200F939D1 /* SectionWidth.m */; };
+		5B1695C91565564C00F939D1 /* selectionArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B1695C71565564C00F939D1 /* selectionArrow@2x.png */; };
+		5B1695CA1565564C00F939D1 /* selectionArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B1695C81565564C00F939D1 /* selectionArrow.png */; };
+		5B1695CF15655A8600F939D1 /* MatchSectionSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695CE15655A8600F939D1 /* MatchSectionSelector.m */; };
+		5B1695D2156562F100F939D1 /* LockImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695D1156562F100F939D1 /* LockImageProvider.m */; };
+		5B1695D51565747A00F939D1 /* TimelineRoundLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695D41565747A00F939D1 /* TimelineRoundLabel.m */; };
+		5B1695D815657A8100F939D1 /* Top4AndScorerRoundLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695D715657A8100F939D1 /* Top4AndScorerRoundLabel.m */; };
 		5B1AEB041537736A00786199 /* LeaguePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AEB031537736A00786199 /* LeaguePickerView.m */; };
 		5B1EE8B115274DFC00D01564 /* MatchTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* MatchTable.m */; };
 		5B24E311154753D10011EBED /* forgotPassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B24E30F154753D10011EBED /* forgotPassword@2x.png */; };
@@ -159,7 +165,6 @@
 		5BD38CE615433CC100551FB9 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD38CE415433CC100551FB9 /* arrow@2x.png */; };
 		5BD4B14115238F06004FE21B /* progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4B14015238F06004FE21B /* progress.png */; };
 		5BD4B144152395AF004FE21B /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4B143152395AF004FE21B /* separator.png */; };
-		5BD4B15415262263004FE21B /* TimelineRoundSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4B15315262263004FE21B /* TimelineRoundSection.m */; };
 		5BDBD2A21562F35400F0E9C7 /* AppseitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBD2A11562F35400F0E9C7 /* AppseitsViewController.m */; };
 		5BE5E09F154A88BA00AA2679 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5E09E154A88BA00AA2679 /* InfoPlist.strings */; };
 		5BE5E0A2154A88C700AA2679 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE5E0A0154A88C700AA2679 /* MainStoryboard_iPad.storyboard */; };
@@ -392,6 +397,16 @@
 		5B070E481562CDDE0033B504 /* settingsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsBackground.png; sourceTree = "<group>"; };
 		5B1695C31565486200F939D1 /* SectionWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionWidth.h; sourceTree = "<group>"; };
 		5B1695C41565486200F939D1 /* SectionWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionWidth.m; sourceTree = "<group>"; };
+		5B1695C71565564C00F939D1 /* selectionArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectionArrow@2x.png"; sourceTree = "<group>"; };
+		5B1695C81565564C00F939D1 /* selectionArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectionArrow.png; sourceTree = "<group>"; };
+		5B1695CB156556BB00F939D1 /* MatchSectionSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchSectionSelector.h; sourceTree = "<group>"; };
+		5B1695CE15655A8600F939D1 /* MatchSectionSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchSectionSelector.m; sourceTree = "<group>"; };
+		5B1695D0156562F100F939D1 /* LockImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockImageProvider.h; sourceTree = "<group>"; };
+		5B1695D1156562F100F939D1 /* LockImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockImageProvider.m; sourceTree = "<group>"; };
+		5B1695D31565747900F939D1 /* TimelineRoundLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineRoundLabel.h; sourceTree = "<group>"; };
+		5B1695D41565747A00F939D1 /* TimelineRoundLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineRoundLabel.m; sourceTree = "<group>"; };
+		5B1695D615657A8000F939D1 /* Top4AndScorerRoundLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Top4AndScorerRoundLabel.h; sourceTree = "<group>"; };
+		5B1695D715657A8100F939D1 /* Top4AndScorerRoundLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Top4AndScorerRoundLabel.m; sourceTree = "<group>"; };
 		5B1AEB021537736A00786199 /* LeaguePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguePickerView.h; sourceTree = "<group>"; };
 		5B1AEB031537736A00786199 /* LeaguePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguePickerView.m; sourceTree = "<group>"; };
 		5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TournamentRoundSelectDelegate.h; sourceTree = "<group>"; };
@@ -474,8 +489,6 @@
 		5BD38CE415433CC100551FB9 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		5BD4B14015238F06004FE21B /* progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress.png; sourceTree = "<group>"; };
 		5BD4B143152395AF004FE21B /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator.png; sourceTree = "<group>"; };
-		5BD4B15215262263004FE21B /* TimelineRoundSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineRoundSection.h; sourceTree = "<group>"; };
-		5BD4B15315262263004FE21B /* TimelineRoundSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineRoundSection.m; sourceTree = "<group>"; };
 		5BDBD2A01562F35400F0E9C7 /* AppseitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppseitsViewController.h; sourceTree = "<group>"; };
 		5BDBD2A11562F35400F0E9C7 /* AppseitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppseitsViewController.m; sourceTree = "<group>"; };
 		5BE5E09E154A88BA00AA2679 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
@@ -526,6 +539,8 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5B1695C71565564C00F939D1 /* selectionArrow@2x.png */,
+				5B1695C81565564C00F939D1 /* selectionArrow.png */,
 				5BE9B4C01562D57100F0417D /* extern@2x.png */,
 				5BE9B4C11562D57100F0417D /* extern.png */,
 				5BE9B4C21562D57100F0417D /* envelope@2x.png */,
@@ -641,6 +656,8 @@
 				4EE945D4152B228200E6A62A /* Constants.m */,
 				4ED46E4615594BEA00B75582 /* VersionEnforcer.h */,
 				4ED46E4715594BEA00B75582 /* VersionEnforcer.m */,
+				5B1695D0156562F100F939D1 /* LockImageProvider.h */,
+				5B1695D1156562F100F939D1 /* LockImageProvider.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -863,8 +880,6 @@
 				4E21509D152480A800DBBC81 /* Menu.m */,
 				4E059D071525FFBC005ABD20 /* Timeline.h */,
 				4E059D081525FFBC005ABD20 /* Timeline.m */,
-				5BD4B15215262263004FE21B /* TimelineRoundSection.h */,
-				5BD4B15315262263004FE21B /* TimelineRoundSection.m */,
 				5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */,
 				5B1EE8AF15274DFC00D01564 /* MatchTable.h */,
 				5B1EE8B015274DFC00D01564 /* MatchTable.m */,
@@ -906,6 +921,12 @@
 				5B00E2E615605E42007A519F /* PlayerCell.m */,
 				5B1695C31565486200F939D1 /* SectionWidth.h */,
 				5B1695C41565486200F939D1 /* SectionWidth.m */,
+				5B1695CB156556BB00F939D1 /* MatchSectionSelector.h */,
+				5B1695CE15655A8600F939D1 /* MatchSectionSelector.m */,
+				5B1695D31565747900F939D1 /* TimelineRoundLabel.h */,
+				5B1695D41565747A00F939D1 /* TimelineRoundLabel.m */,
+				5B1695D615657A8000F939D1 /* Top4AndScorerRoundLabel.h */,
+				5B1695D715657A8100F939D1 /* Top4AndScorerRoundLabel.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1104,6 +1125,8 @@
 				5BA13B3915650D9D006CB46E /* matchResultCellSelected.png in Resources */,
 				5BA13B3A15650D9D006CB46E /* matchResultCell@2x.png in Resources */,
 				5BA13B3B15650D9D006CB46E /* matchResultCell.png in Resources */,
+				5B1695C91565564C00F939D1 /* selectionArrow@2x.png in Resources */,
+				5B1695CA1565564C00F939D1 /* selectionArrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1129,7 +1152,6 @@
 				4E21509E152480A800DBBC81 /* Menu.m in Sources */,
 				4E059D061525FA2E005ABD20 /* NSDate+DateConversion.m in Sources */,
 				4E059D091525FFBC005ABD20 /* Timeline.m in Sources */,
-				5BD4B15415262263004FE21B /* TimelineRoundSection.m in Sources */,
 				5BBE7ECB15263A9800FA980E /* SSGradientView.m in Sources */,
 				5BBE7ECF15263ADA00FA980E /* SSBorderedView.m in Sources */,
 				5BBE7ED215263B2100FA980E /* SSDrawingUtilities.m in Sources */,
@@ -1176,6 +1198,10 @@
 				5B070E451562CD560033B504 /* SettingsViewController.m in Sources */,
 				5BDBD2A21562F35400F0E9C7 /* AppseitsViewController.m in Sources */,
 				5B1695C51565486200F939D1 /* SectionWidth.m in Sources */,
+				5B1695CF15655A8600F939D1 /* MatchSectionSelector.m in Sources */,
+				5B1695D2156562F100F939D1 /* LockImageProvider.m in Sources */,
+				5B1695D51565747A00F939D1 /* TimelineRoundLabel.m in Sources */,
+				5B1695D815657A8100F939D1 /* Top4AndScorerRoundLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

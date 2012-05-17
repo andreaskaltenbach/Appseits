@@ -10,6 +10,8 @@
 #import "League.h"
 #import "MatchRound.h"
 #import "Top4Tips.h"
+#import "ScorerRound.h"
+#import "Top4Round.h"
 
 typedef void(^FinishedBlock)(bool success);
 typedef void(^TeamsFetchedBlock)(NSArray* teams);
@@ -30,6 +32,8 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 
 + (NSArray*) matchRounds;
 + (NSArray*) tournamentRounds;
++ (Top4Round*) top4Round;
++ (ScorerRound*) scorerRound;
 + (NSArray*) rankings;
 + (NSArray*) leagues;
 + (NSArray*) teamList;
