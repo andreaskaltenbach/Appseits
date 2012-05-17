@@ -24,8 +24,7 @@
 }
 
 - (BOOL) allPredictionsDone {
-    // TODO - return YES if all three scorers are set
-    return NO;
+    return self.scorerTips.firstPlayer && self.scorerTips.secondPlayer && self.scorerTips.thirdPlayer;
 }
 
 @end

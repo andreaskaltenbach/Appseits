@@ -70,5 +70,14 @@
 }
 
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // if we selected a player previously, we jump to this player right away
+    if (self.overviewViewController.currentPlayerSelection) {
+        int index = [self.team.players indexOfObject:self.overviewViewController.currentPlayerSelection];
+        [self.table selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+    }
+}
 
 @end

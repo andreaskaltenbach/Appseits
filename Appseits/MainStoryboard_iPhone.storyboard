@@ -726,7 +726,7 @@
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="qPP-FU-1da">
-                                            <rect key="frame" x="22" y="16" width="16" height="16"/>
+                                            <rect key="frame" x="23" y="17" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -791,14 +791,14 @@
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="vP8-it-ggX">
-                                            <rect key="frame" x="22" y="16" width="16" height="16"/>
+                                            <rect key="frame" x="23" y="17" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="1j4-57-w0D" kind="push" id="Zrd-g8-UX1"/>
+                                    <segue destination="1j4-57-w0D" kind="push" identifier="toPlayerList" id="Zrd-g8-UX1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -858,7 +858,7 @@
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="YxO-SS-LM5">
-                                            <rect key="frame" x="22" y="16" width="16" height="16"/>
+                                            <rect key="frame" x="23" y="17" width="16" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>

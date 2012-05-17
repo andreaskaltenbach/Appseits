@@ -41,10 +41,5 @@
     return tips;
 }
 
-- (BOOL) isValid {
-    return (![self.firstTeam isEqual:self.secondTeam]
-        && ![self.secondTeam isEqual:self.thirdTeam]
-        && ![self.thirdTeam isEqual:self.fourthTeam]);
-}
 
 @end

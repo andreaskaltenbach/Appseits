@@ -15,4 +15,6 @@
 @property BOOL selectable;
 
 - (id) init:(UIImage*) image;
+
+- (void) setLocked:(BOOL) locked;
 @end

@@ -16,5 +16,4 @@
 
 @property (nonatomic, strong) Top4Tips *top4Tips;
 
-
 @end

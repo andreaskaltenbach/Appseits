@@ -17,7 +17,7 @@
 
 @implementation ScorerView
 
-@synthesize scorerTips = _scorerTips;
+@synthesize scorerRound = _scorerRound;
 @synthesize delegate = _delegate;
 @synthesize scorerSelectors = _scorerSelectors;
 
@@ -40,7 +40,9 @@
             selector.frame = CGRectMake(5, yOffset, 310, 50);    
             [self addSubview:selector];
             
-            [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playerSelection:)]];
+            if (self.scorerRound.open) {
+                [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playerSelection:)]];
+            }
             
             yOffset+= MARGIN;
         }
@@ -55,19 +57,25 @@
     [self.delegate selectPlayerFor:index + 1 currentSelection:scorerSelector.player];
 }
 
-- (void) setScorerTips:(ScorerTips *)scorerTips {
-    _scorerTips = scorerTips;
+- (void) setScorerRound:(ScorerRound *)scorerRound {
+    _scorerRound = scorerRound;
     
-    [[self.scorerSelectors objectAtIndex:0] setPlayer:scorerTips.firstPlayer];
-    [[self.scorerSelectors objectAtIndex:1] setPlayer:scorerTips.secondPlayer];
-    [[self.scorerSelectors objectAtIndex:2] setPlayer:scorerTips.thirdPlayer];
+    [[self.scorerSelectors objectAtIndex:0] setPlayer:scorerRound.scorerTips.firstPlayer];
+    [[self.scorerSelectors objectAtIndex:1] setPlayer:scorerRound.scorerTips.secondPlayer];
+    [[self.scorerSelectors objectAtIndex:2] setPlayer:scorerRound.scorerTips.thirdPlayer];
+    
+    if (!scorerRound.open) {
+        for (ScorerSelector *selector in self.scorerSelectors) {
+            selector.locked = YES;
+        }
+    }
 }
 
 - (void) updatePlace:(int) place withPlayer:(Player*) player: (FinishedBlock) onDone {
     
-    if (place == 1) self.scorerTips.firstPlayer = player;
-    if (place == 2) self.scorerTips.secondPlayer = player;
-    if (place == 3) self.scorerTips.thirdPlayer = player;
+    if (place == 1) self.scorerRound.scorerTips.firstPlayer = player;
+    if (place == 2) self.scorerRound.scorerTips.secondPlayer = player;
+    if (place == 3) self.scorerRound.scorerTips.thirdPlayer = player;
     
     ScorerSelector *selector = [self.scorerSelectors objectAtIndex:place - 1];
     selector.player = player;

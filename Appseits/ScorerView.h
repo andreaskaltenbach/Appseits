@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Player.h"
-#import "ScorerTips.h"
+#import "ScorerRound.h"
 #import "BackendAdapter.h"
 
 @protocol PlayerSelectDelegate
@@ -17,7 +17,7 @@
 
 @interface ScorerView : UIView
 
-@property (nonatomic, strong) ScorerTips *scorerTips;
+@property (nonatomic, strong) ScorerRound *scorerRound;
 @property (nonatomic, strong) id<PlayerSelectDelegate> delegate;
 
 - (void) updatePlace:(int) place withPlayer:(Player*) player: (FinishedBlock) onDone;

@@ -9,6 +9,7 @@
 #import "Selector.h"
 
 static UIImage *background;
+static UIImage *lock;
 
 @interface Selector()
 @property (nonatomic, strong) UIImageView *image;
@@ -24,7 +25,20 @@ static UIImage *background;
 
 + (void) initialize {
     background = [UIImage imageNamed:@"predictionSelector"];
+    lock = [UIImage imageNamed:@"matchLock"];
 }
+
+- (void) setLocked:(BOOL) locked {
+    
+    if (locked) {
+        // add lock image
+        UIImageView *lockImageView = [[UIImageView alloc] initWithImage:lock];
+        lockImageView.frame = CGRectMake(290, (48 - lock.size.height) / 2, lock.size.width, lock.size.height);
+        [self addSubview:lockImageView];
+    }
+}
+
+
 
 - (id) init:(UIImage*) image {
     
@@ -38,7 +52,7 @@ static UIImage *background;
         [self addSubview:self.image];
         
         // setup label
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(120, 0, 180, 50)];
+        self.label = [[UILabel alloc] initWithFrame:CGRectMake(115, 0, 165, 50)];
         self.label.backgroundColor = [UIColor clearColor];
         self.label.adjustsFontSizeToFitWidth = YES;
         self.label.font = [UIFont boldSystemFontOfSize:22];

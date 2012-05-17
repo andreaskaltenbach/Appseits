@@ -23,10 +23,7 @@
 }
 
 - (BOOL) allPredictionsDone {
-    // TODO - return YES if all four teams are set
-    return NO;
+    return self.top4Tips.firstTeam && self.top4Tips.secondTeam && self.top4Tips.thirdTeam && self.top4Tips.fourthTeam;
 }
-
-
 
 @end

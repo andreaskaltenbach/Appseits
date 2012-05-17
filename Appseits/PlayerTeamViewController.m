@@ -9,7 +9,12 @@
 #import "PlayerTeamViewController.h"
 #import "PlayerViewController.h"
 
+@interface PlayerTeamViewController()
+@property BOOL jumpedToPlayer;
+@end
+
 @implementation PlayerTeamViewController
+@synthesize jumpedToPlayer = _jumpedToPlayer;
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
@@ -23,4 +28,19 @@
 - (IBAction)backButtonPushed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    // if we selected a player previously, we jump to this player right away
+    if (self.overviewController.currentPlayerSelection && !self.jumpedToPlayer) {
+        self.jumpedToPlayer = YES;
+        
+        Team* team = self.overviewController.currentPlayerSelection.team;
+        int index = [self.overviewController.allTeams indexOfObject:team];
+        [self.table selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+        [self performSegueWithIdentifier:@"toPlayerList" sender:self];
+    }
+}
+
 @end

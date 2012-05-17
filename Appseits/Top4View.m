@@ -17,7 +17,7 @@
 @implementation Top4View
 
 @synthesize top4Selectors = _top4Selectors;
-@synthesize top4Tips = _top4Tips;
+@synthesize top4Round = _top4Round;
 @synthesize delegate = _delegate;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -41,7 +41,9 @@
             selector.frame = CGRectMake(5, yOffset, 310, 50);    
             [self addSubview:selector];
             
-            [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(teamSelection:)]];
+            if (self.top4Round.open) {
+                [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(teamSelection:)]];
+            }
             
             yOffset+= MARGIN;
         }
@@ -56,20 +58,26 @@
     [self.delegate selectTeamFor:index + 1 currentSelection:teamSelector.team];
 }
 
-- (void) setTop4Tips:(Top4Tips *)top4Tips {
-    _top4Tips = top4Tips;
+- (void) setTop4Round:(Top4Round *)top4Round {
+    _top4Round = top4Round;
     
-    [[self.top4Selectors objectAtIndex:0] setTeam:top4Tips.firstTeam];
-    [[self.top4Selectors objectAtIndex:1] setTeam:top4Tips.secondTeam];
-    [[self.top4Selectors objectAtIndex:2] setTeam:top4Tips.thirdTeam];
-    [[self.top4Selectors objectAtIndex:3] setTeam:top4Tips.fourthTeam];
+    [[self.top4Selectors objectAtIndex:0] setTeam:top4Round.top4Tips.firstTeam];
+    [[self.top4Selectors objectAtIndex:1] setTeam:top4Round.top4Tips.secondTeam];
+    [[self.top4Selectors objectAtIndex:2] setTeam:top4Round.top4Tips.thirdTeam];
+    [[self.top4Selectors objectAtIndex:3] setTeam:top4Round.top4Tips.fourthTeam];
+    
+    if (!top4Round.open) {
+        for (Top4Selector *selector in self.top4Selectors) {
+            selector.locked = YES;
+        }
+    }
 }
 
 - (void) updatePlace:(int) place withTeam:(Team*) team: (FinishedBlock) onDone {
-    if (place == 1) self.top4Tips.firstTeam = team;
-    if (place == 2) self.top4Tips.secondTeam = team;
-    if (place == 3) self.top4Tips.thirdTeam = team;
-    if (place == 4) self.top4Tips.fourthTeam = team;
+    if (place == 1) self.top4Round.top4Tips.firstTeam = team;
+    if (place == 2) self.top4Round.top4Tips.secondTeam = team;
+    if (place == 3) self.top4Round.top4Tips.thirdTeam = team;
+    if (place == 4) self.top4Round.top4Tips.fourthTeam = team;
     
     Top4Selector *selector = [self.top4Selectors objectAtIndex:place - 1];
     selector.team = team;
