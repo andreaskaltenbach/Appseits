@@ -33,6 +33,7 @@
     if (self) {
         self.roundLabels = [NSMutableArray array];
         self.flexibleRoundLabels = [NSMutableArray array];
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }

@@ -42,7 +42,7 @@ static UIColor* leftBorderColor;
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.backgroundColor = [UIColor blueColor];
+        self.backgroundColor = [UIColor clearColor];
         
         [self initLabel];
     }
@@ -79,21 +79,6 @@ static UIColor* leftBorderColor;
     UIView *leftBorder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, GRADIENT_HEIGHT)];
     leftBorder.backgroundColor = leftBorderColor;
     [self addSubview:leftBorder];
-}
-
-- (id)init {
-    self = [super init];
-
-    if (self) {
-        int referenceWidth = 100;
-        self.frame = CGRectMake(0, 0, referenceWidth, HEIGHT);
-        
-        [self initLabel];
-                
-        
-   
-    }
-    return self;
 }
 
 - (void) setRound:(TournamentRound *)round {
