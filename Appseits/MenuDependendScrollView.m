@@ -36,6 +36,8 @@ typedef enum {
 
 - (void)setFrame:(CGRect)frame {
     
+    [super setFrame:frame];
+    
     self.contentSize = CGSizeMake(2*frame.size.width, frame.size.height);
     
 
@@ -61,10 +63,7 @@ typedef enum {
         default:
             break;
     }
-    
-    [super setFrame:frame];
 }
-
 
 - (void) scrollToRankings {
     [self setContentOffset:CGPointMake(self.frame.size.width, 0) animated:YES];
