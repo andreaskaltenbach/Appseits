@@ -29,7 +29,6 @@
     round.startDate = [NSDate fromJsonTimestamp:[jsonData objectForKey:@"startDate"]];
     round.lockDate = [NSDate fromJsonTimestamp:[jsonData objectForKey:@"lockedDate"]];
     
-    NSLog(@"Start date %@", round.startDate);
     return round;
 }
 
@@ -69,9 +68,6 @@
     }
     return YES;
 }
-
-
-
 
 
 @end
