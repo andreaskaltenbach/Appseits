@@ -27,7 +27,7 @@
     int matchesWithMoreWidth = [self matchesDemandingMoreWidth:timelineSections :matchWidth];
 
     NSMutableArray *sectionWidths = [NSMutableArray array];
-    for (MatchSectionSelector *section in timelineSections) {
+    for (MatchRoundGraph *section in timelineSections) {
         float sectionWidth = (float) matchWidth * [section.round.matches count];
         if (sectionWidth > MIN_SECTION_WIDTH) {
             // section demands more width -> calculate it
@@ -45,7 +45,7 @@
 
 + (int) matchesDemandingMoreWidth:(NSArray*) sections:(float) matchWidth  {
     int matchesWithMoreWidth = 0;
-    for (MatchSectionSelector* section in sections) {
+    for (MatchRoundGraph* section in sections) {
         float sectionWidth = (float) matchWidth * [section.round.matches count];
         if (sectionWidth > MIN_SECTION_WIDTH) {
             matchesWithMoreWidth += [section.round.matches count];
@@ -57,13 +57,13 @@
 + (int) getMatchCount:(NSArray*) sections {
     int matches = 0;
     // count all the games
-    for (MatchSectionSelector *section in sections) {
+    for (MatchRoundGraph *section in sections) {
         matches += [section.round.matches count];
     }
     return matches;
 }
 
-+ (SectionWidth*) init:(MatchSectionSelector*) section:(float) width {
++ (SectionWidth*) init:(MatchRoundGraph*) section:(float) width {
     SectionWidth* sectionwidth = [[SectionWidth alloc] init];
     sectionwidth.section = section;
     sectionwidth.width = width;

@@ -43,8 +43,6 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    NSLog(@"Active!");
-    
     VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
     [versionEnforcer checkVersion:@"http://dl.dropbox.com/u/15650647/version.json"];
 }

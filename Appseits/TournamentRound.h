@@ -22,4 +22,6 @@
 
 - (BOOL) allPredictionsDone;
 
++ (TournamentRound*) activeRound:(NSArray*) tournamentRounds;
+
 @end

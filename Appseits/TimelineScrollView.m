@@ -96,10 +96,16 @@ static UIImage *darkRight;
     self.sections = [NSArray arrayWithArray:sections];
     
     // select current round
-    TimelineScrollViewRoundSection *activeSection = [self activeSection];
+    TournamentRound* activeRound = [TournamentRound activeRound:self.tournamentRounds];
     
-    [self selectTournamentRound:activeSection];
+    TimelineScrollViewRoundSection *activeSection;
     
+    for (TimelineScrollViewRoundSection *section in self.sections) {
+        if (section.round == activeRound) {
+            activeSection = section;
+            [self selectTournamentRound:section];
+        }
+    }
     
     // put in the progress overlay
     self.progressView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, self.frame.size.height)];
@@ -115,16 +121,7 @@ static UIImage *darkRight;
     [self setNeedsDisplay];
 }
 
-- (TimelineScrollViewRoundSection*) activeSection {
-    for (TimelineScrollViewRoundSection *section in self.sections) {
-        if (section.round.open) {
-            return section;
-        }
-    }
 
-    // if no active section can be identified, we take the first one
-    return [self.sections objectAtIndex:0];
-}
 
 - (void) selectTournamentRound:(TimelineScrollViewRoundSection*) selectedSection {
     

@@ -6,30 +6,23 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MatchSectionSelector.h"
+#import "MatchRoundGraph.h"
 #import "SSGradientView.h"
 #import "UIColor+AppColors.h"
 #import "LockImageProvider.h"
 #import "TimelineRoundLabel.h"
 
-#define TOTAL_HEIGHT 142
 #define GRAPH_HEIGHT 100
-#define SELECTOR_HEIGHT 132
-#define GRADIENT_HEIGHT 32
-#define BAR_HEIGHT 32
-
 
 static UIImage* arrow;
 static UIColor* leftUpperBorderColor;
 static UIColor* leftLowerBorderColor;
 
-@interface MatchSectionSelector()
-@property (nonatomic, strong) TimelineRoundLabel *roundLabel;
+@interface MatchRoundGraph()
 @end
 
-@implementation MatchSectionSelector
+@implementation MatchRoundGraph
 
-@synthesize roundLabel = _roundLabel;
 @synthesize round = _round;
 
 + (void) initialize {
@@ -45,7 +38,7 @@ static UIColor* leftLowerBorderColor;
         
         int referenceWidth = 100;
         
-        self.frame = CGRectMake(0, 0, referenceWidth, TOTAL_HEIGHT);
+        self.frame = CGRectMake(0, 0, referenceWidth, GRAPH_HEIGHT);
         
         self.backgroundColor = [UIColor clearColor];
         
@@ -53,19 +46,8 @@ static UIColor* leftLowerBorderColor;
         UIView *leftUpperBorder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, GRAPH_HEIGHT)];
         leftUpperBorder.backgroundColor = leftUpperBorderColor;
         [self addSubview:leftUpperBorder];
-        
-        // create round label
-        self.roundLabel = [[TimelineRoundLabel alloc] init];
-        self.roundLabel.frame = CGRectMake(0, GRAPH_HEIGHT, referenceWidth, GRADIENT_HEIGHT);
-        self.roundLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        [self addSubview:self.roundLabel];
     }
     return self;
-}
-
-- (void) setRound:(MatchRound *)round {
-    _round = round;
-    self.roundLabel.round = round;
 }
 
 - (void) resize:(float) xOffset: (float) newWidth {
@@ -73,10 +55,6 @@ static UIColor* leftLowerBorderColor;
     frame.origin.x = xOffset;
     frame.size.width = newWidth;
     self.frame = frame;
-}
-
-- (void) setSelected:(BOOL) selected {
-    [self.roundLabel setSelected:selected];
 }
 
 @end

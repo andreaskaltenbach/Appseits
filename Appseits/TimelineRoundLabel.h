@@ -16,4 +16,6 @@
 
 - (void) setSelected:(BOOL) selected;
 
+- (void) resize:(float) xOffset: (float) newWidth;
+
 @end

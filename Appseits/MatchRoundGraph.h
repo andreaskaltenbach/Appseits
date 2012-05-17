@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "MatchRound.h"
 
-@interface MatchSectionSelector : UIView
+@interface MatchRoundGraph : UIView
 
 @property (nonatomic, strong) MatchRound *round;
-
-- (void) setSelected:(BOOL) selected;
 
 - (void) resize:(float) xOffset: (float) newWidth;
 

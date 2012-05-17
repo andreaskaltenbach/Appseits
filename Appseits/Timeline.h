@@ -14,6 +14,5 @@
 @interface Timeline : UIView
 
 @property (nonatomic, strong) NSArray *matchRounds;
-@property (nonatomic, strong) id<TournamentRoundSelectDelegate> roundSelectDelegate;
 
 @end

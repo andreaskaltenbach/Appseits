@@ -38,15 +38,13 @@ static UIColor* leftBorderColor;
     leftBorderColor = [UIColor colorWithRed:87.0/255.0f green:115.0f/255.0f blue:118.0f/255.0f alpha:1];
 }
 
-- (id) initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
+- (id) initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"%f, %f", self.frame.size.height, self.frame.size.width);
         
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor blueColor];
         
         [self initLabel];
-        
     }
     return self;
 }
@@ -76,6 +74,11 @@ static UIColor* leftBorderColor;
     self.arrowView.frame = CGRectMake((self.frame.size.width - arrow.size.width)/2, GRADIENT_HEIGHT, arrow.size.width, arrow.size.height);
     self.arrowView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin;
     [self addSubview: self.arrowView];
+    
+    // add left border
+    UIView *leftBorder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, GRADIENT_HEIGHT)];
+    leftBorder.backgroundColor = leftBorderColor;
+    [self addSubview:leftBorder];
 }
 
 - (id)init {
@@ -87,9 +90,7 @@ static UIColor* leftBorderColor;
         
         [self initLabel];
                 
-        UIView *leftBorder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, GRADIENT_HEIGHT)];
-        leftBorder.backgroundColor = leftBorderColor;
-        [self addSubview:leftBorder];
+        
    
     }
     return self;
@@ -114,5 +115,11 @@ static UIColor* leftBorderColor;
     self.lockView.image = [LockImageProvider imageForTournamentRound:self.round :selected];
 }
 
+- (void) resize:(float) xOffset: (float) newWidth {
+    CGRect frame  = self.frame;
+    frame.origin.x = xOffset;
+    frame.size.width = newWidth;
+    self.frame = frame;
+}
 
 @end

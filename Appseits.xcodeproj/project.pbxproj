@@ -102,10 +102,9 @@
 		5B1695C51565486200F939D1 /* SectionWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695C41565486200F939D1 /* SectionWidth.m */; };
 		5B1695C91565564C00F939D1 /* selectionArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B1695C71565564C00F939D1 /* selectionArrow@2x.png */; };
 		5B1695CA1565564C00F939D1 /* selectionArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B1695C81565564C00F939D1 /* selectionArrow.png */; };
-		5B1695CF15655A8600F939D1 /* MatchSectionSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695CE15655A8600F939D1 /* MatchSectionSelector.m */; };
+		5B1695CF15655A8600F939D1 /* MatchRoundGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695CE15655A8600F939D1 /* MatchRoundGraph.m */; };
 		5B1695D2156562F100F939D1 /* LockImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695D1156562F100F939D1 /* LockImageProvider.m */; };
 		5B1695D51565747A00F939D1 /* TimelineRoundLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695D41565747A00F939D1 /* TimelineRoundLabel.m */; };
-		5B1695D815657A8100F939D1 /* Top4AndScorerRoundLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695D715657A8100F939D1 /* Top4AndScorerRoundLabel.m */; };
 		5B1AEB041537736A00786199 /* LeaguePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AEB031537736A00786199 /* LeaguePickerView.m */; };
 		5B1EE8B115274DFC00D01564 /* MatchTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* MatchTable.m */; };
 		5B24E311154753D10011EBED /* forgotPassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B24E30F154753D10011EBED /* forgotPassword@2x.png */; };
@@ -118,6 +117,8 @@
 		5B3E6FFE1549BD7900190AE9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3E6FFD1549BD7900190AE9 /* libz.dylib */; };
 		5B4A9F201549D61400592EA2 /* pointsBackgroundGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4A9F1A1549D61400592EA2 /* pointsBackgroundGreen@2x.png */; };
 		5B4A9F211549D61400592EA2 /* pointsBackgroundGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4A9F1B1549D61400592EA2 /* pointsBackgroundGreen.png */; };
+		5B71B1C41565918C00AF0849 /* RoundSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B71B1C31565918C00AF0849 /* RoundSelector.m */; };
+		5B71B1C71565973800AF0849 /* CompositeTop4AndScorerRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B71B1C61565973800AF0849 /* CompositeTop4AndScorerRound.m */; };
 		5B76D2B9152A38BA00225BEB /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B76D2B8152A38BA00225BEB /* League.m */; };
 		5B7CE636153C9EB200EB7794 /* BackendAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7CE635153C9EB200EB7794 /* BackendAdapter.m */; };
 		5B7F2B12152901D1006A3687 /* MenuDependendScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7F2B11152901D1006A3687 /* MenuDependendScrollView.m */; };
@@ -396,14 +397,12 @@
 		5B1695C41565486200F939D1 /* SectionWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionWidth.m; sourceTree = "<group>"; };
 		5B1695C71565564C00F939D1 /* selectionArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectionArrow@2x.png"; sourceTree = "<group>"; };
 		5B1695C81565564C00F939D1 /* selectionArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectionArrow.png; sourceTree = "<group>"; };
-		5B1695CB156556BB00F939D1 /* MatchSectionSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchSectionSelector.h; sourceTree = "<group>"; };
-		5B1695CE15655A8600F939D1 /* MatchSectionSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchSectionSelector.m; sourceTree = "<group>"; };
+		5B1695CB156556BB00F939D1 /* MatchRoundGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MatchRoundGraph.h; sourceTree = "<group>"; };
+		5B1695CE15655A8600F939D1 /* MatchRoundGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchRoundGraph.m; sourceTree = "<group>"; };
 		5B1695D0156562F100F939D1 /* LockImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockImageProvider.h; sourceTree = "<group>"; };
 		5B1695D1156562F100F939D1 /* LockImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockImageProvider.m; sourceTree = "<group>"; };
 		5B1695D31565747900F939D1 /* TimelineRoundLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineRoundLabel.h; sourceTree = "<group>"; };
 		5B1695D41565747A00F939D1 /* TimelineRoundLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineRoundLabel.m; sourceTree = "<group>"; };
-		5B1695D615657A8000F939D1 /* Top4AndScorerRoundLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Top4AndScorerRoundLabel.h; sourceTree = "<group>"; };
-		5B1695D715657A8100F939D1 /* Top4AndScorerRoundLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Top4AndScorerRoundLabel.m; sourceTree = "<group>"; };
 		5B1AEB021537736A00786199 /* LeaguePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguePickerView.h; sourceTree = "<group>"; };
 		5B1AEB031537736A00786199 /* LeaguePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguePickerView.m; sourceTree = "<group>"; };
 		5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TournamentRoundSelectDelegate.h; sourceTree = "<group>"; };
@@ -422,6 +421,10 @@
 		5B3E6FFD1549BD7900190AE9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5B4A9F1A1549D61400592EA2 /* pointsBackgroundGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pointsBackgroundGreen@2x.png"; sourceTree = "<group>"; };
 		5B4A9F1B1549D61400592EA2 /* pointsBackgroundGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointsBackgroundGreen.png; sourceTree = "<group>"; };
+		5B71B1C21565918C00AF0849 /* RoundSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundSelector.h; sourceTree = "<group>"; };
+		5B71B1C31565918C00AF0849 /* RoundSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundSelector.m; sourceTree = "<group>"; };
+		5B71B1C51565973800AF0849 /* CompositeTop4AndScorerRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompositeTop4AndScorerRound.h; sourceTree = "<group>"; };
+		5B71B1C61565973800AF0849 /* CompositeTop4AndScorerRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompositeTop4AndScorerRound.m; sourceTree = "<group>"; };
 		5B76D2B7152A38BA00225BEB /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
 		5B76D2B8152A38BA00225BEB /* League.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = League.m; sourceTree = "<group>"; };
 		5B7CE634153C9EB200EB7794 /* BackendAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendAdapter.h; sourceTree = "<group>"; };
@@ -845,6 +848,8 @@
 				4E38B70D155ADAC800DD691C /* ScorerRound.m */,
 				4E38B70F155ADB0D00DD691C /* ScorerTips.h */,
 				4E38B710155ADB0E00DD691C /* ScorerTips.m */,
+				5B71B1C51565973800AF0849 /* CompositeTop4AndScorerRound.h */,
+				5B71B1C61565973800AF0849 /* CompositeTop4AndScorerRound.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -916,12 +921,12 @@
 				5B00E2E615605E42007A519F /* PlayerCell.m */,
 				5B1695C31565486200F939D1 /* SectionWidth.h */,
 				5B1695C41565486200F939D1 /* SectionWidth.m */,
-				5B1695CB156556BB00F939D1 /* MatchSectionSelector.h */,
-				5B1695CE15655A8600F939D1 /* MatchSectionSelector.m */,
+				5B1695CB156556BB00F939D1 /* MatchRoundGraph.h */,
+				5B1695CE15655A8600F939D1 /* MatchRoundGraph.m */,
 				5B1695D31565747900F939D1 /* TimelineRoundLabel.h */,
 				5B1695D41565747A00F939D1 /* TimelineRoundLabel.m */,
-				5B1695D615657A8000F939D1 /* Top4AndScorerRoundLabel.h */,
-				5B1695D715657A8100F939D1 /* Top4AndScorerRoundLabel.m */,
+				5B71B1C21565918C00AF0849 /* RoundSelector.h */,
+				5B71B1C31565918C00AF0849 /* RoundSelector.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1192,10 +1197,11 @@
 				5B070E451562CD560033B504 /* SettingsViewController.m in Sources */,
 				5BDBD2A21562F35400F0E9C7 /* AppseitsViewController.m in Sources */,
 				5B1695C51565486200F939D1 /* SectionWidth.m in Sources */,
-				5B1695CF15655A8600F939D1 /* MatchSectionSelector.m in Sources */,
+				5B1695CF15655A8600F939D1 /* MatchRoundGraph.m in Sources */,
 				5B1695D2156562F100F939D1 /* LockImageProvider.m in Sources */,
 				5B1695D51565747A00F939D1 /* TimelineRoundLabel.m in Sources */,
-				5B1695D815657A8100F939D1 /* Top4AndScorerRoundLabel.m in Sources */,
+				5B71B1C41565918C00AF0849 /* RoundSelector.m in Sources */,
+				5B71B1C71565973800AF0849 /* CompositeTop4AndScorerRound.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

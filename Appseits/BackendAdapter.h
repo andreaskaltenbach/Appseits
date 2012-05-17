@@ -32,6 +32,7 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 
 + (NSArray*) matchRounds;
 + (NSArray*) tournamentRounds;
++ (NSArray*) combinedTop4AndScorerRoundAndMatchRounds;
 + (Top4Round*) top4Round;
 + (ScorerRound*) scorerRound;
 + (NSArray*) rankings;

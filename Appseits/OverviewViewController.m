@@ -33,7 +33,7 @@
 #import "PlayerTeamCell.h"
 #import "RoundTimeConstraintRow.h"
 #import "SettingsViewController.h"
-#import "Top4AndScorerRoundLabel.h"
+#import "RoundSelector.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -64,7 +64,7 @@ static UIImage *cogWheel;
 @property (weak, nonatomic) IBOutlet UIView *separatorView;
 @property (nonatomic, strong) NSDate *lastUpdated;
 @property (strong, nonatomic) IBOutlet RoundTimeConstraintRow *roundConstraintBar;
-@property (weak, nonatomic) IBOutlet Top4AndScorerRoundLabel *top4AndScorerRoundLabel;
+@property (weak, nonatomic) IBOutlet RoundSelector *roundSelector;
 @end
 
 @implementation OverviewViewController
@@ -97,7 +97,7 @@ static UIImage *cogWheel;
 @synthesize currentPlayerSelection = _currentPlayerSelection;
 @synthesize lastUpdated = _lastUpdated;
 @synthesize roundConstraintBar = _roundConstraintBar;
-@synthesize top4AndScorerRoundLabel = _top4AndScorerRoundLabel;
+@synthesize roundSelector = _roundSelector;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -149,10 +149,9 @@ static UIImage *cogWheel;
     self.timelineScrollView.backgroundColor = [UIColor blackBackground];
 
     // setup of the timeline (iPad)
-    self.timeline.roundSelectDelegate = self;
     self.timeline.matchRounds = [BackendAdapter matchRounds];
-    self.top4AndScorerRoundLabel.top4Round = [BackendAdapter top4Round];
-    self.top4AndScorerRoundLabel.scorerRound = [BackendAdapter scorerRound];
+    self.roundSelector.roundSelectDelegate = self;
+    self.roundSelector.tournamentRounds = [BackendAdapter combinedTop4AndScorerRoundAndMatchRounds];
 
     // setup league input
     self.leagueInput.backgroundColor = [UIColor clearColor];
@@ -233,7 +232,7 @@ static UIImage *cogWheel;
     [self setSeparatorView:nil];
     [self setRoundConstraintBar:nil];
     [self setSettingsButton:nil];
-    [self setTop4AndScorerRoundLabel:nil];
+    [self setRoundSelector:nil];
     [super viewDidUnload];
 }
 

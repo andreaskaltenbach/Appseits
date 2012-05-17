@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MatchSectionSelector.h"
+#import "MatchRoundGraph.h"
 
 @interface SectionWidth : NSObject
 
-@property (nonatomic, strong) MatchSectionSelector* section;
+@property (nonatomic, strong) MatchRoundGraph* section;
 @property float width;
 
 + (NSArray*) sectionWidths:(NSArray*) timelineSections:(float) timelineWidth;

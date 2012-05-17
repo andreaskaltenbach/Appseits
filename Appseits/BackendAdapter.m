@@ -16,6 +16,7 @@
 #import "Top4Round.h"
 #import "Team.h"
 #import "ScorerRound.h"
+#import "CompositeTop4AndScorerRound.h"
 
 static NSString *leagueUrl;
 static NSString *rankingUrl;
@@ -449,6 +450,11 @@ static ScorerRound *scorerRound;
 
 + (NSArray*) tournamentRounds {
     NSArray *staticRound = [NSArray arrayWithObjects:top4Round, scorerRound, nil];
+    return [staticRound arrayByAddingObjectsFromArray:rounds];
+}
+
++ (NSArray*) combinedTop4AndScorerRoundAndMatchRounds {
+    NSArray *staticRound = [NSArray arrayWithObjects:[CompositeTop4AndScorerRound compositeRound:top4Round :scorerRound], nil];
     return [staticRound arrayByAddingObjectsFromArray:rounds];
 }
 

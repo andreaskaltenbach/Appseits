@@ -178,78 +178,84 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="Uyt-t7-YLU" userLabel="separator view">
-                                <rect key="frame" x="0.0" y="222" width="768" height="48"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="MhS-82-R74" customClass="Top4AndScorerRoundLabel">
-                                <rect key="frame" x="0.0" y="190" width="170" height="42"/>
+                            <view contentMode="scaleToFill" id="etm-yF-R9V" userLabel="score view">
+                                <rect key="frame" x="0.0" y="90" width="170" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="47" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="oRb-Na-Nm6">
+                                        <rect key="frame" x="12" y="19" width="66" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="0.24313727020000001" green="0.49411767719999999" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TOTALT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="iSt-UP-1Q6">
+                                        <rect key="frame" x="66" y="73" width="54" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="47p" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="fMA-uj-POW">
+                                        <rect key="frame" x="70" y="52" width="29" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" red="0.24313727020000001" green="0.49411767719999999" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="241" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="ZBw-4e-CY6">
+                                        <rect key="frame" x="89" y="17" width="58" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="0.73333334920000004" green="0.78039222959999999" blue="0.78431379800000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="47p" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="grr-s9-h89">
+                                        <rect key="frame" x="115" y="52" width="29" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" red="0.24313727020000001" green="0.49411767719999999" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="OMGÅNG" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="l2U-aQ-pFB">
+                                        <rect key="frame" x="110" y="73" width="55" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="xfi-DI-Fl5">
+                                        <rect key="frame" x="78" y="19" width="14" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" red="0.73333334920000004" green="0.78039222959999999" blue="0.78431379800000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                             </view>
                             <view contentMode="redraw" id="wLZ-Gk-DmQ" customClass="Timeline">
-                                <rect key="frame" x="170" y="90" width="598" height="142"/>
+                                <rect key="frame" x="170" y="90" width="598" height="100"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="47" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="oRb-Na-Nm6">
-                                <rect key="frame" x="14" y="110" width="66" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" red="0.24313727020000001" green="0.49411767719999999" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TOTALT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="iSt-UP-1Q6">
-                                <rect key="frame" x="118" y="159" width="54" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="47p" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="fMA-uj-POW">
-                                <rect key="frame" x="73" y="141" width="29" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <color key="textColor" red="0.24313727020000001" green="0.49411767719999999" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="241" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="ZBw-4e-CY6">
-                                <rect key="frame" x="89" y="109" width="58" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" red="0.73333334920000004" green="0.78039222959999999" blue="0.78431379800000001" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="47p" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="grr-s9-h89">
-                                <rect key="frame" x="118" y="141" width="29" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <color key="textColor" red="0.24313727020000001" green="0.49411767719999999" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="OMGÅNG" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="l2U-aQ-pFB">
-                                <rect key="frame" x="67" y="159" width="55" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="xfi-DI-Fl5">
-                                <rect key="frame" x="81" y="109" width="14" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" red="0.73333334920000004" green="0.78039222959999999" blue="0.78431379800000001" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="pQY-K5-3Y3" customClass="MenuDependendScrollView">
-                                <rect key="frame" x="0.0" y="270" width="768" height="734"/>
+                                <rect key="frame" x="0.0" y="190" width="768" height="814"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="hfd-uX-1aV" userLabel="matchView">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="734"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="814"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
+                                            <view contentMode="scaleToFill" id="n0m-O5-jTH" customClass="RoundSelector">
+                                                <rect key="frame" x="0.0" y="0.0" width="768" height="42"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="Uyt-t7-YLU" userLabel="separator view">
+                                                <rect key="frame" x="0.0" y="32" width="768" height="48"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="3AG-i7-oEt" customClass="MatchTable">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="734"/>
+                                                <rect key="frame" x="0.0" y="80" width="320" height="734"/>
                                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <prototypes>
@@ -472,7 +478,7 @@
                                         </subviews>
                                     </view>
                                     <view contentMode="scaleToFill" id="OXc-2e-6U7" userLabel="ranking view">
-                                        <rect key="frame" x="768" y="0.0" width="768" height="734"/>
+                                        <rect key="frame" x="768" y="82" width="768" height="734"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </view>
                                 </subviews>
@@ -490,9 +496,9 @@
                         <outlet property="pointsTotal" destination="grr-s9-h89" id="43I-sF-s0j"/>
                         <outlet property="rankingMenuItem" destination="SOG-ik-bpZ" id="A9n-lS-hBy"/>
                         <outlet property="resultMenuItem" destination="rEr-HP-hf3" id="dgy-Tf-Hhi"/>
+                        <outlet property="roundSelector" destination="n0m-O5-jTH" id="wU3-AH-eVE"/>
                         <outlet property="separatorView" destination="Uyt-t7-YLU" id="UkN-EK-wyj"/>
                         <outlet property="timeline" destination="wLZ-Gk-DmQ" id="y9B-3Q-IgZ"/>
-                        <outlet property="top4AndScorerRoundLabel" destination="MhS-82-R74" id="BqY-Ct-8KS"/>
                     </connections>
                 </viewController>
                 <tapGestureRecognizer id="MRR-wv-jYu">
@@ -592,19 +598,22 @@
                 <relationship kind="outlet" name="rankingTableHeader" candidateClass="UIView"/>
                 <relationship kind="outlet" name="resultMenuItem" candidateClass="UIView"/>
                 <relationship kind="outlet" name="roundConstraintBar" candidateClass="RoundTimeConstraintRow"/>
+                <relationship kind="outlet" name="roundSelector" candidateClass="RoundSelector"/>
                 <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="scorerView" candidateClass="ScorerView"/>
                 <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
                 <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
-                <relationship kind="outlet" name="top4AndScorerRoundLabel" candidateClass="Top4AndScorerRoundLabel"/>
                 <relationship kind="outlet" name="top4View" candidateClass="Top4View"/>
                 <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="RankingTable" superclassName="ScrollTriggeringTableView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingTable.h"/>
+        </class>
+        <class className="RoundSelector" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundSelector.h"/>
         </class>
         <class className="RoundTimeConstraintRow" superclassName="SSGradientView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundTimeConstraintRow.h"/>
@@ -624,14 +633,8 @@
         <class className="Timeline" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
         </class>
-        <class className="TimelineRoundLabel" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineRoundLabel.h"/>
-        </class>
         <class className="TimelineScrollView" superclassName="UIScrollView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
-        </class>
-        <class className="Top4AndScorerRoundLabel" superclassName="TimelineRoundLabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Top4AndScorerRoundLabel.h"/>
         </class>
         <class className="Top4View" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Top4View.h"/>

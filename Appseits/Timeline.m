@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SSGradientView.h"
 #import "SectionWidth.h"
-#import "MatchSectionSelector.h"
+#import "MatchRoundGraph.h"
 
 #define ROUND_LABEL_HEIGHT 30
 
@@ -36,7 +36,6 @@
 @synthesize games = _games;
 @synthesize roundLabelGradient = _roundLabelGradient;
 @synthesize separators = _separators;
-@synthesize roundSelectDelegate =  _roundSelectDelegate;
 @synthesize sectionPercentages = _sectionPercentages;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -74,7 +73,7 @@
     
     // add a section selector for each match round
     for (MatchRound *matchRound in matchRounds) {
-        MatchSectionSelector *sectionSelector = [[MatchSectionSelector alloc] init];
+        MatchRoundGraph *sectionSelector = [[MatchRoundGraph alloc] init];
         sectionSelector.round = matchRound;
         [sectionSelector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionTapped:)]];
         [self addSubview:sectionSelector];
@@ -82,31 +81,8 @@
     }
     self.timelineSections = sections;
     
-       
-    [self selectMatchRound:[self.timelineSections objectAtIndex:0]];
-    
     [self layoutSections];
     [self setNeedsDisplay];
 }
-
-- (void) selectMatchRound:(MatchSectionSelector*) sectionSel {
-   for (MatchSectionSelector *sectionSelector in self.timelineSections) {
-        if (sectionSelector == sectionSel) {
-            [sectionSelector setSelected:YES];
-        }
-        else {
-            [sectionSelector setSelected:NO];
-        }
-    }
-    
-    [self.roundSelectDelegate tournamentRoundSelected:sectionSel.round];
-}
          
-- (void) sectionTapped:(UITapGestureRecognizer*) sender {
-    if (sender.state == UIGestureRecognizerStateEnded) {
-        MatchSectionSelector *sectionSelector = (MatchSectionSelector*) sender.view;
-        [self selectMatchRound:sectionSelector];
-    }
-}
-
 @end

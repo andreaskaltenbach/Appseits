@@ -41,4 +41,16 @@
     return NO;
 }
 
++ (TournamentRound*) activeRound:(NSArray*) tournamentRounds {
+    
+    for (TournamentRound* round in tournamentRounds) {
+        if (round.open) {
+            return round;
+        }
+    }
+    
+    // if no active round can be identified, we take the first one
+    return [tournamentRounds objectAtIndex:0];
+}
+
 @end
