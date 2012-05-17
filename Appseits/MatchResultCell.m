@@ -51,8 +51,8 @@ static UIImage *resultSelectedBackgroundImage;
     pointsBackground = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pointsBackgroundGreen"]];
     matchLock = [UIImage imageNamed:@"matchLock"];
     
-    resultBackgroundImage = [UIImage imageNamed:@"matchBoxGray"];
-    resultSelectedBackgroundImage = [UIImage imageNamed:@"matchBoxGreen"];
+    resultBackgroundImage = [UIImage imageNamed:@"matchResultCell"];
+    resultSelectedBackgroundImage = [UIImage imageNamed:@"matchResultCellSelected"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
