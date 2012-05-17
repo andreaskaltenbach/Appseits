@@ -80,17 +80,11 @@ static UIImage *lockedImage;
     return section;
 }
 
-- (void) resize:(float) xOffset: (float) gameWidth {
-    
-    float width = [self.round.matches count] * gameWidth;
-    
+- (void) resize:(float) xOffset: (float) newWidth {
     CGRect frame  = self.frame;
     frame.origin.x = xOffset;
-    frame.size.width = width;
+    frame.size.width = newWidth;
     self.frame = frame;
-    
-    //self
-    
 }
 
 - (void) highlight {

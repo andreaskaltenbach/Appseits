@@ -12,11 +12,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "TimelineRoundSection.h"
 #import "SSGradientView.h"
+#import "SectionWidth.h"
 
 #define ROUND_LABEL_HEIGHT 30
 
 #define TOP4_AND_SCORER_OFFSET 120
-#define MIN_SECTION_PERCENTAGE 0.1f
 
 @interface Timeline()
 @property (nonatomic, strong) NSArray *timelineSections;
@@ -48,7 +48,7 @@
     return self;
 }
 /*
-- (void) setFrame:(CGRect)frame {
+
     
     float xOffset = TOP4_AND_SCORER_OFFSET;
     float widthPerGame = frame.size.width/self.games;
@@ -61,46 +61,23 @@
         }
     }
     
-    [super setFrame:frame];
+    
 }*/
 
-- (int) getMatchCount {
-    int matches = 0;
-    // count all the games
-    for (MatchRound *matchRound in self.matchRounds) {
-        matches += [matchRound.matches count];
-    }
-    return matches;
-}
 
-- (NSArray*) getSectionPercentages {
+
+- (void) setFrame:(CGRect)frame {
+    [super setFrame:frame];
     
-    int totalMatchCount = [self getMatchCount];
+    NSArray *sectionWidths = [SectionWidth sectionWidths:self.timelineSections :self.frame.size.width];
     
-    float remainingPercentage = 1.0f;
-    
-    // iterate all matches from final to group phase (from smallest to biggest round
-    
-    int decrement = [self.matchRounds count];
-    
-    for (MatchRound *matchRound in [[self.matchRounds reverseObjectEnumerator] allObjects]) {
-        
-        float deservedPercentage = [matchRound.matches count]/totalMatchCount;
-        
-        float sectionPercentage = MAX(MIN_SECTION_PERCENTAGE, (float) [matchRound.matches count]/remainingPercentage);
-        
-        remainingPercentage -= sectionPercentage;
-        
-        
-        NSLog(@"%@: %f", matchRound.roundName, sectionPercentage);
-        
-              
-        decrement--;
-        
-        
+    // resize all sections
+    float xOffset = 0;
+    for (SectionWidth *sectionWidth in sectionWidths) {
+        NSLog(@"Section: offset: %f, width: %f", xOffset, sectionWidth.width);
+        [sectionWidth.section resize:xOffset :sectionWidth.width];
+        xOffset+= sectionWidth.width;
     }
-    
-    return nil;
     
     
 }
@@ -109,7 +86,7 @@
     _matchRounds = matchRounds;
     
     
-    NSArray* sectionPercentages = [self getSectionPercentages];
+    //NSArray* sectionPercentages = [self getSectionPercentages];
     
     
     

@@ -15,7 +15,7 @@
 
 + (TimelineRoundSection*) initWithRound:(MatchRound*) round: (UIView*) parent;
 
-- (void) resize:(float) offset: (float) gameWidth;
+- (void) resize:(float) xOffset: (float) newWidth;
 
 - (void) highlight;
 

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "TournamentRoundSelectDelegate.h"
 
+#define MIN_SECTION_WIDTH 80
+
 @interface Timeline : UIView
 
 @property (nonatomic, strong) NSArray *matchRounds;

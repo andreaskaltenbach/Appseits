@@ -100,6 +100,7 @@
 		5B070E451562CD560033B504 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B070E441562CD560033B504 /* SettingsViewController.m */; };
 		5B070E491562CDDE0033B504 /* settingsBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B070E471562CDDE0033B504 /* settingsBackground@2x.png */; };
 		5B070E4A1562CDDE0033B504 /* settingsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B070E481562CDDE0033B504 /* settingsBackground.png */; };
+		5B1695C51565486200F939D1 /* SectionWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695C41565486200F939D1 /* SectionWidth.m */; };
 		5B1AEB041537736A00786199 /* LeaguePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1AEB031537736A00786199 /* LeaguePickerView.m */; };
 		5B1EE8B115274DFC00D01564 /* MatchTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1EE8B015274DFC00D01564 /* MatchTable.m */; };
 		5B24E311154753D10011EBED /* forgotPassword@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B24E30F154753D10011EBED /* forgotPassword@2x.png */; };
@@ -389,6 +390,8 @@
 		5B070E441562CD560033B504 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5B070E471562CDDE0033B504 /* settingsBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsBackground@2x.png"; sourceTree = "<group>"; };
 		5B070E481562CDDE0033B504 /* settingsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsBackground.png; sourceTree = "<group>"; };
+		5B1695C31565486200F939D1 /* SectionWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionWidth.h; sourceTree = "<group>"; };
+		5B1695C41565486200F939D1 /* SectionWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionWidth.m; sourceTree = "<group>"; };
 		5B1AEB021537736A00786199 /* LeaguePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguePickerView.h; sourceTree = "<group>"; };
 		5B1AEB031537736A00786199 /* LeaguePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguePickerView.m; sourceTree = "<group>"; };
 		5B1EE8AD15274BE000D01564 /* TournamentRoundSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TournamentRoundSelectDelegate.h; sourceTree = "<group>"; };
@@ -901,6 +904,8 @@
 				5BE73F01156054860055CD4C /* PlayerTeamCell.m */,
 				5B00E2E515605E42007A519F /* PlayerCell.h */,
 				5B00E2E615605E42007A519F /* PlayerCell.m */,
+				5B1695C31565486200F939D1 /* SectionWidth.h */,
+				5B1695C41565486200F939D1 /* SectionWidth.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1170,6 +1175,7 @@
 				5B00E2E715605E42007A519F /* PlayerCell.m in Sources */,
 				5B070E451562CD560033B504 /* SettingsViewController.m in Sources */,
 				5BDBD2A21562F35400F0E9C7 /* AppseitsViewController.m in Sources */,
+				5B1695C51565486200F939D1 /* SectionWidth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
