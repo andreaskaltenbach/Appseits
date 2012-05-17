@@ -12,6 +12,9 @@
 
 @interface CompositeTop4AndScorerRound : TournamentRound
 
+@property (nonatomic, strong) Top4Round *top4Round;
+@property (nonatomic, strong) ScorerRound *scorerRound;
+
 + (CompositeTop4AndScorerRound*) compositeRound:(Top4Round*) top4Round:(ScorerRound*) scorerRound;
 
 @end

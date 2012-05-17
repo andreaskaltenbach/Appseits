@@ -34,6 +34,7 @@
 #import "RoundTimeConstraintRow.h"
 #import "SettingsViewController.h"
 #import "RoundSelector.h"
+#import "CompositeTop4AndScorerRound.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -64,6 +65,8 @@ static UIImage *cogWheel;
 @property (weak, nonatomic) IBOutlet UIView *separatorView;
 @property (nonatomic, strong) NSDate *lastUpdated;
 @property (strong, nonatomic) IBOutlet RoundTimeConstraintRow *roundConstraintBar;
+@property (weak, nonatomic) IBOutlet UIView *top4AndScorerView;
+@property (weak, nonatomic) IBOutlet UIView *matchView;
 @property (weak, nonatomic) IBOutlet RoundSelector *roundSelector;
 @end
 
@@ -97,6 +100,8 @@ static UIImage *cogWheel;
 @synthesize currentPlayerSelection = _currentPlayerSelection;
 @synthesize lastUpdated = _lastUpdated;
 @synthesize roundConstraintBar = _roundConstraintBar;
+@synthesize top4AndScorerView = _top4AndScorerView;
+@synthesize matchView = _matchView;
 @synthesize roundSelector = _roundSelector;
 
 + (void) initialize {
@@ -233,12 +238,28 @@ static UIImage *cogWheel;
     [self setRoundConstraintBar:nil];
     [self setSettingsButton:nil];
     [self setRoundSelector:nil];
+    [self setTop4AndScorerView:nil];
+    [self setMatchView:nil];
     [super viewDidUnload];
 }
 
 // Called whenever a tournament round is selected in the timeline
 - (void) tournamentRoundSelected:(TournamentRound*) round {
     
+    // iPad
+    if (round.class == [MatchRound class]) {
+        self.top4AndScorerView.hidden = YES;
+        self.matchView.hidden = NO;
+    }
+    if (round.class == [CompositeTop4AndScorerRound class]) {
+        CompositeTop4AndScorerRound *compositeRound = (CompositeTop4AndScorerRound*) round;
+        self.top4AndScorerView.hidden = NO;
+        self.matchView.hidden = YES;
+        self.top4View.top4Round = compositeRound.top4Round;
+        self.scorerView.scorerRound = compositeRound.scorerRound;
+    }
+    
+    // iPhone
     if (round.class == [MatchRound class]) {
         self.gameTable.round = (MatchRound*) round;
         self.top4View.hidden = YES;

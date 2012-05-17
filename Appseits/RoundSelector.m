@@ -63,12 +63,10 @@
     top4AndScorerRound.frame = frame;
     
     TournamentRound* activeRound = [TournamentRound activeRound:self.tournamentRounds];
+    
     for (TimelineRoundLabel *roundLabel in self.roundLabels) {
         if (roundLabel.round == activeRound) {
-            [roundLabel setSelected:YES];
-        }
-        else {
-            [roundLabel setSelected:NO];
+            [self selectTournamentRound:roundLabel];
         }
     }
     

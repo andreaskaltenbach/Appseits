@@ -10,11 +10,6 @@
 #import "ScorerRound.h"
 #import "Top4Round.h"
 
-@interface CompositeTop4AndScorerRound()
-@property (nonatomic, strong) Top4Round *top4Round;
-@property (nonatomic, strong) ScorerRound *scorerRound;
-@end
-
 @implementation CompositeTop4AndScorerRound
 
 @synthesize top4Round = _top4Round;
