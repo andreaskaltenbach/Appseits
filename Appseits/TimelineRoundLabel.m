@@ -59,7 +59,7 @@ static UIColor* leftBorderColor;
     [self addSubview:self.gradientView];
     
     // add round text inside gradient
-    self.label = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, self.frame.size.width - LOCK_SIZE - LOCK_RIGHT_MARGIN, GRADIENT_HEIGHT)];
+    self.label = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, self.frame.size.width - LOCK_SIZE - 3*LOCK_RIGHT_MARGIN, GRADIENT_HEIGHT)];
     self.label.adjustsFontSizeToFitWidth = YES;
     self.label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.label.backgroundColor = [UIColor clearColor];

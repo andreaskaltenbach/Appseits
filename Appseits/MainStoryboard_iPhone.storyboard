@@ -1288,6 +1288,7 @@
                 <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
                 <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
+                <relationship kind="outlet" name="top4AndScorerRoundLabel" candidateClass="Top4AndScorerRoundLabel"/>
                 <relationship kind="outlet" name="top4View" candidateClass="Top4View"/>
                 <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
             </relationships>
@@ -1352,8 +1353,14 @@
         <class className="Timeline" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
         </class>
+        <class className="TimelineRoundLabel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineRoundLabel.h"/>
+        </class>
         <class className="TimelineScrollView" superclassName="UIScrollView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
+        </class>
+        <class className="Top4AndScorerRoundLabel" superclassName="TimelineRoundLabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Top4AndScorerRoundLabel.h"/>
         </class>
         <class className="Top4View" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Top4View.h"/>

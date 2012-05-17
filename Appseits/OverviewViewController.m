@@ -12,7 +12,6 @@
 #import "UIColor+AppColors.h"
 #import "MatchResultCell.h"
 #import "TimelineScrollView.h"
-#import "Menu.h"
 #import "Timeline.h"
 #import "MatchTable.h"
 #import "MenuDependendScrollView.h"
@@ -141,6 +140,8 @@ static UIImage *cogWheel;
         
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeaguePicker)];
     [self.leagueInput addGestureRecognizer:tapGesture];
+    
+    // setup match and ranking switcher
     
     // setup of the scrollable timeline (iPhone)
     self.timelineScrollView.roundSelectDelegate = self;
