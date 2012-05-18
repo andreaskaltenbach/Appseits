@@ -166,7 +166,7 @@ static UIImage *forgotPasswordButtonImage;
 }
 
 - (IBAction)loginTabbed:(id)sender {
-    [self hideMessage];
+    [self hideNotification];
     
     if (self.emailInput.text && self.emailInput.text.length > 0
         && self.passwordInput.text && self.passwordInput.text.length > 0) {

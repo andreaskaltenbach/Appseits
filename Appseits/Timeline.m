@@ -59,7 +59,6 @@
     // resize all sections
     float xOffset = 0;
     for (SectionWidth *sectionWidth in sectionWidths) {
-        NSLog(@"Section: offset: %f, width: %f", xOffset, sectionWidth.width);
         [sectionWidth.section resize:xOffset :sectionWidth.width];
         xOffset+= sectionWidth.width;
     }

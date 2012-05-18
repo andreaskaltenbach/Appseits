@@ -20,6 +20,7 @@ static UIFont *messageFont;
 @property (nonatomic, strong) UIView *buttonView;
 @property (nonatomic, strong) UIButton *confirmButton;
 @property (nonatomic, strong) UIButton *abortButton;
+@property (nonatomic, strong) PromptConfirmedBlock confirmAction;
 @end
 
 @implementation AppseitsViewController
@@ -28,6 +29,7 @@ static UIFont *messageFont;
 @synthesize confirmButton = _confirmButton;
 @synthesize abortButton = _abortButton;
 @synthesize buttonView = _buttonView;
+@synthesize confirmAction = _confirmAction;
 
 + (void) initialize {
     messageFont = [UIFont systemFontOfSize:14];
@@ -55,24 +57,26 @@ static UIFont *messageFont;
     [self.view addSubview:_notificationBox];
     
     // setup label
-    self.notificationLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 180, 30)];
+    self.notificationLabel = [[UILabel alloc] init];
     self.notificationLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.notificationLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.notificationLabel.backgroundColor = [UIColor clearColor];
     self.notificationLabel.numberOfLines = 0;
+    self.notificationLabel.textAlignment = UITextAlignmentCenter;
     self.notificationLabel.font = messageFont;
     [_notificationBox addSubview:self.notificationLabel];
     
     // setup button view
-    self.buttonView = [[UIView alloc] initWithFrame:CGRectMake(10, 50, 180, 40)];
+    self.buttonView = [[UIView alloc] init];
     self.buttonView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.buttonView.backgroundColor = [UIColor greenColor];
     self.buttonView.hidden = YES;
     
     self.confirmButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [self.confirmButton addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onConfirm)]];
     [self.buttonView addSubview:self.confirmButton];
-    
+
     self.abortButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [self.abortButton addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onAbort)]];
     [self.buttonView addSubview:self.abortButton];
     
     [_notificationBox addSubview:self.buttonView];
@@ -90,6 +94,7 @@ static UIFont *messageFont;
     
     // calculate dimensions for the text
     CGSize messageSize = [self.notificationLabel.text sizeWithFont:messageFont constrainedToSize:CGSizeMake( totalWidth - 2*OFFSET, 9999) lineBreakMode:UILineBreakModeWordWrap];
+    NSLog(@"Message size: %f %f" ,messageSize.width, messageSize.height);
         
     // set dimensions of the notification box
     float notificationBoxHeight = OFFSET + messageSize.height + OFFSET;
@@ -103,13 +108,10 @@ static UIFont *messageFont;
     self.notificationBox.hidden = NO;
     
     // set text & dimensions for notification label
-    self.notificationLabel.frame = CGRectMake(OFFSET + (totalWidth - messageSize.width)/2, OFFSET , messageSize.width, messageSize.height);
+    self.notificationLabel.frame = CGRectMake((totalWidth - messageSize.width)/2, OFFSET , messageSize.width, messageSize.height);
     
     // set text & dimensions for buttons, if visible
     if (!self.buttonView.hidden) {
-        [self.confirmButton setTitle:@"OK!" forState:UIControlStateNormal];
-        [self.abortButton setTitle:@"Cancel!" forState:UIControlStateNormal];
-        
         [self.confirmButton sizeToFit];
         [self.abortButton sizeToFit];
         CGRect abortButtonFrame = self.abortButton.frame;
@@ -117,18 +119,18 @@ static UIFont *messageFont;
         self.abortButton.frame = abortButtonFrame;
         
         float buttonsWidth = self.confirmButton.frame.size.width + OFFSET + self.abortButton.frame.size.width;
-        self.buttonView.frame = CGRectMake(OFFSET + (totalWidth-buttonsWidth)/2, 2*OFFSET + messageSize.height, buttonsWidth, MAX(self.confirmButton.frame.size.height, self.abortButton.frame.size.height));
+        self.buttonView.frame = CGRectMake((totalWidth-buttonsWidth)/2, 2*OFFSET + messageSize.height, buttonsWidth, MAX(self.confirmButton.frame.size.height, self.abortButton.frame.size.height));
     }    
     
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         // animate fly-in
-        self.notificationBox.frame = CGRectMake(0, 0, self.view.frame.size.width, messageSize.height+ 2*OFFSET);
+        self.notificationBox.frame = CGRectMake(0, 0, self.view.frame.size.width,notificationBoxHeight);
     } completion:^(BOOL finished) {
         // when no buttons are shown, we schedule a fly-out after 5 seconds
         if (self.buttonView.hidden) {
             
             [UIView animateWithDuration:0.3 delay:5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                self.notificationBox.frame = CGRectMake(0, -(messageSize.height + 2*OFFSET), self.view.frame.size.width, messageSize.height+ 2*OFFSET);
+                self.notificationBox.frame = CGRectMake(0, -(messageSize.height + 2*OFFSET), self.view.frame.size.width, notificationBoxHeight);
             } completion:^(BOOL finished) {
             }];
         }
@@ -139,16 +141,18 @@ static UIFont *messageFont;
     
     self.notificationBox.backgroundColor = [UIColor yellowColor];
     self.notificationLabel.text = message;
+    self.buttonView.hidden = YES;
     [self layoutNotificationBox];
 }
 
 - (void) showError:(NSString*) message {
     self.notificationBox.backgroundColor = [UIColor redColor];
-        self.notificationLabel.text = message;
+    self.notificationLabel.text = message;
+    self.buttonView.hidden = YES;
     [self layoutNotificationBox];
 }
 
-- (void) hideMessage {
+- (void) hideNotification {
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.notificationBox.frame = CGRectMake(0, -(self.notificationBox.frame.size.height + 2*OFFSET), self.view.frame.size.width, self.notificationBox.frame.size.height);
     } completion:^(BOOL finished) {
@@ -157,8 +161,23 @@ static UIFont *messageFont;
 }
 
 - (void) showPrompt:(NSString*) message: (NSString*) confirmMessage: (NSString*) abortMessage: (PromptConfirmedBlock) onConfirm {
-    
-    
+    self.notificationBox.backgroundColor = [UIColor yellowColor];
+    self.buttonView.hidden = NO;
+    self.notificationLabel.text = message;
+    [self.confirmButton setTitle:confirmMessage forState:UIControlStateNormal];
+    [self.abortButton setTitle:abortMessage forState:UIControlStateNormal];
+    self.confirmAction = onConfirm;
+    [self layoutNotificationBox];
 }
+
+- (void) onConfirm {
+    [self hideNotification];
+    self.confirmAction();
+}
+
+- (void) onAbort {
+    [self hideNotification];
+}
+
 
 @end

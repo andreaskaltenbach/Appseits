@@ -21,7 +21,6 @@
     
     // get the remaining width after all sections got their minimum
     float remainingWidth = timelineWidth - [timelineSections count] * MIN_SECTION_WIDTH;
-    NSLog(@"Remaining width: %f", remainingWidth);
     
     // calculate the number of matches which demand more width
     int matchesWithMoreWidth = [self matchesDemandingMoreWidth:timelineSections :matchWidth];

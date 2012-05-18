@@ -35,11 +35,13 @@
 #import "SettingsViewController.h"
 #import "RoundSelector.h"
 #import "CompositeTop4AndScorerRound.h"
+#import "VersionEnforcer.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
 static UIImage *trendDown;
 static UIImage *cogWheel;
+static NSURL *downloadURL;
 
 @interface OverviewViewController()
 @property (strong, nonatomic) IBOutlet MatchTable *gameTable;
@@ -110,6 +112,8 @@ static UIImage *cogWheel;
     trendDown = [UIImage imageNamed:@"trendDown.png"];
     
     cogWheel = [UIImage imageNamed:@"cogwheel"];
+    
+    downloadURL = [NSURL URLWithString:@"itms-services://?action=download-manifest&url=http://dl.dropbox.com/u/15650647/appseits/latest.plist"];
 }
 
 - (void) scroll:(int) offset {
@@ -124,7 +128,8 @@ static UIImage *cogWheel;
     
     [super viewDidLoad];
     
-    [self showInfo:@"Next level quis sartorial consequat, esse incididunt 8-bit mixtape quinoa eiusmod wes anderson. Wayfarers odio raw denim tempor non enim. Velit single-origin coffee selvage quinoa art party nihil beard, organic laborum qui."];
+    VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
+    [versionEnforcer checkVersion:@"http://dl.dropbox.com/u/15650647/appseits/version.json"];
     
     self.lastUpdated = [NSDate date];
     
@@ -210,6 +215,10 @@ static UIImage *cogWheel;
     self.gameTable.backgroundColor = [UIColor blackBackground];
     
     
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)viewDidUnload {
@@ -409,5 +418,19 @@ static UIImage *cogWheel;
     return 49;
 }
 
+#pragma marks VersionDelegate
+
+- (void) updateRequired:(NSString*) versionNumber {
+   
+}
+
+- (void) newVersionAvailable:(NSString*) versionNumber {
+   [self showPrompt:@"Det finns en ny version av appen. Vill du ladda hem den nu?":@"Självklart!" :@"Senare" :^{
+       // navigate to the download URL
+       if ([[UIApplication sharedApplication] canOpenURL:downloadURL]) {
+           [[UIApplication sharedApplication] openURL:downloadURL];
+       }
+   }];
+}
 
 @end
