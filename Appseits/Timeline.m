@@ -59,7 +59,6 @@
     // resize all sections
     float xOffset = 0;
     for (SectionWidth *sectionWidth in sectionWidths) {
-        NSLog(@"Section: offset: %f, width: %f", xOffset, sectionWidth.width);
         [sectionWidth.section resize:xOffset :sectionWidth.width];
         xOffset+= sectionWidth.width;
     }
@@ -75,7 +74,6 @@
     for (MatchRound *matchRound in matchRounds) {
         MatchRoundGraph *sectionSelector = [[MatchRoundGraph alloc] init];
         sectionSelector.round = matchRound;
-        [sectionSelector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionTapped:)]];
         [self addSubview:sectionSelector];
         [sections addObject:sectionSelector];
     }

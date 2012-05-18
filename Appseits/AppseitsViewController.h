@@ -10,10 +10,14 @@
 
 @interface AppseitsViewController : UIViewController
 
+typedef void(^PromptConfirmedBlock)();
+
 - (void) showInfo:(NSString*) message;
 
 - (void) showError:(NSString*) message;
 
-- (void) hideMessage;
+- (void) showPrompt:(NSString*) message: (NSString*) confirmMessage: (NSString*) abortMessage: (PromptConfirmedBlock) onConfirm;
+
+- (void) hideNotification;
 
 @end

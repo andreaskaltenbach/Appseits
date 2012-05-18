@@ -43,24 +43,12 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
-    [versionEnforcer checkVersion:@"http://dl.dropbox.com/u/15650647/version.json"];
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
-#pragma marks VersionDelegate
-
-- (void) updateRequired:(NSString*) versionNumber {
-    NSLog(@"Update required: %@", versionNumber);
-}
-
-- (void) newVersionAvailable:(NSString*) versionNumber {
-    NSLog(@"New version available: %@", versionNumber);
-}
-
 
 @end

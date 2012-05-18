@@ -39,11 +39,6 @@
         for (ScorerSelector *selector in self.scorerSelectors) {
             selector.frame = CGRectMake(5, yOffset, 310, 50);    
             [self addSubview:selector];
-            
-            if (self.scorerRound.open) {
-                [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playerSelection:)]];
-            }
-            
             yOffset+= MARGIN;
         }
     }
@@ -67,6 +62,11 @@
     if (!scorerRound.open) {
         for (ScorerSelector *selector in self.scorerSelectors) {
             selector.locked = YES;
+        }
+    }
+    else {
+        for (ScorerSelector *selector in self.scorerSelectors) {
+            [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playerSelection:)]];
         }
     }
 }

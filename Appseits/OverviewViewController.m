@@ -35,11 +35,13 @@
 #import "SettingsViewController.h"
 #import "RoundSelector.h"
 #import "CompositeTop4AndScorerRound.h"
+#import "VersionEnforcer.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
 static UIImage *trendDown;
 static UIImage *cogWheel;
+static NSURL *downloadURL;
 
 @interface OverviewViewController()
 @property (strong, nonatomic) IBOutlet MatchTable *gameTable;
@@ -68,6 +70,9 @@ static UIImage *cogWheel;
 @property (weak, nonatomic) IBOutlet UIView *top4AndScorerView;
 @property (weak, nonatomic) IBOutlet UIView *matchView;
 @property (weak, nonatomic) IBOutlet RoundSelector *roundSelector;
+@property (nonatomic, strong) UIPopoverController* teamPopoverController;
+@property (strong, nonatomic) IBOutlet UIView *top4ContainerView;
+@property (strong, nonatomic) IBOutlet UIView *scorerContainerView;
 @end
 
 @implementation OverviewViewController
@@ -103,6 +108,9 @@ static UIImage *cogWheel;
 @synthesize top4AndScorerView = _top4AndScorerView;
 @synthesize matchView = _matchView;
 @synthesize roundSelector = _roundSelector;
+@synthesize teamPopoverController = _teamPopoverController;
+@synthesize top4ContainerView = _top4ContainerView;
+@synthesize scorerContainerView = _scorerContainerView;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -110,6 +118,8 @@ static UIImage *cogWheel;
     trendDown = [UIImage imageNamed:@"trendDown.png"];
     
     cogWheel = [UIImage imageNamed:@"cogwheel"];
+    
+    downloadURL = [NSURL URLWithString:@"itms-services://?action=download-manifest&url=http://dl.dropbox.com/u/15650647/appseits/latest.plist"];
 }
 
 - (void) scroll:(int) offset {
@@ -124,7 +134,8 @@ static UIImage *cogWheel;
     
     [super viewDidLoad];
     
-    [self showInfo:@"Next level quis sartorial consequat, esse incididunt 8-bit mixtape quinoa eiusmod wes anderson. Wayfarers odio raw denim tempor non enim. Velit single-origin coffee selvage quinoa art party nihil beard, organic laborum qui."];
+    VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
+    [versionEnforcer checkVersion:@"http://dl.dropbox.com/u/15650647/appseits/version.json"];
     
     self.lastUpdated = [NSDate date];
     
@@ -203,6 +214,12 @@ static UIImage *cogWheel;
    
     // setup top4 view
     self.top4View.delegate = self;
+    self.top4AndScorerView.backgroundColor = [UIColor squareBackground];
+//    self.top4ContainerView.backgroundColor = [UIColor blackBackground];
+    self.top4ContainerView.layer.cornerRadius = 10;
+//    self.scorerContainerView.backgroundColor = [UIColor blackBackground];
+    self.scorerContainerView.layer.cornerRadius = 10;
+
     
     // setup scorer view
     self.scorerView.delegate = self;
@@ -210,6 +227,10 @@ static UIImage *cogWheel;
     self.gameTable.backgroundColor = [UIColor blackBackground];
     
     
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)viewDidUnload {
@@ -240,6 +261,8 @@ static UIImage *cogWheel;
     [self setRoundSelector:nil];
     [self setTop4AndScorerView:nil];
     [self setMatchView:nil];
+    [self setTop4ContainerView:nil];
+    [self setScorerContainerView:nil];
     [super viewDidUnload];
 }
 
@@ -247,38 +270,43 @@ static UIImage *cogWheel;
 - (void) tournamentRoundSelected:(TournamentRound*) round {
     
     // iPad
-    if (round.class == [MatchRound class]) {
-        self.top4AndScorerView.hidden = YES;
-        self.matchView.hidden = NO;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if (round.class == [MatchRound class]) {
+            self.gameTable.round = (MatchRound*) round;
+            self.top4AndScorerView.hidden = YES;
+            self.matchView.hidden = NO;
+        }
+        if (round.class == [CompositeTop4AndScorerRound class]) {
+            CompositeTop4AndScorerRound *compositeRound = (CompositeTop4AndScorerRound*) round;
+            self.top4AndScorerView.hidden = NO;
+            self.matchView.hidden = YES;
+            self.top4View.top4Round = compositeRound.top4Round;
+            self.scorerView.scorerRound = compositeRound.scorerRound;
+        }
     }
-    if (round.class == [CompositeTop4AndScorerRound class]) {
-        CompositeTop4AndScorerRound *compositeRound = (CompositeTop4AndScorerRound*) round;
-        self.top4AndScorerView.hidden = NO;
-        self.matchView.hidden = YES;
-        self.top4View.top4Round = compositeRound.top4Round;
-        self.scorerView.scorerRound = compositeRound.scorerRound;
-    }
-    
+
     // iPhone
-    if (round.class == [MatchRound class]) {
-        self.gameTable.round = (MatchRound*) round;
-        self.top4View.hidden = YES;
-        self.scorerView.hidden = YES;
-        self.gameTable.hidden = NO;
-    }
-    if (round.class == [Top4Round class]) {
-        Top4Round *top4Round = (Top4Round*) round;
-        self.top4View.top4Round = top4Round;
-        self.top4View.hidden = NO;
-        self.scorerView.hidden = YES;
-        self.gameTable.hidden = YES;
-    }
-    if (round.class == [ScorerRound class]) {
-        ScorerRound *scorerRound = (ScorerRound*) round;
-        self.scorerView.scorerRound = scorerRound;
-        self.top4View.hidden = YES;
-        self.scorerView.hidden = NO;
-        self.gameTable.hidden = YES;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        if (round.class == [MatchRound class]) {
+            self.gameTable.round = (MatchRound*) round;
+            self.top4View.hidden = YES;
+            self.scorerView.hidden = YES;
+            self.gameTable.hidden = NO;
+        }
+        if (round.class == [Top4Round class]) {
+            Top4Round *top4Round = (Top4Round*) round;
+            self.top4View.top4Round = top4Round;
+            self.top4View.hidden = NO;
+            self.scorerView.hidden = YES;
+            self.gameTable.hidden = YES;
+        }
+        if (round.class == [ScorerRound class]) {
+            ScorerRound *scorerRound = (ScorerRound*) round;
+            self.scorerView.scorerRound = scorerRound;
+            self.top4View.hidden = YES;
+            self.scorerView.hidden = NO;
+            self.gameTable.hidden = YES;
+        }
     }
     
     self.roundConstraintBar.round = round;
@@ -357,6 +385,7 @@ static UIImage *cogWheel;
     self.currentTeamSelection = team;
     self.currentTeamPlace = place;
     self.currentPlayerSelection = nil;
+    
     [self performSegueWithIdentifier:@"toTeamList" sender:self];
 }
 
@@ -370,8 +399,19 @@ static UIImage *cogWheel;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toTeamList"]) {
-        TeamViewController *teamViewController = segue.destinationViewController;
+        
+        TeamViewController *teamViewController; 
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            UINavigationController *navController = segue.destinationViewController;
+            teamViewController = [navController.viewControllers objectAtIndex:0];
+            UIStoryboardPopoverSegue* popSegue = (UIStoryboardPopoverSegue*) segue;
+            self.teamPopoverController = popSegue.popoverController;
+        }
+        else {
+            teamViewController = segue.destinationViewController;
+        }
         teamViewController.overviewController = self;
+
     }
     if ([segue.identifier isEqualToString:@"toPlayerTeamList"]) {
         TeamViewController *teamViewController = segue.destinationViewController;
@@ -401,7 +441,13 @@ static UIImage *cogWheel;
         if (!success) {
             NSLog(@"Nothing stored!");
         }
-        [self.navigationController popViewControllerAnimated:YES];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else {
+            [self.teamPopoverController dismissPopoverAnimated:YES];
+        }
     }];
 }
 
@@ -409,5 +455,19 @@ static UIImage *cogWheel;
     return 49;
 }
 
+#pragma marks VersionDelegate
+
+- (void) updateRequired:(NSString*) versionNumber {
+   
+}
+
+- (void) newVersionAvailable:(NSString*) versionNumber {
+   [self showPrompt:@"Det finns en ny version av appen. Vill du ladda hem den nu?":@"Självklart!" :@"Senare" :^{
+       // navigate to the download URL
+       if ([[UIApplication sharedApplication] canOpenURL:downloadURL]) {
+           [[UIApplication sharedApplication] openURL:downloadURL];
+       }
+   }];
+}
 
 @end

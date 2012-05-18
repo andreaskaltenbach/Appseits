@@ -16,8 +16,9 @@
 #import "Team.h"
 #import "Player.h"
 #import "AppseitsViewController.h"
+#import "VersionEnforcer.h"
 
-@interface OverviewViewController : AppseitsViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate>
+@interface OverviewViewController : AppseitsViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate, VersionDelegate>
 
 @property (strong, nonatomic) IBOutlet Top4View *top4View;
 @property (strong, nonatomic) IBOutlet ScorerView *scorerView;
