@@ -70,6 +70,9 @@ static NSURL *downloadURL;
 @property (weak, nonatomic) IBOutlet UIView *top4AndScorerView;
 @property (weak, nonatomic) IBOutlet UIView *matchView;
 @property (weak, nonatomic) IBOutlet RoundSelector *roundSelector;
+@property (nonatomic, strong) UIPopoverController* teamPopoverController;
+@property (strong, nonatomic) IBOutlet UIView *top4ContainerView;
+@property (strong, nonatomic) IBOutlet UIView *scorerContainerView;
 @end
 
 @implementation OverviewViewController
@@ -105,6 +108,9 @@ static NSURL *downloadURL;
 @synthesize top4AndScorerView = _top4AndScorerView;
 @synthesize matchView = _matchView;
 @synthesize roundSelector = _roundSelector;
+@synthesize teamPopoverController = _teamPopoverController;
+@synthesize top4ContainerView = _top4ContainerView;
+@synthesize scorerContainerView = _scorerContainerView;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -208,6 +214,12 @@ static NSURL *downloadURL;
    
     // setup top4 view
     self.top4View.delegate = self;
+    self.top4AndScorerView.backgroundColor = [UIColor squareBackground];
+//    self.top4ContainerView.backgroundColor = [UIColor blackBackground];
+    self.top4ContainerView.layer.cornerRadius = 10;
+//    self.scorerContainerView.backgroundColor = [UIColor blackBackground];
+    self.scorerContainerView.layer.cornerRadius = 10;
+
     
     // setup scorer view
     self.scorerView.delegate = self;
@@ -249,6 +261,8 @@ static NSURL *downloadURL;
     [self setRoundSelector:nil];
     [self setTop4AndScorerView:nil];
     [self setMatchView:nil];
+    [self setTop4ContainerView:nil];
+    [self setScorerContainerView:nil];
     [super viewDidUnload];
 }
 
@@ -256,38 +270,43 @@ static NSURL *downloadURL;
 - (void) tournamentRoundSelected:(TournamentRound*) round {
     
     // iPad
-    if (round.class == [MatchRound class]) {
-        self.top4AndScorerView.hidden = YES;
-        self.matchView.hidden = NO;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if (round.class == [MatchRound class]) {
+            self.gameTable.round = (MatchRound*) round;
+            self.top4AndScorerView.hidden = YES;
+            self.matchView.hidden = NO;
+        }
+        if (round.class == [CompositeTop4AndScorerRound class]) {
+            CompositeTop4AndScorerRound *compositeRound = (CompositeTop4AndScorerRound*) round;
+            self.top4AndScorerView.hidden = NO;
+            self.matchView.hidden = YES;
+            self.top4View.top4Round = compositeRound.top4Round;
+            self.scorerView.scorerRound = compositeRound.scorerRound;
+        }
     }
-    if (round.class == [CompositeTop4AndScorerRound class]) {
-        CompositeTop4AndScorerRound *compositeRound = (CompositeTop4AndScorerRound*) round;
-        self.top4AndScorerView.hidden = NO;
-        self.matchView.hidden = YES;
-        self.top4View.top4Round = compositeRound.top4Round;
-        self.scorerView.scorerRound = compositeRound.scorerRound;
-    }
-    
+
     // iPhone
-    if (round.class == [MatchRound class]) {
-        self.gameTable.round = (MatchRound*) round;
-        self.top4View.hidden = YES;
-        self.scorerView.hidden = YES;
-        self.gameTable.hidden = NO;
-    }
-    if (round.class == [Top4Round class]) {
-        Top4Round *top4Round = (Top4Round*) round;
-        self.top4View.top4Round = top4Round;
-        self.top4View.hidden = NO;
-        self.scorerView.hidden = YES;
-        self.gameTable.hidden = YES;
-    }
-    if (round.class == [ScorerRound class]) {
-        ScorerRound *scorerRound = (ScorerRound*) round;
-        self.scorerView.scorerRound = scorerRound;
-        self.top4View.hidden = YES;
-        self.scorerView.hidden = NO;
-        self.gameTable.hidden = YES;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        if (round.class == [MatchRound class]) {
+            self.gameTable.round = (MatchRound*) round;
+            self.top4View.hidden = YES;
+            self.scorerView.hidden = YES;
+            self.gameTable.hidden = NO;
+        }
+        if (round.class == [Top4Round class]) {
+            Top4Round *top4Round = (Top4Round*) round;
+            self.top4View.top4Round = top4Round;
+            self.top4View.hidden = NO;
+            self.scorerView.hidden = YES;
+            self.gameTable.hidden = YES;
+        }
+        if (round.class == [ScorerRound class]) {
+            ScorerRound *scorerRound = (ScorerRound*) round;
+            self.scorerView.scorerRound = scorerRound;
+            self.top4View.hidden = YES;
+            self.scorerView.hidden = NO;
+            self.gameTable.hidden = YES;
+        }
     }
     
     self.roundConstraintBar.round = round;
@@ -366,6 +385,7 @@ static NSURL *downloadURL;
     self.currentTeamSelection = team;
     self.currentTeamPlace = place;
     self.currentPlayerSelection = nil;
+    
     [self performSegueWithIdentifier:@"toTeamList" sender:self];
 }
 
@@ -379,8 +399,19 @@ static NSURL *downloadURL;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toTeamList"]) {
-        TeamViewController *teamViewController = segue.destinationViewController;
+        
+        TeamViewController *teamViewController; 
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            UINavigationController *navController = segue.destinationViewController;
+            teamViewController = [navController.viewControllers objectAtIndex:0];
+            UIStoryboardPopoverSegue* popSegue = (UIStoryboardPopoverSegue*) segue;
+            self.teamPopoverController = popSegue.popoverController;
+        }
+        else {
+            teamViewController = segue.destinationViewController;
+        }
         teamViewController.overviewController = self;
+
     }
     if ([segue.identifier isEqualToString:@"toPlayerTeamList"]) {
         TeamViewController *teamViewController = segue.destinationViewController;
@@ -410,7 +441,13 @@ static NSURL *downloadURL;
         if (!success) {
             NSLog(@"Nothing stored!");
         }
-        [self.navigationController popViewControllerAnimated:YES];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        else {
+            [self.teamPopoverController dismissPopoverAnimated:YES];
+        }
     }];
 }
 

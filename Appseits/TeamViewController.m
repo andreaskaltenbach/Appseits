@@ -35,15 +35,12 @@
     }
 }
 
-- (void) viewDidLoad {
-    [super viewDidLoad];
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     self.table.delegate = self.overviewController;
     self.table.dataSource = self;
     self.table.backgroundColor = [UIColor squareBackground];
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     
     if (self.overviewController.currentTeamSelection) {
         int index = [self.overviewController.allTeams indexOfObject:self.overviewController.currentTeamSelection];

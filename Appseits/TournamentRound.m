@@ -33,12 +33,8 @@
 
 - (BOOL) open {
     NSDate *now = [NSDate date];
-    NSLog(@"Now: %@", now);
-        NSLog(@"LockDate: %@", self.lockDate);
     // locked date has not passed
-    BOOL open = ([now compare:self.lockDate] == NSOrderedAscending);
-    NSLog(@"Open:%i", open);
-    return open;
+    return ([now compare:self.lockDate] == NSOrderedAscending);
 }
 
 - (BOOL) allPredictionsDone {

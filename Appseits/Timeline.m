@@ -74,7 +74,6 @@
     for (MatchRound *matchRound in matchRounds) {
         MatchRoundGraph *sectionSelector = [[MatchRoundGraph alloc] init];
         sectionSelector.round = matchRound;
-        [sectionSelector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionTapped:)]];
         [self addSubview:sectionSelector];
         [sections addObject:sectionSelector];
     }
