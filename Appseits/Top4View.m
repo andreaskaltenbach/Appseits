@@ -24,7 +24,6 @@
 {
     self = [super initWithCoder:aDecoder];
     
-    
     if (self) {
         
         self.backgroundColor = [UIColor blackBackground];
@@ -40,11 +39,6 @@
         for (Top4Selector *selector in self.top4Selectors) {
             selector.frame = CGRectMake(5, yOffset, 310, 50);    
             [self addSubview:selector];
-            
-            if (self.top4Round.open) {
-                [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(teamSelection:)]];
-            }
-            
             yOffset+= MARGIN;
         }
     }
@@ -69,6 +63,11 @@
     if (!top4Round.open) {
         for (Top4Selector *selector in self.top4Selectors) {
             selector.locked = YES;
+        }
+    }
+    else {
+        for (Top4Selector *selector in self.top4Selectors) {
+            [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(teamSelection:)]];
         }
     }
 }
