@@ -49,7 +49,7 @@ static UIFont *messageFont;
     if (_notificationBox) return _notificationBox;
     
     // setup notification box
-    _notificationBox = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+    _notificationBox = [[UIView alloc] init];
     _notificationBox.hidden = YES;
     _notificationBox.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:_notificationBox];
@@ -67,6 +67,7 @@ static UIFont *messageFont;
     self.buttonView = [[UIView alloc] initWithFrame:CGRectMake(10, 50, 180, 40)];
     self.buttonView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.buttonView.backgroundColor = [UIColor greenColor];
+    self.buttonView.hidden = YES;
     
     self.confirmButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [self.buttonView addSubview:self.confirmButton];
@@ -80,90 +81,71 @@ static UIFont *messageFont;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration {
-    [self layoutNotificationBox:self.notificationLabel.text];
+    [self layoutNotificationBox];
 }
 
-
-- (void) layoutNotificationBox:(NSString*) message {
+- (void) layoutNotificationBox {
     
     float totalWidth = self.view.frame.size.width;
     
     // calculate dimensions for the text
-    CGSize messageSize = [message sizeWithFont:messageFont constrainedToSize:CGSizeMake( totalWidth - 2*OFFSET, 9999) lineBreakMode:UILineBreakModeWordWrap];
-    
+    CGSize messageSize = [self.notificationLabel.text sizeWithFont:messageFont constrainedToSize:CGSizeMake( totalWidth - 2*OFFSET, 9999) lineBreakMode:UILineBreakModeWordWrap];
         
     // set dimensions of the notification box
     float notificationBoxHeight = OFFSET + messageSize.height + OFFSET;
-    notificationBoxHeight += BUTTON_ROW_HEIGHT + OFFSET;
-    self.notificationBox.frame = CGRectMake(0, 100, totalWidth, notificationBoxHeight);
+    
+    // make box bigger, if buttons are visible
+    if (!self.buttonView.hidden) {
+        notificationBoxHeight += BUTTON_ROW_HEIGHT + OFFSET;
+    }
+    
+    self.notificationBox.frame = CGRectMake(0, -notificationBoxHeight, totalWidth, notificationBoxHeight);
     self.notificationBox.hidden = NO;
     
     // set text & dimensions for notification label
-    NSLog(@"%f", OFFSET + (totalWidth - messageSize.width)/2);
     self.notificationLabel.frame = CGRectMake(OFFSET + (totalWidth - messageSize.width)/2, OFFSET , messageSize.width, messageSize.height);
-    self.notificationLabel.text = message;
     
-    // set text & dimensions for buttons
-    [self.confirmButton setTitle:@"OK!" forState:UIControlStateNormal];
-    [self.abortButton setTitle:@"Cancel!" forState:UIControlStateNormal];
-    
-    [self.confirmButton sizeToFit];
-    [self.abortButton sizeToFit];
-    CGRect abortButtonFrame = self.abortButton.frame;
-    abortButtonFrame.origin.x = OFFSET + self.confirmButton.frame.size.width;
-    self.abortButton.frame = abortButtonFrame;
-    
-    float buttonsWidth = self.confirmButton.frame.size.width + OFFSET + self.abortButton.frame.size.width;
-    self.buttonView.frame = CGRectMake(OFFSET + (totalWidth-buttonsWidth)/2, 2*OFFSET + messageSize.height, buttonsWidth, MAX(self.confirmButton.frame.size.height, self.abortButton.frame.size.height));
-    
-
-   
-
-    
-    
-    
-    
-    
-    
-    /*float messageWidth = self.view.frame.size.width - 2*OFFSET;
+    // set text & dimensions for buttons, if visible
+    if (!self.buttonView.hidden) {
+        [self.confirmButton setTitle:@"OK!" forState:UIControlStateNormal];
+        [self.abortButton setTitle:@"Cancel!" forState:UIControlStateNormal];
         
+        [self.confirmButton sizeToFit];
+        [self.abortButton sizeToFit];
+        CGRect abortButtonFrame = self.abortButton.frame;
+        abortButtonFrame.origin.x = OFFSET + self.confirmButton.frame.size.width;
+        self.abortButton.frame = abortButtonFrame;
+        
+        float buttonsWidth = self.confirmButton.frame.size.width + OFFSET + self.abortButton.frame.size.width;
+        self.buttonView.frame = CGRectMake(OFFSET + (totalWidth-buttonsWidth)/2, 2*OFFSET + messageSize.height, buttonsWidth, MAX(self.confirmButton.frame.size.height, self.abortButton.frame.size.height));
+    }    
     
-    float notificationBoxHeight = OFFSET + messageSize.height + OFFSET;
-    notificationBoxHeight += BUTTON_ROW_HEIGHT + OFFSET; 
-    
-    self.notificationBox.frame = CGRectMake(0, -(messageSize.height + 2*OFFSET), self.view.frame.size.width, notificationBoxHeight);
-    self.notificationLabel.frame = CGRectMake(OFFSET, OFFSET, messageSize.width, messageSize.height);
-    NSLog(@"Message:%@", message);
-    self.notificationLabel.text = message;
-    self.notificationLabel.backgroundColor = [UIColor cyanColor];
-    self.notificationBox.hidden = NO;
-    
-    [UIView animateWithDuration:0.3 animations:^{
-
-    }];
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         // animate fly-in
-        self.notificationBox.frame = CGRectMake(0, 100, self.view.frame.size.width, messageSize.height+ 2*OFFSET);
+        self.notificationBox.frame = CGRectMake(0, 0, self.view.frame.size.width, messageSize.height+ 2*OFFSET);
     } completion:^(BOOL finished) {
-        // animate fly-out after 5 seconds
-//        [UIView animateWithDuration:0.3 delay:5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-  //          self.notificationBox.frame = CGRectMake(0, -(messageSize.height + 2*OFFSET), self.view.frame.size.width, messageSize.height+ 2*OFFSET);
+        // when no buttons are shown, we schedule a fly-out after 5 seconds
+        if (self.buttonView.hidden) {
             
-    //    } completion:^(BOOL finished) {
-            
-      //  }];
-    }];*/
+            [UIView animateWithDuration:0.3 delay:5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                self.notificationBox.frame = CGRectMake(0, -(messageSize.height + 2*OFFSET), self.view.frame.size.width, messageSize.height+ 2*OFFSET);
+            } completion:^(BOOL finished) {
+            }];
+        }
+    }];
 }
 
 - (void) showInfo:(NSString*) message {
     
     self.notificationBox.backgroundColor = [UIColor yellowColor];
-    [self layoutNotificationBox:message];
+    self.notificationLabel.text = message;
+    [self layoutNotificationBox];
 }
 
 - (void) showError:(NSString*) message {
     self.notificationBox.backgroundColor = [UIColor redColor];
-    [self layoutNotificationBox:message];
+        self.notificationLabel.text = message;
+    [self layoutNotificationBox];
 }
 
 - (void) hideMessage {
