@@ -25,6 +25,7 @@ static    NSString *matchPredictionCell;
 @synthesize round = _round;
 @synthesize matchDays = _matchDays;
 @synthesize matches = _matches;
+@synthesize overviewViewController = _overviewViewController;
 
 + (void) initialize {
     matchCell= @"matchCell";
@@ -132,6 +133,15 @@ static    NSString *matchPredictionCell;
     label.backgroundColor = [UIColor clearColor];
     [sectionRow addSubview:label];
     return sectionRow;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSArray *matches = [self.matches objectAtIndex:indexPath.section];
+    Match *match = [matches objectAtIndex:indexPath.row];
+    self.overviewViewController.currentMatchSelection = match;
+    [self.overviewViewController performSegueWithIdentifier:@"toMatchPrediction" sender:self];
+    
 }
 
 @end

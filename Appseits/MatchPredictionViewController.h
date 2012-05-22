@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Match.h"
+#import "AppseitsViewController.h"
 
-@interface MatchPredictionViewController : UIViewController
+@interface MatchPredictionViewController : AppseitsViewController
+
+@property (nonatomic, strong) Match* match;
 
 @end

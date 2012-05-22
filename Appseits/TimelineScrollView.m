@@ -99,7 +99,6 @@ static UIImage *darkRight;
     TournamentRound* activeRound = [TournamentRound activeRound:self.tournamentRounds];
     
     TimelineScrollViewRoundSection *activeSection;
-    
     for (TimelineScrollViewRoundSection *section in self.sections) {
         if (section.round == activeRound) {
             activeSection = section;
@@ -116,8 +115,13 @@ static UIImage *darkRight;
     self.orangeLine.backgroundColor = [UIColor orangeLine];
     [self.contentView addSubview:self.orangeLine];
     
-    [self layoutProgressWaves:activeSection];
-
+    TournamentRound *openRound = [TournamentRound firstOpenRound:self.tournamentRounds];
+    for (TimelineScrollViewRoundSection *section in self.sections) {
+        if (section.round == openRound) {
+            [self layoutProgressWaves:section];
+        }
+    }
+    
     [self setNeedsDisplay];
 }
 

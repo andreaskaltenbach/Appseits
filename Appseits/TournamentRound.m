@@ -41,16 +41,39 @@
     return NO;
 }
 
-+ (TournamentRound*) activeRound:(NSArray*) tournamentRounds {
-    
++ (TournamentRound*) firstOpenRound:(NSArray*) tournamentRounds {
     for (TournamentRound* round in tournamentRounds) {
         if (round.open) {
             return round;
         }
     }
     
-    // if no active round can be identified, we take the first one
+    // if no open round can be identified, we take the first one
     return [tournamentRounds objectAtIndex:0];
+}
+
++ (TournamentRound*) activeRound:(NSArray*) tournamentRounds {
+    
+    // find all open rounds
+    NSMutableArray* openRounds = [NSMutableArray array];
+    for (TournamentRound* round in tournamentRounds) {
+        if (round.open) {
+            [openRounds addObject:round];
+        }
+    }
+
+    // if no active round can be identified, we take the first one
+    if ([openRounds count] == 0) return [tournamentRounds objectAtIndex:0];
+    
+    // return the first round that is not completely predicted
+    for (TournamentRound* round in openRounds) {
+        if (!round.allPredictionsDone) {
+            return round;
+        }
+    }
+        
+    // if all predictions are done, return the first round
+    return [openRounds objectAtIndex:0];
 }
 
 @end

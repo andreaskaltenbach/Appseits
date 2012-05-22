@@ -17,6 +17,7 @@
 #import "Player.h"
 #import "AppseitsViewController.h"
 #import "VersionEnforcer.h"
+#import "Match.h"
 
 @interface OverviewViewController : AppseitsViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate, VersionDelegate>
 
@@ -29,5 +30,7 @@
 
 @property (nonatomic, strong) Player *currentPlayerSelection;
 @property int currentPlayerPlace;
+
+@property (nonatomic, strong) Match* currentMatchSelection;
 
 @end

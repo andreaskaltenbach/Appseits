@@ -99,6 +99,8 @@
 		5B070E451562CD560033B504 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B070E441562CD560033B504 /* SettingsViewController.m */; };
 		5B070E491562CDDE0033B504 /* settingsBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B070E471562CDDE0033B504 /* settingsBackground@2x.png */; };
 		5B070E4A1562CDDE0033B504 /* settingsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B070E481562CDDE0033B504 /* settingsBackground.png */; };
+		5B0BDC08156BE9E200CBF7CB /* flagHolder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0BDC06156BE9E200CBF7CB /* flagHolder@2x.png */; };
+		5B0BDC09156BE9E200CBF7CB /* flagHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0BDC07156BE9E200CBF7CB /* flagHolder.png */; };
 		5B1695C51565486200F939D1 /* SectionWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B1695C41565486200F939D1 /* SectionWidth.m */; };
 		5B1695C91565564C00F939D1 /* selectionArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B1695C71565564C00F939D1 /* selectionArrow@2x.png */; };
 		5B1695CA1565564C00F939D1 /* selectionArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B1695C81565564C00F939D1 /* selectionArrow.png */; };
@@ -393,11 +395,13 @@
 		5B070E441562CD560033B504 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5B070E471562CDDE0033B504 /* settingsBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsBackground@2x.png"; sourceTree = "<group>"; };
 		5B070E481562CDDE0033B504 /* settingsBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsBackground.png; sourceTree = "<group>"; };
+		5B0BDC06156BE9E200CBF7CB /* flagHolder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flagHolder@2x.png"; sourceTree = "<group>"; };
+		5B0BDC07156BE9E200CBF7CB /* flagHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flagHolder.png; sourceTree = "<group>"; };
 		5B1695C31565486200F939D1 /* SectionWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionWidth.h; sourceTree = "<group>"; };
 		5B1695C41565486200F939D1 /* SectionWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionWidth.m; sourceTree = "<group>"; };
 		5B1695C71565564C00F939D1 /* selectionArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectionArrow@2x.png"; sourceTree = "<group>"; };
 		5B1695C81565564C00F939D1 /* selectionArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectionArrow.png; sourceTree = "<group>"; };
-		5B1695CB156556BB00F939D1 /* MatchRoundGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; path = MatchRoundGraph.h; sourceTree = "<group>"; };
+		5B1695CB156556BB00F939D1 /* MatchRoundGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchRoundGraph.h; sourceTree = "<group>"; };
 		5B1695CE15655A8600F939D1 /* MatchRoundGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchRoundGraph.m; sourceTree = "<group>"; };
 		5B1695D0156562F100F939D1 /* LockImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockImageProvider.h; sourceTree = "<group>"; };
 		5B1695D1156562F100F939D1 /* LockImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockImageProvider.m; sourceTree = "<group>"; };
@@ -539,6 +543,8 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5B0BDC06156BE9E200CBF7CB /* flagHolder@2x.png */,
+				5B0BDC07156BE9E200CBF7CB /* flagHolder.png */,
 				5B1695C71565564C00F939D1 /* selectionArrow@2x.png */,
 				5B1695C81565564C00F939D1 /* selectionArrow.png */,
 				5BE9B4C01562D57100F0417D /* extern@2x.png */,
@@ -1127,6 +1133,8 @@
 				5BA13B3B15650D9D006CB46E /* matchResultCell.png in Resources */,
 				5B1695C91565564C00F939D1 /* selectionArrow@2x.png in Resources */,
 				5B1695CA1565564C00F939D1 /* selectionArrow.png in Resources */,
+				5B0BDC08156BE9E200CBF7CB /* flagHolder@2x.png in Resources */,
+				5B0BDC09156BE9E200CBF7CB /* flagHolder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

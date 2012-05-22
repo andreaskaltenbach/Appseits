@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "MatchRound.h"
 #import "ScrollTriggeringTableView.h"
+#import "OverviewViewController.h"
 
 @interface MatchTable : ScrollTriggeringTableView<UITableViewDataSource>
 
 @property (nonatomic, strong) MatchRound *round;
+@property (nonatomic, strong) OverviewViewController *overviewViewController;
 
 @end

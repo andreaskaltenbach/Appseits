@@ -36,6 +36,7 @@
 #import "RoundSelector.h"
 #import "CompositeTop4AndScorerRound.h"
 #import "VersionEnforcer.h"
+#import "MatchPredictionViewController.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -111,6 +112,7 @@ static NSURL *downloadURL;
 @synthesize teamPopoverController = _teamPopoverController;
 @synthesize top4ContainerView = _top4ContainerView;
 @synthesize scorerContainerView = _scorerContainerView;
+@synthesize currentMatchSelection = _currentMatchSelection;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -151,6 +153,7 @@ static NSURL *downloadURL;
     self.headerView.backgroundColor = [UIColor headerBackground];
     self.separatorView.backgroundColor = [UIColor headerBackground];
     
+    self.gameTable.overviewViewController = self;
     self.gameTable.scrollDelegate = self;
     self.rankingTable.scrollDelegate = self;
         
@@ -421,6 +424,11 @@ static NSURL *downloadURL;
     if ([segue.identifier isEqualToString:@"toSettings"]) {
         SettingsViewController *settingsViewController = segue.destinationViewController;
         settingsViewController.overviewViewController = self;
+    }
+    
+    if ([segue.identifier isEqualToString:@"toMatchPrediction"]) {
+        MatchPredictionViewController *matchPredictionController = segue.destinationViewController;
+        matchPredictionController.match = self.currentMatchSelection;
     }
 }
 

@@ -350,6 +350,7 @@ static ScorerRound *scorerRound;
         return NO;
     }
     
+    NSLog(@"Tip data: %@", tipsData );
     top4Round = [Top4Round init:[Top4Tips fromJson:tipsData]];
     
     MatchRound *firstMatchRound = [rounds objectAtIndex:0];
@@ -544,6 +545,8 @@ static ScorerRound *scorerRound;
                               matchId,@"matchId",
                               firstTeamGoals,@"homeTeamGoals",
                               secondTeamGoals,@"awayTeamGoals",nil];
+    
+    NSLog(@"Match: %i %i-%i",matchId.intValue, firstTeamGoals.intValue, secondTeamGoals.intValue);
     NSError *error;
     NSData *data = [NSJSONSerialization dataWithJSONObject:jsonData options:kNilOptions error:&error];
     request.HTTPBody = data;

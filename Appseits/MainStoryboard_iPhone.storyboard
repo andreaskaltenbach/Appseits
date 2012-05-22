@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ROM-IM-TKG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ROM-IM-TKG">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -503,9 +503,6 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 </view>
-                                                                <connections>
-                                                                    <segue destination="yhp-JU-dlz" kind="modal" modalTransitionStyle="flipHorizontal" id="7oq-fq-Kc0"/>
-                                                                </connections>
                                                             </tableViewCell>
                                                         </prototypes>
                                                     </tableView>
@@ -665,6 +662,8 @@
                         <outlet property="trendImage" destination="OQs-YT-d0P" id="aTb-7X-XZC"/>
                         <segue destination="aOb-qA-Le6" kind="push" identifier="toTeamList" id="DHo-qL-Sdf"/>
                         <segue destination="HA9-ls-g95" kind="push" identifier="toPlayerTeamList" id="9gv-1C-j4F"/>
+                        <segue destination="yhp-JU-dlz" kind="modal" id="ZcN-Vc-2q2"/>
+                        <segue destination="yhp-JU-dlz" kind="modal" identifier="toMatchPrediction" modalTransitionStyle="flipHorizontal" id="aNG-Dg-Dgt"/>
                     </connections>
                 </viewController>
                 <tapGestureRecognizer id="MiS-WY-3ru">
@@ -905,7 +904,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PZ3-ca-LeX">
-                                <rect key="frame" x="36" y="186" width="50" height="47"/>
+                                <rect key="frame" x="36" y="186" width="50" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="minus.png">
@@ -915,9 +914,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="decreaseFirstTeamGoals:" destination="yhp-JU-dlz" eventType="touchUpInside" id="W6q-4U-DCz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bSI-L2-MW4">
-                                <rect key="frame" x="177" y="186" width="50" height="47"/>
+                                <rect key="frame" x="177" y="186" width="50" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="minus.png">
@@ -927,9 +929,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="decreaseSecondTeamGoals:" destination="yhp-JU-dlz" eventType="touchUpInside" id="qw0-yL-1lB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IJs-LF-uKr">
-                                <rect key="frame" x="110" y="186" width="50" height="47"/>
+                                <rect key="frame" x="110" y="186" width="50" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="plus.png">
@@ -939,9 +944,12 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="increaseFirstTeamGoals:" destination="yhp-JU-dlz" eventType="touchUpInside" id="qSj-aX-NfT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aU2-pW-A6m">
-                                <rect key="frame" x="255" y="186" width="50" height="47"/>
+                                <rect key="frame" x="255" y="186" width="50" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="plus.png">
@@ -951,6 +959,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="increaseSecondTeamGoals:" destination="yhp-JU-dlz" eventType="touchUpInside" id="jgG-bD-PRl"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="predictionInput.png" id="1PX-7k-Ywl">
                                 <rect key="frame" x="78" y="189" width="47" height="41"/>
@@ -960,11 +971,61 @@
                                 <rect key="frame" x="218" y="189" width="47" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flagHolder@2x.png" id="0oL-VW-cou">
+                                <rect key="frame" x="115" y="152" width="26" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="0Gb-pc-8JF">
+                                <rect key="frame" x="120" y="157" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="flagHolder@2x.png" id="X8k-M1-CAX">
+                                <rect key="frame" x="195" y="152" width="26" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="MCh-cb-qh5">
+                                <rect key="frame" x="200" y="157" width="16" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SWE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ZvV-vl-1oV">
+                                <rect key="frame" x="65" y="152" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SWE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="L8I-O3-ZCq">
+                                <rect key="frame" x="229" y="152" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="lZ2-iH-ZIZ">
+                                <rect key="frame" x="78" y="189" width="47" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="MG6-Zo-Frv">
+                                <rect key="frame" x="218" y="188" width="47" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Mes-Sz-Jb7" id="Lcc-PU-Rqc"/>
+                        <outlet property="firstTeamFlag" destination="0Gb-pc-8JF" id="aVG-jM-hoD"/>
+                        <outlet property="firstTeamGoalsLabel" destination="lZ2-iH-ZIZ" id="YOM-zJ-elw"/>
+                        <outlet property="firstTeamLabel" destination="ZvV-vl-1oV" id="cbj-ex-lQw"/>
+                        <outlet property="secondTeamFlag" destination="MCh-cb-qh5" id="4u1-BQ-q3G"/>
+                        <outlet property="secondTeamGoalsLabel" destination="MG6-Zo-Frv" id="tp1-ey-dnM"/>
+                        <outlet property="secondTeamLabel" destination="L8I-O3-ZCq" id="xXs-pE-FLI"/>
                     </connections>
                 </viewController>
             </objects>
@@ -1200,6 +1261,7 @@
         <image name="backButton.png" width="114" height="42"/>
         <image name="cogwheel.png" width="15" height="15"/>
         <image name="euroLogo.png" width="49" height="21"/>
+        <image name="flagHolder@2x.png" width="52" height="52"/>
         <image name="forgotPassword.png" width="300" height="44"/>
         <image name="greenBall.png" width="42" height="42"/>
         <image name="login.png" width="300" height="54"/>
@@ -1254,6 +1316,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchPredictionViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="firstTeamFlag" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="firstTeamGoalsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="firstTeamLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="secondTeamFlag" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="secondTeamGoalsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="secondTeamLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="MatchResultCell" superclassName="MatchCell">
@@ -1273,6 +1341,7 @@
                 <relationship kind="outlet" name="leagueInput" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="leaguePicker" candidateClass="LeaguePickerView"/>
                 <relationship kind="outlet" name="mainScrollView" candidateClass="MainScrollView"/>
+                <relationship kind="outlet" name="matchView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="menu" candidateClass="UIView"/>
                 <relationship kind="outlet" name="menuDependingScrollView" candidateClass="MenuDependendScrollView"/>
                 <relationship kind="outlet" name="pointInCurrentRound" candidateClass="UILabel"/>
@@ -1282,13 +1351,16 @@
                 <relationship kind="outlet" name="rankingTableHeader" candidateClass="UIView"/>
                 <relationship kind="outlet" name="resultMenuItem" candidateClass="UIView"/>
                 <relationship kind="outlet" name="roundConstraintBar" candidateClass="RoundTimeConstraintRow"/>
+                <relationship kind="outlet" name="roundSelector" candidateClass="RoundSelector"/>
                 <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scorerContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="scorerView" candidateClass="ScorerView"/>
                 <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
                 <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
-                <relationship kind="outlet" name="top4AndScorerRoundLabel" candidateClass="Top4AndScorerRoundLabel"/>
+                <relationship kind="outlet" name="top4AndScorerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="top4ContainerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="top4View" candidateClass="Top4View"/>
                 <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
             </relationships>
@@ -1316,6 +1388,9 @@
         </class>
         <class className="RankingTable" superclassName="ScrollTriggeringTableView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingTable.h"/>
+        </class>
+        <class className="RoundSelector" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundSelector.h"/>
         </class>
         <class className="RoundTimeConstraintRow" superclassName="SSGradientView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundTimeConstraintRow.h"/>
@@ -1353,14 +1428,8 @@
         <class className="Timeline" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
         </class>
-        <class className="TimelineRoundLabel" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineRoundLabel.h"/>
-        </class>
         <class className="TimelineScrollView" superclassName="UIScrollView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
-        </class>
-        <class className="Top4AndScorerRoundLabel" superclassName="TimelineRoundLabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Top4AndScorerRoundLabel.h"/>
         </class>
         <class className="Top4View" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/Top4View.h"/>
@@ -1381,4 +1450,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="aNG-Dg-Dgt"/>
+    </inferredMetricsTieBreakers>
 </document>
