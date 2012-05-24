@@ -73,6 +73,29 @@
 }
 
 - (void) updatePlace:(int) place withTeam:(Team*) team: (FinishedBlock) onDone {
+    
+    // if team is already selected on other place, remove this prediction
+    int duplicate = 0;
+    if ([self.top4Round.top4Tips.firstTeam isEqual:team]) duplicate = 1;
+    if ([self.top4Round.top4Tips.secondTeam isEqual:team]) duplicate = 2;
+    if ([self.top4Round.top4Tips.thirdTeam isEqual:team]) duplicate = 3;
+    if ([self.top4Round.top4Tips.fourthTeam isEqual:team]) duplicate = 4;
+    if (duplicate > 0) {
+        [BackendAdapter postPredictionForPlace:duplicate andTeam:0 :^(bool success) {
+            if (success) {
+                [self saveTeamPrediction:place :team :onDone];
+            }
+            else {
+                onDone(NO);
+            }
+        }];
+    } 
+    else {
+        [self saveTeamPrediction:place :team :onDone];
+    }
+}
+
+- (void) saveTeamPrediction:(int) place:(Team*) team:(FinishedBlock) onDone {
     if (place == 1) self.top4Round.top4Tips.firstTeam = team;
     if (place == 2) self.top4Round.top4Tips.secondTeam = team;
     if (place == 3) self.top4Round.top4Tips.thirdTeam = team;

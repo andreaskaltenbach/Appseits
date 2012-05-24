@@ -579,6 +579,8 @@ static ScorerRound *scorerRound;
     
     [request setHTTPMethod:@"POST"];
     
+    NSLog(@"Team:%i", teamId.intValue);
+    
     // build JSON payload
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     NSDictionary *jsonData = [NSDictionary dictionaryWithObjectsAndKeys:

@@ -824,10 +824,10 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="21t-0Y-Dwk">
-                                    <rect key="frame" x="20" y="3" width="80" height="37"/>
+                                    <rect key="frame" x="3" y="0.0" width="114" height="42"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
-                                    <state key="normal" title="       TILLBAKA" backgroundImage="backButton.png">
+                                    <state key="normal" title="       LAND" backgroundImage="backButton.png">
                                         <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>

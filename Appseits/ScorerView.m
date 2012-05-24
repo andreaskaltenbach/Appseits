@@ -73,6 +73,27 @@
 
 - (void) updatePlace:(int) place withPlayer:(Player*) player: (FinishedBlock) onDone {
     
+    // if team is already selected on other place, remove this prediction
+    int duplicate = 0;
+    if ([self.scorerRound.scorerTips.firstPlayer isEqual:player]) duplicate = 1;
+    if ([self.scorerRound.scorerTips.secondPlayer isEqual:player]) duplicate = 2;
+    if ([self.scorerRound.scorerTips.thirdPlayer isEqual:player]) duplicate = 3;
+    if (duplicate > 0) {
+        [BackendAdapter postPredictionForPlace:duplicate andPlayer:0 :^(bool success) {
+            if (success) {
+                [self savePlayerPrediction:place :player :onDone];
+            }
+            else {
+                onDone(NO);
+            }
+        }];
+    } 
+    else {
+        [self savePlayerPrediction:place :player :onDone];
+    }
+}
+
+- (void) savePlayerPrediction:(int) place:(Player*) player:(FinishedBlock) onDone {
     if (place == 1) self.scorerRound.scorerTips.firstPlayer = player;
     if (place == 2) self.scorerRound.scorerTips.secondPlayer = player;
     if (place == 3) self.scorerRound.scorerTips.thirdPlayer = player;

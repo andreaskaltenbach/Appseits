@@ -43,7 +43,10 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    
+    NSLog(@"Active");
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setValue:@"YES" forKey:@"Kickoff"];
+    [userDefaults synchronize];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
