@@ -75,11 +75,13 @@
     
     // if team is already selected on other place, remove this prediction
     int duplicate = 0;
-    if ([self.scorerRound.scorerTips.firstPlayer isEqual:player]) duplicate = 1;
-    if ([self.scorerRound.scorerTips.secondPlayer isEqual:player]) duplicate = 2;
-    if ([self.scorerRound.scorerTips.thirdPlayer isEqual:player]) duplicate = 3;
+    if ([self.scorerRound.scorerTips.firstPlayer isEqual:player] && place != 1) duplicate = 1;
+    if ([self.scorerRound.scorerTips.secondPlayer isEqual:player]&& place != 2) duplicate = 2;
+    if ([self.scorerRound.scorerTips.thirdPlayer isEqual:player] && place != 3) duplicate = 3;
     if (duplicate > 0) {
-        [BackendAdapter postPredictionForPlace:duplicate andPlayer:0 :^(bool success) {
+        ScorerSelector *selectorToClean = [self.scorerSelectors objectAtIndex:(duplicate-1)];
+        selectorToClean.player = nil;
+        [BackendAdapter postPredictionForPlace:duplicate andPlayer:[NSNumber numberWithInt:0] :^(bool success) {
             if (success) {
                 [self savePlayerPrediction:place :player :onDone];
             }

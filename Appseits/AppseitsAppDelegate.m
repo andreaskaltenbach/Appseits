@@ -43,7 +43,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    NSLog(@"Active");
+    // store flag to kickoff a reload and a check for a new app version
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setValue:@"YES" forKey:@"Kickoff"];
     [userDefaults synchronize];

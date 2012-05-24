@@ -132,6 +132,15 @@ static NSURL *downloadURL;
     [self.mainScrollView scrollRectToVisible:CGRectMake(0, 0, self.mainScrollView.frame.size.width, self.mainScrollView.frame.size.height) animated:YES];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    id flag = [userDefaults valueForKey:@"Kickoff"];
+    if (flag) {
+        [userDefaults synchronize];
+    }
+    
+}
+
 - (void) viewDidLoad {
     
     [super viewDidLoad];

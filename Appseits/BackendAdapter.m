@@ -587,6 +587,8 @@ static ScorerRound *scorerRound;
                               teamId,@"teamId",
                               [NSNumber numberWithInt:place],@"place",
                               nil];
+    
+    NSLog(@"POST data %@", jsonData);
     NSError *error;
     NSData *data = [NSJSONSerialization dataWithJSONObject:jsonData options:kNilOptions error:&error];
     request.HTTPBody = data;

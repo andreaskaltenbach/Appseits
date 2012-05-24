@@ -76,12 +76,22 @@
     
     // if team is already selected on other place, remove this prediction
     int duplicate = 0;
-    if ([self.top4Round.top4Tips.firstTeam isEqual:team]) duplicate = 1;
-    if ([self.top4Round.top4Tips.secondTeam isEqual:team]) duplicate = 2;
-    if ([self.top4Round.top4Tips.thirdTeam isEqual:team]) duplicate = 3;
-    if ([self.top4Round.top4Tips.fourthTeam isEqual:team]) duplicate = 4;
+    if ([self.top4Round.top4Tips.firstTeam isEqual:team] && place != 1) {
+        duplicate = 1;
+    }
+    if ([self.top4Round.top4Tips.secondTeam isEqual:team] && place != 2) {
+        duplicate = 2;
+    }
+    if ([self.top4Round.top4Tips.thirdTeam isEqual:team] && place != 3) {
+        duplicate = 3;
+    }
+    if ([self.top4Round.top4Tips.fourthTeam isEqual:team] && place != 4) {
+        duplicate = 4;
+    }
     if (duplicate > 0) {
-        [BackendAdapter postPredictionForPlace:duplicate andTeam:0 :^(bool success) {
+        Top4Selector *selectorToClean = [self.top4Selectors objectAtIndex:(duplicate-1)];
+        selectorToClean.team = nil;
+        [BackendAdapter postPredictionForPlace:duplicate andTeam:[NSNumber numberWithInt:0] :^(bool success) {
             if (success) {
                 [self saveTeamPrediction:place :team :onDone];
             }
