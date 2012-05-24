@@ -9,6 +9,7 @@
 #import "AppseitsAppDelegate.h"
 #import "TestFlight.h"
 #import "VersionEnforcer.h"
+#import "BackendAdapter.h"
 
 @implementation AppseitsAppDelegate
 
@@ -43,10 +44,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // store flag to kickoff a reload and a check for a new app version
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setValue:@"YES" forKey:@"Kickoff"];
-    [userDefaults synchronize];
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

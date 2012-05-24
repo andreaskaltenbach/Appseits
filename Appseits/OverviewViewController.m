@@ -132,21 +132,30 @@ static NSURL *downloadURL;
     [self.mainScrollView scrollRectToVisible:CGRectMake(0, 0, self.mainScrollView.frame.size.width, self.mainScrollView.frame.size.height) animated:YES];
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    id flag = [userDefaults valueForKey:@"Kickoff"];
-    if (flag) {
-        [userDefaults synchronize];
+
+- (void) refreshApplication {
+        
+    // trigger an update, if model is initialzed
+    if ([BackendAdapter modelInitialized]) {
+        [BackendAdapter refreshModel:^(bool success) {
+            if (!success) {
+                [self showError:@"Kunde tyvärr inte uppdatera"];
+            }
+        }];
     }
     
+    // check for new app version
+    VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
+    [versionEnforcer checkVersion:@"http://dl.dropbox.com/u/15650647/appseits/version.json"];
 }
 
 - (void) viewDidLoad {
     
     [super viewDidLoad];
     
-    VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
-    [versionEnforcer checkVersion:@"http://dl.dropbox.com/u/15650647/appseits/version.json"];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshApplication)
+                                                 name:UIApplicationDidBecomeActiveNotification object:nil];
     
     self.lastUpdated = [NSDate date];
     
@@ -246,6 +255,8 @@ static NSURL *downloadURL;
 }
 
 - (void)viewDidUnload {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
     [self setTimelineScrollView:nil];
     [self setPointInCurrentRound:nil];
     [self setPointsTotal:nil];

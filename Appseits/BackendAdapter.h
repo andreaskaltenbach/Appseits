@@ -23,6 +23,7 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 + (void) validateCredentials:(FinishedBlock) onFinished;
 
 + (void) initializeModel:(FinishedBlock) onFinished;
++ (BOOL) modelInitialized;
 + (void) refreshModel:(FinishedBlock) onFinished;
 
 + (void) logout;

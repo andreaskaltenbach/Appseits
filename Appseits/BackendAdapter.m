@@ -41,6 +41,8 @@ static NSMutableDictionary *playerDictionary;
 static Top4Round *top4Round;
 static ScorerRound *scorerRound;
 
+static BOOL modelInitialized;
+
 #define FLAG_URL @"http://img.uefa.com/imgml/flags/32x32/%@.png"
 
 #define LOGIN_URL @"http://emtipset.dev.stendahls.se/api/login"
@@ -55,6 +57,10 @@ static ScorerRound *scorerRound;
 + (void) initialize {
     leagueUrl = @"http://dl.dropbox.com/u/15650647/leagues.json";
     rankingUrl = @"http://dl.dropbox.com/u/15650647/ranking.json";
+}
+
++ (BOOL) modelInitialized {
+    return modelInitialized;
 }
 
 + (BOOL) credentialsAvailable {
@@ -209,6 +215,7 @@ static ScorerRound *scorerRound;
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
+            modelInitialized = YES;
             onFinished(YES);
         });
     });
