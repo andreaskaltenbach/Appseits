@@ -53,8 +53,8 @@
 
 + (NSArray *) lastUpdatedGradient {
     return [NSArray arrayWithObjects: 
-            [UIColor colorWithRed:97.0/255.0f green:97.0/255.0f blue:97.0/255.0f alpha:1],
             [UIColor colorWithRed:127.0/255.0f green:127.0/255.0f blue:127.0/255.0f alpha:1],
+            [UIColor colorWithRed:97.0/255.0f green:97.0/255.0f blue:97.0/255.0f alpha:1],
             nil];
 }
 

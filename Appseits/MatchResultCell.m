@@ -81,14 +81,41 @@ static UIImage *resultSelectedBackgroundImage;
     [super setMatch:game];
 
     // set match result
-    self.firstTeamGoals.text = [NSString stringWithFormat:@"%i", game.firstTeamGoals.intValue];
-    self.secondTeamGoals.text = [NSString stringWithFormat:@"%i", game.secondTeamGoals.intValue];
+    if (game.firstTeamGoals) {
+        self.firstTeamGoals.text = [NSString stringWithFormat:@"%i", game.firstTeamGoals.intValue];
+    }
+    else {
+        self.firstTeamGoals.text = @"-";
+    }
+    
+    if (game.secondTeamGoals) {
+        self.secondTeamGoals.text = [NSString stringWithFormat:@"%i", game.secondTeamGoals.intValue];
+    }
+    else {
+        self.secondTeamGoals.text = @"-";
+    }
     
     // set predictions
-    self.firstTeamPrediction.text = [NSString stringWithFormat:@"%i", game.firstTeamPrediction.intValue];
-    self.secondTeamPrediction.text = [NSString stringWithFormat:@"%i", game.secondTeamPrediction.intValue];
+    if (game.firstTeamPrediction) {
+        self.firstTeamPrediction.text = [NSString stringWithFormat:@"%i", game.firstTeamPrediction.intValue];
+    }
+    else {
+        self.firstTeamPrediction.text = @"-";
+    }
     
-    if (game.firstTeamPrediction.intValue == game.firstTeamGoals.intValue
+    if (game.secondTeamPrediction) {
+        self.secondTeamPrediction.text = [NSString stringWithFormat:@"%i", game.secondTeamPrediction.intValue];
+    }
+    else {
+        self.secondTeamPrediction.text = @"-";
+    }
+    
+    // highlight predictions
+    if (!game.firstTeamGoals && !game.secondTeamGoals) {
+        [self switchLeftPrediction:NO];
+        [self switchRightPrediction:NO];
+    }
+    else if (game.firstTeamPrediction.intValue == game.firstTeamGoals.intValue
         && game.secondTeamPrediction.intValue == game.secondTeamGoals.intValue) {
         // correct result predicted -> show both green boxes:
         [self switchLeftPrediction:YES];
@@ -117,6 +144,18 @@ static UIImage *resultSelectedBackgroundImage;
         } else {
             [self switchLeftPrediction:NO];
             [self switchRightPrediction:NO];
+        }
+    }
+    
+    // change ball
+    if (!game.firstTeamGoals && !game.secondTeamGoals) {
+        // game is not yet played
+        if (game.firstTeamPrediction && game.secondTeamPrediction) {
+            self.pointsBackground.hidden = YES;
+        }
+        else {
+            self.pointsBackground.hidden = NO;
+            // TODO - replace with check image
         }
     }
 }

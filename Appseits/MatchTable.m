@@ -97,9 +97,8 @@ static    NSString *matchPredictionCell;
             cell = [tableView dequeueReusableCellWithIdentifier:matchCell];
         }
         else {
-            cell = [tableView dequeueReusableCellWithIdentifier:matchPredictionCell];
+            cell = [tableView dequeueReusableCellWithIdentifier:matchResultCell];
         }
-        
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:matchResultCell];
@@ -111,7 +110,13 @@ static    NSString *matchPredictionCell;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (self.round.open) {
-        return 70;
+        Match *match = [self.round.matches objectAtIndex:indexPath.row];
+        if (match.firstTeamPrediction && match.secondTeamPrediction) {
+            return 108;
+        }
+        else {
+            return 70;
+        }
     }
     else {
         return 108;

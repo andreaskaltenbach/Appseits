@@ -389,9 +389,6 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 </view>
-                                                                <connections>
-                                                                    <segue destination="0JB-BR-gUT" kind="modal" modalTransitionStyle="flipHorizontal" id="Jmj-Sa-wGR"/>
-                                                                </connections>
                                                             </tableViewCell>
                                                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="matchCell" rowHeight="70" id="iOJ-a8-gDm" customClass="MatchCell">
                                                                 <rect key="frame" x="0.0" y="130" width="320" height="70"/>
