@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define SCROLL_OFFET 20
-#define KEYBOARD_SCROLL_OFFET 80
+#define KEYBOARD_SCROLL_OFFET 140
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
