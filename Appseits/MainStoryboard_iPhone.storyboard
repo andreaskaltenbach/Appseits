@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ROM-IM-TKG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ROM-IM-TKG">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -142,15 +142,15 @@
                                 </subviews>
                             </view>
                             <view contentMode="scaleToFill" id="aYN-hX-Ic6" userLabel="menu">
-                                <rect key="frame" x="0.0" y="48" width="320" height="42"/>
+                                <rect key="frame" x="0.0" y="48" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="7Ny-Yz-OBu">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tips" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="eg8-s2-x53">
-                                                <rect key="frame" x="5" y="0.0" width="80" height="42"/>
+                                                <rect key="frame" x="5" y="0.0" width="80" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -163,11 +163,11 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" id="j7w-Py-eJV">
-                                        <rect key="frame" x="80" y="0.0" width="100" height="42"/>
+                                        <rect key="frame" x="80" y="0.0" width="100" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ranking" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="puY-Nj-6zL">
-                                                <rect key="frame" x="5" y="0.0" width="95" height="42"/>
+                                                <rect key="frame" x="5" y="0.0" width="95" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -191,7 +191,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="aer-g7-G9t" userLabel="main scroll view" customClass="MainScrollView">
-                                <rect key="frame" x="0.0" y="90" width="320" height="370"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="370"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="DVm-iQ-cdc" userLabel="scoreView">
@@ -282,7 +282,7 @@
                                                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="KT6-Hu-UFq" customClass="MatchTable">
-                                                        <rect key="frame" x="0.0" y="77" width="320" height="243"/>
+                                                        <rect key="frame" x="0.0" y="77" width="320" height="241"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="separatorColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -551,7 +551,7 @@
                                                         </subviews>
                                                     </view>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="S6h-1E-dgG" customClass="RankingTable">
-                                                        <rect key="frame" x="0.0" y="57" width="320" height="267"/>
+                                                        <rect key="frame" x="0.0" y="57" width="320" height="265"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <prototypes>
@@ -1312,7 +1312,7 @@
         <class className="MatchPredictionCell" superclassName="MatchCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchPredictionCell.h"/>
         </class>
-        <class className="MatchPredictionViewController" superclassName="UIViewController">
+        <class className="MatchPredictionViewController" superclassName="AppseitsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchPredictionViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>

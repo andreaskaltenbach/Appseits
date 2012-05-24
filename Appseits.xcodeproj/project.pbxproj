@@ -59,6 +59,8 @@
 		4E531C43151CB04A0003CAD1 /* MatchRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C42151CB04A0003CAD1 /* MatchRound.m */; };
 		4E531C46151CB05B0003CAD1 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Match.m */; };
 		4E531C4E151CB5D50003CAD1 /* MatchPredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */; };
+		4E6B8C90156E25E500E54B10 /* menuBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6B8C8E156E25E500E54B10 /* menuBackground@2x.png */; };
+		4E6B8C91156E25E500E54B10 /* menuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6B8C8F156E25E500E54B10 /* menuBackground.png */; };
 		4E86FF5C152B275F00958DDE /* RankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E86FF5B152B275F00958DDE /* RankingCell.m */; };
 		4E890C4915526C9700F67CD9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BC662DA154AE16A0070C304 /* Default.png */; };
 		4E890C4B15526C9D00F67CD9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BC662D8154AE1620070C304 /* Default@2x.png */; };
@@ -157,7 +159,6 @@
 		5BC662E6154C85E60070C304 /* openRound@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BC662E4154C85E50070C304 /* openRound@2x.png */; };
 		5BC662E7154C85E60070C304 /* openRound.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BC662E5154C85E50070C304 /* openRound.png */; };
 		5BD34AA1153CC735006EB953 /* LeaguePickerDataSourceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD34AA0153CC735006EB953 /* LeaguePickerDataSourceDelegate.m */; };
-		5BD38CD4154297BF00551FB9 /* menuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD38CD3154297BF00551FB9 /* menuBackground.png */; };
 		5BD38CD715429D2200551FB9 /* menuSelectedBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD38CD615429D2200551FB9 /* menuSelectedBackground.png */; };
 		5BD38CDA1542A2B300551FB9 /* ScrollTriggeringTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD38CD91542A2B300551FB9 /* ScrollTriggeringTableView.m */; };
 		5BD38CDC1542A53400551FB9 /* 11-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD38CDB1542A53400551FB9 /* 11-clock.png */; };
@@ -344,6 +345,8 @@
 		4E531C45151CB05B0003CAD1 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
 		4E531C4C151CB5D50003CAD1 /* MatchPredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPredictionCell.h; sourceTree = "<group>"; };
 		4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPredictionCell.m; sourceTree = "<group>"; };
+		4E6B8C8E156E25E500E54B10 /* menuBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuBackground@2x.png"; sourceTree = "<group>"; };
+		4E6B8C8F156E25E500E54B10 /* menuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBackground.png; sourceTree = "<group>"; };
 		4E86FF5A152B275F00958DDE /* RankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingCell.h; sourceTree = "<group>"; };
 		4E86FF5B152B275F00958DDE /* RankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingCell.m; sourceTree = "<group>"; };
 		4E920AFA155BA33600775B3B /* matchBackgroundSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "matchBackgroundSelected@2x.png"; sourceTree = "<group>"; };
@@ -480,7 +483,6 @@
 		5BC662E5154C85E50070C304 /* openRound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = openRound.png; sourceTree = "<group>"; };
 		5BD34A9F153CC735006EB953 /* LeaguePickerDataSourceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaguePickerDataSourceDelegate.h; sourceTree = "<group>"; };
 		5BD34AA0153CC735006EB953 /* LeaguePickerDataSourceDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaguePickerDataSourceDelegate.m; sourceTree = "<group>"; };
-		5BD38CD3154297BF00551FB9 /* menuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBackground.png; sourceTree = "<group>"; };
 		5BD38CD615429D2200551FB9 /* menuSelectedBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuSelectedBackground.png; sourceTree = "<group>"; };
 		5BD38CD81542A2B300551FB9 /* ScrollTriggeringTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollTriggeringTableView.h; sourceTree = "<group>"; };
 		5BD38CD91542A2B300551FB9 /* ScrollTriggeringTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollTriggeringTableView.m; sourceTree = "<group>"; };
@@ -543,6 +545,8 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4E6B8C8E156E25E500E54B10 /* menuBackground@2x.png */,
+				4E6B8C8F156E25E500E54B10 /* menuBackground.png */,
 				5B0BDC06156BE9E200CBF7CB /* flagHolder@2x.png */,
 				5B0BDC07156BE9E200CBF7CB /* flagHolder.png */,
 				5B1695C71565564C00F939D1 /* selectionArrow@2x.png */,
@@ -625,7 +629,6 @@
 				5BD38CE415433CC100551FB9 /* arrow@2x.png */,
 				5BD38CD615429D2200551FB9 /* menuSelectedBackground.png */,
 				5BD38CDB1542A53400551FB9 /* 11-clock.png */,
-				5BD38CD3154297BF00551FB9 /* menuBackground.png */,
 				4EDF7A781541A1EA000C81AD /* headerPattern.png */,
 				4EE59D9F15404C4E0082193D /* pageControl_inactive.png */,
 				4EE59DA015404C4E0082193D /* pageControl_active.png */,
@@ -1041,7 +1044,6 @@
 				4EE59DA115404C4E0082193D /* pageControl_inactive.png in Resources */,
 				4EE59DA215404C4E0082193D /* pageControl_active.png in Resources */,
 				4EDF7A791541A1EA000C81AD /* headerPattern.png in Resources */,
-				5BD38CD4154297BF00551FB9 /* menuBackground.png in Resources */,
 				5BD38CD715429D2200551FB9 /* menuSelectedBackground.png in Resources */,
 				5BD38CDC1542A53400551FB9 /* 11-clock.png in Resources */,
 				5BD38CE515433CC100551FB9 /* arrow.png in Resources */,
@@ -1135,6 +1137,8 @@
 				5B1695CA1565564C00F939D1 /* selectionArrow.png in Resources */,
 				5B0BDC08156BE9E200CBF7CB /* flagHolder@2x.png in Resources */,
 				5B0BDC09156BE9E200CBF7CB /* flagHolder.png in Resources */,
+				4E6B8C90156E25E500E54B10 /* menuBackground@2x.png in Resources */,
+				4E6B8C91156E25E500E54B10 /* menuBackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

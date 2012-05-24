@@ -15,7 +15,7 @@
 }
 
 + (UIColor*) menuBackground {
-    return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"menuBackground.png"]];
+    return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"menuBackground"]];
 }
 
 + (UIColor*) menuSelectedBackground {
