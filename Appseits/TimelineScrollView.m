@@ -91,6 +91,9 @@ static UIImage *darkRight;
         section.frame = sectionFrame;
         [sections addObject:section];
         
+        // add tap event for every section
+        [section addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionTapped:)]];
+        
         xOffset += ROUND_WIDTH;
     }
     self.sections = [NSArray arrayWithArray:sections];
