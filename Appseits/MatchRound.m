@@ -14,10 +14,10 @@
 
 @synthesize matches = _matches;
 
-- (int) points {
-    int points = 0;
+- (float) points {
+    float points = 0.0f;
     for(Match *game in self.matches) {
-        points += game.points.intValue;
+        points += game.points.floatValue;
     }
     return points;
 }

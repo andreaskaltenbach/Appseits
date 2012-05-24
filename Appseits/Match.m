@@ -37,6 +37,8 @@
     match.secondTeam = [teamNames objectForKey:secondTeamName];
     
     // if a 'TBD' is found, we do not have any opponents yet!
+    
+
     if ([match.firstTeam.shortName rangeOfString:@"tbd"].location != NSNotFound) {
         match.unknownOpponents = YES;
     }
@@ -74,6 +76,8 @@
     }
     
     match.points = [gameData valueForKey:@"score"];
+    
+    NSLog(@"MAtch: %@ %i", match, match.unknownOpponents);
     
     return match;
 }

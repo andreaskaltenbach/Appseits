@@ -27,4 +27,10 @@
     return self.scorerTips.firstPlayer && self.scorerTips.secondPlayer && self.scorerTips.thirdPlayer;
 }
 
+- (float) points {
+    return self.scorerTips.firstPlayerPoints.floatValue 
+    + self.scorerTips.secondPlayerPoints.floatValue
+    + self.scorerTips.thirdPlayerPoints.floatValue;
+}
+
 @end

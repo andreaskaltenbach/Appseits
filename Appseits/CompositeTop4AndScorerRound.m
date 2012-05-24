@@ -23,7 +23,7 @@
     return round;
 }
 
-- (int) points {
+- (float) points {
     return self.top4Round.points + self.scorerRound.points;
 }
 

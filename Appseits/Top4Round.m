@@ -26,4 +26,13 @@
     return self.top4Tips.firstTeam && self.top4Tips.secondTeam && self.top4Tips.thirdTeam && self.top4Tips.fourthTeam;
 }
 
+- (float) points {
+    return self.top4Tips.firstTeamPoints.floatValue 
+        + self.top4Tips.secondTeamPoints.floatValue
+        + self.top4Tips.thirdTeamPoints.floatValue
+        + self.top4Tips.fourthTeamPoints.floatValue;
+}
+
+
+
 @end

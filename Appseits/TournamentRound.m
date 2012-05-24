@@ -7,6 +7,7 @@
 //
 
 #import "TournamentRound.h"
+#import "BackendAdapter.h"
 
 @implementation TournamentRound
 
@@ -23,7 +24,7 @@
     return [NSString stringWithFormat:@"Tournament round %@", self.roundName];
 }
 
-- (int) points {
+- (float) points {
     return 0;
 }
 
@@ -39,6 +40,14 @@
 
 - (BOOL) allPredictionsDone {
     return NO;
+}
+
++ (float) totalPoints {
+    float totalPoints = 0;
+    for (TournamentRound* round in [BackendAdapter tournamentRounds]) {
+        totalPoints+= round.points;
+    }
+    return totalPoints;
 }
 
 + (TournamentRound*) firstOpenRound:(NSArray*) tournamentRounds {

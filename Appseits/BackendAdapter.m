@@ -95,13 +95,11 @@ static ScorerRound *scorerRound;
             NSHTTPURLResponse *response;
             
             NSData *userData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            NSLog(@"Error: %@", error);
             
             if (response.statusCode != 200) {   
                 // an error occured
                 if(response.statusCode == 0) {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [self showErrorAlert:@"No internet connection."];
                         onFinished(NO);
                     });
                     return;
@@ -111,7 +109,6 @@ static ScorerRound *scorerRound;
                     NSLog(@"Status code: %i", response.statusCode);
                     // some unexpected has happened:
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [self showErrorAlert:@"Unable to validate credentials."];
                         onFinished(NO);
                     });
                     return;
@@ -357,6 +354,7 @@ static ScorerRound *scorerRound;
     top4Round.startDate = firstMatchRound.startDate;
     top4Round.lockDate = firstMatchRound.lockDate;
     NSLog(@"Fetched top 4 tips: %@", top4Round.top4Tips);
+    
     
     return YES;
 }

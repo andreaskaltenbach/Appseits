@@ -12,8 +12,13 @@
 @interface ScorerTips : NSObject
 
 @property (nonatomic, strong) Player *firstPlayer;
+@property (nonatomic, strong) NSNumber* firstPlayerPoints;
+
 @property (nonatomic, strong) Player *secondPlayer;
+@property (nonatomic, strong) NSNumber* secondPlayerPoints;
+
 @property (nonatomic, strong) Player *thirdPlayer;
+@property (nonatomic, strong) NSNumber* thirdPlayerPoints;
 
 + (ScorerTips*) fromJson: (NSArray*) jsonData;
 

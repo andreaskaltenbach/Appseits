@@ -313,6 +313,14 @@ static NSURL *downloadURL;
     }
     
     self.roundConstraintBar.round = round;
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sv_SE"];
+    formatter.minimumFractionDigits = 0;
+    formatter.maximumFractionDigits = 1;
+
+    self.pointInCurrentRound.text = [NSString stringWithFormat:@"%@p", [formatter stringFromNumber:[NSNumber numberWithFloat:round.points]]];
+    self.pointsTotal.text = [NSString stringWithFormat:@"%@p", [formatter stringFromNumber:[NSNumber numberWithFloat:[TournamentRound totalPoints]]]];
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {

@@ -139,8 +139,10 @@ static    NSString *matchPredictionCell;
     
     NSArray *matches = [self.matches objectAtIndex:indexPath.section];
     Match *match = [matches objectAtIndex:indexPath.row];
-    self.overviewViewController.currentMatchSelection = match;
-    [self.overviewViewController performSegueWithIdentifier:@"toMatchPrediction" sender:self];
+    if (!match.unknownOpponents) {
+        self.overviewViewController.currentMatchSelection = match;
+        [self.overviewViewController performSegueWithIdentifier:@"toMatchPrediction" sender:self];
+    }
     
 }
 

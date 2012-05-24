@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSDate *lockDate;
 @property (nonatomic, strong) NSString *roundName;
 
-- (int) points;
+- (float) points;
 
 - (float) progress;
 
@@ -24,5 +24,7 @@
 
 + (TournamentRound*) activeRound:(NSArray*) tournamentRounds;
 + (TournamentRound*) firstOpenRound:(NSArray*) tournamentRounds;
+
++ (float) totalPoints;
 
 @end
