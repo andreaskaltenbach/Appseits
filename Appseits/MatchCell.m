@@ -64,8 +64,8 @@ static UIImage *selectedBackgroundImage;
     
     NSString *firstTeam = [match.firstTeam.shortName uppercaseString];
     NSString *secondTeam = [match.secondTeam.shortName uppercaseString];
-    self.firstTeamName.text =  (firstTeam) ? firstTeam : @"TDB";
-    self.secondTeamName.text = (secondTeam) ? secondTeam : @"TBD";
+    self.firstTeamName.text =  (firstTeam) ? firstTeam : @"TBB";
+    self.secondTeamName.text = (secondTeam) ? secondTeam : @"TDB";
     
     self.firstTeamImage.image = match.firstTeam.flag;
     self.secondTeamImage.image = match.secondTeam.flag;

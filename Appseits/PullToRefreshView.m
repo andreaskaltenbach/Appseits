@@ -165,7 +165,7 @@
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sv_SE"];
-    [formatter setDateStyle:kCFDateFormatterFullStyle];
+    [formatter setDateFormat:@"yyyy-MM-dd HH.mm"];
     lastUpdatedLabel.text = [NSString stringWithFormat:@"Senast uppdaterad: %@", [formatter stringFromDate:date]];
 }
 
@@ -181,7 +181,7 @@
 			break;
 
 		case PullToRefreshViewStateNormal:
-			statusLabel.text = @"Dra ned föratt ladda om...";
+			statusLabel.text = @"Dra ned för att ladda om...";
 			[self showActivity:NO animated:NO];
             [self setImageFlipped:NO];
 			[self refreshLastUpdatedDate];
