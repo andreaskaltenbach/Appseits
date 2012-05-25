@@ -60,7 +60,7 @@
     } 
     else {
         // top 4 round is closed -> show error message
-        [self.overviewViewController showError:@"SKyttekung omgången är stängd för den här tävlingen."];
+        [self.overviewViewController showError:@"Skyttekung omgången är stängd för den här tävlingen."];
     }
     
 }
