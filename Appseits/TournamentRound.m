@@ -8,6 +8,7 @@
 
 #import "TournamentRound.h"
 #import "BackendAdapter.h"
+#import "Match.h"
 
 @implementation TournamentRound
 
@@ -70,6 +71,41 @@
             [openRounds addObject:round];
         }
     }
+    
+    if ([openRounds count] == [tournamentRounds count]) {
+        // all rounds are still open -> return first incomplete round as active
+        for (TournamentRound* round in openRounds) {
+            if (!round.allPredictionsDone) {
+                return round;
+            }
+        }
+    }
+    else {
+        
+        TournamentRound *roundWithLastMatch;
+        NSDate* now = [NSDate date];
+        
+        // at least one round is closed -> get round with closest match
+        for (TournamentRound* round in tournamentRounds) {
+            if ([round isKindOfClass:MatchRound.class]) {
+                MatchRound* matchRound = (MatchRound*) round;
+                
+                for (Match* match in matchRound.matches) {
+                    // check each match whether it was already played -> if yes, this round or a later one should be active
+                    if (match.kickOff && [match.kickOff compare:now] == NSOrderedAscending) {
+                        roundWithLastMatch = round;
+                    }
+                }
+            }
+        }
+        
+        if (roundWithLastMatch) {
+            return roundWithLastMatch;
+        }
+    }
+    
+    // if no round could be identified, we simply return the first round
+    return [tournamentRounds objectAtIndex:0];
 
     // if no active round can be identified, we take the first one
     if ([openRounds count] == 0) return [tournamentRounds objectAtIndex:0];
