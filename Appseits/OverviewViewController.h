@@ -18,11 +18,15 @@
 #import "AppseitsViewController.h"
 #import "VersionEnforcer.h"
 #import "Match.h"
+#import "MatchTable.h"
+
+@class MatchTable;
 
 @interface OverviewViewController : AppseitsViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate, VersionDelegate>
 
 @property (strong, nonatomic) IBOutlet Top4View *top4View;
 @property (strong, nonatomic) IBOutlet ScorerView *scorerView;
+@property (strong, nonatomic) IBOutlet MatchTable *gameTable;
 
 @property (nonatomic, strong) NSArray *allTeams;
 @property (nonatomic, strong) Team *currentTeamSelection;

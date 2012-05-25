@@ -11,9 +11,11 @@
 #import "ScrollTriggeringTableView.h"
 #import "OverviewViewController.h"
 
+@class OverviewViewController;
+
 @interface MatchTable : ScrollTriggeringTableView<UITableViewDataSource>
 
 @property (nonatomic, strong) MatchRound *round;
-@property (nonatomic, strong) OverviewViewController *overviewViewController;
+@property (nonatomic, weak) OverviewViewController *overviewViewController;
 
 @end

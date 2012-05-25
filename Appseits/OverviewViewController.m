@@ -45,7 +45,6 @@ static UIImage *cogWheel;
 static NSURL *downloadURL;
 
 @interface OverviewViewController()
-@property (strong, nonatomic) IBOutlet MatchTable *gameTable;
 @property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
 @property (strong, nonatomic) IBOutlet LeaguePickerView *leaguePicker;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
@@ -457,6 +456,7 @@ static NSURL *downloadURL;
     if ([segue.identifier isEqualToString:@"toMatchPrediction"]) {
         MatchPredictionViewController *matchPredictionController = segue.destinationViewController;
         matchPredictionController.match = self.currentMatchSelection;
+        matchPredictionController.overviewViewController = self;
     }
 }
 

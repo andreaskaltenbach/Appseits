@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Match.h"
 #import "AppseitsViewController.h"
+#import "OverviewViewController.h"
 
 @interface MatchPredictionViewController : AppseitsViewController
 
 @property (nonatomic, strong) Match* match;
+@property (nonatomic, weak) OverviewViewController *overviewViewController;
 
 @end

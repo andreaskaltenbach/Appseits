@@ -34,6 +34,7 @@
 @synthesize match = _match;
 @synthesize stalePrediction = _stalePrediction;
 @synthesize completePrediction = _completePrediction;
+@synthesize overviewViewController = _overviewViewController;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -155,6 +156,7 @@
             if (!success) {
                 [self showError:@"Kunde tyvärr inte spara resultatet. Vänligen försök senare igen."];
             }
+            [self.overviewViewController.gameTable reloadData];
             self.stalePrediction = NO;
         }];
     }

@@ -111,11 +111,11 @@ static    NSString *matchPredictionCell;
     
     if (self.round.open) {
         Match *match = [self.round.matches objectAtIndex:indexPath.row];
-        if (match.firstTeamPrediction && match.secondTeamPrediction) {
-            return 108;
+        if (match.unknownOpponents) {
+            return 70;
         }
         else {
-            return 70;
+            return 108;
         }
     }
     else {

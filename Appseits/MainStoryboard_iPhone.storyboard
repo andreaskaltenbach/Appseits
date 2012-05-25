@@ -77,7 +77,7 @@
                                         </subviews>
                                     </view>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="4S7-bj-bV5">
-                                        <rect key="frame" x="151" y="190" width="20" height="20"/>
+                                        <rect key="frame" x="150" y="266" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
                                 </subviews>
