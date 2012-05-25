@@ -23,6 +23,7 @@
 @synthesize matchId = _matchId;
 @synthesize played = _played;
 @synthesize unknownOpponents = _unknownOpponents;
+@synthesize matchRound = _matchRound;
 
 + (Match*) gameFromJson:(NSDictionary*) gameData {
     Match *match = [[Match alloc] init];

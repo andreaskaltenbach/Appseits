@@ -26,6 +26,9 @@
     MatchRound *round = [[MatchRound alloc] init];
     round.roundName = [jsonData objectForKey:@"name"];
     round.matches = [Match matchFromJson: [jsonData objectForKey:@"matches"]];
+    for (Match* match in round.matches) {
+        match.matchRound = round;
+    }
     round.startDate = [NSDate fromJsonTimestamp:[jsonData objectForKey:@"startDate"]];
     round.lockDate = [NSDate fromJsonTimestamp:[jsonData objectForKey:@"lockedDate"]];
     

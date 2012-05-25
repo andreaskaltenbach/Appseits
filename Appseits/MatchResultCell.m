@@ -184,6 +184,9 @@ static UIImage *resultSelectedBackgroundImage;
             self.pointsLabel.opaque = 0.4;
         }
     }
+    
+    // show or hide lock
+    self.matchLock.hidden = self.match.matchRound.open;
 }
 
 - (void) switchLeftPrediction:(BOOL) userGetsPoints {
@@ -208,6 +211,7 @@ static UIImage *resultSelectedBackgroundImage;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    
     [super setSelected:selected animated:animated];
     
     if (selected) {

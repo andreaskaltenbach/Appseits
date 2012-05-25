@@ -144,10 +144,12 @@ static    NSString *matchPredictionCell;
     
     NSArray *matches = [self.matches objectAtIndex:indexPath.section];
     Match *match = [matches objectAtIndex:indexPath.row];
-    if (!match.unknownOpponents) {
+    if (!match.unknownOpponents && match.matchRound.open) {
         self.overviewViewController.currentMatchSelection = match;
         [self.overviewViewController performSegueWithIdentifier:@"toMatchPrediction" sender:self];
     }
+    // TODO - show statistics if match is closed and played
+    // TODO - show predictions if match is closed but not yet played
     
 }
 

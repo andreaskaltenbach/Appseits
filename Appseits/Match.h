@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Team.h"
+#import "MatchRound.h"
 
 @interface Match : NSObject
 
@@ -20,8 +21,10 @@
 @property (nonatomic, strong) NSNumber *secondTeamPrediction;
 @property (nonatomic, strong) NSNumber *points;
 @property (nonatomic, strong) NSNumber *matchId;
+@property (nonatomic, strong) MatchRound *matchRound;
 @property BOOL played;
 @property BOOL unknownOpponents;
+
 
 + (NSArray*) matchFromJson: (NSArray*) jsonData;
 

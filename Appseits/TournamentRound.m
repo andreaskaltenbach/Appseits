@@ -88,6 +88,12 @@
         // at least one round is closed -> get round with closest match
         for (TournamentRound* round in tournamentRounds) {
             if ([round isKindOfClass:MatchRound.class]) {
+                
+                // take the first round as active round (as fallback)
+                if (!roundWithLastMatch) {
+                    roundWithLastMatch = round;
+                }
+                
                 MatchRound* matchRound = (MatchRound*) round;
                 
                 for (Match* match in matchRound.matches) {
