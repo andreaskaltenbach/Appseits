@@ -58,10 +58,11 @@ static UIImage *darkRight;
     return self;
 }
 
-- (void) layoutProgressWaves:(TimelineScrollViewRoundSection*) activeSection {
-    float xPos = activeSection.frame.origin.x;
+- (void) layoutProgressWaves:(TimelineScrollViewRoundSection*) lastClosedSection {
+    float xPos = lastClosedSection.frame.origin.x;
     
-    xPos += ROUND_WIDTH * activeSection.round.progress;
+    NSLog(@"Progress: %f", lastClosedSection.round.progress);
+    xPos += ROUND_WIDTH * lastClosedSection.round.progress;
     
     self.progressView.frame = CGRectMake(0, 0, xPos, self.frame.size.height);
     self.orangeLine.frame = CGRectMake(xPos - 2, 0, 4, self.frame.size.height);
@@ -118,9 +119,9 @@ static UIImage *darkRight;
     self.orangeLine.backgroundColor = [UIColor orangeLine];
     [self.contentView addSubview:self.orangeLine];
     
-    TournamentRound *openRound = [TournamentRound firstOpenRound:self.tournamentRounds];
+    TournamentRound *lastClosedRound = [TournamentRound lastClosedRound:self.tournamentRounds];
     for (TimelineScrollViewRoundSection *section in self.sections) {
-        if (section.round == openRound) {
+        if (section.round == lastClosedRound) {
             [self layoutProgressWaves:section];
         }
     }

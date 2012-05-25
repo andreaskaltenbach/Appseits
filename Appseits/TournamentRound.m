@@ -51,15 +51,17 @@
     return totalPoints;
 }
 
-+ (TournamentRound*) firstOpenRound:(NSArray*) tournamentRounds {
++ (TournamentRound*) lastClosedRound:(NSArray*) tournamentRounds {
+    // take the first round as fallback
+    TournamentRound* lastClosedRound = [tournamentRounds objectAtIndex:0];
+    
     for (TournamentRound* round in tournamentRounds) {
-        if (round.open) {
-            return round;
+        if (!round.open) {
+            lastClosedRound = round;
         }
     }
     
-    // if no open round can be identified, we take the first one
-    return [tournamentRounds objectAtIndex:0];
+    return lastClosedRound;
 }
 
 + (TournamentRound*) activeRound:(NSArray*) tournamentRounds {

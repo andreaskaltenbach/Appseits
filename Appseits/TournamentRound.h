@@ -23,7 +23,7 @@
 - (BOOL) allPredictionsDone;
 
 + (TournamentRound*) activeRound:(NSArray*) tournamentRounds;
-+ (TournamentRound*) firstOpenRound:(NSArray*) tournamentRounds;
++ (TournamentRound*) lastClosedRound:(NSArray*) tournamentRounds;
 
 + (float) totalPoints;
 

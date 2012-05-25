@@ -41,14 +41,11 @@
     for (NSDictionary *roundData in jsonRounds) {
         [rounds addObject:[MatchRound tournamentRoundFromJson:roundData]];
     }
-    
     return rounds;
 }
 
 - (float) progress {
-    float matchPercentage = 1/[self.matches count];
-    NSLog(@"Match percentage: %f", matchPercentage);
-    
+    float matchPercentage = 1.0f/ (float) [self.matches count];
     float progress = 0;
     for (Match* match in self.matches) {
 
@@ -58,8 +55,6 @@
         
         progress+= matchPercentage;
     }
-
-    NSLog(@"Final percentage: %f", matchPercentage);
     return progress;
 }
 
@@ -71,6 +66,5 @@
     }
     return YES;
 }
-
 
 @end
