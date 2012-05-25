@@ -19,8 +19,12 @@
 #import "VersionEnforcer.h"
 #import "Match.h"
 #import "MatchTable.h"
+#import "PlayerSelectDelegate.h"
+#import "TeamSelectDelegate.h"
 
 @class MatchTable;
+@class Top4View;
+@class ScorerView;
 
 @interface OverviewViewController : AppseitsViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate, VersionDelegate>
 

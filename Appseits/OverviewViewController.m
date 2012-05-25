@@ -138,7 +138,7 @@ static NSURL *downloadURL;
     if ([BackendAdapter modelInitialized]) {
         [BackendAdapter refreshModel:^(bool success) {
             if (!success) {
-                [self showError:@"Kunde tyvärr inte uppdatera"];
+                [self showError:@"Ursäkta, någonting gick fel. Försök igen att ladda genom att dra ned."];
             }
         }];
     }
@@ -234,6 +234,7 @@ static NSURL *downloadURL;
    
     // setup top4 view
     self.top4View.delegate = self;
+    self.top4View.overviewViewController = self;
     self.top4AndScorerView.backgroundColor = [UIColor squareBackground];
     self.top4ContainerView.layer.cornerRadius = 10;
     self.scorerContainerView.layer.cornerRadius = 10;
@@ -241,10 +242,9 @@ static NSURL *downloadURL;
     
     // setup scorer view
     self.scorerView.delegate = self;
+    self.scorerView.overviewViewController = self;
         
     self.gameTable.backgroundColor = [UIColor blackBackground];
-    
-    
 }
 
 - (void) viewDidAppear:(BOOL)animated {

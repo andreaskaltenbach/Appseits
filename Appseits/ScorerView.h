@@ -10,15 +10,16 @@
 #import "Player.h"
 #import "ScorerRound.h"
 #import "BackendAdapter.h"
+#import "PlayerSelectDelegate.h"
+#import "OverviewViewController.h"
 
-@protocol PlayerSelectDelegate
-- (void) selectPlayerFor:(int) place currentSelection: (Player*) player;
-@end
+@class OverviewViewController;
 
 @interface ScorerView : UIView
 
 @property (nonatomic, strong) ScorerRound *scorerRound;
 @property (nonatomic, strong) id<PlayerSelectDelegate> delegate;
+@property (nonatomic, weak) OverviewViewController *overviewViewController;
 
 - (void) updatePlace:(int) place withPlayer:(Player*) player: (FinishedBlock) onDone;
 

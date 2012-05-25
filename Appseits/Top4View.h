@@ -10,19 +10,21 @@
 #import "Top4Round.h"
 #import "Team.h"
 #import "BackendAdapter.h"
+#import "OverviewViewController.h"
+#import "TeamSelectDelegate.h"
 
 #define Y_OFFSET 5
 #define MARGIN 60
 
-@protocol TeamSelectDelegate
-- (void) selectTeamFor:(int) place currentSelection: (Team*) team;
-@end
+@class OverviewViewController;
+
 
 @interface Top4View : UIView
 
 
 @property (nonatomic, strong) Top4Round *top4Round;
 @property (nonatomic, strong) id<TeamSelectDelegate> delegate;
+@property (nonatomic, weak) OverviewViewController *overviewViewController;
 
 - (void) updatePlace:(int) place withTeam:(Team*) team: (FinishedBlock) onDone;
 

@@ -220,6 +220,8 @@
 		4E059D051525FA2E005ABD20 /* NSDate+DateConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateConversion.m"; sourceTree = "<group>"; };
 		4E059D071525FFBC005ABD20 /* Timeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timeline.h; sourceTree = "<group>"; };
 		4E059D081525FFBC005ABD20 /* Timeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timeline.m; sourceTree = "<group>"; };
+		4E09105C156FC8FC00A54406 /* TeamSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamSelectDelegate.h; sourceTree = "<group>"; };
+		4E09105E156FC90A00A54406 /* PlayerSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerSelectDelegate.h; sourceTree = "<group>"; };
 		4E246D411554041100739D33 /* darkRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkRight.png; sourceTree = "<group>"; };
 		4E246D421554041100739D33 /* darkRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkRight@2x.png"; sourceTree = "<group>"; };
 		4E246D431554041100739D33 /* darkLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkLeft.png; sourceTree = "<group>"; };
@@ -972,6 +974,8 @@
 				5B1695D41565747A00F939D1 /* TimelineRoundLabel.m */,
 				5B71B1C21565918C00AF0849 /* RoundSelector.h */,
 				5B71B1C31565918C00AF0849 /* RoundSelector.m */,
+				4E09105C156FC8FC00A54406 /* TeamSelectDelegate.h */,
+				4E09105E156FC90A00A54406 /* PlayerSelectDelegate.h */,
 			);
 			name = view;
 			sourceTree = "<group>";

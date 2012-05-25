@@ -20,6 +20,7 @@
 @synthesize scorerRound = _scorerRound;
 @synthesize delegate = _delegate;
 @synthesize scorerSelectors = _scorerSelectors;
+@synthesize overviewViewController = _overviewViewController;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -35,6 +36,10 @@
                               [[ScorerSelector alloc] init:[UIImage imageNamed:@"scorer"]],
                               nil];
         
+        for (ScorerSelector *selector in self.scorerSelectors) {
+            [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playerSelection:)]];
+        }
+        
         int yOffset = Y_OFFSET + 20;
         for (ScorerSelector *selector in self.scorerSelectors) {
             selector.frame = CGRectMake(5, yOffset, 310, 50);    
@@ -46,10 +51,18 @@
 }
 
 - (void)playerSelection:(UITapGestureRecognizer *)tapGesture {
-    // call delegate to react on wish to select a player for scorer round
-    int index = [self.scorerSelectors indexOfObject:tapGesture.view];
-    ScorerSelector *scorerSelector = [self.scorerSelectors objectAtIndex:index];
-    [self.delegate selectPlayerFor:index + 1 currentSelection:scorerSelector.player];
+    
+    if (self.scorerRound.open) {
+        // call delegate to react on wish to select a player for scorer round
+        int index = [self.scorerSelectors indexOfObject:tapGesture.view];
+        ScorerSelector *scorerSelector = [self.scorerSelectors objectAtIndex:index];
+        [self.delegate selectPlayerFor:index + 1 currentSelection:scorerSelector.player];
+    } 
+    else {
+        // top 4 round is closed -> show error message
+        [self.overviewViewController showError:@"SKyttekung omgången är stängd för den här tävlingen."];
+    }
+    
 }
 
 - (void) setScorerRound:(ScorerRound *)scorerRound {
@@ -62,11 +75,6 @@
     if (!scorerRound.open) {
         for (ScorerSelector *selector in self.scorerSelectors) {
             selector.locked = YES;
-        }
-    }
-    else {
-        for (ScorerSelector *selector in self.scorerSelectors) {
-            [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playerSelection:)]];
         }
     }
 }

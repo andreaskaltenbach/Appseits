@@ -19,6 +19,7 @@
 @synthesize top4Selectors = _top4Selectors;
 @synthesize top4Round = _top4Round;
 @synthesize delegate = _delegate;
+@synthesize overviewViewController = _overviewViewController;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -34,6 +35,10 @@
                               [[Top4Selector alloc] init:[UIImage imageNamed:@"third"]],
                               [[Top4Selector alloc] init:[UIImage imageNamed:@"fourth"]],
                               nil];
+        for (Top4Selector *selector in self.top4Selectors) {
+            [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(teamSelection:)]];
+        }
+        
         
         int yOffset = Y_OFFSET;
         for (Top4Selector *selector in self.top4Selectors) {
@@ -46,10 +51,18 @@
 }
 
 - (void)teamSelection:(UITapGestureRecognizer *)tapGesture {
-    // call delegate to react on wish to select a team for top4 round
-    int index = [self.top4Selectors indexOfObject:tapGesture.view];
-    Top4Selector *teamSelector = [self.top4Selectors objectAtIndex:index];
-    [self.delegate selectTeamFor:index + 1 currentSelection:teamSelector.team];
+    
+    if (self.top4Round.open) {
+        // call delegate to react on wish to select a team for top4 round
+        int index = [self.top4Selectors indexOfObject:tapGesture.view];
+        Top4Selector *teamSelector = [self.top4Selectors objectAtIndex:index];
+        [self.delegate selectTeamFor:index + 1 currentSelection:teamSelector.team];
+    } 
+    else {
+        // top 4 round is closed -> show error message
+        [self.overviewViewController showError:@"Top 4 omgången är stängd för den här tävlingen."];
+    }
+
 }
 
 - (void) setTop4Round:(Top4Round *)top4Round {
@@ -63,11 +76,6 @@
     if (!top4Round.open) {
         for (Top4Selector *selector in self.top4Selectors) {
             selector.locked = YES;
-        }
-    }
-    else {
-        for (Top4Selector *selector in self.top4Selectors) {
-            [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(teamSelection:)]];
         }
     }
 }
