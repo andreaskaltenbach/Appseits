@@ -551,7 +551,6 @@ static BOOL modelInitialized;
                               firstTeamGoals,@"homeTeamGoals",
                               secondTeamGoals,@"awayTeamGoals",nil];
     
-    NSLog(@"Match: %i %i-%i",matchId.intValue, firstTeamGoals.intValue, secondTeamGoals.intValue);
     NSError *error;
     NSData *data = [NSJSONSerialization dataWithJSONObject:jsonData options:kNilOptions error:&error];
     request.HTTPBody = data;
