@@ -143,7 +143,7 @@ static UIImage *forgotPasswordButtonImage;
         }
         else {
             // show inputs
-            [self showError:@"Fel epost och lösenord"];
+            [self showError:@"Felaktigt användarnamn eller lösenord. Försök igen."];
             [self showInputs];
         }
     }];
@@ -174,7 +174,7 @@ static UIImage *forgotPasswordButtonImage;
         [self login];
     }
     else {
-        [self showError:@"Epost och lösenord krävs - Epost och lösenord krävs - Epost och lösenord krävs"];
+        [self showError:@"Epost och lösenord krävs."];
     }
 }
 

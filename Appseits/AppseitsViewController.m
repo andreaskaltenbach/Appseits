@@ -20,8 +20,8 @@
 
 #define SHADOW_HEIGHT 10
 
-#define ICON_X_INSET 8
-#define ICON_Y_INSET 8
+#define ICON_X_INSET 9
+#define ICON_Y_INSET 9
 
 static UIFont *messageFont;
 static UIImage* confirmationImage;
@@ -143,16 +143,18 @@ static UIImage* errorImage;
         self.notificationIcon.frame = CGRectMake(SIDE_MARGIN - ICON_X_INSET, TOP_MARGIN - ICON_Y_INSET, 42, 42);
 
     } completion:^(BOOL finished) {
-        // when no buttons are shown, we schedule a fly-out after 5 seconds
+        // when no buttons are shown, we schedule a fly-out after a few seconds
         if (self.buttonView.hidden) {
-            [self hideNotification];
+            [UIView animateWithDuration:0.3 delay:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                [self hideNotification];
+            } completion:^(BOOL finished) {
+            }];
         }
     }];
 }
 
 - (void) showInfo:(NSString*) message {
     
-    self.notificationBox.backgroundColor = [UIColor yellowColor];
     self.notificationLabel.text = message;
     self.buttonView.hidden = YES;
     [self layoutNotificationBox];
@@ -171,16 +173,16 @@ static UIImage* errorImage;
 
 - (void) hideNotification {
     float totalWidth = self.view.frame.size.width - 2*SIDE_MARGIN;
-    
-    [UIView animateWithDuration:0.3 delay:5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.notificationBox.frame = CGRectMake(SIDE_MARGIN, -(self.notificationBox.frame.size.height + 2*TEXT_OFFSET + SHADOW_HEIGHT), totalWidth, self.notificationBox.frame.size.height);
-        self.notificationIcon.frame = CGRectMake(SIDE_MARGIN - ICON_X_INSET,  -(self.notificationBox.frame.size.height + 2*TEXT_OFFSET + SHADOW_HEIGHT)  - ICON_Y_INSET, 42, 42);
-    } completion:^(BOOL finished) {
-    }];
+    self.notificationBox.frame = CGRectMake(SIDE_MARGIN, -(self.notificationBox.frame.size.height + 2*TEXT_OFFSET + SHADOW_HEIGHT), totalWidth, self.notificationBox.frame.size.height);
+    self.notificationIcon.frame = CGRectMake(SIDE_MARGIN - ICON_X_INSET,  -(self.notificationBox.frame.size.height + 2*TEXT_OFFSET + SHADOW_HEIGHT)  - ICON_Y_INSET, 42, 42);
 }
 
 - (void) showPrompt:(NSString*) message: (NSString*) confirmMessage: (NSString*) abortMessage: (PromptConfirmedBlock) onConfirm {
-    self.notificationBox.backgroundColor = [UIColor yellowColor];
+    
+    self.notificationBox.colors = [UIColor confirmationGradient];
+    self.notificationBox.layer.borderColor = [[UIColor confirmationBorder] CGColor];
+    self.notificationIcon.image = errorImage;
+
     self.buttonView.hidden = NO;
     self.notificationLabel.text = message;
     [self.confirmButton setTitle:confirmMessage forState:UIControlStateNormal];
@@ -190,12 +192,18 @@ static UIImage* errorImage;
 }
 
 - (void) onConfirm {
-    [self hideNotification];
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [self hideNotification];
+    } completion:^(BOOL finished) {
+    }];
     self.confirmAction();
 }
 
 - (void) onAbort {
-    [self hideNotification];
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [self hideNotification];
+    } completion:^(BOOL finished) {
+    }];
 }
 
 
