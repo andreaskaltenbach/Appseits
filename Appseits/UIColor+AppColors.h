@@ -52,4 +52,11 @@
 + (UIColor *) settingsTextColor;
 
 + (NSArray *) timelineGradient;
+
++ (NSArray *) errorGradient;
++ (UIColor *) errorBorder;
+
++ (NSArray *) confirmationGradient;
++ (UIColor *) confirmationBorder;
+
 @end

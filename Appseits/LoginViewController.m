@@ -174,7 +174,7 @@ static UIImage *forgotPasswordButtonImage;
         [self login];
     }
     else {
-        [self showError:@"Epost och lösenord krävs"];
+        [self showError:@"Epost och lösenord krävs - Epost och lösenord krävs - Epost och lösenord krävs"];
     }
 }
 

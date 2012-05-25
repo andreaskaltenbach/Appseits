@@ -135,4 +135,34 @@
             nil];
 }
 
++ (NSArray *) errorGradient {
+    return [NSArray arrayWithObjects: 
+            [UIColor colorWithRed:247.0/255.0f green:218.0/255.0f blue:194.0/255.0f alpha:1],
+            [UIColor colorWithRed:227.0/255.0f green:196.0/255.0f blue:179.0/255.0f alpha:1],
+            nil];
+}
+
++ (UIColor *) errorBorder {
+    return [UIColor colorWithRed:188.0/255.0f green:157.0/255.0f blue:136.0/255.0f alpha:1];
+}
+
++ (NSArray *) warningGradient {
+    return [NSArray arrayWithObjects: 
+            [UIColor colorWithRed:230.0/255.0f green:195.0/255.0f blue:178.0/255.0f alpha:1],
+            [UIColor colorWithRed:247.0/255.0f green:218.0/255.0f blue:194.0/255.0f alpha:1],
+            nil];
+}
+
++ (NSArray *) confirmationGradient {
+    return [NSArray arrayWithObjects: 
+            [UIColor colorWithRed:215.0/255.0f green:249.0/255.0f blue:180.0/255.0f alpha:1],
+            [UIColor colorWithRed:196.0/255.0f green:225.0/255.0f blue:166.0/255.0f alpha:1],
+            nil];
+}
+
++ (UIColor *) confirmationBorder {
+    return [UIColor colorWithRed:128.0/255.0f green:182.0/255.0f blue:79.0/255.0f alpha:1];
+}
+
+
 @end
