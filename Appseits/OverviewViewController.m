@@ -210,7 +210,7 @@ static NSURL *downloadURL;
     self.menu.layer.shadowOpacity = 0.5;
     
     // initialize personal informer
-    self.trendImage.image = trendUp;
+    self.trendImage.image = trendConstant;
     
     // setup the ranking table header
     self.rankingTableHeader.backgroundColor = [UIColor blackBackground];
@@ -363,14 +363,16 @@ static NSURL *downloadURL;
 
 - (IBAction)rankingSelected:(id)sender {
     NSLog(@"Ranking selected");
-    self.rankingMenuItem.backgroundColor = [UIColor menuSelectedBackground];
+    
+    //TODO - enable ranking again, when view is ready
+    /*self.rankingMenuItem.backgroundColor = [UIColor menuSelectedBackground];
     self.resultMenuItem.backgroundColor = [UIColor clearColor];
     
     self.gameTable.scrollsToTop = NO;
     self.rankingTable.scrollsToTop = YES;
     
     
-    [self.menuDependingScrollView scrollToRankings];
+    [self.menuDependingScrollView scrollToRankings];*/
 }
 
 - (void) showLeaguePicker {
