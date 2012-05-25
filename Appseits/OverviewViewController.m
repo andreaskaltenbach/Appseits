@@ -235,9 +235,7 @@ static NSURL *downloadURL;
     // setup top4 view
     self.top4View.delegate = self;
     self.top4AndScorerView.backgroundColor = [UIColor squareBackground];
-//    self.top4ContainerView.backgroundColor = [UIColor blackBackground];
     self.top4ContainerView.layer.cornerRadius = 10;
-//    self.scorerContainerView.backgroundColor = [UIColor blackBackground];
     self.scorerContainerView.layer.cornerRadius = 10;
 
     
@@ -392,9 +390,15 @@ static NSURL *downloadURL;
 }
 
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
-    NSLog(@"refresh!");
     [BackendAdapter refreshModel:^(bool success) {
-        NSLog(@"Refresh done!");
+        
+        // setup of the scrollable timeline (iPhone)
+        self.timelineScrollView.tournamentRounds = [BackendAdapter tournamentRounds];
+        
+        // setup of the timeline (iPad)
+        self.timeline.matchRounds = [BackendAdapter matchRounds];
+        self.roundSelector.tournamentRounds = [BackendAdapter combinedTop4AndScorerRoundAndMatchRounds];
+        
         self.lastUpdated = [NSDate date];
         [self.pullToRefreshView finishedLoading];
     }];
