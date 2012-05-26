@@ -25,8 +25,11 @@
 
 static UIFont *messageFont;
 static UIImage* confirmationImage;
-static UIImage* warningImage;
+static UIImage* promptImage;
 static UIImage* errorImage;
+
+static UIImage* abortButtonImage;
+static UIImage* confirmButtonImage;
 
 @interface AppseitsViewController ()
 @property (nonatomic, strong) SSGradientView *notificationBox;
@@ -50,8 +53,11 @@ static UIImage* errorImage;
 + (void) initialize {
     messageFont = [UIFont systemFontOfSize:14];
     confirmationImage = [UIImage imageNamed:@"greenBallCheck"];
-    warningImage = [UIImage imageNamed:@"greenBallCheck"];
+    promptImage = [UIImage imageNamed:@"promptIcon"];
     errorImage = [UIImage imageNamed:@"errorIcon"];
+    
+    confirmButtonImage = [[UIImage imageNamed:@"promptConfirmButton"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 16)];
+    abortButtonImage = [[UIImage imageNamed:@"abortButton"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 16)];
 }
 
 - (UIView*) notificationBox {
@@ -83,14 +89,16 @@ static UIImage* errorImage;
     self.buttonView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.buttonView.hidden = YES;
     
-    self.confirmButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [self.confirmButton addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onConfirm)]];
-    [self.buttonView addSubview:self.confirmButton];
-
-    self.abortButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.abortButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.abortButton setBackgroundImage:abortButtonImage forState:UIControlStateNormal];
     [self.abortButton addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onAbort)]];
     [self.buttonView addSubview:self.abortButton];
     
+    self.confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.confirmButton setBackgroundImage:confirmButtonImage forState:UIControlStateNormal];
+    [self.confirmButton addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onConfirm)]];
+    [self.buttonView addSubview:self.confirmButton];
+
     [_notificationBox addSubview:self.buttonView];
     
     // setup notification icon
@@ -127,11 +135,18 @@ static UIImage* errorImage;
     
     // set text & dimensions for buttons, if visible
     if (!self.buttonView.hidden) {
-        [self.confirmButton sizeToFit];
+        // [self.abortButton sizeToFit];
+//        self.abortButton.frame = CGRectMake(0, 0,120, 38);
+
         [self.abortButton sizeToFit];
-        CGRect abortButtonFrame = self.abortButton.frame;
-        abortButtonFrame.origin.x = TEXT_OFFSET + self.confirmButton.frame.size.width;
-        self.abortButton.frame = abortButtonFrame;
+        [self.confirmButton sizeToFit];
+        
+        NSLog(@"%f",
+              self.abortButton.frame.size.width );
+        
+        CGRect confirmButtonFrame = self.confirmButton.frame;
+        confirmButtonFrame.origin.x = TEXT_OFFSET + self.abortButton.frame.size.width;
+        self.confirmButton.frame = confirmButtonFrame;
         
         float buttonsWidth = self.confirmButton.frame.size.width + TEXT_OFFSET + self.abortButton.frame.size.width;
         self.buttonView.frame = CGRectMake((totalWidth-buttonsWidth)/2, 2*TEXT_OFFSET + messageSize.height, buttonsWidth, MAX(self.confirmButton.frame.size.height, self.abortButton.frame.size.height));
@@ -154,6 +169,11 @@ static UIImage* errorImage;
 }
 
 - (void) showInfo:(NSString*) message {
+    
+    self.notificationBox.colors = [UIColor confirmationGradient];
+    self.notificationBox.layer.borderColor = [[UIColor confirmationBorder] CGColor];
+    self.notificationIcon.image = confirmationImage;
+
     
     self.notificationLabel.text = message;
     self.buttonView.hidden = YES;
@@ -181,7 +201,7 @@ static UIImage* errorImage;
     
     self.notificationBox.colors = [UIColor confirmationGradient];
     self.notificationBox.layer.borderColor = [[UIColor confirmationBorder] CGColor];
-    self.notificationIcon.image = errorImage;
+    self.notificationIcon.image = promptImage;
 
     self.buttonView.hidden = NO;
     self.notificationLabel.text = message;

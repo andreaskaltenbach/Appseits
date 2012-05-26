@@ -110,6 +110,12 @@
 		5B007EEF1548754B00AE6518 /* cogwheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B007EED1548754B00AE6518 /* cogwheel.png */; };
 		5B007EF01548754B00AE6518 /* cogwheel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B007EEE1548754B00AE6518 /* cogwheel@2x.png */; };
 		5B00E2E715605E42007A519F /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B00E2E615605E42007A519F /* PlayerCell.m */; };
+		5B0556F31570D8A9006A9E7C /* abortButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0556F11570D8A9006A9E7C /* abortButton@2x.png */; };
+		5B0556F41570D8A9006A9E7C /* abortButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0556F21570D8A9006A9E7C /* abortButton.png */; };
+		5B0556F71570D8D8006A9E7C /* promptIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0556F51570D8D8006A9E7C /* promptIcon.png */; };
+		5B0556F81570D8D8006A9E7C /* promptIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0556F61570D8D8006A9E7C /* promptIcon@2x.png */; };
+		5B0556FB1570E310006A9E7C /* promptConfirmButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0556F91570E310006A9E7C /* promptConfirmButton@2x.png */; };
+		5B0556FC1570E310006A9E7C /* promptConfirmButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0556FA1570E310006A9E7C /* promptConfirmButton.png */; };
 		5B070E451562CD560033B504 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B070E441562CD560033B504 /* SettingsViewController.m */; };
 		5B070E491562CDDE0033B504 /* settingsBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B070E471562CDDE0033B504 /* settingsBackground@2x.png */; };
 		5B070E4A1562CDDE0033B504 /* settingsBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B070E481562CDDE0033B504 /* settingsBackground.png */; };
@@ -420,6 +426,12 @@
 		5B007EEE1548754B00AE6518 /* cogwheel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cogwheel@2x.png"; sourceTree = "<group>"; };
 		5B00E2E515605E42007A519F /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
 		5B00E2E615605E42007A519F /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
+		5B0556F11570D8A9006A9E7C /* abortButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "abortButton@2x.png"; sourceTree = "<group>"; };
+		5B0556F21570D8A9006A9E7C /* abortButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abortButton.png; sourceTree = "<group>"; };
+		5B0556F51570D8D8006A9E7C /* promptIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = promptIcon.png; sourceTree = "<group>"; };
+		5B0556F61570D8D8006A9E7C /* promptIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "promptIcon@2x.png"; sourceTree = "<group>"; };
+		5B0556F91570E310006A9E7C /* promptConfirmButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "promptConfirmButton@2x.png"; path = "../../../Desktop/promptConfirmButton@2x.png"; sourceTree = "<group>"; };
+		5B0556FA1570E310006A9E7C /* promptConfirmButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = promptConfirmButton.png; path = ../../../Desktop/promptConfirmButton.png; sourceTree = "<group>"; };
 		5B070E431562CD560033B504 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5B070E441562CD560033B504 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5B070E471562CDDE0033B504 /* settingsBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsBackground@2x.png"; sourceTree = "<group>"; };
@@ -571,6 +583,12 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5B0556F91570E310006A9E7C /* promptConfirmButton@2x.png */,
+				5B0556FA1570E310006A9E7C /* promptConfirmButton.png */,
+				5B0556F51570D8D8006A9E7C /* promptIcon.png */,
+				5B0556F61570D8D8006A9E7C /* promptIcon@2x.png */,
+				5B0556F11570D8A9006A9E7C /* abortButton@2x.png */,
+				5B0556F21570D8A9006A9E7C /* abortButton.png */,
 				4E449777156FB9F10020DBDF /* predictionBg.png */,
 				4E449778156FB9F10020DBDF /* predictionBg@2x.png */,
 				4E449773156FB5880020DBDF /* confirmButton.png */,
@@ -1191,6 +1209,12 @@
 				4E449776156FB5880020DBDF /* confirmButton@2x.png in Resources */,
 				4E449779156FB9F10020DBDF /* predictionBg.png in Resources */,
 				4E44977A156FB9F10020DBDF /* predictionBg@2x.png in Resources */,
+				5B0556F31570D8A9006A9E7C /* abortButton@2x.png in Resources */,
+				5B0556F41570D8A9006A9E7C /* abortButton.png in Resources */,
+				5B0556F71570D8D8006A9E7C /* promptIcon.png in Resources */,
+				5B0556F81570D8D8006A9E7C /* promptIcon@2x.png in Resources */,
+				5B0556FB1570E310006A9E7C /* promptConfirmButton@2x.png in Resources */,
+				5B0556FC1570E310006A9E7C /* promptConfirmButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

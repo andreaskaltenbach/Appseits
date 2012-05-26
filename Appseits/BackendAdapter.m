@@ -45,18 +45,25 @@ static BOOL modelInitialized;
 
 #define FLAG_URL @"http://img.uefa.com/imgml/flags/32x32/%@.png"
 
-#define LOGIN_URL @"http://emtipset.dev.stendahls.se/api/login"
-#define ROUNDS_URL @"http://emtipset.dev.stendahls.se/api/rounds"
-#define BET_URL @"http://emtipset.dev.stendahls.se/api/bet"
-#define TOP4_URL @"http://emtipset.dev.stendahls.se/api/winners"
-#define SCORER_URL @"http://emtipset.dev.stendahls.se/api/topscorer"
-#define TEAMS_URL @"http://emtipset.dev.stendahls.se/api/teams"
+static NSString* LOGIN_URL;
+static NSString* ROUNDS_URL;
+static NSString* BET_URL;
+static NSString* TOP4_URL;
+static NSString* SCORER_URL;
+static NSString* TEAMS_URL;
 
 @implementation BackendAdapter
 
 + (void) initialize {
     leagueUrl = @"http://dl.dropbox.com/u/15650647/leagues.json";
     rankingUrl = @"http://dl.dropbox.com/u/15650647/ranking.json";
+    
+    LOGIN_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/login"];
+    ROUNDS_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/rounds"];
+    BET_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/bet"];
+    TOP4_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/winners"];
+    SCORER_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/topscorer"];
+    TEAMS_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/teams"];
 }
 
 + (BOOL) modelInitialized {
@@ -163,29 +170,39 @@ static BOOL modelInitialized;
 }
 
 + (void) refreshModel:(FinishedBlock) onFinished {
-    dispatch_queue_t refreshQueue = dispatch_queue_create("refresh", NULL);
     
-    dispatch_async(refreshQueue, ^{
+    if (!modelInitialized) {
+        // if model is not fully initialized, we have to initialize it instead of refreshing it.
+        [BackendAdapter initializeModel:onFinished];
+    }
+    else {
+
+        dispatch_queue_t refreshQueue = dispatch_queue_create("refresh", NULL);
         
-        BOOL successRoad = [self loadCompleteTournament];
-        
-        if (successRoad) {
-            successRoad = [self loadLeagues];
-        }
-        if (successRoad) {
-            successRoad = [self loadRankings];
-        }
-        if (successRoad) {
-            successRoad = [self loadTop4];
-        }
-        if (successRoad) {
-            successRoad = [self loadScorer];
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            onFinished(YES);
+        dispatch_async(refreshQueue, ^{
+            
+            BOOL successRoad = [self loadCompleteTournament];
+            
+            // TODO -enable league and ranking fetching!
+            /*if (successRoad) {
+             successRoad = [self loadLeagues];
+             }
+             if (successRoad) {
+             successRoad = [self loadRankings];
+             }*/
+            if (successRoad) {
+                successRoad = [self loadTop4];
+            }
+            if (successRoad) {
+                successRoad = [self loadScorer];
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                onFinished(YES);
+            });
         });
-    });
+
+    }
 }
 
 + (void) initializeModel:(FinishedBlock) onFinished {
@@ -198,12 +215,13 @@ static BOOL modelInitialized;
         if (successRoad) {
             successRoad = [self loadCompleteTournament];
         }
-        if (successRoad) {
+        // TODO -enable league and ranking fetching!
+        /*if (successRoad) {
             successRoad = [self loadLeagues];
         }
         if (successRoad) {
             successRoad = [self loadRankings];
-        }
+        }*/
         if (successRoad) {
             successRoad = [self loadFlags];
         }

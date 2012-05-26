@@ -504,7 +504,7 @@ static NSURL *downloadURL;
 }
 
 - (void) newVersionAvailable:(NSString*) versionNumber {
-   [self showPrompt:@"Det finns en ny version av appen. Vill du ladda hem den nu?":@"Självklart!" :@"Senare" :^{
+   [self showPrompt:@"Ny version tillgänglig! Dags att  uppdatera din app!":@"Ladda ned" :@"Senare" :^{
        // navigate to the download URL
        if ([[UIApplication sharedApplication] canOpenURL:downloadURL]) {
            [[UIApplication sharedApplication] openURL:downloadURL];

@@ -13,6 +13,8 @@
 #import "ScorerRound.h"
 #import "Top4Round.h"
 
+#define SERVER_URL @"http://emtipset.dev.stendahls.se"
+
 typedef void(^FinishedBlock)(bool success);
 typedef void(^TeamsFetchedBlock)(NSArray* teams);
 
