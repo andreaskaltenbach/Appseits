@@ -19,5 +19,6 @@
 + (NSArray*) tournamentRoundsFromJson: (NSArray*) jsonRounds;
 
 + (Match*) nextPredictableMatch:(Match*) match;
++ (Match*) previousPredictableMatch:(Match*) match;
 
 @end

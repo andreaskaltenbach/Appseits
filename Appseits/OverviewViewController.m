@@ -45,7 +45,7 @@ static UIImage *cogWheel;
 static NSURL *downloadURL;
 
 @interface OverviewViewController()
-@property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
+
 @property (strong, nonatomic) IBOutlet LeaguePickerView *leaguePicker;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 

@@ -16,6 +16,8 @@ static    NSString *matchCell;
 static    NSString *matchResultCell;
 static    NSString *matchPredictionCell;
 
+static NSDateFormatter *dateFormatter;
+
 @interface MatchTable()
 @property (nonatomic, strong) NSMutableArray *matchDays;
 @property (nonatomic, strong) NSMutableArray *matches;
@@ -31,6 +33,10 @@ static    NSString *matchPredictionCell;
     matchCell= @"matchCell";
     matchResultCell = @"matchResultCell";
     matchPredictionCell = @"matchPredictionCell";
+    
+    dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sv_SE"];
+    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -45,10 +51,6 @@ static    NSString *matchPredictionCell;
 
 - (void) setRound:(MatchRound *)round {
     _round = round;
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sv_SE"];
-    [dateFormatter setDateStyle:NSDateFormatterLongStyle];
     
     self.matchDays = [NSMutableArray array];
     self.matches = [NSMutableArray array];
@@ -151,6 +153,49 @@ static    NSString *matchPredictionCell;
     // TODO - show statistics if match is closed and played
     // TODO - show predictions if match is closed but not yet played
     
+}
+
+- (NSIndexPath*) indexPathForMatch: (Match*) aMatch {
+    int section = 0;
+    int row = 0;
+    
+    NSString *matchDay;
+    
+    for (Match* match in self.round.matches) {
+        
+        if (!matchDay) {
+            matchDay = [dateFormatter stringFromDate:match.kickOff];
+        }
+        else {
+            NSString *newMatchDay = [dateFormatter stringFromDate:match.kickOff];
+            if  ([newMatchDay isEqualToString:matchDay]) {
+                // same section, new row
+                row++;
+            }
+            else {
+                matchDay = newMatchDay;
+                // new section, first row
+                section++;
+                row = 0;
+            }
+        }
+        
+        if (match == aMatch) {
+            return [NSIndexPath indexPathForRow:row inSection:section];
+        }
+    }
+    
+    return nil;
+}
+
+- (void) updateMatchCell:(Match*) newMatch {
+    
+    NSIndexPath* indexPath = [self indexPathForMatch:newMatch];
+    
+    if (indexPath) {
+        MatchCell *matchCell = (MatchCell*) [self cellForRowAtIndexPath:indexPath];
+        matchCell.match = newMatch;
+    }
 }
 
 @end

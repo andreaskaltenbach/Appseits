@@ -21,12 +21,15 @@
 #import "MatchTable.h"
 #import "PlayerSelectDelegate.h"
 #import "TeamSelectDelegate.h"
+#import "TimelineScrollView.h"
 
 @class MatchTable;
 @class Top4View;
 @class ScorerView;
 
 @interface OverviewViewController : AppseitsViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate, VersionDelegate>
+
+@property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
 
 @property (strong, nonatomic) IBOutlet Top4View *top4View;
 @property (strong, nonatomic) IBOutlet ScorerView *scorerView;

@@ -18,4 +18,8 @@
 @property (nonatomic, strong) MatchRound *round;
 @property (nonatomic, weak) OverviewViewController *overviewViewController;
 
+- (void) updateMatchCell:(Match*) match;
+
+- (NSIndexPath*) indexPathForMatch: (Match*) aMatch;
+
 @end

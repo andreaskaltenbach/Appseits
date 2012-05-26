@@ -152,7 +152,7 @@
                     [self showError:@"Du är inte uppkopplad. Försök igen."];
                     break;
                 case OK:
-                    [self.overviewViewController.gameTable reloadData];
+                    [self.overviewViewController.gameTable updateMatchCell:self.match];
                     self.stalePrediction = NO;
             }
         }];
@@ -181,14 +181,55 @@
     [self updateView];
 }
 
+- (IBAction)prevMatchTapped:(id)sender {
+    
+    Match* previousMatch = [MatchRound previousPredictableMatch:self.match];
+    if (previousMatch) {
+        
+        if (self.match.matchRound != previousMatch.matchRound) {
+            // if the next match is in the previous round, we switch to the previous round
+            
+            [self showInfo:[NSString stringWithFormat:@"Nu tippas matcherna för %@", previousMatch.matchRound.roundName]];
+            
+            [self.overviewViewController.timelineScrollView selectTournamentRound:previousMatch.matchRound];
+        }
+        
+        // update match info
+        self.match = previousMatch;
+        
+        
+        // move table selection to next match
+        NSIndexPath* indexPath = [self.overviewViewController.gameTable indexPathForMatch: previousMatch];
+        [self.overviewViewController.gameTable selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
+        
+    }
+    else {
+        [self showError:@"Det finns inga tidigare matcher att tippa."];
+    }
+
+    
+}
+
 - (IBAction)nextMatchTapped:(id)sender {
     
     Match* nextMatch = [MatchRound nextPredictableMatch:self.match];
     if (nextMatch) {
         
+        if (self.match.matchRound != nextMatch.matchRound) {
+            // if the next match is in the next round, we switch to the next round
+            
+            [self showInfo:[NSString stringWithFormat:@"Nu tippas matcherna för %@", nextMatch.matchRound.roundName]];
+            
+            [self.overviewViewController.timelineScrollView selectTournamentRound:nextMatch.matchRound];
+        }
+        
         // update match info
         self.match = nextMatch;
         
+        
+        // move table selection to next match
+        NSIndexPath* indexPath = [self.overviewViewController.gameTable indexPathForMatch: nextMatch];
+        [self.overviewViewController.gameTable selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionMiddle];
         
     }
     else {

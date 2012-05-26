@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) NSArray *tournamentRounds;
 @property (nonatomic, strong) id<TournamentRoundSelectDelegate> roundSelectDelegate;
+
+- (void) selectTournamentRound:(TournamentRound*) round;
 @end

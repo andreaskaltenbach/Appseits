@@ -75,6 +75,30 @@
     return YES;
 }
 
++ (Match*) previousPredictableMatch:(Match*) match {
+    MatchRound* matchRound = match.matchRound;
+    int matchIndex = [matchRound.matches indexOfObject:match];
+    if (matchIndex != 0) {
+        // there is a match before the given one in the same round
+        return [matchRound.matches objectAtIndex:matchIndex - 1];
+    }
+    else {
+        // last match of the subsequent match round
+        NSArray* matchRounds = [BackendAdapter matchRounds];
+        int roundIndex = [matchRounds indexOfObject:matchRound];
+        
+        if (roundIndex != 0) {
+            MatchRound* previousMatchRound = [matchRounds objectAtIndex:roundIndex - 1];
+            if (previousMatchRound.readyToBet && previousMatchRound.open) {
+                return [previousMatchRound.matches lastObject];
+            }
+        }
+    }
+    
+    // no previous match found
+    return nil;
+}
+
 + (Match*) nextPredictableMatch:(Match*) match {
     MatchRound* matchRound = match.matchRound;
     int matchIndex = [matchRound.matches indexOfObject:match];

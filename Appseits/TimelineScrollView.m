@@ -106,13 +106,14 @@ static UIImage *darkRight;
     for (TimelineScrollViewRoundSection *section in self.sections) {
         if (section.round == activeRound) {
             activeSection = section;
-            [self selectTournamentRound:section];
+            [self selectSection:section];
         }
     }
     
     // put in the progress overlay
     self.progressView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, self.frame.size.height)];
     self.progressView.backgroundColor = [UIColor progressWaves];
+    self.progressView.userInteractionEnabled = NO;
     [self.contentView addSubview:self.progressView];
     
     self.orangeLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 4, self.frame.size.height)];
@@ -131,7 +132,7 @@ static UIImage *darkRight;
 
 
 
-- (void) selectTournamentRound:(TimelineScrollViewRoundSection*) selectedSection {
+- (void) selectSection:(TimelineScrollViewRoundSection*) selectedSection {
     
     // unselect all sections and select the new one:
     for (TimelineScrollViewRoundSection *section in self.sections) {
@@ -156,7 +157,7 @@ static UIImage *darkRight;
 - (void) sectionTapped:(UITapGestureRecognizer*) sender {
     if (sender.state == UIGestureRecognizerStateEnded) {
         TimelineScrollViewRoundSection *section = (TimelineScrollViewRoundSection*) sender.view;
-        [self selectTournamentRound:section];
+        [self selectSection:section];
     }
 }
 
@@ -175,8 +176,17 @@ static UIImage *darkRight;
         if (leftBoundary < scrollView.contentOffset.x &&
             scrollView.contentOffset.x < rightBoundary) {
             targetContentOffset->x =  section.frame.origin.x - xOffset;
-            [self selectTournamentRound:section];
+            [self selectSection:section];
             return;
+        }
+    }
+}
+
+- (void) selectTournamentRound:(TournamentRound*) round {
+    
+    for (TimelineScrollViewRoundSection *section in self.sections) {
+        if (section.round == round) {
+            [self selectSection:section];
         }
     }
 }
