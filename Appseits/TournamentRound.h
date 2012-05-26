@@ -27,4 +27,6 @@
 
 + (float) totalPoints;
 
+- (BOOL) readyToBet;
+
 @end

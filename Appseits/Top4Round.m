@@ -33,6 +33,8 @@
         + self.top4Tips.fourthTeamPoints.floatValue;
 }
 
-
+- (BOOL) readyToBet {
+    return self.open;
+}
 
 @end

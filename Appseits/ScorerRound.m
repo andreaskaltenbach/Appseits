@@ -33,4 +33,8 @@
     + self.scorerTips.thirdPlayerPoints.floatValue;
 }
 
+- (BOOL) readyToBet {
+    return self.open;
+}
+
 @end

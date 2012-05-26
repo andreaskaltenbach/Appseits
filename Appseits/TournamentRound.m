@@ -43,6 +43,10 @@
     return NO;
 }
 
+- (BOOL) readyToBet {
+    return NO;
+}
+
 + (float) totalPoints {
     float totalPoints = 0;
     for (TournamentRound* round in [BackendAdapter tournamentRounds]) {

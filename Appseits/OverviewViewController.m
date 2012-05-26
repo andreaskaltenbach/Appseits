@@ -131,7 +131,6 @@ static NSURL *downloadURL;
     [self.mainScrollView scrollRectToVisible:CGRectMake(0, 0, self.mainScrollView.frame.size.width, self.mainScrollView.frame.size.height) animated:YES];
 }
 
-
 - (void) refreshApplication {
         
     // trigger a model update

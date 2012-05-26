@@ -16,7 +16,8 @@ static UIImage *lockOpenInset;
 static UIImage *lockGreenOpen;
 static UIImage *lockGrayOpen;
 static UIImage *lockGreenClosed;
-
+static UIImage *lockUnfinished;
+static UIImage *lockUnfinishedInset;
 
 + (void) initialize {
     lockClosedInset = [UIImage imageNamed:@"lockClosedInset"];
@@ -24,6 +25,8 @@ static UIImage *lockGreenClosed;
     lockGreenOpen = [UIImage imageNamed:@"lockGreenOpen"];
     lockGrayOpen = [UIImage imageNamed:@"lockGrayOpen"];
     lockGreenClosed = [UIImage imageNamed:@"lockGreenClosed"];
+    lockUnfinished = [UIImage imageNamed:@"lockUnfinished"];
+    lockUnfinishedInset = [UIImage imageNamed:@"lockUnfinishedInset"];
 }
 
 + (UIImage*) imageForTournamentRound:(TournamentRound*) tournamentRound:(BOOL) selected  {
@@ -37,7 +40,12 @@ static UIImage *lockGreenClosed;
 
 + (UIImage*) selectedImage:(TournamentRound*) round {
     if (round.open) {
-        return lockOpenInset;
+        if (round.readyToBet && !round.allPredictionsDone) {
+            return lockUnfinishedInset;
+        }
+        else {
+            return lockOpenInset;
+        }
     }
     else {
         return lockClosedInset;
@@ -50,7 +58,13 @@ static UIImage *lockGreenClosed;
             return lockGreenOpen;
         }
         else {
-            return lockGrayOpen;
+            if (round.readyToBet) {
+                return lockUnfinished;
+           
+            } 
+            else {
+                return lockGrayOpen;
+            }
         }
     }
     else {

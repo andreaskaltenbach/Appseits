@@ -35,4 +35,8 @@
     return self.top4Round.allPredictionsDone && self.scorerRound.allPredictionsDone;
 }
 
+- (BOOL) readyToBet {
+    return self.top4Round.readyToBet && self.scorerRound.readyToBet;
+}
+
 @end

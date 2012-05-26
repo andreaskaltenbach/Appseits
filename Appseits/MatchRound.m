@@ -67,4 +67,11 @@
     return YES;
 }
 
+- (BOOL) readyToBet {
+    for (Match* match in self.matches) {
+        if (match.unknownOpponents) return NO;
+    }
+    return YES;
+}
+
 @end
