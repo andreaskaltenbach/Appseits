@@ -9,6 +9,7 @@
 #import "MatchRound.h"
 #import "Match.h"
 #import "NSDate+DateConversion.h"
+#import "BackendAdapter.h"
 
 @implementation MatchRound
 
@@ -72,6 +73,33 @@
         if (match.unknownOpponents) return NO;
     }
     return YES;
+}
+
++ (Match*) nextPredictableMatch:(Match*) match {
+    MatchRound* matchRound = match.matchRound;
+    int matchIndex = [matchRound.matches indexOfObject:match];
+    if (matchIndex < [matchRound.matches count] -1) {
+        // there is a match after the given one in the same round
+        return [matchRound.matches objectAtIndex:matchIndex + 1];
+    }
+    else {
+        // first match of the subsequent match round
+        NSArray* matchRounds = [BackendAdapter matchRounds];
+        int roundIndex = [matchRounds indexOfObject:matchRound];
+        
+        if (roundIndex < [matchRounds count] -1) {
+            MatchRound *nextRound = [matchRounds objectAtIndex:roundIndex + 1];
+            if (nextRound.readyToBet) {
+                return [nextRound.matches objectAtIndex:0];
+            }
+                
+            
+        }
+        
+    }
+    
+    // no follow up match found
+    return nil;
 }
 
 @end

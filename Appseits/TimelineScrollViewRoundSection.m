@@ -30,8 +30,6 @@
 @synthesize selectedGradient = _selectedGradient;
 @synthesize lockIcon = _lockIcon;
 
-
-
 + (TimelineScrollViewRoundSection*) initWithRound:(TournamentRound*) round: (UIView*) parent {
     
     int sectionHeight = parent.frame.size.height;

@@ -10,6 +10,8 @@
 #import "Team.h"
 #import "MatchRound.h"
 
+@class MatchRound;
+
 @interface Match : NSObject
 
 @property (nonatomic, strong) Team *firstTeam;

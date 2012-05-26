@@ -153,13 +153,6 @@
     return [UIColor colorWithRed:188.0/255.0f green:157.0/255.0f blue:136.0/255.0f alpha:1];
 }
 
-+ (NSArray *) warningGradient {
-    return [NSArray arrayWithObjects: 
-            [UIColor colorWithRed:230.0/255.0f green:195.0/255.0f blue:178.0/255.0f alpha:1],
-            [UIColor colorWithRed:247.0/255.0f green:218.0/255.0f blue:194.0/255.0f alpha:1],
-            nil];
-}
-
 + (NSArray *) confirmationGradient {
     return [NSArray arrayWithObjects: 
             [UIColor colorWithRed:215.0/255.0f green:249.0/255.0f blue:180.0/255.0f alpha:1],
@@ -169,6 +162,22 @@
 
 + (UIColor *) confirmationBorder {
     return [UIColor colorWithRed:128.0/255.0f green:182.0/255.0f blue:79.0/255.0f alpha:1];
+}
+
++ (NSArray *) doubledLightBlueGradient {
+    return [NSArray arrayWithObjects: 
+            [UIColor colorWithRed:14.0/255.0f green:162.0/255.0f blue:189.0/255.0f alpha:0.15],
+            [UIColor colorWithRed:14.0/255.0f green:162.0/255.0f blue:189.0/255.0f alpha:0],
+            [UIColor colorWithRed:14.0/255.0f green:162.0/255.0f blue:189.0/255.0f alpha:0.15],
+            nil];    
+}
+
++ (NSArray *) lightBlueGradient {
+    return [NSArray arrayWithObjects: 
+            [UIColor colorWithRed:14.0/255.0f green:162.0/255.0f blue:189.0/255.0f alpha:0.1],
+            [UIColor colorWithRed:14.0/255.0f green:162.0/255.0f blue:189.0/255.0f alpha:0],
+            [UIColor colorWithRed:14.0/255.0f green:162.0/255.0f blue:189.0/255.0f alpha:0],
+            nil];    
 }
 
 

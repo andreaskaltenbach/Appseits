@@ -60,4 +60,7 @@
 + (NSArray *) confirmationGradient;
 + (UIColor *) confirmationBorder;
 
++ (NSArray *) lightBlueGradient;
++ (NSArray *) doubledLightBlueGradient;
+
 @end

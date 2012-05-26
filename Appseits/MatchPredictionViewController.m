@@ -10,6 +10,7 @@
 #import "UIColor+AppColors.h"
 #import "Match.h"
 #import "BackendAdapter.h"
+#import "MatchRound.h"
 
 @interface MatchPredictionViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
@@ -51,19 +52,7 @@
 	
     self.view.backgroundColor = [UIColor squareBackground];
     
-    self.firstTeamLabel.text = [self.match.firstTeam.shortName uppercaseString];
-    if (self.match.firstTeamPrediction) {
-        self.firstTeamGoalsLabel.text = [NSString stringWithFormat:@"%i", self.match.firstTeamPrediction.intValue];
-    }
-    self.firstTeamFlag.image = self.match.firstTeam.flag;
-    
-    self.secondTeamLabel.text = [self.match.secondTeam.shortName uppercaseString];
-    if (self.match.secondTeamPrediction) {
-        self.secondTeamGoalsLabel.text = [NSString stringWithFormat:@"%i", self.match.secondTeamPrediction.intValue];
-    }
-    self.secondTeamFlag.image = self.match.secondTeam.flag;
-    
-    self.completePrediction = self.match.firstTeamGoals && self.match.secondTeamGoals;
+    [self updateView];
 }
 
 - (void)viewDidUnload
@@ -167,6 +156,43 @@
                     self.stalePrediction = NO;
             }
         }];
+    }
+}
+
+- (void) updateView {
+    self.firstTeamLabel.text = [self.match.firstTeam.shortName uppercaseString];
+    if (self.match.firstTeamPrediction) {
+        self.firstTeamGoalsLabel.text = [NSString stringWithFormat:@"%i", self.match.firstTeamPrediction.intValue];
+    }
+    self.firstTeamFlag.image = self.match.firstTeam.flag;
+    
+    self.secondTeamLabel.text = [self.match.secondTeam.shortName uppercaseString];
+    if (self.match.secondTeamPrediction) {
+        self.secondTeamGoalsLabel.text = [NSString stringWithFormat:@"%i", self.match.secondTeamPrediction.intValue];
+    }
+    self.secondTeamFlag.image = self.match.secondTeam.flag;
+    
+    self.completePrediction = self.match.firstTeamGoals && self.match.secondTeamGoals;
+    
+}
+
+- (void) setMatch:(Match *)match {
+    _match = match;
+    [self updateView];
+}
+
+- (IBAction)nextMatchTapped:(id)sender {
+    
+    Match* nextMatch = [MatchRound nextPredictableMatch:self.match];
+    if (nextMatch) {
+        
+        // update match info
+        self.match = nextMatch;
+        
+        
+    }
+    else {
+        [self showError:@"Det finns inga mer tipbara matcher."];
     }
 }
 
