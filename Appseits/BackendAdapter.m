@@ -341,9 +341,11 @@ static NSString* TEAMS_URL;
 }
 
 + (RemoteCallResult) remoteCallResult: (NSURLResponse*) response: (NSError*) error {
+    
+    if (error) return INTERNAL_SERVER_ERROR;
 
     if (![response isKindOfClass:NSHTTPURLResponse.class]) {
-        return NO;
+        return INTERNAL_SERVER_ERROR;
     }
     
     NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
