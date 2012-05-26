@@ -14,6 +14,8 @@ typedef void(^PromptConfirmedBlock)();
 
 - (void) showInfo:(NSString*) message;
 
+- (void) showConfirmation:(NSString*) message;
+
 - (void) showError:(NSString*) message;
 
 - (void) showPrompt:(NSString*) message: (NSString*) confirmMessage: (NSString*) abortMessage: (PromptConfirmedBlock) onConfirm;

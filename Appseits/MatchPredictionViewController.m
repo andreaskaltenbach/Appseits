@@ -79,6 +79,8 @@
 
 - (IBAction)decreaseFirstTeamGoals:(id)sender {
     
+    BOOL roundCompletedBeforeSave = self.match.matchRound.allPredictionsDone;
+    
     if (self.match.firstTeamPrediction.intValue > 0) {
         NSNumber *newPrediction = [NSNumber numberWithInt:self.match.firstTeamPrediction.intValue - 1];
         self.match.firstTeamPrediction = newPrediction;
@@ -86,12 +88,19 @@
 
         self.completePrediction = self.match.firstTeamPrediction && self.match.secondTeamPrediction;
         self.stalePrediction = YES;
+        
+        if (self.completePrediction && !roundCompletedBeforeSave && self.match.matchRound.allPredictionsDone) {
+            [self showConfirmation:[NSString stringWithFormat:@"Omgång %@ är färdigtippad", self.match.matchRound.roundName]];
+        }
 
         [self pushPrediction];
     }
 }
 
 - (IBAction)decreaseSecondTeamGoals:(id)sender {
+    
+    BOOL roundCompletedBeforeSave = self.match.matchRound.allPredictionsDone;
+    
     if (self.match.secondTeamPrediction.intValue > 0) {
         NSNumber *newPrediction = [NSNumber numberWithInt:self.match.secondTeamPrediction.intValue - 1];
         self.match.secondTeamPrediction = newPrediction;
@@ -99,12 +108,19 @@
         
         self.completePrediction = self.match.firstTeamPrediction && self.match.secondTeamPrediction;
         self.stalePrediction = YES;
+        
+        if (self.completePrediction && !roundCompletedBeforeSave && self.match.matchRound.allPredictionsDone) {
+            [self showConfirmation:[NSString stringWithFormat:@"Omgång %@ är färdigtippad", self.match.matchRound.roundName]];
+        }
 
         [self pushPrediction];
     }
     
 }
 - (IBAction)increaseFirstTeamGoals:(id)sender {
+    
+    BOOL roundCompletedBeforeSave = self.match.matchRound.allPredictionsDone;
+    
     if (self.match.firstTeamPrediction) {
         NSNumber *newPreciction = [NSNumber numberWithInt:self.match.firstTeamPrediction.intValue + 1];
         self.match.firstTeamPrediction = newPreciction;
@@ -118,10 +134,17 @@
     self.completePrediction = self.match.firstTeamPrediction && self.match.secondTeamPrediction;
     self.stalePrediction = YES;
     
+    if (self.completePrediction && !roundCompletedBeforeSave && self.match.matchRound.allPredictionsDone) {
+        [self showConfirmation:[NSString stringWithFormat:@"Omgång %@ är färdigtippad", self.match.matchRound.roundName]];
+    }
+   
     [self pushPrediction];
 
 }
 - (IBAction)increaseSecondTeamGoals:(id)sender {
+    BOOL roundCompletedBeforeSave = self.match.matchRound.allPredictionsDone;
+    
+    
     if (self.match.secondTeamPrediction) {
         NSNumber *newPreciction = [NSNumber numberWithInt:self.match.secondTeamPrediction.intValue + 1];
         self.match.secondTeamPrediction = newPreciction;
@@ -135,12 +158,17 @@
     self.completePrediction = self.match.firstTeamPrediction && self.match.secondTeamPrediction;
     self.stalePrediction = YES;
     
+    if (self.completePrediction && !roundCompletedBeforeSave && self.match.matchRound.allPredictionsDone) {
+        [self showConfirmation:[NSString stringWithFormat:@"Omgång %@ är färdigtippad", self.match.matchRound.roundName]];
+    }
+    
     [self pushPrediction];
 
 }
 
 - (void) pushPrediction {
     if (self.stalePrediction && self.completePrediction) {
+        
         [BackendAdapter postPrediction:self.match.matchId:self.match.firstTeamPrediction:self.match.secondTeamPrediction :^(RemoteCallResult remoteCallResult) {
             
             switch (remoteCallResult) {
@@ -152,6 +180,7 @@
                     [self showError:@"Du är inte uppkopplad. Försök igen."];
                     break;
                 case OK:
+                    
                     [self.overviewViewController.gameTable updateMatchCell:self.match];
                     self.stalePrediction = NO;
             }
@@ -164,12 +193,19 @@
     if (self.match.firstTeamPrediction) {
         self.firstTeamGoalsLabel.text = [NSString stringWithFormat:@"%i", self.match.firstTeamPrediction.intValue];
     }
+    else {
+        self.firstTeamGoalsLabel.text = @"-";
+    }
     self.firstTeamFlag.image = self.match.firstTeam.flag;
     
     self.secondTeamLabel.text = [self.match.secondTeam.shortName uppercaseString];
     if (self.match.secondTeamPrediction) {
         self.secondTeamGoalsLabel.text = [NSString stringWithFormat:@"%i", self.match.secondTeamPrediction.intValue];
     }
+    else {
+        self.secondTeamGoalsLabel.text = @"-";
+    }
+
     self.secondTeamFlag.image = self.match.secondTeam.flag;
     
     self.completePrediction = self.match.firstTeamGoals && self.match.secondTeamGoals;

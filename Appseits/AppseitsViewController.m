@@ -174,11 +174,23 @@ static UIImage* confirmButtonImage;
     }];
 }
 
+- (void) showConfirmation:(NSString*) message {
+    self.notificationBox.colors = [UIColor confirmationGradient];
+    self.notificationBox.layer.borderColor = [[UIColor confirmationBorder] CGColor];
+    self.notificationIcon.image = confirmationImage;
+    
+    
+    self.notificationLabel.text = message;
+    self.buttonView.hidden = YES;
+    [self layoutNotificationBox];
+    
+}
+
 - (void) showInfo:(NSString*) message {
     
     self.notificationBox.colors = [UIColor confirmationGradient];
     self.notificationBox.layer.borderColor = [[UIColor confirmationBorder] CGColor];
-    self.notificationIcon.image = confirmationImage;
+    self.notificationIcon.image = promptImage;
 
     
     self.notificationLabel.text = message;
