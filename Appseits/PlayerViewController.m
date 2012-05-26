@@ -63,9 +63,19 @@
     
     PlayerCell *playerCell = (PlayerCell*) [tableView cellForRowAtIndexPath:indexPath];
     
-    [self.overviewViewController.scorerView updatePlace:self.overviewViewController.currentPlayerPlace withPlayer:playerCell.player :^(bool success) {
-       
-        [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:1] animated:YES];
+    [self.overviewViewController.scorerView updatePlace:self.overviewViewController.currentPlayerPlace withPlayer:playerCell.player :^(RemoteCallResult remoteCallResult) {
+        
+        switch (remoteCallResult) {
+            case INTERNAL_CLIENT_ERROR:
+            case INTERNAL_SERVER_ERROR:
+                [self showError:@"Ursäkta, någonting gick fel med att spara tipset. Försök igen."];
+                break;
+            case NO_INTERNET:
+                [self showError:@"Du är inte uppkopplad. Försök igen."];
+                break;
+            case OK:
+                [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:1] animated:YES];
+        }
     }];
 }
 

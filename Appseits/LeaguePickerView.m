@@ -92,7 +92,7 @@
         league = [[BackendAdapter leagues] objectAtIndex:self.selectedLeagueIndex - 1];
     }
     
-    [BackendAdapter setCurrentLeague:league :^(bool success) {
+    [BackendAdapter setCurrentLeague:league :^(RemoteCallResult error) {
         [self.leagueDelegate leagueChanged:league];
     }];
 }

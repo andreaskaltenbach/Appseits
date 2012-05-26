@@ -26,6 +26,6 @@
 @property (nonatomic, strong) id<TeamSelectDelegate> delegate;
 @property (nonatomic, weak) OverviewViewController *overviewViewController;
 
-- (void) updatePlace:(int) place withTeam:(Team*) team: (FinishedBlock) onDone;
+- (void) updatePlace:(int) place withTeam:(Team*) team: (RemoteCallBlock) remoteCallBlock;
 
 @end

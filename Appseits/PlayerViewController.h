@@ -10,7 +10,7 @@
 #import "OverviewViewController.h"
 #import "Team.h"
 
-@interface PlayerViewController : UIViewController
+@interface PlayerViewController : AppseitsViewController
 @property (nonatomic, strong) OverviewViewController *overviewViewController;
 
 @property (nonatomic, strong) Team *team;

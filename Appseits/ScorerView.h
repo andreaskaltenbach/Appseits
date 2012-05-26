@@ -21,6 +21,6 @@
 @property (nonatomic, strong) id<PlayerSelectDelegate> delegate;
 @property (nonatomic, weak) OverviewViewController *overviewViewController;
 
-- (void) updatePlace:(int) place withPlayer:(Player*) player: (FinishedBlock) onDone;
+- (void) updatePlace:(int) place withPlayer:(Player*) player: (RemoteCallBlock) remoteCallBlock;
 
 @end

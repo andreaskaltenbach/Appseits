@@ -134,14 +134,25 @@ static NSURL *downloadURL;
 
 - (void) refreshApplication {
         
-    // trigger an update, if model is initialzed
-    if ([BackendAdapter modelInitialized]) {
-        [BackendAdapter refreshModel:^(bool success) {
-            if (!success) {
-                [self showError:@"Ursäkta, någonting gick fel. Försök igen att ladda genom att dra ned."];
-            }
-        }];
-    }
+    // trigger a model update
+    [BackendAdapter refreshModel:^(RemoteCallResult remoteCallResult) {
+        switch (remoteCallResult) {
+            case INTERNAL_CLIENT_ERROR:
+            case INTERNAL_SERVER_ERROR:
+                [self showError:@"Ursäkta, någonting gick fel med uppdatering av datan. Försök igen."];
+                break;
+            case NO_INTERNET:
+                [self showError:@"Du är inte uppkopplad. Försök igen att ladda genom att dra ned."];
+                break;
+            case OK:
+                // update of the scrollable timeline (iPhone)
+                self.timelineScrollView.tournamentRounds = [BackendAdapter tournamentRounds];
+                
+                // update of the timeline (iPad)
+                self.timeline.matchRounds = [BackendAdapter matchRounds];
+                self.roundSelector.tournamentRounds = [BackendAdapter combinedTop4AndScorerRoundAndMatchRounds];
+        }
+    }];
     
     // check for new app version
     VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
@@ -396,14 +407,24 @@ static NSURL *downloadURL;
 }
 
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
-    [BackendAdapter refreshModel:^(bool success) {
+    [BackendAdapter refreshModel:^(RemoteCallResult remoteCallResult) {
         
-        // setup of the scrollable timeline (iPhone)
-        self.timelineScrollView.tournamentRounds = [BackendAdapter tournamentRounds];
-        
-        // setup of the timeline (iPad)
-        self.timeline.matchRounds = [BackendAdapter matchRounds];
-        self.roundSelector.tournamentRounds = [BackendAdapter combinedTop4AndScorerRoundAndMatchRounds];
+        switch (remoteCallResult) {
+            case INTERNAL_CLIENT_ERROR:
+            case INTERNAL_SERVER_ERROR:
+                [self showError:@"Ursäkta, någonting gick fel. Försök igen att ladda genom att dra ned."];
+                break;
+            case NO_INTERNET:
+                [self showError:@"Du är inte uppkopplad. Försök igen att ladda genom att dra ned."];
+                break;
+            case OK:
+                // update of the scrollable timeline (iPhone)
+                self.timelineScrollView.tournamentRounds = [BackendAdapter tournamentRounds];
+                
+                // update of the timeline (iPad)
+                self.timeline.matchRounds = [BackendAdapter matchRounds];
+                self.roundSelector.tournamentRounds = [BackendAdapter combinedTop4AndScorerRoundAndMatchRounds];
+        }
         
         self.lastUpdated = [NSDate date];
         [self.pullToRefreshView finishedLoading];
@@ -483,16 +504,23 @@ static NSURL *downloadURL;
 }
 
 - (void) updateTop4Tip:(TeamCell*) teamCell {
-    [self.top4View updatePlace:self.currentTeamPlace withTeam:teamCell.team :^(bool success) {
-        if (!success) {
-            NSLog(@"Nothing stored!");
-        }
+    [self.top4View updatePlace:self.currentTeamPlace withTeam:teamCell.team :^(RemoteCallResult remoteCallResult) {
         
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-        else {
-            [self.teamPopoverController dismissPopoverAnimated:YES];
+        switch (remoteCallResult) {
+            case INTERNAL_CLIENT_ERROR:
+            case INTERNAL_SERVER_ERROR:
+                [self showError:@"Ursäkta, någonting gick fel med att spara tipset. Försök igen."];
+                break;
+            case NO_INTERNET:
+                [self showError:@"Du är inte uppkopplad. Försök igen."];
+                break;
+            case OK:
+                if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+                else {
+                    [self.teamPopoverController dismissPopoverAnimated:YES];
+                }
         }
     }];
 }

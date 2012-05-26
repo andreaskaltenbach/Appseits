@@ -80,7 +80,7 @@
     }
 }
 
-- (void) updatePlace:(int) place withTeam:(Team*) team: (FinishedBlock) onDone {
+- (void) updatePlace:(int) place withTeam:(Team*) team: (RemoteCallBlock) remoteCallBlock {
     
     // if team is already selected on other place, remove this prediction
     int duplicate = 0;
@@ -99,21 +99,22 @@
     if (duplicate > 0) {
         Top4Selector *selectorToClean = [self.top4Selectors objectAtIndex:(duplicate-1)];
         selectorToClean.team = nil;
-        [BackendAdapter postPredictionForPlace:duplicate andTeam:[NSNumber numberWithInt:0] :^(bool success) {
-            if (success) {
-                [self saveTeamPrediction:place :team :onDone];
+        [BackendAdapter postPredictionForPlace:duplicate andTeam:[NSNumber numberWithInt:0] :^(RemoteCallResult remoteCallResult) {
+            
+            if (remoteCallResult == OK) {
+                [self saveTeamPrediction:place :team :remoteCallBlock];
             }
             else {
-                onDone(NO);
+                remoteCallBlock(remoteCallResult);
             }
         }];
     } 
     else {
-        [self saveTeamPrediction:place :team :onDone];
+        [self saveTeamPrediction:place :team :remoteCallBlock];
     }
 }
 
-- (void) saveTeamPrediction:(int) place:(Team*) team:(FinishedBlock) onDone {
+- (void) saveTeamPrediction:(int) place:(Team*) team:(RemoteCallBlock) remoteCallBlock {
     if (place == 1) self.top4Round.top4Tips.firstTeam = team;
     if (place == 2) self.top4Round.top4Tips.secondTeam = team;
     if (place == 3) self.top4Round.top4Tips.thirdTeam = team;
@@ -123,7 +124,7 @@
     selector.team = team;
     
     // send update to server
-    [BackendAdapter postPredictionForPlace:place andTeam:team.teamId :onDone];
+    [BackendAdapter postPredictionForPlace:place andTeam:team.teamId :remoteCallBlock];
 }
 
 @end

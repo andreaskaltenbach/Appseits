@@ -159,8 +159,7 @@ static NSString* TEAMS_URL;
             });
         }  
     });
-}
-                   
+}                  
 
 + (void) logout {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -169,11 +168,11 @@ static NSString* TEAMS_URL;
     [userDefaults synchronize];
 }
 
-+ (void) refreshModel:(FinishedBlock) onFinished {
++ (void) refreshModel:(RemoteCallBlock) remoteCallBlock {
     
     if (!modelInitialized) {
         // if model is not fully initialized, we have to initialize it instead of refreshing it.
-        [BackendAdapter initializeModel:onFinished];
+        [BackendAdapter initializeModel:remoteCallBlock];
     }
     else {
 
@@ -181,65 +180,66 @@ static NSString* TEAMS_URL;
         
         dispatch_async(refreshQueue, ^{
             
-            BOOL successRoad = [self loadCompleteTournament];
+            RemoteCallResult remoteCallResult = [self loadCompleteTournament];
             
             // TODO -enable league and ranking fetching!
-            /*if (successRoad) {
-             successRoad = [self loadLeagues];
+            /*if (remoteCallResult == OK) {
+             remoteCallResult = [self loadLeagues];
              }
-             if (successRoad) {
-             successRoad = [self loadRankings];
+             if (remoteCallResult == OK) {
+             remoteCallResult = [self loadRankings];
              }*/
-            if (successRoad) {
-                successRoad = [self loadTop4];
+            
+            if (remoteCallResult == OK) {
+                remoteCallResult = [self loadTop4];
             }
-            if (successRoad) {
-                successRoad = [self loadScorer];
+            if (remoteCallResult == OK) {
+                remoteCallResult = [self loadScorer];
             }
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                onFinished(YES);
+                remoteCallBlock(remoteCallResult);
             });
         });
 
     }
 }
 
-+ (void) initializeModel:(FinishedBlock) onFinished {
++ (void) initializeModel:(RemoteCallBlock) remoteCallBlock {
     
     dispatch_queue_t initQueue = dispatch_queue_create("initialization", NULL);
 
     dispatch_async(initQueue, ^{
         
-        BOOL successRoad = [self fetchTeams];
-        if (successRoad) {
-            successRoad = [self loadCompleteTournament];
+        RemoteCallResult remoteCallResult = [self fetchTeams];
+        if (remoteCallResult == OK) {
+            remoteCallResult = [self loadCompleteTournament];
         }
         // TODO -enable league and ranking fetching!
-        /*if (successRoad) {
-            successRoad = [self loadLeagues];
+        /*if (remoteCallResult == OK) {
+            remoteCallResult = [self loadLeagues];
         }
-        if (successRoad) {
-            successRoad = [self loadRankings];
+        if (remoteCallResult == OK) {
+            remoteCallResult = [self loadRankings];
         }*/
-        if (successRoad) {
-            successRoad = [self loadFlags];
+        if (remoteCallResult == OK) {
+            remoteCallResult = [self loadFlags];
         }
-        if (successRoad) {
-            successRoad = [self loadTop4];
+        if (remoteCallResult == OK) {
+            remoteCallResult = [self loadTop4];
         }
-        if (successRoad) {
-            successRoad = [self loadScorer];
+        if (remoteCallResult == OK) {
+            remoteCallResult = [self loadScorer];
         }
 
         dispatch_async(dispatch_get_main_queue(), ^{
             modelInitialized = YES;
-            onFinished(YES);
+            remoteCallBlock(remoteCallResult);
         });
     });
 }
 
-+ (BOOL) loadFlags {
++ (RemoteCallResult) loadFlags {
     
     // prepare the file path
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -260,26 +260,24 @@ static NSString* TEAMS_URL;
 
             NSData *flagData = [NSURLConnection sendSynchronousRequest:flagRequest returningResponse:&response error:&error];
             
-            if (error) {
-                NSLog(@"No flag available for %@", teamName);
-            }
+            RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+            if (remoteCallResult != OK) return remoteCallResult;
                 
             // write flag file to disk
             [flagData writeToFile:filePath options:NSAtomicWrite error:&error];
                 
             if (error) {
-                [self showErrorAlert:@"Failed to store flag on file system"];
-                return NO;
+                return INTERNAL_CLIENT_ERROR;
             }
             
             NSLog(@"Dowloaded flag for %@", teamName);
         }
         
     }
-    return YES;
+    return OK;
 }
 
-+ (BOOL) loadLeagues {
++ (RemoteCallResult) loadLeagues {
     // fetch all leagues
     NSURL *url = [NSURL URLWithString:leagueUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -288,22 +286,18 @@ static NSString* TEAMS_URL;
     NSURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    if (error) {
-        [self showErrorAlert:@"Error while downloading leagues"];
-        return NO;
-    }
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    if (remoteCallResult != OK) return remoteCallResult;
     
     // parse the result
     NSError *parseError = nil;
     NSArray *leagueData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
     
     if (parseError) {
-        [self showErrorAlert:@"Error while parsing league data from server"];
-        return NO;
+        return INTERNAL_CLIENT_ERROR;
     }
     
     leagues = [League leaguesFromJson:leagueData];
-    NSLog(@"Fetched %i leagues ", [leagues count]);
     
     // initialize current league based on user defaults, if available
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -316,7 +310,7 @@ static NSString* TEAMS_URL;
         }
     }
     
-    return YES;
+    return OK;
 }
 
 + (UIImage*) imageForTeam:(NSString*) teamName {
@@ -340,69 +334,73 @@ static NSString* TEAMS_URL;
     }
 }
 
-+ (void) showErrorAlert:(NSString*) message {
-    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [errorAlert show];
-}
-
 + (NSMutableURLRequest*) requestForUrl:(NSString*) url {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request addValue:token forHTTPHeaderField:@"Authorization"];
     return request;
 }
 
-+ (BOOL) loadTop4 {
++ (RemoteCallResult) remoteCallResult: (NSURLResponse*) response: (NSError*) error {
+
+    if (![response isKindOfClass:NSHTTPURLResponse.class]) {
+        return NO;
+    }
+    
+    NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
+    
+    switch (httpResponse.statusCode) {
+        case 0:
+            return NO_INTERNET;
+        case 200:
+            return OK;
+        default:
+            return INTERNAL_SERVER_ERROR;
+    }
+}
+
++ (RemoteCallResult) loadTop4 {
     NSMutableURLRequest *request = [self requestForUrl:TOP4_URL];
     
     NSError *error;
     NSURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    if (error) {
-        [self showErrorAlert:@"Error while downloading Top 4 tips"];
-        return NO;
-    }
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    if (remoteCallResult != OK) return remoteCallResult;
     
     // parse the result
     NSError *parseError = nil;
     NSDictionary *tipsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
     
     if (parseError) {
-        [self showErrorAlert:@"Error while parsing Top 4 tips data from server"];
-        return NO;
+        return INTERNAL_CLIENT_ERROR;
     }
     
-    NSLog(@"Tip data: %@", tipsData );
     top4Round = [Top4Round init:[Top4Tips fromJson:tipsData]];
     
     MatchRound *firstMatchRound = [rounds objectAtIndex:0];
     top4Round.startDate = firstMatchRound.startDate;
     top4Round.lockDate = firstMatchRound.lockDate;
-    NSLog(@"Fetched top 4 tips: %@", top4Round.top4Tips);
     
-    
-    return YES;
+    return OK;
 }
 
-+ (BOOL) loadScorer {
-    NSMutableURLRequest *request = [self requestForUrl:SCORER_URL];
++ (RemoteCallResult) loadScorer {
+    NSURLRequest *request = [self requestForUrl:SCORER_URL];
     
     NSError *error;
     NSURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    if (error) {
-        [self showErrorAlert:@"Error while downloading Top Scorer tips"];
-        return NO;
-    }
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    if (remoteCallResult != OK) return remoteCallResult;
     
     // parse the result
     NSError *parseError = nil;
     NSArray *tipsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
     
     if (parseError) {
-        [self showErrorAlert:@"Error while parsing Top scorer tips data from server"];
-        return NO;
+        return INTERNAL_CLIENT_ERROR;
     }
     
     ScorerTips *scorerTips = [ScorerTips fromJson:tipsData];
@@ -411,52 +409,41 @@ static NSString* TEAMS_URL;
     MatchRound *firstMatchRound = [rounds objectAtIndex:0];
     scorerRound.startDate = firstMatchRound.startDate;
     scorerRound.lockDate = firstMatchRound.lockDate;
-    NSLog(@"Fetched scorer tips: %@", scorerRound.scorerTips);
     
-    return YES;
-    
+    return OK;
 }
 
-+ (BOOL) loadCompleteTournament {
++ (RemoteCallResult) loadCompleteTournament {
     
-    NSURL *url = [NSURL URLWithString:ROUNDS_URL];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    NSLog(@"Header: %@", token);
-    [request addValue:token forHTTPHeaderField:@"Authorization"];
+    NSURLRequest *request = [self requestForUrl:ROUNDS_URL];
     
     NSError *error;
     NSURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    if (error) {
-        [self showErrorAlert:@"Error while downloading matches"];
-        return NO;
-    }
-    
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    if (remoteCallResult != OK) return remoteCallResult;    
     // parse the result
     NSError *parseError = nil;
     NSArray *roundsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
-    NSLog(@"Rounds: %@", roundsData);
     
     if (parseError) {
-        [self showErrorAlert:@"Error while parsing match data from server"];
-        return NO;
+        return INTERNAL_CLIENT_ERROR;
     }
     
     rounds = [MatchRound tournamentRoundsFromJson:roundsData];
-    NSLog(@"Fetched %i tournament rounds", [rounds count]);
     
-    return YES;
+    return OK;
 }
 
 + (League*) currentLeague {
     return currentLeague;
 }
 
-+ (void) setCurrentLeague:(League*) league:(FinishedBlock) finished {
++ (void) setCurrentLeague:(League*) league:(RemoteCallBlock) remoteCallBlock {
     
     if (currentLeague == league) {
-        finished(YES);
+        remoteCallBlock(OK);
     }
     else {
         currentLeague = league;
@@ -468,7 +455,7 @@ static NSString* TEAMS_URL;
         
         
         // refresh the rankings based on the selected league
-        [self loadRankings:finished];
+        [self loadRankings:remoteCallBlock];
     }
 }
 
@@ -498,7 +485,7 @@ static NSString* TEAMS_URL;
     return top4Round.top4Tips;
 }
 
-+ (BOOL) loadRankings {
++ (RemoteCallResult) loadRankings {
     
     //TODO - mix in the league ID
     NSURL *url = [NSURL URLWithString:rankingUrl];
@@ -508,27 +495,24 @@ static NSString* TEAMS_URL;
     NSURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    if (error) {
-        [self showErrorAlert:@"Error while downloading rankings"];
-        return YES;
-    }
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    if (remoteCallResult != OK) return remoteCallResult;
     
     // parse the result
     NSError *parseError = nil;
     NSArray *rankingData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
     
     if (parseError) {
-        [self showErrorAlert:@"Error while parsing ranking data from server"];
-        return NO;
+        return INTERNAL_CLIENT_ERROR;
     }
     
     rankings = [Ranking rankingsFromJson:rankingData];
     NSLog(@"Fetched %i rankings for league %@", [rankings count], currentLeague);
     
-    return YES;
+    return OK;
 }
 
-+ (void) loadRankings:(FinishedBlock) finished {
++ (void) loadRankings:(RemoteCallBlock) remoteCallBlock {
     
     //TODO - mix in the league ID
     NSURL *url = [NSURL URLWithString:rankingUrl];
@@ -536,9 +520,9 @@ static NSString* TEAMS_URL;
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
-        if (error) {
-            NSLog(@"Error while downloading rankings");
-            finished(NO);
+        RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+        if (remoteCallResult != OK) {
+            remoteCallBlock(remoteCallResult);
         }
         else {
             // parse the result
@@ -546,17 +530,17 @@ static NSString* TEAMS_URL;
             NSArray *rankingData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
             
             if (parseError) {
-                NSLog(@"Error while parsing ranking data from server");
-                finished(NO);
+                remoteCallBlock(INTERNAL_CLIENT_ERROR);
             }
             
             rankings = [Ranking rankingsFromJson:rankingData];
-            finished(YES);
+            remoteCallBlock(OK);
         }
+
     }];
 }
 
-+ (void) postPrediction:(NSNumber*) matchId: (NSNumber*) firstTeamGoals: (NSNumber*) secondTeamGoals: (FinishedBlock) onDone {
++ (void) postPrediction:(NSNumber*) matchId: (NSNumber*) firstTeamGoals: (NSNumber*) secondTeamGoals: (RemoteCallBlock) remoteCallBlock {
     
    NSMutableURLRequest *request = [self requestForUrl:BET_URL];
     
@@ -574,11 +558,14 @@ static NSString* TEAMS_URL;
     request.HTTPBody = data;
     
    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-       onDone(!error);
+       
+       RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+       remoteCallBlock(remoteCallResult);
+       
    }];
 }
 
-+ (void) postPredictionForPlace:(int) place andPlayer: (NSNumber*) playerId: (FinishedBlock) onDone {
++ (void) postPredictionForPlace:(int) place andPlayer: (NSNumber*) playerId: (RemoteCallBlock) remoteCallBlock {
     NSMutableURLRequest *request = [self requestForUrl:SCORER_URL];
     
     [request setHTTPMethod:@"POST"];
@@ -594,11 +581,13 @@ static NSString* TEAMS_URL;
     request.HTTPBody = data;
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        onDone(!error);
+        RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+        remoteCallBlock(remoteCallResult);
+
     }];
 }
 
-+ (void) postPredictionForPlace:(int) place andTeam: (NSNumber*) teamId: (FinishedBlock) onDone {
++ (void) postPredictionForPlace:(int) place andTeam: (NSNumber*) teamId: (RemoteCallBlock) remoteCallBlock {
     NSMutableURLRequest *request = [self requestForUrl:TOP4_URL];
     
     [request setHTTPMethod:@"POST"];
@@ -618,12 +607,13 @@ static NSString* TEAMS_URL;
     request.HTTPBody = data;
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        onDone(!error);
+        RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+        remoteCallBlock(remoteCallResult);
     }];
 
 }
 
-+ (BOOL) fetchTeams {
++ (RemoteCallResult) fetchTeams {
     
     NSURLRequest *request = [self requestForUrl:TEAMS_URL];
     NSError *error;
@@ -631,24 +621,20 @@ static NSString* TEAMS_URL;
         
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    if (error) {
-        NSLog(@"Error while downloading teams");
-        return NO;
-    }
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    if (remoteCallResult != OK) return remoteCallResult;
+    
     NSError *parseError;
     NSArray *teamsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
     NSLog(@"Teams: %@", teamsData);
     
     if (parseError) {
-        [self showErrorAlert:@"Error while parsing teams from server"];
-        return NO;
+        return INTERNAL_CLIENT_ERROR;
     }
     
     [self setTeams:[Team teamsFromJson:teamsData]];
     
-    NSLog(@"Fetched %i teams", [teams count]);
-    
-    return YES;
+    return OK;
 }
 
 + (void) setTeams:(NSArray*) allTeams {

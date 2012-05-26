@@ -152,12 +152,20 @@
 
 - (void) pushPrediction {
     if (self.stalePrediction && self.completePrediction) {
-        [BackendAdapter postPrediction:self.match.matchId:self.match.firstTeamPrediction:self.match.secondTeamPrediction :^(bool success) {
-            if (!success) {
-                [self showError:@"Kunde tyvärr inte spara resultatet. Vänligen försök senare igen."];
+        [BackendAdapter postPrediction:self.match.matchId:self.match.firstTeamPrediction:self.match.secondTeamPrediction :^(RemoteCallResult remoteCallResult) {
+            
+            switch (remoteCallResult) {
+                case INTERNAL_CLIENT_ERROR:
+                case INTERNAL_SERVER_ERROR:
+                    [self showError:@"Ursäkta, någonting gick fel med att spara matchtipset. Försök igen."];
+                    break;
+                case NO_INTERNET:
+                    [self showError:@"Du är inte uppkopplad. Försök igen."];
+                    break;
+                case OK:
+                    [self.overviewViewController.gameTable reloadData];
+                    self.stalePrediction = NO;
             }
-            [self.overviewViewController.gameTable reloadData];
-            self.stalePrediction = NO;
         }];
     }
 }

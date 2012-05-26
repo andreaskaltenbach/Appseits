@@ -136,9 +136,24 @@ static UIImage *forgotPasswordButtonImage;
     [BackendAdapter validateCredentials:^(bool validCredentials) {
         if (validCredentials) {
             // initialize the app and enter it
-            [BackendAdapter initializeModel:^(bool success) {
+            [BackendAdapter initializeModel:^(RemoteCallResult remoteCallResult) {
+                
                 [self.spinner stopAnimating];
-                [self performSegueWithIdentifier:@"toOverview" sender:self];
+                
+                switch (remoteCallResult) {
+                    case INTERNAL_CLIENT_ERROR:
+                    case INTERNAL_SERVER_ERROR:
+                        [self showError:@"Ursäkta, någonting gick fel. Försök igen."];
+                        [self showInputs];
+                        break;
+
+                    case NO_INTERNET:
+                        [self showError:@"Du är inte uppkopplad. Försök igen att ladda genom att dra ned."];
+                        [self showInputs];
+                        break;
+                    case OK:
+                        [self performSegueWithIdentifier:@"toOverview" sender:self];
+                }
             }];
         }
         else {

@@ -79,7 +79,7 @@
     }
 }
 
-- (void) updatePlace:(int) place withPlayer:(Player*) player: (FinishedBlock) onDone {
+- (void) updatePlace:(int) place withPlayer:(Player*) player: (RemoteCallBlock) remoteCallBlock {
     
     // if team is already selected on other place, remove this prediction
     int duplicate = 0;
@@ -89,21 +89,22 @@
     if (duplicate > 0) {
         ScorerSelector *selectorToClean = [self.scorerSelectors objectAtIndex:(duplicate-1)];
         selectorToClean.player = nil;
-        [BackendAdapter postPredictionForPlace:duplicate andPlayer:[NSNumber numberWithInt:0] :^(bool success) {
-            if (success) {
-                [self savePlayerPrediction:place :player :onDone];
+        [BackendAdapter postPredictionForPlace:duplicate andPlayer:[NSNumber numberWithInt:0] :^(RemoteCallResult remoteCallResult) {
+            
+            if (remoteCallResult == OK) {
+                [self savePlayerPrediction:place :player :remoteCallBlock];
             }
             else {
-                onDone(NO);
+                remoteCallBlock(remoteCallResult);
             }
         }];
     } 
     else {
-        [self savePlayerPrediction:place :player :onDone];
+        [self savePlayerPrediction:place :player :remoteCallBlock];
     }
 }
 
-- (void) savePlayerPrediction:(int) place:(Player*) player:(FinishedBlock) onDone {
+- (void) savePlayerPrediction:(int) place:(Player*) player:(RemoteCallBlock) remoteCallBlock {
     if (place == 1) self.scorerRound.scorerTips.firstPlayer = player;
     if (place == 2) self.scorerRound.scorerTips.secondPlayer = player;
     if (place == 3) self.scorerRound.scorerTips.thirdPlayer = player;
@@ -112,7 +113,7 @@
     selector.player = player;
     
     // send update to server
-    [BackendAdapter postPredictionForPlace:place andPlayer:player.playerId :onDone];
+    [BackendAdapter postPredictionForPlace:place andPlayer:player.playerId :remoteCallBlock];
 }
 
 @end
