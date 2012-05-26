@@ -183,6 +183,9 @@ static UIImage *forgotPasswordButtonImage;
 - (IBAction)loginTabbed:(id)sender {
     [self hideNotification];
     
+    [self.emailInput resignFirstResponder];
+    [self.passwordInput resignFirstResponder];
+    
     if (self.emailInput.text && self.emailInput.text.length > 0
         && self.passwordInput.text && self.passwordInput.text.length > 0) {
         [BackendAdapter storeCredentials:self.emailInput.text :self.passwordInput.text];
@@ -212,9 +215,22 @@ static UIImage *forgotPasswordButtonImage;
     }
 }
 
--(BOOL) textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    [self hideNotification];
     return YES;
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
+    
+    if (textField == self.emailInput) {
+        [self.passwordInput becomeFirstResponder];
+        return NO;
+    }
+    else {
+        [textField resignFirstResponder];
+        [self loginTabbed:textField];
+        return YES;
+    }
 }
 
 @end

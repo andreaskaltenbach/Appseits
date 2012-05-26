@@ -98,7 +98,6 @@
     return [UIColor colorWithRed:196.0/255.0f green:76.0f/255.0f blue:55.0f/255.0f alpha:1];
 }
 
-
 + (UIColor*) separatorVertical {
     return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"separator.png"]];
 }

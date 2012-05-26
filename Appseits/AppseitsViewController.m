@@ -120,6 +120,9 @@ static UIImage* confirmButtonImage;
 
 - (void) layoutNotificationBox {
     
+    self.notificationBox.hidden = NO;
+    self.notificationIcon.hidden = NO;
+    
     float totalWidth = self.view.frame.size.width - 2*SIDE_MARGIN;
     
     // calculate dimensions for the text
@@ -164,7 +167,7 @@ static UIImage* confirmButtonImage;
         // when no buttons are shown, we schedule a fly-out after a few seconds
         if (self.buttonView.hidden) {
             [UIView animateWithDuration:0.3 delay:3 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                [self hideNotification];
+                [self moveUp];
             } completion:^(BOOL finished) {
             }];
         }
@@ -195,6 +198,12 @@ static UIImage* confirmButtonImage;
 }
 
 - (void) hideNotification {
+    self.notificationBox.hidden = YES;
+    self.notificationIcon.hidden = YES;
+}
+
+
+- (void) moveUp {
     float totalWidth = self.view.frame.size.width - 2*SIDE_MARGIN;
     self.notificationBox.frame = CGRectMake(SIDE_MARGIN, -(self.notificationBox.frame.size.height + 2*TEXT_OFFSET + SHADOW_HEIGHT), totalWidth, self.notificationBox.frame.size.height);
     self.notificationIcon.frame = CGRectMake(SIDE_MARGIN - ICON_X_INSET,  -(self.notificationBox.frame.size.height + 2*TEXT_OFFSET + SHADOW_HEIGHT)  - ICON_Y_INSET, 24, 24);
@@ -216,7 +225,7 @@ static UIImage* confirmButtonImage;
 
 - (void) onConfirm {
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        [self hideNotification];
+        [self moveUp];
     } completion:^(BOOL finished) {
     }];
     self.confirmAction();
@@ -224,7 +233,7 @@ static UIImage* confirmButtonImage;
 
 - (void) onAbort {
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        [self hideNotification];
+        [self moveUp];
     } completion:^(BOOL finished) {
     }];
 }
