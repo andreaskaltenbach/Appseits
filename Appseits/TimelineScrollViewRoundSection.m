@@ -40,7 +40,6 @@
     
     // initialize selection gradient
     section.selectedGradient = [[SSGradientView alloc] initWithFrame:CGRectMake(0, 0, ROUND_WIDTH, sectionHeight)];
-    section.selectedGradient.colors = [UIColor selectedSection];
     [section addSubview:section.selectedGradient];
     
     // print round name
@@ -77,6 +76,12 @@
     self.lockIcon.image = [LockImageProvider imageForTournamentRound:self.round :selected];
     if (selected) {
         self.selectedGradient.hidden = NO;
+        if (self.round.readyToBet && !self.round.allPredictionsDone) {
+            self.selectedGradient.colors = [UIColor selectedUnfinishedSection];
+        }
+        else {
+            self.selectedGradient.colors = [UIColor selectedSection];
+        }
     }
     else {
         self.selectedGradient.hidden = YES;

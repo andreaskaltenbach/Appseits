@@ -30,6 +30,13 @@
     return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"square.png"]];
 }
 
++ (NSArray *) selectedUnfinishedSection {
+    return [NSArray arrayWithObjects: 
+            [UIColor colorWithRed:231.0/255.0f green:129.0f/255.0f blue:105.0f/255.0f alpha:1],
+            [UIColor colorWithRed:192.0/255.0f green:59.0f/255.0f blue:27.0f/255.0f alpha:1],
+            nil];  
+}
+
 + (NSArray *) selectedSection {
     return [NSArray arrayWithObjects: 
             [UIColor colorWithRed:116.0/255.0f green:173.0f/255.0f blue:53.0f/255.0f alpha:1],

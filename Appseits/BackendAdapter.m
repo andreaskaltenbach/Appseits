@@ -428,6 +428,7 @@ static NSString* TEAMS_URL;
     // parse the result
     NSError *parseError = nil;
     NSArray *roundsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
+    NSLog(@"Rounds: %@", roundsData);
     
     if (parseError) {
         return INTERNAL_CLIENT_ERROR;

@@ -26,6 +26,7 @@
 
 + (NSArray *) gameCellGradient;
 
++ (NSArray *) selectedUnfinishedSection;
 + (NSArray *) selectedSection;
 
 + (UIColor*) progressWaves;

@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Appseits/BackendAdapter.m"
-         timestampString = "359726683.854626"
+         timestampString = "359733597.500713"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "587"
-         endingLineNumber = "587"
+         startingLineNumber = "588"
+         endingLineNumber = "588"
          landmarkName = "+postPredictionForPlace:andPlayer::"
          landmarkType = "5">
       </FileBreakpoint>
