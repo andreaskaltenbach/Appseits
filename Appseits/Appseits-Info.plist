@@ -21,6 +21,11 @@
 				<string>Default-Portrait~ipad.png</string>
 				<string>Default-Portrait~ipad.png</string>
 				<string>Default-Portrait@2x~ipad.png</string>
+				<string>Icon.png</string>
+				<string>Icon@2x.png</string>
+				<string>Icon-72.png</string>
+				<string>Icon2.png</string>
+				<string>Icon-72@2x.png</string>
 			</array>
 		</dict>
 	</dict>

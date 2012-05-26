@@ -139,6 +139,10 @@
 		5B3E6FFE1549BD7900190AE9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B3E6FFD1549BD7900190AE9 /* libz.dylib */; };
 		5B4A9F201549D61400592EA2 /* pointsBackgroundGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4A9F1A1549D61400592EA2 /* pointsBackgroundGreen@2x.png */; };
 		5B4A9F211549D61400592EA2 /* pointsBackgroundGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B4A9F1B1549D61400592EA2 /* pointsBackgroundGreen.png */; };
+		5B6A360E15710151007D88B7 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6A360D15710151007D88B7 /* Icon.png */; };
+		5B6A361015710210007D88B7 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6A360F15710210007D88B7 /* Icon@2x.png */; };
+		5B6A361215710218007D88B7 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6A361115710218007D88B7 /* Icon-72.png */; };
+		5B6A36161571025B007D88B7 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6A36151571025B007D88B7 /* Icon-72@2x.png */; };
 		5B71B1C41565918C00AF0849 /* RoundSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B71B1C31565918C00AF0849 /* RoundSelector.m */; };
 		5B71B1C71565973800AF0849 /* CompositeTop4AndScorerRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B71B1C61565973800AF0849 /* CompositeTop4AndScorerRound.m */; };
 		5B76D2B9152A38BA00225BEB /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B76D2B8152A38BA00225BEB /* League.m */; };
@@ -466,6 +470,10 @@
 		5B3E6FFD1549BD7900190AE9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		5B4A9F1A1549D61400592EA2 /* pointsBackgroundGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pointsBackgroundGreen@2x.png"; sourceTree = "<group>"; };
 		5B4A9F1B1549D61400592EA2 /* pointsBackgroundGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pointsBackgroundGreen.png; sourceTree = "<group>"; };
+		5B6A360D15710151007D88B7 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		5B6A360F15710210007D88B7 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		5B6A361115710218007D88B7 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		5B6A36151571025B007D88B7 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		5B71B1C21565918C00AF0849 /* RoundSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundSelector.h; sourceTree = "<group>"; };
 		5B71B1C31565918C00AF0849 /* RoundSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundSelector.m; sourceTree = "<group>"; };
 		5B71B1C51565973800AF0849 /* CompositeTop4AndScorerRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompositeTop4AndScorerRound.h; sourceTree = "<group>"; };
@@ -816,6 +824,10 @@
 		4E531C06151CAB050003CAD1 = {
 			isa = PBXGroup;
 			children = (
+				5B6A36151571025B007D88B7 /* Icon-72@2x.png */,
+				5B6A361115710218007D88B7 /* Icon-72.png */,
+				5B6A360F15710210007D88B7 /* Icon@2x.png */,
+				5B6A360D15710151007D88B7 /* Icon.png */,
 				5B9E5BB41550501900578CCC /* Default-Portrait@2x~ipad.png */,
 				5B9E5BB115504E3A00578CCC /* Default-Portrait~ipad.png */,
 				5B9E5BAF15504D9600578CCC /* Default-Landscape~ipad.png */,
@@ -1215,6 +1227,10 @@
 				5B0556F81570D8D8006A9E7C /* promptIcon@2x.png in Resources */,
 				5B0556FF1570E456006A9E7C /* promptConfirmButton.png in Resources */,
 				5B0557001570E456006A9E7C /* promptConfirmButton@2x.png in Resources */,
+				5B6A360E15710151007D88B7 /* Icon.png in Resources */,
+				5B6A361015710210007D88B7 /* Icon@2x.png in Resources */,
+				5B6A361215710218007D88B7 /* Icon-72.png in Resources */,
+				5B6A36161571025B007D88B7 /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
