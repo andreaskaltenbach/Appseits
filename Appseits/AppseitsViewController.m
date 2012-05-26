@@ -20,10 +20,12 @@
 
 #define SHADOW_HEIGHT 10
 
-#define ICON_X_INSET 9
-#define ICON_Y_INSET 9
+#define ICON_X_INSET 5
+#define ICON_Y_INSET 5
 
 static UIFont *messageFont;
+static UIFont *buttonFont;
+
 static UIImage* confirmationImage;
 static UIImage* promptImage;
 static UIImage* errorImage;
@@ -52,6 +54,7 @@ static UIImage* confirmButtonImage;
 
 + (void) initialize {
     messageFont = [UIFont systemFontOfSize:14];
+    buttonFont = [UIFont boldSystemFontOfSize:13];
     confirmationImage = [UIImage imageNamed:@"greenBallCheck"];
     promptImage = [UIImage imageNamed:@"promptIcon"];
     errorImage = [UIImage imageNamed:@"errorIcon"];
@@ -91,18 +94,21 @@ static UIImage* confirmButtonImage;
     
     self.abortButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.abortButton setBackgroundImage:abortButtonImage forState:UIControlStateNormal];
+    self.abortButton.titleLabel.font = buttonFont;
     [self.abortButton addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onAbort)]];
     [self.buttonView addSubview:self.abortButton];
     
+    
     self.confirmButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.confirmButton setBackgroundImage:confirmButtonImage forState:UIControlStateNormal];
+    self.confirmButton.titleLabel.font = buttonFont;
     [self.confirmButton addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onConfirm)]];
     [self.buttonView addSubview:self.confirmButton];
 
     [_notificationBox addSubview:self.buttonView];
     
     // setup notification icon
-    self.notificationIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, -1000, 42, 42)];
+    self.notificationIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, -1000, 24, 24)];
     [self.view addSubview:self.notificationIcon];
     
     return _notificationBox;
@@ -128,16 +134,13 @@ static UIImage* confirmButtonImage;
     }
     
     self.notificationBox.frame = CGRectMake(SIDE_MARGIN, -notificationBoxHeight, totalWidth, notificationBoxHeight);
-    self.notificationIcon.frame = CGRectMake(SIDE_MARGIN - ICON_X_INSET, -notificationBoxHeight, 42, 42);
+    self.notificationIcon.frame = CGRectMake(SIDE_MARGIN - ICON_X_INSET, -notificationBoxHeight, 24, 24);
     
     // set text & dimensions for notification label
     self.notificationLabel.frame = CGRectMake((totalWidth - messageSize.width)/2, TEXT_OFFSET , messageSize.width, messageSize.height);
     
     // set text & dimensions for buttons, if visible
     if (!self.buttonView.hidden) {
-        // [self.abortButton sizeToFit];
-//        self.abortButton.frame = CGRectMake(0, 0,120, 38);
-
         [self.abortButton sizeToFit];
         [self.confirmButton sizeToFit];
         
@@ -155,7 +158,7 @@ static UIImage* confirmButtonImage;
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         // animate fly-in
         self.notificationBox.frame = CGRectMake(SIDE_MARGIN, TOP_MARGIN, totalWidth, notificationBoxHeight);
-        self.notificationIcon.frame = CGRectMake(SIDE_MARGIN - ICON_X_INSET, TOP_MARGIN - ICON_Y_INSET, 42, 42);
+        self.notificationIcon.frame = CGRectMake(SIDE_MARGIN - ICON_X_INSET, TOP_MARGIN - ICON_Y_INSET, 24, 24);
 
     } completion:^(BOOL finished) {
         // when no buttons are shown, we schedule a fly-out after a few seconds
@@ -194,7 +197,7 @@ static UIImage* confirmButtonImage;
 - (void) hideNotification {
     float totalWidth = self.view.frame.size.width - 2*SIDE_MARGIN;
     self.notificationBox.frame = CGRectMake(SIDE_MARGIN, -(self.notificationBox.frame.size.height + 2*TEXT_OFFSET + SHADOW_HEIGHT), totalWidth, self.notificationBox.frame.size.height);
-    self.notificationIcon.frame = CGRectMake(SIDE_MARGIN - ICON_X_INSET,  -(self.notificationBox.frame.size.height + 2*TEXT_OFFSET + SHADOW_HEIGHT)  - ICON_Y_INSET, 42, 42);
+    self.notificationIcon.frame = CGRectMake(SIDE_MARGIN - ICON_X_INSET,  -(self.notificationBox.frame.size.height + 2*TEXT_OFFSET + SHADOW_HEIGHT)  - ICON_Y_INSET, 24, 24);
 }
 
 - (void) showPrompt:(NSString*) message: (NSString*) confirmMessage: (NSString*) abortMessage: (PromptConfirmedBlock) onConfirm {

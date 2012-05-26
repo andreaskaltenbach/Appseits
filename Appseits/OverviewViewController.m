@@ -152,6 +152,10 @@ static NSURL *downloadURL;
     
     [super viewDidLoad];
     
+    // check for new app version
+    VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
+    [versionEnforcer checkVersion:@"http://dl.dropbox.com/u/15650647/appseits/version.json"];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshApplication)
                                                  name:UIApplicationDidBecomeActiveNotification object:nil];
