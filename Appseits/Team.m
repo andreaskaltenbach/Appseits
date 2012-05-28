@@ -32,7 +32,6 @@
     team.shortName = [teamData objectForKey:@"shortName"];
     
     NSArray *playerData = [teamData objectForKey:@"players"];
-    NSLog(@"%@", playerData);
     NSArray *teamPlayers = [Player playersFromJson:playerData forTeam:team];
     team.players = teamPlayers;
     

@@ -12,6 +12,6 @@
 
 @interface TeamViewController : UIViewController<UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *table;
-@property (nonatomic, strong) OverviewViewController *overviewController;
+@property (nonatomic, weak) OverviewViewController *overviewController;
 
 @end

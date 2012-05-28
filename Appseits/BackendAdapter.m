@@ -428,7 +428,6 @@ static NSString* TEAMS_URL;
     // parse the result
     NSError *parseError = nil;
     NSArray *roundsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
-    NSLog(@"Rounds: %@", roundsData);
     
     if (parseError) {
         return INTERNAL_CLIENT_ERROR;
@@ -594,8 +593,6 @@ static NSString* TEAMS_URL;
     NSMutableURLRequest *request = [self requestForUrl:TOP4_URL];
     
     [request setHTTPMethod:@"POST"];
-    
-    NSLog(@"Team:%i", teamId.intValue);
     
     // build JSON payload
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];

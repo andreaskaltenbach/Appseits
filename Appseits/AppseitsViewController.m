@@ -147,9 +147,6 @@ static UIImage* confirmButtonImage;
         [self.abortButton sizeToFit];
         [self.confirmButton sizeToFit];
         
-        NSLog(@"%f",
-              self.abortButton.frame.size.width );
-        
         CGRect confirmButtonFrame = self.confirmButton.frame;
         confirmButtonFrame.origin.x = TEXT_OFFSET + self.abortButton.frame.size.width;
         self.confirmButton.frame = confirmButtonFrame;

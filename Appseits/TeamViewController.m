@@ -11,9 +11,26 @@
 #import "TeamCell.h"
 #import "UIColor+AppColors.h"
 
+static UIImage* firstTeamTrophy;
+static UIImage* secondTeamTrophy;
+static UIImage* thirdTeamTrophy;
+static UIImage* fourthTeamTrophy;
+
+@interface TeamViewController()
+@property (strong, nonatomic) IBOutlet UIImageView *trophyImage;
+@end
+
 @implementation TeamViewController
+@synthesize trophyImage = _trophyImage;
 @synthesize overviewController = _overviewController;
 @synthesize table = _table;
+
++ (void) initialize {
+    firstTeamTrophy = [UIImage imageNamed:@"first"];
+    secondTeamTrophy = [UIImage imageNamed:@"second"];
+    thirdTeamTrophy = [UIImage imageNamed:@"third"];
+    fourthTeamTrophy = [UIImage imageNamed:@"fourth"];
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -46,10 +63,13 @@
         int index = [self.overviewController.allTeams indexOfObject:self.overviewController.currentTeamSelection];
         [self.table selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionMiddle];
     }
+    
+    [self showTrophy];
 }
 
 - (void)viewDidUnload {
     [self setTable:nil];
+    [self setTrophyImage:nil];
     [super viewDidUnload];
 }
 
@@ -67,6 +87,25 @@
     
     return cell;
     
+}
+
+- (void) showTrophy {
+    switch (self.overviewController.currentTeamPlace) {
+        case 1:
+            self.trophyImage.image = firstTeamTrophy;
+            break;
+        case 2:
+            self.trophyImage.image = secondTeamTrophy;
+            break;
+        case 3:
+            self.trophyImage.image = thirdTeamTrophy;
+            break;
+        case 4:
+            self.trophyImage.image = fourthTeamTrophy;
+            break;
+        default:
+            break;
+    }
 }
 
 - (IBAction)backButtonPressed:(id)sender {
