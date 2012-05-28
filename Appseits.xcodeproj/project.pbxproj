@@ -196,7 +196,6 @@
 		5BD38CE615433CC100551FB9 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD38CE415433CC100551FB9 /* arrow@2x.png */; };
 		5BD4B14115238F06004FE21B /* progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4B14015238F06004FE21B /* progress.png */; };
 		5BD4B144152395AF004FE21B /* separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BD4B143152395AF004FE21B /* separator.png */; };
-		5BDB8F0B157408C8008E2ED6 /* MatchPredictor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDB8F0A157408C8008E2ED6 /* MatchPredictor.m */; };
 		5BDB8F0F15740E31008E2ED6 /* lockGrayClosed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BDB8F0D15740E31008E2ED6 /* lockGrayClosed.png */; };
 		5BDB8F1015740E31008E2ED6 /* lockGrayClosed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BDB8F0E15740E31008E2ED6 /* lockGrayClosed@2x.png */; };
 		5BDBD2A21562F35400F0E9C7 /* AppseitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBD2A11562F35400F0E9C7 /* AppseitsViewController.m */; };
@@ -558,8 +557,6 @@
 		5BD38CE415433CC100551FB9 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		5BD4B14015238F06004FE21B /* progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress.png; sourceTree = "<group>"; };
 		5BD4B143152395AF004FE21B /* separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = separator.png; sourceTree = "<group>"; };
-		5BDB8F09157408C8008E2ED6 /* MatchPredictor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPredictor.h; sourceTree = "<group>"; };
-		5BDB8F0A157408C8008E2ED6 /* MatchPredictor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPredictor.m; sourceTree = "<group>"; };
 		5BDB8F0D15740E31008E2ED6 /* lockGrayClosed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockGrayClosed.png; sourceTree = "<group>"; };
 		5BDB8F0E15740E31008E2ED6 /* lockGrayClosed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lockGrayClosed@2x.png"; sourceTree = "<group>"; };
 		5BDBD2A01562F35400F0E9C7 /* AppseitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppseitsViewController.h; sourceTree = "<group>"; };
@@ -1037,8 +1034,6 @@
 				5B6A362015712300007D88B7 /* LightBlueGradient.m */,
 				5B6A362215712500007D88B7 /* DoubledLightBlueGradientView.h */,
 				5B6A362315712500007D88B7 /* DoubledLightBlueGradientView.m */,
-				5BDB8F09157408C8008E2ED6 /* MatchPredictor.h */,
-				5BDB8F0A157408C8008E2ED6 /* MatchPredictor.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1347,7 +1342,6 @@
 				5B71B1C71565973800AF0849 /* CompositeTop4AndScorerRound.m in Sources */,
 				5B6A362115712300007D88B7 /* LightBlueGradient.m in Sources */,
 				5B6A362415712500007D88B7 /* DoubledLightBlueGradientView.m in Sources */,
-				5BDB8F0B157408C8008E2ED6 /* MatchPredictor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
