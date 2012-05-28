@@ -143,12 +143,12 @@ static UIImage *forgotPasswordButtonImage;
                 switch (remoteCallResult) {
                     case INTERNAL_CLIENT_ERROR:
                     case INTERNAL_SERVER_ERROR:
-                        [self showError:@"Ursäkta, någonting gick fel. Försök igen."];
+                        [self showError:@"Någonting gick fel. Försök igen."];
                         [self showInputs];
                         break;
 
                     case NO_INTERNET:
-                        [self showError:@"Du är inte uppkopplad. Försök igen att ladda genom att dra ned."];
+                        [self showError:@"Du verkar sakna uppkoppling. Försök att ladda om genom att dra nedåt."];
                         [self showInputs];
                         break;
                     case OK:
@@ -192,7 +192,7 @@ static UIImage *forgotPasswordButtonImage;
         [self login];
     }
     else {
-        [self showError:@"Epost och lösenord krävs."];
+        [self showError:@"Epost och lösenord är obligatoriskt."];
     }
 }
 

@@ -70,10 +70,10 @@
         switch (remoteCallResult) {
             case INTERNAL_CLIENT_ERROR:
             case INTERNAL_SERVER_ERROR:
-                [self showError:@"Ursäkta, någonting gick fel med att spara tipset. Försök igen."];
+                [self showError:@"Någonting gick fel med att spara tipset. Försök igen."];
                 break;
             case NO_INTERNET:
-                [self showError:@"Du är inte uppkopplad. Försök igen."];
+                [self showError:@"Du verkar sakna uppkoppling. Försök igen."];
                 break;
             case OK:
                 
@@ -81,7 +81,7 @@
                 
                 // check whether this tip was the last one to complete the scorer round
                 if (!allPredictionsAlreadyDone && self.overviewViewController.scorerView.scorerRound.allPredictionsDone) {
-                    [self.overviewViewController showConfirmation:@"Skyttekungsomgången är färdigtippad."];
+                    [self.overviewViewController showConfirmation:@"Bra! Du har tippat klart dina skyttekungar."];
                 }
                 
                 [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:1] animated:YES];

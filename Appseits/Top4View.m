@@ -60,7 +60,7 @@
     } 
     else {
         // top 4 round is closed -> show error message
-        [self.overviewViewController showError:@"Top 4 omgången är stängd för den här tävlingen."];
+        [self.overviewViewController showError:@"Denna omgång är stängd."];
     }
 }
 

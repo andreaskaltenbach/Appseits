@@ -138,10 +138,10 @@ static NSURL *downloadURL;
         switch (remoteCallResult) {
             case INTERNAL_CLIENT_ERROR:
             case INTERNAL_SERVER_ERROR:
-                [self showError:@"Ursäkta, någonting gick fel med uppdatering av datan. Försök igen."];
+                [self showError:@"Någonting gick fel vid uppdatering. Försök igen."];
                 break;
             case NO_INTERNET:
-                [self showError:@"Du är inte uppkopplad. Försök igen att ladda genom att dra ned."];
+                [self showError:@"Du verkar sakna uppkoppling. Försök att ladda om genom att dra nedåt."];
                 break;
             case OK:
                 // update of the scrollable timeline (iPhone)
@@ -412,10 +412,10 @@ static NSURL *downloadURL;
         switch (remoteCallResult) {
             case INTERNAL_CLIENT_ERROR:
             case INTERNAL_SERVER_ERROR:
-                [self showError:@"Ursäkta, någonting gick fel. Försök igen att ladda genom att dra ned."];
+                [self showError:@"Någonting gick fel. Försök att ladda om genom att dra nedåt."];
                 break;
             case NO_INTERNET:
-                [self showError:@"Du är inte uppkopplad. Försök igen att ladda genom att dra ned."];
+                [self showError:@"Du verkar sakna uppkoppling. Försök att ladda om genom att dra nedåt."];
                 break;
             case OK:
                 // update of the scrollable timeline (iPhone)
@@ -512,10 +512,10 @@ static NSURL *downloadURL;
         switch (remoteCallResult) {
             case INTERNAL_CLIENT_ERROR:
             case INTERNAL_SERVER_ERROR:
-                [self showError:@"Ursäkta, någonting gick fel med att spara tipset. Försök igen."];
+                [self showError:@"Någonting gick fel med att spara tipset. Försök igen."];
                 break;
             case NO_INTERNET:
-                [self showError:@"Du är inte uppkopplad. Försök igen."];
+                [self showError:@"Du verkar sakna uppkoppling. Försök igen."];
                 break;
             case OK:
                 
@@ -523,7 +523,7 @@ static NSURL *downloadURL;
                 
                 // check whether this tip was the last one to complete the top 4 round
                 if (!allPredictionsAlreadyDone && self.top4View.top4Round.allPredictionsDone) {
-                    [self showConfirmation:@"Top 4 omgången är färdigtippad."];
+                    [self showConfirmation:@"Bra! Du har tippat klart Topp 4."];
                 }
                 
                 if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
@@ -547,7 +547,7 @@ static NSURL *downloadURL;
 }
 
 - (void) newVersionAvailable:(NSString*) versionNumber {
-   [self showPrompt:@"Ny version tillgänglig! Dags att  uppdatera din app!":@"Ladda ned" :@"Senare" :^{
+   [self showPrompt:@"Det finns en ny version av appen!":@"Ladda hem nu" :@"Senare" :^{
        // navigate to the download URL
        if ([[UIApplication sharedApplication] canOpenURL:downloadURL]) {
            [[UIApplication sharedApplication] openURL:downloadURL];

@@ -90,7 +90,7 @@
         self.stalePrediction = YES;
         
         if (self.completePrediction && !roundCompletedBeforeSave && self.match.matchRound.allPredictionsDone) {
-            [self showConfirmation:[NSString stringWithFormat:@"Omgång %@ är färdigtippad", self.match.matchRound.roundName]];
+            [self showConfirmation:[NSString stringWithFormat:@"Bra! Du har tippat klart omgång %@.", self.match.matchRound.roundName]];
         }
 
         [self pushPrediction];
@@ -110,7 +110,7 @@
         self.stalePrediction = YES;
         
         if (self.completePrediction && !roundCompletedBeforeSave && self.match.matchRound.allPredictionsDone) {
-            [self showConfirmation:[NSString stringWithFormat:@"Omgång %@ är färdigtippad", self.match.matchRound.roundName]];
+            [self showConfirmation:[NSString stringWithFormat:@"Bra! Du har tippat klart omgång %@.", self.match.matchRound.roundName]];
         }
 
         [self pushPrediction];
@@ -135,7 +135,7 @@
     self.stalePrediction = YES;
     
     if (self.completePrediction && !roundCompletedBeforeSave && self.match.matchRound.allPredictionsDone) {
-        [self showConfirmation:[NSString stringWithFormat:@"Omgång %@ är färdigtippad", self.match.matchRound.roundName]];
+        [self showConfirmation:[NSString stringWithFormat:@"Bra! Du har tippat klart omgång %@.", self.match.matchRound.roundName]];
     }
    
     [self pushPrediction];
@@ -159,7 +159,7 @@
     self.stalePrediction = YES;
     
     if (self.completePrediction && !roundCompletedBeforeSave && self.match.matchRound.allPredictionsDone) {
-        [self showConfirmation:[NSString stringWithFormat:@"Omgång %@ är färdigtippad", self.match.matchRound.roundName]];
+        [self showConfirmation:[NSString stringWithFormat:@"Bra! Du har tippat klart omgång %@.", self.match.matchRound.roundName]];
     }
     
     [self pushPrediction];
@@ -174,10 +174,10 @@
             switch (remoteCallResult) {
                 case INTERNAL_CLIENT_ERROR:
                 case INTERNAL_SERVER_ERROR:
-                    [self showError:@"Ursäkta, någonting gick fel med att spara matchtipset. Försök igen."];
+                    [self showError:@"Någonting gick fel med att spara tipset. Försök igen."];
                     break;
                 case NO_INTERNET:
-                    [self showError:@"Du är inte uppkopplad. Försök igen."];
+                    [self showError:@"Du verkar sakna uppkoppling. Försök igen."];
                     break;
                 case OK:
                     [self.overviewViewController.timelineScrollView refreshSections];
@@ -225,7 +225,7 @@
         if (self.match.matchRound != previousMatch.matchRound) {
             // if the next match is in the previous round, we switch to the previous round
             
-            [self showInfo:[NSString stringWithFormat:@"Nu tippas matcherna för %@", previousMatch.matchRound.roundName]];
+            [self showInfo:[NSString stringWithFormat:@"Omgång %@", previousMatch.matchRound.roundName]];
             
             [self.overviewViewController.timelineScrollView selectTournamentRound:previousMatch.matchRound];
         }
@@ -240,7 +240,7 @@
         
     }
     else {
-        [self showError:@"Det finns inga tidigare matcher att tippa."];
+        [self showError:@"Det går inte att gå längre åt detta håll."];
     }
 
     
@@ -254,7 +254,7 @@
         if (self.match.matchRound != nextMatch.matchRound) {
             // if the next match is in the next round, we switch to the next round
             
-            [self showInfo:[NSString stringWithFormat:@"Nu tippas matcherna för %@", nextMatch.matchRound.roundName]];
+            [self showInfo:[NSString stringWithFormat:@"Omgång %@", nextMatch.matchRound.roundName]];
             
             [self.overviewViewController.timelineScrollView selectTournamentRound:nextMatch.matchRound];
         }
@@ -269,7 +269,7 @@
         
     }
     else {
-        [self showError:@"Det finns inga mer tipbara matcher."];
+        [self showError:@"Det går inte att gå längre åt detta håll."];
     }
 }
 
