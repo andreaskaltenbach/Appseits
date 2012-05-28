@@ -92,8 +92,6 @@ static NSString *openMessage;
     if (self.round.notPassed) {
         NSDate *now = [NSDate date];
         
-        now = [now dateByAddingTimeInterval:60*60*24*19];
-        
         NSString* prefix;
         NSDate *referenceDate;
         if (self.round.started) {
