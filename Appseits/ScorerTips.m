@@ -25,7 +25,6 @@
     NSDictionary* allPlayers = [BackendAdapter players];
     
     ScorerTips *tips = [[ScorerTips alloc] init];
-    NSLog(@"JSON: %@", jsonData);
     
     for (NSDictionary *prediction in jsonData) {
         NSNumber *place = [prediction valueForKey:@"place"];

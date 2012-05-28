@@ -78,8 +78,6 @@
     
     match.points = [gameData valueForKey:@"score"];
     
-    NSLog(@"MAtch: %@ %i", match, match.unknownOpponents);
-    
     return match;
 }
 

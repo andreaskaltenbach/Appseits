@@ -604,7 +604,6 @@ static NSString* TEAMS_URL;
                               [NSNumber numberWithInt:place],@"place",
                               nil];
     
-    NSLog(@"POST data %@", jsonData);
     NSError *error;
     NSData *data = [NSJSONSerialization dataWithJSONObject:jsonData options:kNilOptions error:&error];
     request.HTTPBody = data;
@@ -629,7 +628,6 @@ static NSString* TEAMS_URL;
     
     NSError *parseError;
     NSArray *teamsData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
-    NSLog(@"Teams: %@", teamsData);
     
     if (parseError) {
         return INTERNAL_CLIENT_ERROR;

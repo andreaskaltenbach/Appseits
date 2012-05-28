@@ -10,8 +10,11 @@
 #import "SSGradientView.h"
 #import "TournamentRound.h"
 
+@class OverviewViewController;
+
 @interface RoundTimeConstraintRow : SSGradientView
 
 @property (nonatomic, strong) TournamentRound *round;
+@property (nonatomic, weak) OverviewViewController *overviewViewController;
 
 @end

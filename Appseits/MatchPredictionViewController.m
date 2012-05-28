@@ -180,7 +180,7 @@
                     [self showError:@"Du är inte uppkopplad. Försök igen."];
                     break;
                 case OK:
-                    
+                    [self.overviewViewController.timelineScrollView refreshSections];
                     [self.overviewViewController.gameTable updateMatchCell:self.match];
                     self.stalePrediction = NO;
             }

@@ -38,6 +38,7 @@ static UIImage *darkRight;
 @synthesize progressView = _progressView;
 @synthesize orangeLine = _orangeLine;
 @synthesize contentView = _myContentView;
+@synthesize currentRound = _currentRound;
 
 + (void) initialize {
     darkLeft = [UIImage imageNamed:@"darkLeft"];
@@ -150,6 +151,7 @@ static UIImage *darkRight;
     self.selectedIndex = [self.sections indexOfObject:selectedSection];
     [self scrollRectToVisible:CGRectMake(self.selectedIndex * ROUND_WIDTH + xOffset , 0, totalWidth, self.frame.size.height) animated:YES];
     
+    self.currentRound = selectedSection.round;
     [self.roundSelectDelegate tournamentRoundSelected:selectedSection.round];
 }
 
@@ -186,6 +188,17 @@ static UIImage *darkRight;
     for (TimelineScrollViewRoundSection *section in self.sections) {
         if (section.round == round) {
             [self selectSection:section];
+        }
+    }
+}
+
+- (void) refreshSections {
+    for (TimelineScrollViewRoundSection *section in self.sections) {
+        if (self.currentRound == section.round) {
+            [section setSelected:YES];
+        }
+        else {
+            [section setSelected:NO];
         }
     }
 }

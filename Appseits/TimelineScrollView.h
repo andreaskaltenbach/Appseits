@@ -13,6 +13,10 @@
 
 @property (nonatomic, strong) NSArray *tournamentRounds;
 @property (nonatomic, strong) id<TournamentRoundSelectDelegate> roundSelectDelegate;
+@property (nonatomic, strong) TournamentRound* currentRound;
 
 - (void) selectTournamentRound:(TournamentRound*) round;
+
+- (void) refreshSections;
+
 @end

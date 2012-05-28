@@ -344,6 +344,7 @@ static NSURL *downloadURL;
     }
     
     self.roundConstraintBar.round = round;
+    self.roundConstraintBar.overviewViewController = self;
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sv_SE"];
@@ -517,6 +518,8 @@ static NSURL *downloadURL;
                 [self showError:@"Du är inte uppkopplad. Försök igen."];
                 break;
             case OK:
+                
+                [self.timelineScrollView refreshSections];
                 
                 // check whether this tip was the last one to complete the top 4 round
                 if (!allPredictionsAlreadyDone && self.top4View.top4Round.allPredictionsDone) {

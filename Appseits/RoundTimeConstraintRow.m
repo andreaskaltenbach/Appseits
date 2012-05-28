@@ -8,12 +8,14 @@
 
 #import "RoundTimeConstraintRow.h"
 #import "UIColor+AppColors.h"
+#import "OverviewViewController.h"
 
 static UIImage *clockImage;
 
 @interface RoundTimeConstraintRow()
 @property (nonatomic, strong) UILabel* label;
 @property (nonatomic, strong) NSTimer *timer;
+
 @end
 
 @implementation RoundTimeConstraintRow
@@ -21,6 +23,7 @@ static UIImage *clockImage;
 @synthesize round = _round;
 @synthesize label = _label;
 @synthesize timer = _timer;
+@synthesize overviewViewController = _overviewViewController;
 
 + (void) initialize {
     clockImage = [UIImage imageNamed:@"11-clock.png"];
@@ -145,6 +148,15 @@ static UIImage *clockImage;
                     else {
                         message = @"Omgången låses om en sekund";
                         
+                        // trigger an update of the timeline and reload the main view
+                        // (because this round will be closed
+                        [NSTimer scheduledTimerWithTimeInterval:2.0
+                                                         target:self
+                                                       selector:@selector(refreshRound)
+                                                       userInfo:nil
+                                                        repeats:NO];
+                        
+                        
                     }
                 }
             }
@@ -155,6 +167,11 @@ static UIImage *clockImage;
     }
     
     self.label.text = message;
+}
+
+- (void) refreshRound {
+    [self.overviewViewController.timelineScrollView refreshSections];
+    [self.overviewViewController.timelineScrollView selectTournamentRound:self.overviewViewController.timelineScrollView.currentRound];
 }
 
 @end

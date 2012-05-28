@@ -77,8 +77,7 @@
                 break;
             case OK:
                 
-                NSLog(@"Before: %i", allPredictionsAlreadyDone);
-                NSLog(@"After: %i", self.overviewViewController.scorerView.scorerRound.allPredictionsDone);
+                [self.overviewViewController.timelineScrollView refreshSections];
                 
                 // check whether this tip was the last one to complete the scorer round
                 if (!allPredictionsAlreadyDone && self.overviewViewController.scorerView.scorerRound.allPredictionsDone) {

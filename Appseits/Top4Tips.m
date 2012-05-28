@@ -28,13 +28,11 @@
     NSDictionary* allTeams = [BackendAdapter teams];
     
     Top4Tips *tips = [[Top4Tips alloc] init];
-    NSLog(@"JSON: %@", jsonData);
     
     for (NSDictionary *prediction in jsonData) {
         NSNumber *place = [prediction valueForKey:@"place"];
         NSNumber *teamId = [prediction valueForKey:@"teamId"];
         NSNumber *score = [prediction valueForKey:@"score"];
-        NSLog(@"Score: %@", score);
         
         if (place.intValue != 0 && teamId != 0) {
             
