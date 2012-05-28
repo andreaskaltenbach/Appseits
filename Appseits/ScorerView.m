@@ -62,7 +62,6 @@
         // top 4 round is closed -> show error message
         [self.overviewViewController showError:@"Skyttekung omgången är stängd för den här tävlingen."];
     }
-    
 }
 
 - (void) setScorerRound:(ScorerRound *)scorerRound {
@@ -83,9 +82,18 @@
     
     // if team is already selected on other place, remove this prediction
     int duplicate = 0;
-    if ([self.scorerRound.scorerTips.firstPlayer isEqual:player] && place != 1) duplicate = 1;
-    if ([self.scorerRound.scorerTips.secondPlayer isEqual:player]&& place != 2) duplicate = 2;
-    if ([self.scorerRound.scorerTips.thirdPlayer isEqual:player] && place != 3) duplicate = 3;
+    if ([self.scorerRound.scorerTips.firstPlayer isEqual:player] && place != 1) {
+        duplicate = 1;
+        self.scorerRound.scorerTips.firstPlayer = nil;
+    }
+    if ([self.scorerRound.scorerTips.secondPlayer isEqual:player]&& place != 2) {
+        duplicate = 2;   
+        self.scorerRound.scorerTips.secondPlayer = nil;
+    }
+    if ([self.scorerRound.scorerTips.thirdPlayer isEqual:player] && place != 3) {
+        duplicate = 3;    
+        self.scorerRound.scorerTips.thirdPlayer = nil;
+    }
     if (duplicate > 0) {
         ScorerSelector *selectorToClean = [self.scorerSelectors objectAtIndex:(duplicate-1)];
         selectorToClean.player = nil;

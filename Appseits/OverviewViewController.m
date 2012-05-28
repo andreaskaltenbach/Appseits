@@ -503,6 +503,9 @@ static NSURL *downloadURL;
 }
 
 - (void) updateTop4Tip:(TeamCell*) teamCell {
+    
+    BOOL allPredictionsAlreadyDone = self.top4View.top4Round.allPredictionsDone;
+    
     [self.top4View updatePlace:self.currentTeamPlace withTeam:teamCell.team :^(RemoteCallResult remoteCallResult) {
         
         switch (remoteCallResult) {
@@ -514,6 +517,12 @@ static NSURL *downloadURL;
                 [self showError:@"Du är inte uppkopplad. Försök igen."];
                 break;
             case OK:
+                
+                // check whether this tip was the last one to complete the top 4 round
+                if (!allPredictionsAlreadyDone && self.top4View.top4Round.allPredictionsDone) {
+                    [self showConfirmation:@"Top 4 omgången är färdigtippad."];
+                }
+                
                 if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
                     [self.navigationController popViewControllerAnimated:YES];
                 }

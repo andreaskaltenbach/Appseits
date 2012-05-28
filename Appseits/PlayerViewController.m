@@ -63,6 +63,8 @@
     
     PlayerCell *playerCell = (PlayerCell*) [tableView cellForRowAtIndexPath:indexPath];
     
+    BOOL allPredictionsAlreadyDone = self.overviewViewController.scorerView.scorerRound.allPredictionsDone;
+    
     [self.overviewViewController.scorerView updatePlace:self.overviewViewController.currentPlayerPlace withPlayer:playerCell.player :^(RemoteCallResult remoteCallResult) {
         
         switch (remoteCallResult) {
@@ -74,6 +76,15 @@
                 [self showError:@"Du är inte uppkopplad. Försök igen."];
                 break;
             case OK:
+                
+                NSLog(@"Before: %i", allPredictionsAlreadyDone);
+                NSLog(@"After: %i", self.overviewViewController.scorerView.scorerRound.allPredictionsDone);
+                
+                // check whether this tip was the last one to complete the scorer round
+                if (!allPredictionsAlreadyDone && self.overviewViewController.scorerView.scorerRound.allPredictionsDone) {
+                    [self.overviewViewController showConfirmation:@"Skyttekungsomgången är färdigtippad."];
+                }
+                
                 [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:1] animated:YES];
         }
     }];

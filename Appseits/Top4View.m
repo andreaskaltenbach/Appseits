@@ -62,7 +62,6 @@
         // top 4 round is closed -> show error message
         [self.overviewViewController showError:@"Top 4 omgången är stängd för den här tävlingen."];
     }
-
 }
 
 - (void) setTop4Round:(Top4Round *)top4Round {
@@ -86,15 +85,19 @@
     int duplicate = 0;
     if ([self.top4Round.top4Tips.firstTeam isEqual:team] && place != 1) {
         duplicate = 1;
+        self.top4Round.top4Tips.firstTeam = nil;
     }
     if ([self.top4Round.top4Tips.secondTeam isEqual:team] && place != 2) {
         duplicate = 2;
+        self.top4Round.top4Tips.secondTeam = nil;
     }
     if ([self.top4Round.top4Tips.thirdTeam isEqual:team] && place != 3) {
         duplicate = 3;
+        self.top4Round.top4Tips.thirdTeam = nil;
     }
     if ([self.top4Round.top4Tips.fourthTeam isEqual:team] && place != 4) {
         duplicate = 4;
+        self.top4Round.top4Tips.fourthTeam = nil;
     }
     if (duplicate > 0) {
         Top4Selector *selectorToClean = [self.top4Selectors objectAtIndex:(duplicate-1)];

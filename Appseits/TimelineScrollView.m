@@ -61,7 +61,6 @@ static UIImage *darkRight;
 - (void) layoutProgressWaves:(TimelineScrollViewRoundSection*) lastClosedSection {
     float xPos = lastClosedSection.frame.origin.x;
     
-    NSLog(@"Progress: %f", lastClosedSection.round.progress);
     xPos += ROUND_WIDTH * lastClosedSection.round.progress;
     
     self.progressView.frame = CGRectMake(0, 0, xPos, self.frame.size.height);
