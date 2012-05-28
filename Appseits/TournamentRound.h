@@ -18,7 +18,9 @@
 
 - (float) progress;
 
-- (BOOL) open;
+- (BOOL) notPassed;
+
+- (BOOL) started;
 
 - (BOOL) allPredictionsDone;
 

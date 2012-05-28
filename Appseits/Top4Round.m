@@ -34,7 +34,7 @@
 }
 
 - (BOOL) readyToBet {
-    return self.open;
+    return self.notPassed;
 }
 
 @end

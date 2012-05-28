@@ -52,7 +52,7 @@
 
 - (void)teamSelection:(UITapGestureRecognizer *)tapGesture {
     
-    if (self.top4Round.open) {
+    if (self.top4Round.notPassed) {
         // call delegate to react on wish to select a team for top4 round
         int index = [self.top4Selectors indexOfObject:tapGesture.view];
         Top4Selector *teamSelector = [self.top4Selectors objectAtIndex:index];
@@ -72,7 +72,7 @@
     [[self.top4Selectors objectAtIndex:2] setTeam:top4Round.top4Tips.thirdTeam];
     [[self.top4Selectors objectAtIndex:3] setTeam:top4Round.top4Tips.fourthTeam];
     
-    if (!top4Round.open) {
+    if (!top4Round.notPassed) {
         for (Top4Selector *selector in self.top4Selectors) {
             selector.locked = YES;
         }

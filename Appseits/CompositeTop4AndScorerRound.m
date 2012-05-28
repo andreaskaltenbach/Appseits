@@ -27,8 +27,8 @@
     return self.top4Round.points + self.scorerRound.points;
 }
 
-- (BOOL) open {
-    return self.top4Round.open;
+- (BOOL) notPassed {
+    return self.top4Round.notPassed;
 }
 
 - (BOOL) allPredictionsDone {
@@ -37,6 +37,10 @@
 
 - (BOOL) readyToBet {
     return self.top4Round.readyToBet && self.scorerRound.readyToBet;
+}
+
+- (BOOL) started {
+    return self.top4Round.started && self.scorerRound.started;
 }
 
 @end

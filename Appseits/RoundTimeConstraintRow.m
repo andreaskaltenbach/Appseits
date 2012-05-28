@@ -12,6 +12,9 @@
 
 static UIImage *clockImage;
 
+static NSString *closeMessage;
+static NSString *openMessage;
+
 @interface RoundTimeConstraintRow()
 @property (nonatomic, strong) UILabel* label;
 @property (nonatomic, strong) NSTimer *timer;
@@ -27,6 +30,9 @@ static UIImage *clockImage;
 
 + (void) initialize {
     clockImage = [UIImage imageNamed:@"11-clock.png"];
+    
+    closeMessage = @"Omgången låses om %i %@";
+    openMessage = @"Omgången öppnar om %i %@";
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -83,27 +89,40 @@ static UIImage *clockImage;
 
 - (void) refreshLabel {
     NSString *message;
-    if (self.round.open) {
+    if (self.round.notPassed) {
         NSDate *now = [NSDate date];
+        
+        now = [now dateByAddingTimeInterval:60*60*24*19];
+        
+        NSString* prefix;
+        NSDate *referenceDate;
+        if (self.round.started) {
+            prefix = closeMessage;
+            referenceDate = self.round.lockDate;
+        }
+        else {
+            prefix = openMessage;
+            referenceDate = self.round.startDate;
+        }
         
         // Get conversion to months, days, hours, minutes
         NSCalendar *sysCalendar = [NSCalendar currentCalendar];
         
-        NSDateComponents *breakdownInfo = [sysCalendar components:NSMonthCalendarUnit fromDate:now  toDate:self.round.lockDate options:0];
+        NSDateComponents *breakdownInfo = [sysCalendar components:NSMonthCalendarUnit fromDate:now  toDate:referenceDate options:0];
         
         if ([breakdownInfo month] > 1) {
             // lock date is several months away
-            message = [NSString stringWithFormat:@"Omgången låses om %i månader", [breakdownInfo month]];
+            message = [NSString stringWithFormat:prefix, [breakdownInfo month], @"månader"];
         }
         else {
             // lock date is several days away
-            breakdownInfo = [sysCalendar components:NSDayCalendarUnit fromDate:now  toDate:self.round.lockDate options:0];
+            breakdownInfo = [sysCalendar components:NSDayCalendarUnit fromDate:now  toDate:referenceDate options:0];
             if ([breakdownInfo day] > 1) {
-                message = [NSString stringWithFormat:@"Omgången låses om %i dagar", [breakdownInfo day]];
+                message = [NSString stringWithFormat:prefix, [breakdownInfo day], @"dagar"];
             }
             else {
                 // lock date is several hours or minutes away
-                breakdownInfo = [sysCalendar components:NSHourCalendarUnit | NSMinuteCalendarUnit fromDate: now toDate:self.round.lockDate options:0];
+                breakdownInfo = [sysCalendar components:NSHourCalendarUnit | NSMinuteCalendarUnit fromDate: now toDate:referenceDate options:0];
                 
                 int hours = [breakdownInfo hour];
                 int minutes = [breakdownInfo minute];
@@ -113,10 +132,10 @@ static UIImage *clockImage;
                     if (hours > 0) {
                         // timmar 
                         if (hours == 1) {
-                            message = @"Omgången låses om en timme";
+                            message = [NSString stringWithFormat:prefix, 1, @"timme"];
                         }
                         else {
-                            message = [NSString stringWithFormat:@"Omgången låses om %i timmar", [breakdownInfo hour]];
+                            message = [NSString stringWithFormat:prefix, [breakdownInfo hour], @"timmar"];
                         }
                         // och minuter
                         if (minutes > 0) {
@@ -131,22 +150,22 @@ static UIImage *clockImage;
                     }
                     else {
                         if (minutes == 1) {
-                            message = @"Omgången låses om en minut";
+                            message = [NSString stringWithFormat:prefix, 1, @"minut"];
                         }
                         else {
-                            message = [NSString stringWithFormat:@"Omgången låses om %i minuter", minutes];
+                            message = [NSString stringWithFormat:prefix , minutes, @"minuter"];
                         }
                     }
                     
                 }
                 else {
                     // lock date is several seconds away
-                    breakdownInfo = [sysCalendar components:NSSecondCalendarUnit fromDate: now toDate:self.round.lockDate options:0];
+                    breakdownInfo = [sysCalendar components:NSSecondCalendarUnit fromDate: now toDate:referenceDate options:0];
                     if ([breakdownInfo second] > 1) {
-                        message = [NSString stringWithFormat:@"Omgången låses om %i sekunder", [breakdownInfo second]];
+                        message = [NSString stringWithFormat:prefix, [breakdownInfo second], @"sekunder"];
                     }
                     else {
-                        message = @"Omgången låses om en sekund";
+                        message = [NSString stringWithFormat:prefix, 1, @"sekund"];
                         
                         // trigger an update of the timeline and reload the main view
                         // (because this round will be closed

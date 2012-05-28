@@ -93,7 +93,7 @@ static NSDateFormatter *dateFormatter;
     
     MatchCell *cell; 
     
-    if (self.round.open) {
+    if (self.round.notPassed) {
         
         if (match.unknownOpponents) {
             cell = [tableView dequeueReusableCellWithIdentifier:matchCell];
@@ -111,7 +111,7 @@ static NSDateFormatter *dateFormatter;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (self.round.open) {
+    if (self.round.notPassed) {
         Match *match = [self.round.matches objectAtIndex:indexPath.row];
         if (match.unknownOpponents) {
             return 70;
@@ -146,7 +146,7 @@ static NSDateFormatter *dateFormatter;
     
     NSArray *matches = [self.matches objectAtIndex:indexPath.section];
     Match *match = [matches objectAtIndex:indexPath.row];
-    if (!match.unknownOpponents && match.matchRound.open) {
+    if (!match.unknownOpponents && match.matchRound.notPassed) {
         self.overviewViewController.currentMatchSelection = match;
         [self.overviewViewController performSegueWithIdentifier:@"toMatchPrediction" sender:self];
     }

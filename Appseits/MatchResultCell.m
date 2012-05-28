@@ -186,7 +186,7 @@ static UIImage *resultSelectedBackgroundImage;
     }
     
     // show or hide lock
-    self.matchLock.hidden = self.match.matchRound.open;
+    self.matchLock.hidden = self.match.matchRound.notPassed;
 }
 
 - (void) switchLeftPrediction:(BOOL) userGetsPoints {

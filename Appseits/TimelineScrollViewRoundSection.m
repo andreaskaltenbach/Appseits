@@ -70,7 +70,7 @@
 }
 
 - (void) setSelected:(BOOL) selected {
-
+    
     self.lockIcon.image = [LockImageProvider imageForTournamentRound:self.round :selected];
     if (selected) {
         self.selectedGradient.hidden = NO;

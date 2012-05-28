@@ -15,6 +15,7 @@ static UIImage *lockClosedInset;
 static UIImage *lockOpenInset;
 static UIImage *lockGreenOpen;
 static UIImage *lockGrayOpen;
+static UIImage *lockGrayClosed;
 static UIImage *lockGreenClosed;
 static UIImage *lockUnfinished;
 static UIImage *lockUnfinishedInset;
@@ -24,6 +25,7 @@ static UIImage *lockUnfinishedInset;
     lockOpenInset = [UIImage imageNamed:@"lockOpenInset"];
     lockGreenOpen = [UIImage imageNamed:@"lockGreenOpen"];
     lockGrayOpen = [UIImage imageNamed:@"lockGrayOpen"];
+    lockGrayClosed = [UIImage imageNamed:@"lockGrayClosed"];
     lockGreenClosed = [UIImage imageNamed:@"lockGreenClosed"];
     lockUnfinished = [UIImage imageNamed:@"lockUnfinished"];
     lockUnfinishedInset = [UIImage imageNamed:@"lockUnfinishedInset"];
@@ -39,12 +41,19 @@ static UIImage *lockUnfinishedInset;
 }
 
 + (UIImage*) selectedImage:(TournamentRound*) round {
-    if (round.open) {
-        if (round.readyToBet && !round.allPredictionsDone) {
-            return lockUnfinishedInset;
+    if (round.notPassed) {
+        
+        if (!round.started) {
+            // round is not yet started nor closed
+            return lockClosedInset;
         }
         else {
-            return lockOpenInset;
+            if (round.readyToBet && !round.allPredictionsDone) {
+                return lockUnfinishedInset;
+            }
+            else {
+                return lockOpenInset;
+            }
         }
     }
     else {
@@ -53,17 +62,24 @@ static UIImage *lockUnfinishedInset;
 }
 
 + (UIImage*) deselectedImage:(TournamentRound*) round {
-    if (round.open) {
-        if (round.allPredictionsDone) {
-            return lockGreenOpen;
+    if (round.notPassed) {
+        
+        if (!round.started) {
+            // round is not yet started nor closed
+            return lockGrayClosed;
         }
         else {
-            if (round.readyToBet) {
-                return lockUnfinished;
-           
-            } 
+            if (round.allPredictionsDone) {
+                return lockGreenOpen;
+            }
             else {
-                return lockGrayOpen;
+                if (round.readyToBet) {
+                    return lockUnfinished;
+                    
+                } 
+                else {
+                    return lockGrayOpen;
+                }
             }
         }
     }

@@ -89,7 +89,7 @@
         
         if (roundIndex != 0) {
             MatchRound* previousMatchRound = [matchRounds objectAtIndex:roundIndex - 1];
-            if (previousMatchRound.readyToBet && previousMatchRound.open) {
+            if (previousMatchRound.readyToBet && previousMatchRound.notPassed) {
                 return [previousMatchRound.matches lastObject];
             }
         }

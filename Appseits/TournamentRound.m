@@ -33,10 +33,15 @@
     return 0;
 }
 
-- (BOOL) open {
+- (BOOL) notPassed {
     NSDate *now = [NSDate date];
-    // locked date has not passed
-    return ([now compare:self.lockDate] == NSOrderedAscending);
+        // locked date has not passed
+    return [now compare:self.lockDate] == NSOrderedAscending;
+}
+- (BOOL) started {
+    NSDate *now = [NSDate date];
+    // start date has been passed
+    return [self.startDate compare:now] == NSOrderedAscending;
 }
 
 - (BOOL) allPredictionsDone {
@@ -60,7 +65,7 @@
     TournamentRound* lastClosedRound = [tournamentRounds objectAtIndex:0];
     
     for (TournamentRound* round in tournamentRounds) {
-        if (!round.open) {
+        if (!round.notPassed) {
             lastClosedRound = round;
         }
     }
@@ -73,7 +78,7 @@
     // find all open rounds
     NSMutableArray* openRounds = [NSMutableArray array];
     for (TournamentRound* round in tournamentRounds) {
-        if (round.open) {
+        if (round.notPassed) {
             [openRounds addObject:round];
         }
     }

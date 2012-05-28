@@ -52,7 +52,7 @@
 
 - (void)playerSelection:(UITapGestureRecognizer *)tapGesture {
     
-    if (self.scorerRound.open) {
+    if (self.scorerRound.notPassed) {
         // call delegate to react on wish to select a player for scorer round
         int index = [self.scorerSelectors indexOfObject:tapGesture.view];
         ScorerSelector *scorerSelector = [self.scorerSelectors objectAtIndex:index];
@@ -71,7 +71,7 @@
     [[self.scorerSelectors objectAtIndex:1] setPlayer:scorerRound.scorerTips.secondPlayer];
     [[self.scorerSelectors objectAtIndex:2] setPlayer:scorerRound.scorerTips.thirdPlayer];
     
-    if (!scorerRound.open) {
+    if (!scorerRound.notPassed) {
         for (ScorerSelector *selector in self.scorerSelectors) {
             selector.locked = YES;
         }
