@@ -46,24 +46,25 @@
     self.requiredVersion = [json objectForKey:@"lastSupportedVersion"];
     self.latestVersion = [json objectForKey:@"lastVersion"];
     
-    if (!self.isVersionSatisfied) {
+    if (!self.isRequiredVersionSatisfied) {
         [self.delegate updateRequired:self.requiredVersion];
     }
     
-    if (![self.appVersion isEqualToString:self.latestVersion]) {
+    if (!self.isLatestVersionSatisfied) {
         [self.delegate newVersionAvailable:self.latestVersion];
     }
 }
 
-- (BOOL) isVersionSatisfied {
+
+- (BOOL) isVersionSatisfied:(NSString*) version {
     NSNumberFormatter * formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     
     NSArray *appVersionParts = [self.appVersion componentsSeparatedByString: @"."];
-    NSArray *requiredVersionParts = [self.requiredVersion componentsSeparatedByString: @"."];
+    NSArray *versionParts = [version componentsSeparatedByString: @"."];
     
     int counter = 0;
-    int maxCount = MAX([appVersionParts count], [requiredVersionParts count]);
+    int maxCount = MAX([appVersionParts count], [versionParts count]);
     
     while (counter < maxCount) {
         
@@ -72,16 +73,15 @@
         }
         NSString *appVersionPart = [appVersionParts objectAtIndex:counter];
         
-        if ([requiredVersionParts count] <= counter) {
+        if ([versionParts count] <= counter) {
             return YES;
         }
-        NSString *requiredVersionPart = [requiredVersionParts objectAtIndex:counter];
-        
+        NSString *versionPart = [versionParts objectAtIndex:counter];
         
         NSNumber *appNumber = [formatter numberFromString:appVersionPart];
-        NSNumber *requiredNumber = [formatter numberFromString:requiredVersionPart];
+        NSNumber *versionNumber = [formatter numberFromString:versionPart];
         
-        if (appNumber.intValue < requiredNumber.intValue) {
+        if (appNumber.intValue < versionNumber.intValue) {
             return NO;
         }
         
@@ -91,6 +91,15 @@
     
     return YES;
     
+}
+
+
+- (BOOL) isRequiredVersionSatisfied {
+    return [self isVersionSatisfied:self.requiredVersion];
+}
+
+- (BOOL) isLatestVersionSatisfied {
+    return [self isVersionSatisfied:self.latestVersion];
 }
 
 
