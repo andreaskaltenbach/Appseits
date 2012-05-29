@@ -18,7 +18,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "RankingTable.h"
 #import "Constants.h"
-#import "LeaguePickerView.h"
 #import "BackendAdapter.h"
 #import "MainScrollView.h"
 #import "PullToRefreshView.h"
@@ -49,7 +48,6 @@ static NSURL *downloadURL;
 
 @interface OverviewViewController()
 
-@property (strong, nonatomic) IBOutlet LeaguePickerView *leaguePicker;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
 @property (strong, nonatomic) IBOutlet UILabel *pointInCurrentRound;
@@ -60,7 +58,6 @@ static NSURL *downloadURL;
 @property (strong, nonatomic) IBOutlet UIView *rankingMenuItem;
 @property (strong, nonatomic) IBOutlet MenuDependendScrollView *menuDependingScrollView;
 @property (strong, nonatomic) IBOutlet UIView *scoreView;
-@property (strong, nonatomic) IBOutlet UITextField *leagueInput;
 @property (strong, nonatomic) IBOutlet RankingTable *rankingTable;
 @property (strong, nonatomic) IBOutlet UIImageView *trendImage;
 @property (strong, nonatomic) IBOutlet UIView *rankingTableHeader;
@@ -89,7 +86,6 @@ static NSURL *downloadURL;
 @implementation OverviewViewController
 @synthesize gameTable = _gameTable;
 @synthesize timelineScrollView = _timelineScrollView;
-@synthesize leaguePicker = _leaguePicker;
 @synthesize settingsButton = _settingsButton;
 @synthesize pointInCurrentRound = _pointInCurrentRound;
 @synthesize pointsTotal = _pointsTotal;
@@ -99,7 +95,6 @@ static NSURL *downloadURL;
 @synthesize rankingMenuItem = _rankingMenuItem;
 @synthesize menuDependingScrollView = _menuDependingScrollView;
 @synthesize scoreView = _scoreView;
-@synthesize leagueInput = _leagueInput;
 @synthesize rankingTable = _rankingTable;
 @synthesize trendImage = _trendImage;
 @synthesize rankingTableHeader = _rankingTableHeader;
@@ -207,9 +202,6 @@ static NSURL *downloadURL;
     self.gameTable.scrollDelegate = self;
     self.rankingTable.scrollDelegate = self;
         
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeaguePicker)];
-    [self.leagueInput addGestureRecognizer:tapGesture];
-    
     // setup match and ranking switcher
     
     // setup of the scrollable timeline (iPhone)
@@ -221,18 +213,6 @@ static NSURL *downloadURL;
     self.timeline.matchRounds = [BackendAdapter matchRounds];
     self.roundSelector.roundSelectDelegate = self;
     self.roundSelector.tournamentRounds = [BackendAdapter combinedTop4AndScorerRoundAndMatchRounds];
-
-    // setup league input
-    self.leagueInput.backgroundColor = [UIColor clearColor];
-    League *selectedLeague = [BackendAdapter currentLeague];
-    if (selectedLeague) {
-        self.leagueInput.text = selectedLeague.name;
-    }
-    else {
-        self.leagueInput.text = @"Alla ligor";
-    }
-    self.leaguePicker.leagueDelegate = self;
-
     
     self.view.backgroundColor = [UIColor squareBackground];
     
@@ -310,10 +290,7 @@ static NSURL *downloadURL;
     [self setRankingMenuItem:nil];
     [self setMenuDependingScrollView:nil];
     [self setScoreView:nil];
-    [self setLeagueInput:nil];
-    [self setLeaguePicker:nil];
     [self setRankingTable:nil];
-    [self setLeaguePicker:nil];
     [self setTrendImage:nil];
     [self setRankingTableHeader:nil];
     [self setHeaderView:nil];
@@ -429,22 +406,6 @@ static NSURL *downloadURL;
     
     
     [self.menuDependingScrollView scrollToRankings];*/
-}
-
-- (void) showLeaguePicker {
-    [self.leaguePicker show];
-}
-
-#pragma mark LeagueDelegate
-- (void) leagueChanged:(League*) league {
-    
-    [self rankingSelected:self];
-    
-    if (league) {
-        self.leagueInput.text = league.name;
-    } else {
-        self.leagueInput.text = @"Alla ligor";
-    }
 }
 
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {

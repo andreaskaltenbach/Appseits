@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "TournamentRoundSelectDelegate.h"
-#import "LeaguePickerView.h"
 #import "PullToRefreshView.h"
 #import "ScrollTriggeringTableView.h"
 #import "Top4View.h"
@@ -27,7 +26,7 @@
 @class Top4View;
 @class ScorerView;
 
-@interface OverviewViewController : AppseitsViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate, VersionDelegate>
+@interface OverviewViewController : AppseitsViewController<TournamentRoundSelectDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate, VersionDelegate>
 
 @property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
 
