@@ -33,7 +33,7 @@
                               [[Top4Selector alloc] init:[UIImage imageNamed:@"first"]],
                               [[Top4Selector alloc] init:[UIImage imageNamed:@"second"]],
                               [[Top4Selector alloc] init:[UIImage imageNamed:@"third"]],
-                              [[Top4Selector alloc] init:[UIImage imageNamed:@"fourth"]],
+                              [[Top4Selector alloc] init:[UIImage imageNamed:@"third"]],
                               nil];
         for (Top4Selector *selector in self.top4Selectors) {
             [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(teamSelection:)]];

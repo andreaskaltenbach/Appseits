@@ -14,7 +14,6 @@
 static UIImage* firstTeamTrophy;
 static UIImage* secondTeamTrophy;
 static UIImage* thirdTeamTrophy;
-static UIImage* fourthTeamTrophy;
 
 @interface TeamViewController()
 @property (strong, nonatomic) IBOutlet UIImageView *trophyImage;
@@ -33,7 +32,6 @@ static UIImage* fourthTeamTrophy;
     firstTeamTrophy = [UIImage imageNamed:@"first"];
     secondTeamTrophy = [UIImage imageNamed:@"second"];
     thirdTeamTrophy = [UIImage imageNamed:@"third"];
-    fourthTeamTrophy = [UIImage imageNamed:@"fourth"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -119,10 +117,8 @@ static UIImage* fourthTeamTrophy;
             self.trophyImage.image = secondTeamTrophy;
             break;
         case 3:
-            self.trophyImage.image = thirdTeamTrophy;
-            break;
         case 4:
-            self.trophyImage.image = fourthTeamTrophy;
+            self.trophyImage.image = thirdTeamTrophy;
             break;
         default:
             break;

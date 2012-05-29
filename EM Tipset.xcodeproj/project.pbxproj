@@ -25,8 +25,6 @@
 		4E246D4B1554075800739D33 /* TournamentRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E246D4A1554075800739D33 /* TournamentRound.m */; };
 		4E246D4E15540B7200739D33 /* Top4Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E246D4D15540B7200739D33 /* Top4Round.m */; };
 		4E246D5115540BB700739D33 /* Top4Tips.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E246D5015540BB700739D33 /* Top4Tips.m */; };
-		4E246D5A15541A5200739D33 /* fourth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D5215541A5200739D33 /* fourth@2x.png */; };
-		4E246D5B15541A5200739D33 /* fourth.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D5315541A5200739D33 /* fourth.png */; };
 		4E246D5C15541A5200739D33 /* third@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D5415541A5200739D33 /* third@2x.png */; };
 		4E246D5D15541A5200739D33 /* third.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D5515541A5200739D33 /* third.png */; };
 		4E246D5E15541A5200739D33 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D5615541A5200739D33 /* second@2x.png */; };
@@ -253,8 +251,6 @@
 		4E246D4D15540B7200739D33 /* Top4Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Top4Round.m; sourceTree = "<group>"; };
 		4E246D4F15540BB700739D33 /* Top4Tips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Top4Tips.h; sourceTree = "<group>"; };
 		4E246D5015540BB700739D33 /* Top4Tips.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Top4Tips.m; sourceTree = "<group>"; };
-		4E246D5215541A5200739D33 /* fourth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fourth@2x.png"; sourceTree = "<group>"; };
-		4E246D5315541A5200739D33 /* fourth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fourth.png; sourceTree = "<group>"; };
 		4E246D5415541A5200739D33 /* third@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "third@2x.png"; sourceTree = "<group>"; };
 		4E246D5515541A5200739D33 /* third.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = third.png; sourceTree = "<group>"; };
 		4E246D5615541A5200739D33 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
@@ -374,9 +370,9 @@
 		4E531C15151CAB050003CAD1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4E531C17151CAB050003CAD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4E531C19151CAB050003CAD1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		4E531C1D151CAB060003CAD1 /* EM Tipset-Info.plist */ = {isa = PBXFileReference; path = "EM Tipset-Info.plist"; sourceTree = "<group>"; };
+		4E531C1D151CAB060003CAD1 /* EM Tipset-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EM Tipset-Info.plist"; sourceTree = "<group>"; };
 		4E531C21151CAB060003CAD1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		4E531C23151CAB060003CAD1 /* EM Tipset-Prefix.pch */ = {isa = PBXFileReference; path = "EM Tipset-Prefix.pch"; sourceTree = "<group>"; };
+		4E531C23151CAB060003CAD1 /* EM Tipset-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EM Tipset-Prefix.pch"; sourceTree = "<group>"; };
 		4E531C24151CAB060003CAD1 /* AppseitsAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppseitsAppDelegate.h; sourceTree = "<group>"; };
 		4E531C25151CAB060003CAD1 /* AppseitsAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppseitsAppDelegate.m; sourceTree = "<group>"; };
 		4E531C39151CACA80003CAD1 /* OverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverviewViewController.h; sourceTree = "<group>"; };
@@ -677,8 +673,6 @@
 				4E38B6FB155AABCA00DD691C /* lockGreenClosed@2x.png */,
 				4E38B6FC155AABCA00DD691C /* lockClosedInset@2x.png */,
 				4E38B6FD155AABCA00DD691C /* lockClosedInset.png */,
-				4E246D5215541A5200739D33 /* fourth@2x.png */,
-				4E246D5315541A5200739D33 /* fourth.png */,
 				4E246D5415541A5200739D33 /* third@2x.png */,
 				4E246D5515541A5200739D33 /* third.png */,
 				4E246D5615541A5200739D33 /* second@2x.png */,
@@ -1186,8 +1180,6 @@
 				4E246D461554041100739D33 /* darkRight@2x.png in Resources */,
 				4E246D471554041100739D33 /* darkLeft.png in Resources */,
 				4E246D481554041100739D33 /* darkLeft@2x.png in Resources */,
-				4E246D5A15541A5200739D33 /* fourth@2x.png in Resources */,
-				4E246D5B15541A5200739D33 /* fourth.png in Resources */,
 				4E246D5C15541A5200739D33 /* third@2x.png in Resources */,
 				4E246D5D15541A5200739D33 /* third.png in Resources */,
 				4E246D5E15541A5200739D33 /* second@2x.png in Resources */,
