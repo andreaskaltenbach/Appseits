@@ -70,16 +70,23 @@ static UIImage* thirdTeamTrophy;
     return 53;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor squareBackground];
+    
+    LightBlueGradient *gradient = [[LightBlueGradient alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    gradient.userInteractionEnabled = NO;
+    [self.view addSubview:gradient];
+    [self.view sendSubviewToBack:gradient];
+}
+
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     self.table.dataSource = self;
     self.table.delegate = self;
-    
-    LightBlueGradient *gradient = [[LightBlueGradient alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    [self.table addSubview:gradient];
-
-    self.table.backgroundColor = [UIColor squareBackground];
+    self.table.backgroundColor = [UIColor clearColor];
     
     if (self.overviewController.currentTeamSelection) {
         int index = [self.overviewController.allTeams indexOfObject:self.overviewController.currentTeamSelection];

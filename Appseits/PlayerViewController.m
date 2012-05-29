@@ -29,7 +29,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.table.backgroundColor = [UIColor squareBackground];
+    self.view.backgroundColor = [UIColor squareBackground];
+    
+    LightBlueGradient *gradient = [[LightBlueGradient alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    gradient.userInteractionEnabled = NO;
+    [self.view addSubview:gradient];
+    [self.view sendSubviewToBack:gradient];
 }
 
 - (void)viewDidUnload
@@ -106,8 +111,7 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    LightBlueGradient *gradient = [[LightBlueGradient alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    [self.table addSubview:gradient];
+    self.table.backgroundColor = [UIColor clearColor];
     
     // if we selected a player previously, we jump to this player right away
     if (self.overviewViewController.currentPlayerSelection) {
