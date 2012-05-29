@@ -42,6 +42,8 @@
                           JSONObjectWithData:versionData
                           options:kNilOptions 
                           error:&error];
+    
+
     self.appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     self.requiredVersion = [json objectForKey:@"lastSupportedVersion"];
     self.latestVersion = [json objectForKey:@"lastVersion"];
