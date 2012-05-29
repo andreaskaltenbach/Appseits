@@ -11,6 +11,24 @@
 
 @implementation LightBlueGradient
 
+- (id) init {
+    self = [super init];
+    if (self) {
+        self.colors = [UIColor lightBlueGradient];
+        self.backgroundColor = [UIColor clearColor];
+    }
+    return self;
+}
+
+- (id) initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.colors = [UIColor lightBlueGradient];
+        self.backgroundColor = [UIColor clearColor];
+    }
+    return self;
+}
+
 - (id) initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {

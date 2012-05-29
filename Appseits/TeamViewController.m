@@ -10,6 +10,7 @@
 #import "BackendAdapter.h"
 #import "TeamCell.h"
 #import "UIColor+AppColors.h"
+#import "LightBlueGradient.h"
 
 static UIImage* firstTeamTrophy;
 static UIImage* secondTeamTrophy;
@@ -74,6 +75,9 @@ static UIImage* thirdTeamTrophy;
     
     self.table.dataSource = self;
     self.table.delegate = self;
+    
+    LightBlueGradient *gradient = [[LightBlueGradient alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.table addSubview:gradient];
 
     self.table.backgroundColor = [UIColor squareBackground];
     
