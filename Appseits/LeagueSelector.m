@@ -46,34 +46,39 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%i", [[BackendAdapter leagues] count]);
-    return [[BackendAdapter leagues] count];
+    return [[BackendAdapter leagues] count] + 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    League *league = [[BackendAdapter leagues] objectAtIndex:indexPath.row];
-    
     LeagueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leagueCell"];
-    cell.textLabel.text = league.name;
+    
+    if (indexPath.row == 0) {
+        cell.textLabel.text = @"Alla ligor";
+    } else {
+        League *league = [[BackendAdapter leagues] objectAtIndex:indexPath.row - 1];
+        cell.textLabel.text = league.name;
+    }
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 40;
+    return ROW_HEIGHT;
 }
 
 - (void) setFrame:(CGRect)frame {
     
+    float tableHeight = ([[BackendAdapter leagues] count] + 1) * ROW_HEIGHT;
     
-    frame.size.height = [[BackendAdapter leagues] count] * ROW_HEIGHT + INPUT_ROW_HEIGHT;
+    
+    frame.size.height = tableHeight + INPUT_ROW_HEIGHT;
 
         
     
     CGRect tableFrame = self.leagueTable.frame;
-    tableFrame.size.height = [[BackendAdapter leagues] count] * ROW_HEIGHT;
+    tableFrame.size.height = tableHeight;
     self.leagueTable.frame = tableFrame;
     
     NSLog(@"Table Height %f", self.leagueTable.frame.size.height);
@@ -81,6 +86,8 @@
     CGRect inputFrame = self.inputHolder.frame;
     inputFrame.origin.y = self.leagueTable.frame.size.height;
     self.inputHolder.frame = inputFrame;
+
+    // TODO - max table height!
     
   
     NSLog(@"Height %f", frame.size.height);
