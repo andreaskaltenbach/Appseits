@@ -13,7 +13,7 @@
 #import "ScorerRound.h"
 #import "Top4Round.h"
 
-#define SERVER_URL @"http://emtipset.dev.stendahls.se/api/teams -v"
+#define SERVER_URL @"http://emtipset.dev.stendahls.se"
 
 typedef enum {
     OK,
