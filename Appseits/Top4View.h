@@ -14,7 +14,7 @@
 #import "TeamSelectDelegate.h"
 
 #define Y_OFFSET 5
-#define MARGIN 60
+#define MARGIN 55
 
 @class OverviewViewController;
 

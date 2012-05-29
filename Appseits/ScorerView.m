@@ -40,7 +40,7 @@
             [selector addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playerSelection:)]];
         }
         
-        int yOffset = Y_OFFSET + 20;
+        int yOffset = Y_OFFSET + 5;
         for (ScorerSelector *selector in self.scorerSelectors) {
             selector.frame = CGRectMake(5, yOffset, 310, 50);    
             [self addSubview:selector];

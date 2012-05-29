@@ -131,7 +131,7 @@
         self.match.firstTeamPrediction = newPreciction;
     }
     else {
-        self.match.firstTeamPrediction =[NSNumber numberWithInt:1];
+        self.match.firstTeamPrediction =[NSNumber numberWithInt:0];
     }
     
     self.firstTeamGoalsLabel.text = [NSString stringWithFormat:@"%i", self.match.firstTeamPrediction.intValue];
@@ -155,7 +155,7 @@
         self.match.secondTeamPrediction = newPreciction;
     }
     else {
-        self.match.secondTeamPrediction =[NSNumber numberWithInt:1];
+        self.match.secondTeamPrediction =[NSNumber numberWithInt:0];
     }
     
     self.secondTeamGoalsLabel.text = [NSString stringWithFormat:@"%i", self.match.secondTeamPrediction.intValue];
