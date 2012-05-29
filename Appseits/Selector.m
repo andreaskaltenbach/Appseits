@@ -50,14 +50,15 @@ static UIImage *lock;
         [self addSubview:self.image];
         
         // setup label
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(115, 0, 165, 50)];
+        self.label = [[UILabel alloc] initWithFrame:CGRectMake(124, 0, 155, 50)];
         self.label.backgroundColor = [UIColor clearColor];
         self.label.adjustsFontSizeToFitWidth = YES;
         self.label.font = [UIFont boldSystemFontOfSize:22];
+        self.label.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
         [self addSubview:self.label];
         
         //setup flag image
-        self.flag = [[UIImageView alloc] initWithFrame:CGRectMake(84, 16, 16, 16)];
+        self.flag = [[UIImageView alloc] initWithFrame:CGRectMake(84, 17, 16, 16)];
         [self addSubview:self.flag];
     }
     return self;
