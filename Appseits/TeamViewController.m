@@ -74,6 +74,7 @@ static UIImage* thirdTeamTrophy;
     
     self.table.dataSource = self;
     self.table.delegate = self;
+
     self.table.backgroundColor = [UIColor squareBackground];
     
     if (self.overviewController.currentTeamSelection) {

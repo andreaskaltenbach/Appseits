@@ -49,4 +49,13 @@ static UIImage *selectedImage;
     }
 }
 
+- (void) setHighlighted:(BOOL)highlighted {
+   // suppres highlighting  
+}
+
+- (void) setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+   // suppres highlighting  
+}
+
+
 @end
