@@ -46,7 +46,7 @@ static NSString *openMessage;
         [self addSubview:clockImageView];
         
         self.label = [[UILabel alloc] initWithFrame:CGRectMake(30, 0, 290, self.frame.size.height)];
-        self.label.textColor = [UIColor whiteColor];
+        self.label.textColor = [UIColor lastUpdatedTextColor];
         self.label.font = [UIFont systemFontOfSize:14];
         self.label.backgroundColor = [UIColor clearColor];
         [self addSubview:self.label];

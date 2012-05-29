@@ -11,6 +11,7 @@
 #import "MatchPredictionCell.h"
 #import "UIColor+AppColors.h"
 #import "TournamentRound.h"
+#import "SSGradientView.h"
 
 static    NSString *matchCell;
 static    NSString *matchResultCell;
@@ -129,13 +130,25 @@ static NSDateFormatter *dateFormatter;
     
     CGRect tableFrame = tableView.frame;
     
-    UIView *sectionRow = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableFrame.size.width, 20)];
+    SSGradientView *sectionRow = [[SSGradientView alloc] initWithFrame:CGRectMake(0, 0, tableFrame.size.width, 20)];
     sectionRow.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    sectionRow.backgroundColor = [UIColor blackBackground];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 200, 20)];
+    
     NSString *matchDay = [self.matchDays objectAtIndex:section];
-    label.text = matchDay;
+    NSString *today = [dateFormatter stringFromDate:[NSDate date]];
+    
+    if ([matchDay isEqualToString:today]) {
+        sectionRow.colors = [UIColor todaySectionBackground];
+        sectionRow.backgroundColor = [UIColor clearColor];
+        label.text = [NSString stringWithFormat:@"%@ (idag)", matchDay]; 
+    }
+    else {
+        sectionRow.backgroundColor = [UIColor blackBackground];
+        sectionRow.colors = [NSArray arrayWithObjects:[UIColor clearColor], nil];
+        label.text = matchDay;
+    }
+    
     label.textColor = [UIColor whiteColor];
     label.backgroundColor = [UIColor clearColor];
     [sectionRow addSubview:label];

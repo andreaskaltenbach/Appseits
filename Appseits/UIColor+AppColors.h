@@ -11,6 +11,8 @@
 @interface UIColor (AppColors)
 
 + (NSArray *) lastUpdatedGradient;
++ (UIColor*) lastUpdatedTextColor;
+
 + (UIColor*) headerBackground;
 
 + (UIColor*) menuBackground;
@@ -19,6 +21,8 @@
 + (NSArray *) grayBackgroundGradient;
 
 + (UIColor*) blackBackground;
+
++ (NSArray *) todaySectionBackground;
 
 + (UIColor*) squareBackground;
 

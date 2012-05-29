@@ -26,6 +26,16 @@
     return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"blck.png"]];
 }
 
++ (NSArray *) todaySectionBackground {
+    return [NSArray arrayWithObjects: 
+            [UIColor colorWithRed:164.0/255.0f green:52.0f/255.0f blue:31.0f/255.0f alpha:1],
+            [UIColor colorWithRed:203.0/255.0f green:91.0f/255.0f blue:67.0f/255.0f alpha:1],
+            [UIColor colorWithRed:203.0/255.0f green:91.0f/255.0f blue:67.0f/255.0f alpha:1],
+            [UIColor colorWithRed:203.0/255.0f green:91.0f/255.0f blue:67.0f/255.0f alpha:1],
+            [UIColor colorWithRed:164.0/255.0f green:52.0f/255.0f blue:31.0f/255.0f alpha:1],
+            nil];  
+}
+
 + (UIColor*) squareBackground {
     return [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"square.png"]];
 }
@@ -60,9 +70,13 @@
 
 + (NSArray *) lastUpdatedGradient {
     return [NSArray arrayWithObjects: 
-            [UIColor colorWithRed:127.0/255.0f green:127.0/255.0f blue:127.0/255.0f alpha:1],
-            [UIColor colorWithRed:97.0/255.0f green:97.0/255.0f blue:97.0/255.0f alpha:1],
+            [UIColor colorWithRed:247.0/255.0f green:246.0/255.0f blue:194.0/255.0f alpha:1],
+            [UIColor colorWithRed:226.0/255.0f green:215.0/255.0f blue:126.0/255.0f alpha:1],
             nil];
+}
+
++ (UIColor*) lastUpdatedTextColor {
+    return [UIColor colorWithRed:84.0/255.0f green:77.0/255.0f blue:21.0/255.0f alpha:1];
 }
 
 + (NSArray *) greenGradient {
