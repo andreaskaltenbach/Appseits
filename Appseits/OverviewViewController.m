@@ -125,7 +125,7 @@ static NSURL *downloadURL;
     
     cogWheel = [UIImage imageNamed:@"cogwheel"];
     
-    downloadURL = [NSURL URLWithString:@"itms-services://?action=download-manifest&url=http://dl.dropbox.com/u/15650647/appseits/latest.plist"];
+    downloadURL = [NSURL URLWithString:@"itms-services://?action=download-manifest&url=http://em2012.brunoson.se/app/emtipset.plist"];
 }
 
 - (void) scroll:(int) offset {
@@ -159,8 +159,9 @@ static NSURL *downloadURL;
     }];
     
     // check for new app version
-    VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
-    [versionEnforcer checkVersion:@"http://em2012.brunoson.se/app/version.json"];
+    [self newVersionAvailable:@"0.3"];
+    //VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
+    //[versionEnforcer checkVersion:@"http://em2012.brunoson.se/app/version.json"];
 }
 
 - (void) viewDidLoad {
