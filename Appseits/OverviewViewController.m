@@ -37,6 +37,7 @@
 #import "CompositeTop4AndScorerRound.h"
 #import "VersionEnforcer.h"
 #import "MatchPredictionViewController.h"
+#import "FXLabel.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -73,6 +74,8 @@ static NSURL *downloadURL;
 @property (nonatomic, strong) UIPopoverController* teamPopoverController;
 @property (strong, nonatomic) IBOutlet UIView *top4ContainerView;
 @property (strong, nonatomic) IBOutlet UIView *scorerContainerView;
+@property (strong, nonatomic) IBOutlet FXLabel *tipsMenu;
+@property (strong, nonatomic) IBOutlet FXLabel *rankingMenu;
 @end
 
 @implementation OverviewViewController
@@ -111,6 +114,8 @@ static NSURL *downloadURL;
 @synthesize teamPopoverController = _teamPopoverController;
 @synthesize top4ContainerView = _top4ContainerView;
 @synthesize scorerContainerView = _scorerContainerView;
+@synthesize tipsMenu = _tipsMenu;
+@synthesize rankingMenu = _rankingMenu;
 @synthesize currentMatchSelection = _currentMatchSelection;
 
 + (void) initialize {
@@ -219,10 +224,20 @@ static NSURL *downloadURL;
     
     // initialize menu
     self.menu.backgroundColor = [UIColor menuBackground];
-    self.menu.layer.shadowOffset = CGSizeMake(0, 10);
-    self.menu.layer.shadowRadius = 5;
-    self.menu.layer.shadowOpacity = 0.5;
+    self.menu.layer.shadowOffset = CGSizeMake(0, 4);
+    self.menu.layer.shadowRadius = 2;
+    self.menu.layer.shadowOpacity = 0.3;
     
+    self.tipsMenu.shadowColor = nil;
+    self.tipsMenu.shadowOffset = CGSizeMake(0.0f, -1.0f);
+    self.tipsMenu.shadowColor = [UIColor colorWithWhite:0.0f alpha:0.7f];
+    self.tipsMenu.shadowBlur = 5.0f;
+    
+    self.rankingMenu.shadowColor = nil;
+    self.rankingMenu.shadowOffset = CGSizeMake(0.0f, -1.0f);
+    self.rankingMenu.shadowColor = [UIColor colorWithWhite:0.0f alpha:0.7f];
+    self.rankingMenu.shadowBlur = 5.0f;
+
     // initialize personal informer
     self.trendImage.image = trendConstant;
     
@@ -297,6 +312,8 @@ static NSURL *downloadURL;
     [self setMatchView:nil];
     [self setTop4ContainerView:nil];
     [self setScorerContainerView:nil];
+    [self setTipsMenu:nil];
+    [self setRankingMenu:nil];
     [super viewDidUnload];
 }
 

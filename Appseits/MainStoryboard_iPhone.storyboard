@@ -79,7 +79,7 @@
                                 </subviews>
                             </scrollView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" id="4S7-bj-bV5">
-                                <rect key="frame" x="150" y="266" width="20" height="20"/>
+                                <rect key="frame" x="150" y="246" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
@@ -131,68 +131,15 @@
                                             <segue destination="w4s-4k-l2x" kind="modal" identifier="toSettings" modalTransitionStyle="partialCurl" id="UpX-Jb-OFt"/>
                                         </connections>
                                     </button>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="euroLogo.png" id="eE3-Ev-38K">
-                                        <rect key="frame" x="136" y="8" width="49" height="21"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="euroLogo@2x.png" id="eE3-Ev-38K">
+                                        <rect key="frame" x="136" y="13" width="48" height="21"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="stroke.png" id="s6A-DS-hwb">
-                                        <rect key="frame" x="14" y="13" width="100" height="16"/>
+                                        <rect key="frame" x="14" y="16" width="100" height="16"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                 </subviews>
-                            </view>
-                            <view contentMode="scaleToFill" id="aYN-hX-Ic6" userLabel="menu">
-                                <rect key="frame" x="0.0" y="48" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" id="7Ny-Yz-OBu">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tips" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="eg8-s2-x53">
-                                                <rect key="frame" x="5" y="0.0" width="80" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="MiS-WY-3ru" appends="YES" id="mbE-q5-OjZ"/>
-                                        </connections>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="j7w-Py-eJV">
-                                        <rect key="frame" x="80" y="0.0" width="100" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" text="Ranking" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="puY-Nj-6zL">
-                                                <rect key="frame" x="5" y="0.0" width="95" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <gestureRecognizers/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="menuLock.png" id="RKL-Ms-4MM">
-                                                <rect key="frame" x="85" y="16" width="11" height="13"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </imageView>
-                                        </subviews>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="iP5-PQ-bLc" appends="YES" id="Rxk-rv-Luc"/>
-                                        </connections>
-                                    </view>
-                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="PUQ-s3-g7l">
-                                        <rect key="frame" x="208" y="5" width="97" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="aer-g7-G9t" userLabel="main scroll view" customClass="MainScrollView">
                                 <rect key="frame" x="0.0" y="92" width="320" height="370"/>
@@ -208,56 +155,56 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="eiN-UD-dk0">
-                                                <rect key="frame" x="33" y="7" width="67" height="36"/>
+                                                <rect key="frame" x="12" y="7" width="67" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" red="0.24313727021217346" green="0.49411767721176147" blue="0.21176472306251526" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="P40-6r-HlY">
-                                                <rect key="frame" x="112" y="7" width="58" height="36"/>
+                                                <rect key="frame" x="91" y="7" width="58" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" red="0.73333334922790527" green="0.78039222955703735" blue="0.78431379795074463" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="/" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="rUJ-2k-UGr">
-                                                <rect key="frame" x="102" y="10" width="14" height="29"/>
+                                                <rect key="frame" x="81" y="10" width="14" height="29"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" red="0.73333334922790527" green="0.78039222955703735" blue="0.78431379795074463" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="47.6p" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Eck-Gy-cfC">
-                                                <rect key="frame" x="200" y="6" width="42" height="28"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="47.6p" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="Eck-Gy-cfC">
+                                                <rect key="frame" x="212" y="6" width="46" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" red="0.24313727020000001" green="0.49411767719999999" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="74.3p" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="eTc-dT-SDj">
-                                                <rect key="frame" x="240" y="6" width="46" height="28"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="74.3p" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="eTc-dT-SDj">
+                                                <rect key="frame" x="266" y="6" width="40" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" red="0.24313727020000001" green="0.49411767719999999" blue="0.2117647231" alpha="1" colorSpace="deviceRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="OMGÅNG" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="40i-5X-UmX">
-                                                <rect key="frame" x="197" y="24" width="55" height="21"/>
+                                                <rect key="frame" x="212" y="24" width="46" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TOTALT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="m2f-f4-XkF">
-                                                <rect key="frame" x="249" y="24" width="54" height="21"/>
+                                                <rect key="frame" x="266" y="24" width="40" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="OQs-YT-d0P">
-                                                <rect key="frame" x="13" y="11" width="31" height="32"/>
+                                                <rect key="frame" x="16" y="11" width="31" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
@@ -621,6 +568,59 @@
                                     </scrollView>
                                 </subviews>
                             </scrollView>
+                            <view contentMode="scaleToFill" id="aYN-hX-Ic6" userLabel="menu">
+                                <rect key="frame" x="0.0" y="48" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="7Ny-Yz-OBu">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tips" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="eg8-s2-x53" customClass="FXLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="MiS-WY-3ru" appends="YES" id="mbE-q5-OjZ"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="j7w-Py-eJV">
+                                        <rect key="frame" x="60" y="0.0" width="100" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" text="Ranking" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="puY-Nj-6zL" customClass="FXLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <gestureRecognizers/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="menuLock.png" id="RKL-Ms-4MM">
+                                                <rect key="frame" x="82" y="16" width="11" height="13"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                        </subviews>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="iP5-PQ-bLc" appends="YES" id="Rxk-rv-Luc"/>
+                                        </connections>
+                                    </view>
+                                    <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="PUQ-s3-g7l">
+                                        <rect key="frame" x="208" y="5" width="97" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" id="fht-Jl-2O1" userLabel="leaguePicker" customClass="LeaguePickerView">
                                 <rect key="frame" x="0.0" y="460" width="320" height="260"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -655,6 +655,7 @@
                         <outlet property="menuDependingScrollView" destination="Up8-uV-wwV" id="qhK-Sn-mbw"/>
                         <outlet property="pointInCurrentRound" destination="Eck-Gy-cfC" id="3tj-yj-6IN"/>
                         <outlet property="pointsTotal" destination="eTc-dT-SDj" id="SiI-4s-X8k"/>
+                        <outlet property="rankingMenu" destination="puY-Nj-6zL" id="ZgJ-27-RUb"/>
                         <outlet property="rankingMenuItem" destination="j7w-Py-eJV" id="0Kb-XP-jG3"/>
                         <outlet property="rankingTable" destination="S6h-1E-dgG" id="Fsr-MK-q58"/>
                         <outlet property="rankingTableHeader" destination="KK5-hg-JWd" id="k8v-cI-n5J"/>
@@ -664,6 +665,7 @@
                         <outlet property="scorerView" destination="9ye-Xl-Kua" id="eSi-Rg-hgu"/>
                         <outlet property="settingsButton" destination="a91-4J-Tjk" id="frR-lm-1ZC"/>
                         <outlet property="timelineScrollView" destination="Xl4-xp-0TF" id="UBJ-xT-heh"/>
+                        <outlet property="tipsMenu" destination="eg8-s2-x53" id="h1Z-az-PsX"/>
                         <outlet property="top4View" destination="Lcj-b4-Udg" id="wGI-LT-Ji4"/>
                         <outlet property="trendImage" destination="OQs-YT-d0P" id="aTb-7X-XZC"/>
                         <segue destination="aOb-qA-Le6" kind="push" identifier="toTeamList" id="DHo-qL-Sdf"/>
@@ -1321,7 +1323,7 @@
         <image name="backButton@2x.png" width="228" height="84"/>
         <image name="cogwheel.png" width="15" height="15"/>
         <image name="confirmButton@2x.png" width="314" height="86"/>
-        <image name="euroLogo.png" width="49" height="21"/>
+        <image name="euroLogo@2x.png" width="96" height="42"/>
         <image name="flagHolder@2x.png" width="52" height="52"/>
         <image name="forgotPassword.png" width="300" height="44"/>
         <image name="greenBall.png" width="42" height="42"/>
@@ -1337,6 +1339,190 @@
         <image name="stroke.png" width="100" height="16"/>
         <image name="verticalSeparator.png" width="6" height="88"/>
     </resources>
+    <classes>
+        <class className="AppseitsPageControl" superclassName="UIPageControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppseitsPageControl.h"/>
+        </class>
+        <class className="AppseitsSelectionCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppseitsSelectionCell.h"/>
+        </class>
+        <class className="AppseitsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppseitsViewController.h"/>
+        </class>
+        <class className="CPTGraphHostingView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
+        </class>
+        <class className="DoubledLightBlueGradientView" superclassName="SSGradientView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DoubledLightBlueGradientView.h"/>
+        </class>
+        <class className="FXLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FXLabel.h"/>
+        </class>
+        <class className="LeaguePickerView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaguePickerView.h"/>
+        </class>
+        <class className="LightBlueGradient" superclassName="SSGradientView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LightBlueGradient.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="AppseitsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="emailInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="forgotPasswordButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="inputBackgroundView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="loginView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="passwordInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="separator" candidateClass="UIView"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="MainScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainScrollView.h"/>
+        </class>
+        <class className="MatchCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchCell.h"/>
+        </class>
+        <class className="MatchPredictionCell" superclassName="MatchCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchPredictionCell.h"/>
+        </class>
+        <class className="MatchPredictionViewController" superclassName="AppseitsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchPredictionViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="firstTeamFlag" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="firstTeamGoalsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="firstTeamLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="secondTeamFlag" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="secondTeamGoalsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="secondTeamLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MatchResultCell" superclassName="MatchCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchResultCell.h"/>
+        </class>
+        <class className="MatchTable" superclassName="ScrollTriggeringTableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchTable.h"/>
+        </class>
+        <class className="MenuDependendScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuDependendScrollView.h"/>
+        </class>
+        <class className="OverviewViewController" superclassName="AppseitsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverviewViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gameTable" candidateClass="MatchTable"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="leagueInput" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="leaguePicker" candidateClass="LeaguePickerView"/>
+                <relationship kind="outlet" name="mainScrollView" candidateClass="MainScrollView"/>
+                <relationship kind="outlet" name="matchView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="menu" candidateClass="UIView"/>
+                <relationship kind="outlet" name="menuDependingScrollView" candidateClass="MenuDependendScrollView"/>
+                <relationship kind="outlet" name="pointInCurrentRound" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pointsTotal" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rankingMenu" candidateClass="FXLabel"/>
+                <relationship kind="outlet" name="rankingMenuItem" candidateClass="UIView"/>
+                <relationship kind="outlet" name="rankingTable" candidateClass="RankingTable"/>
+                <relationship kind="outlet" name="rankingTableHeader" candidateClass="UIView"/>
+                <relationship kind="outlet" name="resultMenuItem" candidateClass="UIView"/>
+                <relationship kind="outlet" name="roundConstraintBar" candidateClass="RoundTimeConstraintRow"/>
+                <relationship kind="outlet" name="roundSelector" candidateClass="RoundSelector"/>
+                <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scorerContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scorerView" candidateClass="ScorerView"/>
+                <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
+                <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
+                <relationship kind="outlet" name="tipsMenu" candidateClass="FXLabel"/>
+                <relationship kind="outlet" name="top4AndScorerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="top4ContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="top4View" candidateClass="Top4View"/>
+                <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PagedView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PagedView.h"/>
+        </class>
+        <class className="PlayerCell" superclassName="AppseitsSelectionCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerCell.h"/>
+        </class>
+        <class className="PlayerTeamCell" superclassName="TeamCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerTeamCell.h"/>
+        </class>
+        <class className="PlayerTeamViewController" superclassName="TeamViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerTeamViewController.h"/>
+        </class>
+        <class className="PlayerViewController" superclassName="AppseitsViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="RankingCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingCell.h"/>
+        </class>
+        <class className="RankingTable" superclassName="ScrollTriggeringTableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingTable.h"/>
+        </class>
+        <class className="RoundSelector" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundSelector.h"/>
+        </class>
+        <class className="RoundTimeConstraintRow" superclassName="SSGradientView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundTimeConstraintRow.h"/>
+        </class>
+        <class className="SSBorderedView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSBorderedView.h"/>
+        </class>
+        <class className="SSGradientView" superclassName="SSBorderedView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSGradientView.h"/>
+        </class>
+        <class className="ScorerView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScorerView.h"/>
+        </class>
+        <class className="ScrollTriggeringTableView" superclassName="UITableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScrollTriggeringTableView.h"/>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="envelopeImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="facebookButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="logoutButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="TeamCell" superclassName="AppseitsSelectionCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamCell.h"/>
+        </class>
+        <class className="TeamViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="trophyImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="Timeline" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
+        </class>
+        <class className="TimelineScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
+        </class>
+        <class className="Top4View" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Top4View.h"/>
+        </class>
+        <class className="UnfinishedMatchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UnfinishedMatchViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="graphView" candidateClass="CPTGraphHostingView"/>
+                <relationship kind="outlet" name="pageIndicator" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="resultButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="PagedView"/>
+                <relationship kind="outlet" name="spreadButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
