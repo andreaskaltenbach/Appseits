@@ -129,30 +129,20 @@ static NSString *openMessage;
                     
                     if (hours > 0) {
                         // timmar 
-                        if (hours == 1) {
-                            message = [NSString stringWithFormat:prefix, 1, @"timme"];
-                        }
-                        else {
-                            message = [NSString stringWithFormat:prefix, [breakdownInfo hour], @"timmar"];
-                        }
+                        message = [NSString stringWithFormat:prefix, [breakdownInfo hour], @"tim"];
                         // och minuter
                         if (minutes > 0) {
                             if (minutes == 1) {
-                                message = [NSString stringWithFormat:@"%@ och en minut", message];
+                                message = [NSString stringWithFormat:@"%@ och en min", message];
                             }
                             else {
-                                message = [NSString stringWithFormat:@"%@ och %i minuter", message, minutes];
+                                message = [NSString stringWithFormat:@"%@ och %i min", message, minutes];
                             }
                         }
                         
                     }
                     else {
-                        if (minutes == 1) {
-                            message = [NSString stringWithFormat:prefix, 1, @"minut"];
-                        }
-                        else {
-                            message = [NSString stringWithFormat:prefix , minutes, @"minuter"];
-                        }
+                        message = [NSString stringWithFormat:prefix , minutes, @"min"];
                     }
                     
                 }
@@ -160,10 +150,10 @@ static NSString *openMessage;
                     // lock date is several seconds away
                     breakdownInfo = [sysCalendar components:NSSecondCalendarUnit fromDate: now toDate:referenceDate options:0];
                     if ([breakdownInfo second] > 1) {
-                        message = [NSString stringWithFormat:prefix, [breakdownInfo second], @"sekunder"];
+                        message = [NSString stringWithFormat:prefix, [breakdownInfo second], @"sek"];
                     }
                     else {
-                        message = [NSString stringWithFormat:prefix, 1, @"sekund"];
+                        message = [NSString stringWithFormat:prefix, 1, @"sek"];
                         
                         // trigger an update of the timeline and reload the main view
                         // (because this round will be closed
