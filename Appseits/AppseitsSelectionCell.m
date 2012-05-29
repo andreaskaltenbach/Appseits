@@ -30,7 +30,7 @@ static UIImage *selectedImage;
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.background = [[UIView alloc] init];
-        self.background.frame = CGRectMake(3, 3, 314, 43);
+        self.background.frame = CGRectMake(10, 5, 300, 43);
         [self addSubview:self.background];
         [self sendSubviewToBack:self.background];
         

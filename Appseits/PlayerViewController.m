@@ -13,11 +13,14 @@
 
 @interface PlayerViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *table;
-
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (strong, nonatomic) IBOutlet UIView *loadingView;
 @end
 
 @implementation PlayerViewController
 @synthesize table = _table;
+@synthesize spinner = _spinner;
+@synthesize loadingView = _loadingView;
 
 @synthesize overviewViewController = _overviewViewController;
 @synthesize team = _team;
@@ -31,6 +34,8 @@
 - (void)viewDidUnload
 {
     [self setTable:nil];
+    [self setSpinner:nil];
+    [self setLoadingView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -61,6 +66,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    self.loadingView.hidden = NO;
+    [self.spinner startAnimating];
+    
+    
     PlayerCell *playerCell = (PlayerCell*) [tableView cellForRowAtIndexPath:indexPath];
     
     BOOL allPredictionsAlreadyDone = self.overviewViewController.scorerView.scorerRound.allPredictionsDone;
@@ -89,6 +98,9 @@
     }];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 53;
+}
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

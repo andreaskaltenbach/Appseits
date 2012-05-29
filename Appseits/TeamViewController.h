@@ -10,8 +10,8 @@
 #import "Team.h"
 #import "OverviewViewController.h"
 
-@interface TeamViewController : UIViewController<UITableViewDataSource>
+@interface TeamViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (nonatomic, weak) OverviewViewController *overviewController;
-
+@property (strong, nonatomic) IBOutlet UIView *loadingView;
 @end

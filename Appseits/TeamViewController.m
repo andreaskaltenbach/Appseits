@@ -18,10 +18,14 @@ static UIImage* fourthTeamTrophy;
 
 @interface TeamViewController()
 @property (strong, nonatomic) IBOutlet UIImageView *trophyImage;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 @end
 
 @implementation TeamViewController
 @synthesize trophyImage = _trophyImage;
+@synthesize spinner = _spinner;
+@synthesize loadingView = _loadingView;
 @synthesize overviewController = _overviewController;
 @synthesize table = _table;
 
@@ -36,6 +40,7 @@ static UIImage* fourthTeamTrophy;
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        
 
     }
     return self;
@@ -52,11 +57,25 @@ static UIImage* fourthTeamTrophy;
     }
 }
 
+# pragma mark UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    self.loadingView.hidden = NO;
+    [self.spinner startAnimating];
+    
+    [self.overviewController tableView:tableView didSelectRowAtIndexPath:indexPath];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 53;
+}
+
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.table.delegate = self.overviewController;
     self.table.dataSource = self;
+    self.table.delegate = self;
     self.table.backgroundColor = [UIColor squareBackground];
     
     if (self.overviewController.currentTeamSelection) {
@@ -70,6 +89,8 @@ static UIImage* fourthTeamTrophy;
 - (void)viewDidUnload {
     [self setTable:nil];
     [self setTrophyImage:nil];
+    [self setSpinner:nil];
+    [self setLoadingView:nil];
     [super viewDidUnload];
 }
 

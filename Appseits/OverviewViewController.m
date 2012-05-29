@@ -553,10 +553,6 @@ static NSURL *downloadURL;
     }];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 49;
-}
-
 #pragma marks VersionDelegate
 
 - (void) updateRequired:(NSString*) versionNumber {
