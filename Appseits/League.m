@@ -28,6 +28,7 @@
         league.name = [leagueData objectForKey:@"name"];
         [leagues addObject:league];
     }
+    NSLog(@"%i", [leagues count]);
     return leagues;
 }
 

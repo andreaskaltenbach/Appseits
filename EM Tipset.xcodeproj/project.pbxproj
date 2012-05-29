@@ -35,6 +35,8 @@
 		4E246D6E15541EF000739D33 /* Top4Selector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E246D6D15541EF000739D33 /* Top4Selector.m */; };
 		4E346646157508CD009A5394 /* secondConfirm.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E346644157508CD009A5394 /* secondConfirm.png */; };
 		4E346647157508CD009A5394 /* secondConfirm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E346645157508CD009A5394 /* secondConfirm@2x.png */; };
+		4E34664A15756163009A5394 /* LeagueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E34664915756162009A5394 /* LeagueViewController.m */; };
+		4E34665115757016009A5394 /* UIViewController+KNSemiModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E34665015757016009A5394 /* UIViewController+KNSemiModal.m */; };
 		4E38B6FE155AABCA00DD691C /* lockGrayOpen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38B6F4155AABCA00DD691C /* lockGrayOpen@2x.png */; };
 		4E38B6FF155AABCA00DD691C /* lockGrayOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38B6F5155AABCA00DD691C /* lockGrayOpen.png */; };
 		4E38B700155AABCA00DD691C /* lockGreenOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38B6F6155AABCA00DD691C /* lockGreenOpen.png */; };
@@ -86,6 +88,8 @@
 		4ED81081154AA5E10084C918 /* euroLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED8107F154AA5E10084C918 /* euroLogo@2x.png */; };
 		4ED81084154AAB3A0084C918 /* matchLock.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED81082154AAB3A0084C918 /* matchLock.png */; };
 		4ED81085154AAB3A0084C918 /* matchLock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED81083154AAB3A0084C918 /* matchLock@2x.png */; };
+		4ED8407C1575753600F69D96 /* LeagueSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED8407B1575753600F69D96 /* LeagueSelector.m */; };
+		4ED840801575789B00F69D96 /* LeagueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED8407F1575789B00F69D96 /* LeagueCell.m */; };
 		4EDF7A791541A1EA000C81AD /* headerPattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDF7A781541A1EA000C81AD /* headerPattern.png */; };
 		4EDF7A7D1541A6B4000C81AD /* MainScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF7A7C1541A6B4000C81AD /* MainScrollView.m */; };
 		4EE59D9A154031DC0082193D /* UnfinishedMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE59D99154031DC0082193D /* UnfinishedMatchViewController.m */; };
@@ -265,6 +269,10 @@
 		4E246D6D15541EF000739D33 /* Top4Selector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Top4Selector.m; sourceTree = "<group>"; };
 		4E346644157508CD009A5394 /* secondConfirm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secondConfirm.png; sourceTree = "<group>"; };
 		4E346645157508CD009A5394 /* secondConfirm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "secondConfirm@2x.png"; sourceTree = "<group>"; };
+		4E34664815756162009A5394 /* LeagueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueViewController.h; sourceTree = "<group>"; };
+		4E34664915756162009A5394 /* LeagueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueViewController.m; sourceTree = "<group>"; };
+		4E34664F15757016009A5394 /* UIViewController+KNSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KNSemiModal.h"; sourceTree = "<group>"; };
+		4E34665015757016009A5394 /* UIViewController+KNSemiModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KNSemiModal.m"; sourceTree = "<group>"; };
 		4E38B6F4155AABCA00DD691C /* lockGrayOpen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lockGrayOpen@2x.png"; sourceTree = "<group>"; };
 		4E38B6F5155AABCA00DD691C /* lockGrayOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockGrayOpen.png; sourceTree = "<group>"; };
 		4E38B6F6155AABCA00DD691C /* lockGreenOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockGreenOpen.png; sourceTree = "<group>"; };
@@ -406,6 +414,10 @@
 		4ED8107F154AA5E10084C918 /* euroLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "euroLogo@2x.png"; sourceTree = "<group>"; };
 		4ED81082154AAB3A0084C918 /* matchLock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = matchLock.png; sourceTree = "<group>"; };
 		4ED81083154AAB3A0084C918 /* matchLock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "matchLock@2x.png"; sourceTree = "<group>"; };
+		4ED8407A1575753600F69D96 /* LeagueSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueSelector.h; sourceTree = "<group>"; };
+		4ED8407B1575753600F69D96 /* LeagueSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueSelector.m; sourceTree = "<group>"; };
+		4ED8407E1575789B00F69D96 /* LeagueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeagueCell.h; sourceTree = "<group>"; };
+		4ED8407F1575789B00F69D96 /* LeagueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeagueCell.m; sourceTree = "<group>"; };
 		4EDF7A781541A1EA000C81AD /* headerPattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerPattern.png; sourceTree = "<group>"; };
 		4EDF7A7B1541A6B4000C81AD /* MainScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScrollView.h; sourceTree = "<group>"; };
 		4EDF7A7C1541A6B4000C81AD /* MainScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScrollView.m; sourceTree = "<group>"; };
@@ -742,6 +754,8 @@
 		4E059D021525FA0E005ABD20 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				4E34664F15757016009A5394 /* UIViewController+KNSemiModal.h */,
+				4E34665015757016009A5394 /* UIViewController+KNSemiModal.m */,
 				4E075F001574BE9A009CDF74 /* FXLabel.h */,
 				4E075F011574BE9A009CDF74 /* FXLabel.m */,
 				5BD38CE015433C9A00551FB9 /* PullToRefreshView.h */,
@@ -1039,6 +1053,12 @@
 				5B6A362015712300007D88B7 /* LightBlueGradient.m */,
 				5B6A362215712500007D88B7 /* DoubledLightBlueGradientView.h */,
 				5B6A362315712500007D88B7 /* DoubledLightBlueGradientView.m */,
+				4E34664815756162009A5394 /* LeagueViewController.h */,
+				4E34664915756162009A5394 /* LeagueViewController.m */,
+				4ED8407A1575753600F69D96 /* LeagueSelector.h */,
+				4ED8407B1575753600F69D96 /* LeagueSelector.m */,
+				4ED8407E1575789B00F69D96 /* LeagueCell.h */,
+				4ED8407F1575789B00F69D96 /* LeagueCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1348,6 +1368,10 @@
 				5B6A362115712300007D88B7 /* LightBlueGradient.m in Sources */,
 				5B6A362415712500007D88B7 /* DoubledLightBlueGradientView.m in Sources */,
 				4E075F021574BE9A009CDF74 /* FXLabel.m in Sources */,
+				4E34664A15756163009A5394 /* LeagueViewController.m in Sources */,
+				4E34665115757016009A5394 /* UIViewController+KNSemiModal.m in Sources */,
+				4ED8407C1575753600F69D96 /* LeagueSelector.m in Sources */,
+				4ED840801575789B00F69D96 /* LeagueCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

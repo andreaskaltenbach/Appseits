@@ -38,6 +38,8 @@
 #import "VersionEnforcer.h"
 #import "MatchPredictionViewController.h"
 #import "FXLabel.h"
+#import "UIViewController+KNSemiModal.h"
+#import "LeagueSelector.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -76,6 +78,12 @@ static NSURL *downloadURL;
 @property (strong, nonatomic) IBOutlet UIView *scorerContainerView;
 @property (strong, nonatomic) IBOutlet FXLabel *tipsMenu;
 @property (strong, nonatomic) IBOutlet FXLabel *rankingMenu;
+@property (strong, nonatomic) IBOutlet UIView *rankingMenuView;
+@property (strong, nonatomic) IBOutlet UIView *leagueSelector;
+@property (strong, nonatomic) IBOutlet UITableView *leagueTable;
+@property (strong, nonatomic) IBOutlet UITextField *leagueInputField;
+
+@property (nonatomic, strong) League* currentLeague;
 @end
 
 @implementation OverviewViewController
@@ -116,7 +124,12 @@ static NSURL *downloadURL;
 @synthesize scorerContainerView = _scorerContainerView;
 @synthesize tipsMenu = _tipsMenu;
 @synthesize rankingMenu = _rankingMenu;
+@synthesize rankingMenuView = _rankingMenuView;
+@synthesize leagueSelector = _leagueSelector;
+@synthesize leagueTable = _leagueTable;
+@synthesize leagueInputField = _leagueInputField;
 @synthesize currentMatchSelection = _currentMatchSelection;
+@synthesize currentLeague = _currentLeague;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -238,6 +251,8 @@ static NSURL *downloadURL;
     self.rankingMenu.shadowOffset = CGSizeMake(0.0f, -1.0f);
     self.rankingMenu.shadowColor = [UIColor colorWithWhite:0.0f alpha:0.7f];
     self.rankingMenu.shadowBlur = 5.0f;
+    
+    [self.rankingMenuView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(switchLeague)]];
 
     // initialize personal informer
     self.trendImage.image = trendConstant;
@@ -315,7 +330,15 @@ static NSURL *downloadURL;
     [self setScorerContainerView:nil];
     [self setTipsMenu:nil];
     [self setRankingMenu:nil];
+    [self setRankingMenuView:nil];
+    [self setLeagueSelector:nil];
+    [self setLeagueTable:nil];
+    [self setLeagueInputField:nil];
     [super viewDidUnload];
+}
+
+- (void) switchLeague {
+    [self presentSemiView:self.leagueSelector];
 }
 
 // Called whenever a tournament round is selected in the timeline

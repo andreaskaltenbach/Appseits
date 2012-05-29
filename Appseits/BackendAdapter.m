@@ -18,7 +18,6 @@
 #import "ScorerRound.h"
 #import "CompositeTop4AndScorerRound.h"
 
-static NSString *leagueUrl;
 static NSString *rankingUrl;
 
 static NSArray *rounds;
@@ -51,11 +50,11 @@ static NSString* BET_URL;
 static NSString* TOP4_URL;
 static NSString* SCORER_URL;
 static NSString* TEAMS_URL;
+static NSString* LEAGUE_URL;
 
 @implementation BackendAdapter
 
 + (void) initialize {
-    leagueUrl = @"http://dl.dropbox.com/u/15650647/leagues.json";
     rankingUrl = @"http://dl.dropbox.com/u/15650647/ranking.json";
     
     LOGIN_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/login"];
@@ -64,6 +63,7 @@ static NSString* TEAMS_URL;
     TOP4_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/winners"];
     SCORER_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/topscorer"];
     TEAMS_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/teams"];
+    LEAGUE_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/leagues"];
 }
 
 + (BOOL) modelInitialized {
@@ -183,10 +183,10 @@ static NSString* TEAMS_URL;
             RemoteCallResult remoteCallResult = [self loadCompleteTournament];
             
             // TODO -enable league and ranking fetching!
-            /*if (remoteCallResult == OK) {
+            if (remoteCallResult == OK) {
              remoteCallResult = [self loadLeagues];
-             }
-             if (remoteCallResult == OK) {
+            }
+             /*if (remoteCallResult == OK) {
              remoteCallResult = [self loadRankings];
              }*/
             
@@ -216,10 +216,10 @@ static NSString* TEAMS_URL;
             remoteCallResult = [self loadCompleteTournament];
         }
         // TODO -enable league and ranking fetching!
-        /*if (remoteCallResult == OK) {
+        if (remoteCallResult == OK) {
             remoteCallResult = [self loadLeagues];
         }
-        if (remoteCallResult == OK) {
+        /*if (remoteCallResult == OK) {
             remoteCallResult = [self loadRankings];
         }*/
         if (remoteCallResult == OK) {
@@ -279,8 +279,7 @@ static NSString* TEAMS_URL;
 
 + (RemoteCallResult) loadLeagues {
     // fetch all leagues
-    NSURL *url = [NSURL URLWithString:leagueUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLRequest *request =  [self requestForUrl:LEAGUE_URL];
     
     NSError *error;
     NSURLResponse *response;
@@ -292,6 +291,8 @@ static NSString* TEAMS_URL;
     // parse the result
     NSError *parseError = nil;
     NSArray *leagueData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
+    
+    NSLog(@"Data: %@", leagueData);
     
     if (parseError) {
         return INTERNAL_CLIENT_ERROR;
