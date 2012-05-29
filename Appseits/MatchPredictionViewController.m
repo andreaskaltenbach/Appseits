@@ -11,6 +11,7 @@
 #import "Match.h"
 #import "BackendAdapter.h"
 #import "MatchRound.h"
+#import "RoundTimeConstraintRow.h"
 
 @interface MatchPredictionViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
@@ -22,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *secondTeamGoalsLabel;
 @property BOOL stalePrediction;
 @property BOOL completePrediction;
+@property (strong, nonatomic) IBOutlet RoundTimeConstraintRow *roundConstraints;
+
 @end
 
 @implementation MatchPredictionViewController
@@ -35,6 +38,7 @@
 @synthesize match = _match;
 @synthesize stalePrediction = _stalePrediction;
 @synthesize completePrediction = _completePrediction;
+@synthesize roundConstraints;
 @synthesize overviewViewController = _overviewViewController;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -64,6 +68,7 @@
     [self setSecondTeamFlag:nil];
     [self setFirstTeamGoalsLabel:nil];
     [self setSecondTeamGoalsLabel:nil];
+    [self setRoundConstraints:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -188,7 +193,17 @@
     }
 }
 
+- (void) setOverviewViewController:(OverviewViewController *)overviewViewController {
+    _overviewViewController = overviewViewController;
+    self.roundConstraints.overviewViewController = overviewViewController;
+}
+
 - (void) updateView {
+    
+    NSLog(@"%@", self.roundConstraints);
+    self.roundConstraints.round = self.match.matchRound;
+
+    
     self.firstTeamLabel.text = [self.match.firstTeam.shortName uppercaseString];
     if (self.match.firstTeamPrediction) {
         self.firstTeamGoalsLabel.text = [NSString stringWithFormat:@"%i", self.match.firstTeamPrediction.intValue];

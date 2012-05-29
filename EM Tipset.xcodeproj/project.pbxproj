@@ -33,6 +33,8 @@
 		4E246D6115541A5200739D33 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D5915541A5200739D33 /* first.png */; };
 		4E246D6B15541D5F00739D33 /* Top4View.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E246D6A15541D5F00739D33 /* Top4View.m */; };
 		4E246D6E15541EF000739D33 /* Top4Selector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E246D6D15541EF000739D33 /* Top4Selector.m */; };
+		4E346646157508CD009A5394 /* secondConfirm.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E346644157508CD009A5394 /* secondConfirm.png */; };
+		4E346647157508CD009A5394 /* secondConfirm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E346645157508CD009A5394 /* secondConfirm@2x.png */; };
 		4E38B6FE155AABCA00DD691C /* lockGrayOpen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38B6F4155AABCA00DD691C /* lockGrayOpen@2x.png */; };
 		4E38B6FF155AABCA00DD691C /* lockGrayOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38B6F5155AABCA00DD691C /* lockGrayOpen.png */; };
 		4E38B700155AABCA00DD691C /* lockGreenOpen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E38B6F6155AABCA00DD691C /* lockGreenOpen.png */; };
@@ -261,6 +263,8 @@
 		4E246D6A15541D5F00739D33 /* Top4View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Top4View.m; sourceTree = "<group>"; };
 		4E246D6C15541EF000739D33 /* Top4Selector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Top4Selector.h; sourceTree = "<group>"; };
 		4E246D6D15541EF000739D33 /* Top4Selector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Top4Selector.m; sourceTree = "<group>"; };
+		4E346644157508CD009A5394 /* secondConfirm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = secondConfirm.png; sourceTree = "<group>"; };
+		4E346645157508CD009A5394 /* secondConfirm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "secondConfirm@2x.png"; sourceTree = "<group>"; };
 		4E38B6F4155AABCA00DD691C /* lockGrayOpen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lockGrayOpen@2x.png"; sourceTree = "<group>"; };
 		4E38B6F5155AABCA00DD691C /* lockGrayOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockGrayOpen.png; sourceTree = "<group>"; };
 		4E38B6F6155AABCA00DD691C /* lockGreenOpen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lockGreenOpen.png; sourceTree = "<group>"; };
@@ -620,6 +624,8 @@
 				5B0556F61570D8D8006A9E7C /* promptIcon@2x.png */,
 				5B0556F11570D8A9006A9E7C /* abortButton@2x.png */,
 				5B0556F21570D8A9006A9E7C /* abortButton.png */,
+				4E346644157508CD009A5394 /* secondConfirm.png */,
+				4E346645157508CD009A5394 /* secondConfirm@2x.png */,
 				4E449777156FB9F10020DBDF /* predictionBg.png */,
 				4E449778156FB9F10020DBDF /* predictionBg@2x.png */,
 				4E449773156FB5880020DBDF /* confirmButton.png */,
@@ -1262,6 +1268,8 @@
 				5B6A361E1571174E007D88B7 /* lockUnfinishedInset.png in Resources */,
 				5BDB8F0F15740E31008E2ED6 /* lockGrayClosed.png in Resources */,
 				5BDB8F1015740E31008E2ED6 /* lockGrayClosed@2x.png in Resources */,
+				4E346646157508CD009A5394 /* secondConfirm.png in Resources */,
+				4E346647157508CD009A5394 /* secondConfirm@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

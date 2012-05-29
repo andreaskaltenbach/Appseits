@@ -38,8 +38,6 @@ static UIImage *lock;
     }
 }
 
-
-
 - (id) init:(UIImage*) image {
     
     self = [super init];
