@@ -167,9 +167,8 @@ static NSURL *downloadURL;
     }];
     
     // check for new app version
-    [self newVersionAvailable:@"0.3"];
-    //VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
-    //[versionEnforcer checkVersion:@"http://em2012.brunoson.se/app/version.json"];
+    VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
+    [versionEnforcer checkVersion:@"http://em2012.brunoson.se/app/version.json"];
 }
 
 - (void) viewDidLoad {

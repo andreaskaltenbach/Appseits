@@ -174,6 +174,9 @@
 - (void) pushPrediction {
     if (self.stalePrediction && self.completePrediction) {
         
+        [self.overviewViewController.timelineScrollView refreshSections];
+        [self.overviewViewController.gameTable updateMatchCell:self.match];
+        
         [BackendAdapter postPrediction:self.match.matchId:self.match.firstTeamPrediction:self.match.secondTeamPrediction :^(RemoteCallResult remoteCallResult) {
             
             switch (remoteCallResult) {
@@ -185,8 +188,6 @@
                     [self showError:@"Du verkar sakna uppkoppling. Försök igen."];
                     break;
                 case OK:
-                    [self.overviewViewController.timelineScrollView refreshSections];
-                    [self.overviewViewController.gameTable updateMatchCell:self.match];
                     self.stalePrediction = NO;
             }
         }];
@@ -200,7 +201,6 @@
 
 - (void) updateView {
     
-    NSLog(@"%@", self.roundConstraints);
     self.roundConstraints.round = self.match.matchRound;
 
     

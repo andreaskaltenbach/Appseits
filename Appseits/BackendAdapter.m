@@ -95,7 +95,7 @@ static NSString* LEAGUE_URL;
             
             // validate credentials and retrieve a token in response
             NSURL *url = [NSURL URLWithString:LOGIN_URL];
-            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5];
             request.HTTPMethod = @"POST";
             
             [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -254,7 +254,7 @@ static NSString* LEAGUE_URL;
             
             // download flag from UEFA:
             NSURL *flagUrl = [NSURL URLWithString:[NSString stringWithFormat:FLAG_URL, teamName]];
-            NSURLRequest* flagRequest = [NSURLRequest requestWithURL:flagUrl cachePolicy:NSURLCacheStorageAllowed timeoutInterval:10];
+            NSURLRequest* flagRequest = [NSURLRequest requestWithURL:flagUrl cachePolicy:NSURLCacheStorageAllowed timeoutInterval:5];
             NSURLResponse *response;
             NSError *error;
 
@@ -336,7 +336,7 @@ static NSString* LEAGUE_URL;
 }
 
 + (NSMutableURLRequest*) requestForUrl:(NSString*) url {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:5];
     [request addValue:token forHTTPHeaderField:@"Authorization"];
     return request;
 }
