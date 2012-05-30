@@ -838,6 +838,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="1j4-57-w0D" kind="push" identifier="toPlayerList" id="tgt-Jd-z45"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -845,7 +848,6 @@
                     </view>
                     <connections>
                         <outlet property="table" destination="LTd-j2-Iod" id="Zgg-3c-rWY"/>
-                        <segue destination="1j4-57-w0D" kind="push" identifier="toPlayerList" id="UJc-ht-yAv"/>
                     </connections>
                 </viewController>
             </objects>

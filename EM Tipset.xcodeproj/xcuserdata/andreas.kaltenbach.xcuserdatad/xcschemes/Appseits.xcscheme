@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4E531C10151CAB050003CAD1"
-               BuildableName = "Appseits.app"
+               BuildableName = "EM Tipset.app"
                BlueprintName = "EM Tipset"
                ReferencedContainer = "container:EM Tipset.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4E531C10151CAB050003CAD1"
-            BuildableName = "Appseits.app"
+            BuildableName = "EM Tipset.app"
             BlueprintName = "EM Tipset"
             ReferencedContainer = "container:EM Tipset.xcodeproj">
          </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4E531C10151CAB050003CAD1"
-            BuildableName = "Appseits.app"
+            BuildableName = "EM Tipset.app"
             BlueprintName = "EM Tipset"
             ReferencedContainer = "container:EM Tipset.xcodeproj">
          </BuildableReference>
@@ -69,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4E531C10151CAB050003CAD1"
-            BuildableName = "Appseits.app"
+            BuildableName = "EM Tipset.app"
             BlueprintName = "EM Tipset"
             ReferencedContainer = "container:EM Tipset.xcodeproj">
          </BuildableReference>

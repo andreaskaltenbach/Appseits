@@ -46,7 +46,7 @@ static UIImage *lock;
         
         // setup image
         self.image = [[UIImageView alloc] initWithImage:image];
-        self.image.frame = CGRectMake(20, (48 - image.size.height) / 2, image.size.width, image.size.height);
+        self.image.frame = CGRectMake(20, ((48 - image.size.height) / 2), image.size.width, image.size.height);
         [self addSubview:self.image];
         
         // setup label
