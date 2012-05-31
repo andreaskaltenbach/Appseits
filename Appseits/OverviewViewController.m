@@ -76,9 +76,8 @@ static NSURL *downloadURL;
 @property (strong, nonatomic) IBOutlet FXLabel *tipsMenu;
 @property (strong, nonatomic) IBOutlet FXLabel *rankingMenu;
 @property (strong, nonatomic) IBOutlet UIView *rankingMenuView;
-@property (strong, nonatomic) IBOutlet UIView *leagueSelector;
+@property (strong, nonatomic) IBOutlet LeagueSelector *leagueSelector;
 @property (strong, nonatomic) IBOutlet UITableView *leagueTable;
-@property (strong, nonatomic) IBOutlet UITextField *leagueInputField;
 
 @property (nonatomic, strong) League* currentLeague;
 @end
@@ -122,7 +121,6 @@ static NSURL *downloadURL;
 @synthesize rankingMenuView = _rankingMenuView;
 @synthesize leagueSelector = _leagueSelector;
 @synthesize leagueTable = _leagueTable;
-@synthesize leagueInputField = _leagueInputField;
 @synthesize currentMatchSelection = _currentMatchSelection;
 @synthesize currentLeague = _currentLeague;
 
@@ -243,17 +241,7 @@ static NSURL *downloadURL;
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *menu = [userDefaults objectForKey:MENU_KEY];
-    //TODO
-    if ([menu isEqualToString:@"Ranking"]) {
-        // select rankings directly
-        [self rankingSelected:self];
-    }
-    else {
-        // select match list directly
-        [self resultSelected:self];
-    }
-    
-    
+       
     self.allTeams = [BackendAdapter teamList];
    
     // setup top4 view
@@ -269,6 +257,10 @@ static NSURL *downloadURL;
     self.scorerView.overviewViewController = self;
         
     self.gameTable.backgroundColor = [UIColor blackBackground];
+    
+    // setup league selector
+    [self refreshRankingLabel];
+    self.leagueSelector.leagueSelectionDelegate = self;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -309,7 +301,6 @@ static NSURL *downloadURL;
     [self setRankingMenuView:nil];
     [self setLeagueSelector:nil];
     [self setLeagueTable:nil];
-    [self setLeagueInputField:nil];
     [super viewDidUnload];
 }
 
@@ -393,18 +384,17 @@ static NSURL *downloadURL;
     [self.menuDependingScrollView scrollToMatches];
 }
 
-- (IBAction)rankingSelected:(id)sender {
+- (void) switchToRanking {
     NSLog(@"Ranking selected");
     
     //TODO - enable ranking again, when view is ready
-    /*self.rankingMenuItem.backgroundColor = [UIColor menuSelectedBackground];
+    self.rankingMenuItem.backgroundColor = [UIColor menuSelectedBackground];
     self.resultMenuItem.backgroundColor = [UIColor clearColor];
     
     self.gameTable.scrollsToTop = NO;
     self.rankingTable.scrollsToTop = YES;
     
-    
-    [self.menuDependingScrollView scrollToRankings];*/
+    [self.menuDependingScrollView scrollToRankings];
 }
 
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
@@ -552,5 +542,35 @@ static NSURL *downloadURL;
    }];
 }
 
+- (void) refreshRankingLabel {
+    NSString* leagueName = [BackendAdapter currentLeague].name;
+    if (!leagueName) {
+        leagueName = @"Superligan";
+    }
+    
+    // define width of text
+    float width = [leagueName sizeWithFont:[UIFont boldSystemFontOfSize:13]].width;
+    CGRect rankingItemFrame = self.rankingMenuItem.frame;
+    rankingItemFrame.size.width = width + 20;
+    self.rankingMenuItem.frame = rankingItemFrame;
+    
+    // update ranking menu item text
+    self.rankingMenu.text = leagueName;
+}
+
+# pragma marks LeagueSelectorDelegate
+
+- (void) leagueSelected:(League*) league {
+    
+    [BackendAdapter setCurrentLeague:league];
+    
+    // update ranking label
+    [self refreshRankingLabel];
+    
+    [self dismissSemiModalView];
+       
+    // switch to ranking view
+    [self switchToRanking];
+}
 
 @end

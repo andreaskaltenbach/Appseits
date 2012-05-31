@@ -182,14 +182,9 @@ static NSString* LEAGUE_URL;
             
             RemoteCallResult remoteCallResult = [self loadCompleteTournament];
             
-            // TODO -enable league and ranking fetching!
             if (remoteCallResult == OK) {
              remoteCallResult = [self loadLeagues];
             }
-             /*if (remoteCallResult == OK) {
-             remoteCallResult = [self loadRankings];
-             }*/
-            
             if (remoteCallResult == OK) {
                 remoteCallResult = [self loadTop4];
             }
@@ -215,13 +210,9 @@ static NSString* LEAGUE_URL;
         if (remoteCallResult == OK) {
             remoteCallResult = [self loadCompleteTournament];
         }
-        // TODO -enable league and ranking fetching!
         if (remoteCallResult == OK) {
             remoteCallResult = [self loadLeagues];
         }
-        /*if (remoteCallResult == OK) {
-            remoteCallResult = [self loadRankings];
-        }*/
         if (remoteCallResult == OK) {
             remoteCallResult = [self loadFlags];
         }
@@ -440,7 +431,34 @@ static NSString* LEAGUE_URL;
 }
 
 + (League*) currentLeague {
+    
+    if (!currentLeague) {
+        // try to fetch a league from the client storage
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSNumber* leagueId = [userDefaults objectForKey:@"leagueId"];
+        if (leagueId) {
+            for (League* league in leagues) {
+                if ([league.id isEqualToNumber:leagueId]) {
+                    return league;
+                }
+            }
+        }
+    }
+    
     return currentLeague;
+}
+
++ (void) setCurrentLeague:(League*) league {
+    
+    if (currentLeague != league) {
+        
+        currentLeague = league;
+        
+        // store selected league ID in user defaults
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:league.id forKey:@"leagueId"];
+        [userDefaults synchronize];
+    }
 }
 
 + (void) setCurrentLeague:(League*) league:(RemoteCallBlock) remoteCallBlock {

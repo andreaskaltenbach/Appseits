@@ -147,9 +147,6 @@
                                             </label>
                                         </subviews>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="MRR-wv-jYu" appends="YES" id="tiF-PS-j2F"/>
-                                        </connections>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="8wt-Gh-xqe">
                                         <rect key="frame" x="200" y="6" width="97" height="31"/>
@@ -567,11 +564,6 @@
                         </segue>
                     </connections>
                 </viewController>
-                <tapGestureRecognizer id="MRR-wv-jYu">
-                    <connections>
-                        <action selector="rankingSelected:" destination="2" id="jJi-xK-uJY"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <tapGestureRecognizer id="bZ1-Sn-Rnq">
                     <connections>
                         <action selector="resultSelected:" destination="2" id="bUH-mp-OVU"/>
@@ -662,127 +654,13 @@
     </scenes>
     <resources>
         <image name="cogwheel.png" width="15" height="15"/>
-        <image name="euroLogo.png" width="49" height="21"/>
+        <image name="euroLogo.png" width="48" height="21"/>
         <image name="forgotPassword.png" width="300" height="44"/>
         <image name="greenBall.png" width="42" height="42"/>
         <image name="login.png" width="300" height="54"/>
         <image name="matchLock.png" width="11" height="13"/>
         <image name="stroke.png" width="100" height="16"/>
     </resources>
-    <classes>
-        <class className="AppseitsSelectionCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppseitsSelectionCell.h"/>
-        </class>
-        <class className="AppseitsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppseitsViewController.h"/>
-        </class>
-        <class className="LeaguePickerView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeaguePickerView.h"/>
-        </class>
-        <class className="LoginViewController" superclassName="AppseitsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="emailInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="forgotPasswordButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="inputBackgroundView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loginView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="separator" candidateClass="UIView"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="MainScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainScrollView.h"/>
-        </class>
-        <class className="MatchCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchCell.h"/>
-        </class>
-        <class className="MatchPredictionCell" superclassName="MatchCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchPredictionCell.h"/>
-        </class>
-        <class className="MatchResultCell" superclassName="MatchCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchResultCell.h"/>
-        </class>
-        <class className="MatchTable" superclassName="ScrollTriggeringTableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchTable.h"/>
-        </class>
-        <class className="MenuDependendScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuDependendScrollView.h"/>
-        </class>
-        <class className="OverviewViewController" superclassName="AppseitsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverviewViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="gameTable" candidateClass="MatchTable"/>
-                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="leagueInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="leaguePicker" candidateClass="LeaguePickerView"/>
-                <relationship kind="outlet" name="mainScrollView" candidateClass="MainScrollView"/>
-                <relationship kind="outlet" name="matchView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="menu" candidateClass="UIView"/>
-                <relationship kind="outlet" name="menuDependingScrollView" candidateClass="MenuDependendScrollView"/>
-                <relationship kind="outlet" name="pointInCurrentRound" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pointsTotal" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rankingMenuItem" candidateClass="UIView"/>
-                <relationship kind="outlet" name="rankingTable" candidateClass="RankingTable"/>
-                <relationship kind="outlet" name="rankingTableHeader" candidateClass="UIView"/>
-                <relationship kind="outlet" name="resultMenuItem" candidateClass="UIView"/>
-                <relationship kind="outlet" name="roundConstraintBar" candidateClass="RoundTimeConstraintRow"/>
-                <relationship kind="outlet" name="roundSelector" candidateClass="RoundSelector"/>
-                <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scorerContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scorerView" candidateClass="ScorerView"/>
-                <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
-                <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
-                <relationship kind="outlet" name="top4AndScorerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="top4ContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="top4View" candidateClass="Top4View"/>
-                <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="RankingTable" superclassName="ScrollTriggeringTableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingTable.h"/>
-        </class>
-        <class className="RoundSelector" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundSelector.h"/>
-        </class>
-        <class className="RoundTimeConstraintRow" superclassName="SSGradientView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundTimeConstraintRow.h"/>
-        </class>
-        <class className="SSBorderedView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSBorderedView.h"/>
-        </class>
-        <class className="SSGradientView" superclassName="SSBorderedView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSGradientView.h"/>
-        </class>
-        <class className="ScorerView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScorerView.h"/>
-        </class>
-        <class className="ScrollTriggeringTableView" superclassName="UITableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScrollTriggeringTableView.h"/>
-        </class>
-        <class className="TeamCell" superclassName="AppseitsSelectionCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamCell.h"/>
-        </class>
-        <class className="TeamViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="Timeline" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
-        </class>
-        <class className="TimelineScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
-        </class>
-        <class className="Top4View" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Top4View.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

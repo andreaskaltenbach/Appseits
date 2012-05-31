@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "League.h"
+
+@protocol LeagueSelectionDelegate
+
+- (void) leagueSelected:(League*) league;
+
+@end
 
 @interface LeagueSelector : UIView<UITableViewDataSource, UITableViewDelegate>
-
-
+@property id<LeagueSelectionDelegate> leagueSelectionDelegate; 
 @end

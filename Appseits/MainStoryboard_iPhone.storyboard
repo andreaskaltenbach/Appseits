@@ -112,12 +112,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="pqq-yL-Lji" userLabel="league selector" customClass="LeagueSelector">
-                                <rect key="frame" x="0.0" y="5000" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bed-w3-mGg">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <prototypes>
@@ -139,34 +139,26 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                             </tableViewCell>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="newLeagueCell" rowHeight="60" id="nLu-Pu-Cqf">
+                                                <rect key="frame" x="0.0" y="62" width="320" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ny liga" minimumFontSize="17" id="UO8-9s-4YZ">
+                                                            <rect key="frame" x="10" y="10" width="240" height="31"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </tableViewCell>
                                         </prototypes>
                                         <sections/>
                                     </tableView>
-                                    <view tag="5" contentMode="scaleToFill" id="a7t-5d-IJu">
-                                        <rect key="frame" x="0.0" y="100" width="320" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                        <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ny liga" minimumFontSize="17" id="GSi-mE-SYt">
-                                                <rect key="frame" x="10" y="15" width="240" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ipc-Gf-Xm1">
-                                                <rect key="frame" x="260" y="10" width="50" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal">
-                                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    </view>
                                 </subviews>
                             </view>
                             <view contentMode="TopLeft" id="JbU-Ph-zcW" userLabel="header">
@@ -652,17 +644,13 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" text="Ranking" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="puY-Nj-6zL" customClass="FXLabel">
-                                                <rect key="frame" x="0.0" y="0.0" width="100" height="44"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="10" y="0.0" width="80" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="menuLock.png" id="RKL-Ms-4MM">
-                                                <rect key="frame" x="82" y="16" width="11" height="13"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                            </imageView>
                                         </subviews>
                                         <gestureRecognizers/>
                                         <connections>
@@ -679,7 +667,6 @@
                     <connections>
                         <outlet property="gameTable" destination="KT6-Hu-UFq" id="faE-WE-Jau"/>
                         <outlet property="headerView" destination="JbU-Ph-zcW" id="2j6-as-vg0"/>
-                        <outlet property="leagueInputField" destination="GSi-mE-SYt" id="Hrk-Io-XSW"/>
                         <outlet property="leagueSelector" destination="pqq-yL-Lji" id="6mh-T3-b0o"/>
                         <outlet property="leagueTable" destination="Bed-w3-mGg" id="ICJ-2f-gGG"/>
                         <outlet property="mainScrollView" destination="aer-g7-G9t" id="Siy-BG-FOm"/>
@@ -1414,7 +1401,6 @@
         <image name="greenBall.png" width="42" height="42"/>
         <image name="login.png" width="300" height="54"/>
         <image name="matchLock.png" width="11" height="13"/>
-        <image name="menuLock.png" width="11" height="13"/>
         <image name="minus.png" width="50" height="47"/>
         <image name="plus.png" width="50" height="47"/>
         <image name="predictionBg.png" width="303" height="174"/>
@@ -1500,10 +1486,7 @@
             <relationships>
                 <relationship kind="outlet" name="gameTable" candidateClass="MatchTable"/>
                 <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="leagueInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="leagueInputField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="leaguePicker" candidateClass="LeaguePickerView"/>
-                <relationship kind="outlet" name="leagueSelector" candidateClass="UIView"/>
+                <relationship kind="outlet" name="leagueSelector" candidateClass="LeagueSelector"/>
                 <relationship kind="outlet" name="leagueTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="mainScrollView" candidateClass="MainScrollView"/>
                 <relationship kind="outlet" name="matchView" candidateClass="UIView"/>
@@ -1619,7 +1602,7 @@
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>

@@ -39,6 +39,7 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 + (void) logout;
 
 + (League*) currentLeague;
++ (void) setCurrentLeague:(League*) league;
 + (void) setCurrentLeague:(League*) league:(RemoteCallBlock) remoteCallBlock;
 
 + (NSArray*) matchRounds;

@@ -18,6 +18,7 @@
 		4E059D061525FA2E005ABD20 /* NSDate+DateConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E059D051525FA2E005ABD20 /* NSDate+DateConversion.m */; };
 		4E059D091525FFBC005ABD20 /* Timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E059D081525FFBC005ABD20 /* Timeline.m */; };
 		4E075F021574BE9A009CDF74 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E075F011574BE9A009CDF74 /* FXLabel.m */; };
+		4E10683A15778FA70021AD6B /* NewLeagueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E10683915778FA70021AD6B /* NewLeagueCell.m */; };
 		4E246D451554041100739D33 /* darkRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D411554041100739D33 /* darkRight.png */; };
 		4E246D461554041100739D33 /* darkRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D421554041100739D33 /* darkRight@2x.png */; };
 		4E246D471554041100739D33 /* darkLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D431554041100739D33 /* darkLeft.png */; };
@@ -246,6 +247,8 @@
 		4E075F011574BE9A009CDF74 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
 		4E09105C156FC8FC00A54406 /* TeamSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamSelectDelegate.h; sourceTree = "<group>"; };
 		4E09105E156FC90A00A54406 /* PlayerSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerSelectDelegate.h; sourceTree = "<group>"; };
+		4E10683815778FA70021AD6B /* NewLeagueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = NewLeagueCell.h; sourceTree = "<group>"; };
+		4E10683915778FA70021AD6B /* NewLeagueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewLeagueCell.m; sourceTree = "<group>"; };
 		4E246D411554041100739D33 /* darkRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkRight.png; sourceTree = "<group>"; };
 		4E246D421554041100739D33 /* darkRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkRight@2x.png"; sourceTree = "<group>"; };
 		4E246D431554041100739D33 /* darkLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkLeft.png; sourceTree = "<group>"; };
@@ -1054,6 +1057,8 @@
 				4ED8407B1575753600F69D96 /* LeagueSelector.m */,
 				4ED8407E1575789B00F69D96 /* LeagueCell.h */,
 				4ED8407F1575789B00F69D96 /* LeagueCell.m */,
+				4E10683815778FA70021AD6B /* NewLeagueCell.h */,
+				4E10683915778FA70021AD6B /* NewLeagueCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1366,6 +1371,7 @@
 				4E34665115757016009A5394 /* UIViewController+KNSemiModal.m in Sources */,
 				4ED8407C1575753600F69D96 /* LeagueSelector.m in Sources */,
 				4ED840801575789B00F69D96 /* LeagueCell.m in Sources */,
+				4E10683A15778FA70021AD6B /* NewLeagueCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
