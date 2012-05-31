@@ -87,6 +87,10 @@
             return NO;
         }
         
+        if (appNumber.intValue > versionNumber.intValue) {
+            return YES;
+        }
+        
         counter++;
         
     }
@@ -97,12 +101,12 @@
 
 
 - (BOOL) isRequiredVersionSatisfied {
+
     return [self isVersionSatisfied:self.requiredVersion];
 }
 
 - (BOOL) isLatestVersionSatisfied {
     return [self isVersionSatisfied:self.latestVersion];
 }
-
 
 @end
