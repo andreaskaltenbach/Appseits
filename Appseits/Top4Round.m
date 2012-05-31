@@ -16,7 +16,7 @@
     
     Top4Round *round = [[Top4Round alloc] init];
     
-    round.roundName = @"Top 4";
+    round.roundName = @"Topp 4";
     round.top4Tips = top4Tips;
     
     return round;
