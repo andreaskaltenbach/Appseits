@@ -33,6 +33,12 @@
         
         self.leagueTable.delegate = self;
         self.leagueTable.dataSource = self;
+        self.leagueTable.backgroundColor = [UIColor clearColor];
+        
+        UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:self.bounds];
+        backgroundImage.image = [[UIImage imageNamed:@"leagueSelectBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(90, 150, 90, 150)];
+        [self addSubview:backgroundImage];
+        [self sendSubviewToBack:backgroundImage];
     }
     return self;
 }
@@ -40,7 +46,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1 + [[BackendAdapter leagues] count] + 1;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -52,12 +57,15 @@
 
     // otherwise, it's an ordinary league cell
     LeagueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leagueCell"];
+    cell.textLabel.font = [UIFont systemFontOfSize:13];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    
     if (indexPath.row == 0) {
-        cell.textLabel.text = @"Superligan";
+        cell.leagueName.text = @"Superligan";
     }
     else {
         League *league = [[BackendAdapter leagues] objectAtIndex:indexPath.row - 1];
-        cell.textLabel.text = league.name;
+        cell.leagueName.text = league.name;
     }
     
     return cell;

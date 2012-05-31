@@ -173,6 +173,8 @@ static NSURL *downloadURL;
     
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor blackBackground];
+    
     // check for new app version
     VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
     [versionEnforcer checkVersion:@"http://em2012.brunoson.se/app/version.json"];
@@ -199,8 +201,6 @@ static NSURL *downloadURL;
     self.gameTable.scrollDelegate = self;
     self.rankingTable.scrollDelegate = self;
         
-    // setup match and ranking switcher
-    
     // setup of the scrollable timeline (iPhone)
     self.timelineScrollView.roundSelectDelegate = self;
     self.timelineScrollView.tournamentRounds = [BackendAdapter tournamentRounds];
@@ -442,10 +442,6 @@ static NSURL *downloadURL;
     return self.lastUpdated;
 }
 
-- (IBAction)logout:(id)sender {
-    //[BackendAdapter logout];
-    //[self.navigationController popViewControllerAnimated:YES];
-}
 
 # pragma mark TeamSelectDelegate
 

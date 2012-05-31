@@ -8,24 +8,58 @@
 
 #import "NewLeagueCell.h"
 
+static UIImage *buttonImage;
+
 @interface NewLeagueCell()
 @property (nonatomic, strong) UITextField* textInput;
+@property (nonatomic, strong) UIButton* okButton;
+@property (nonatomic, strong) UIButton* leagueButton;
 @end
 
 @implementation NewLeagueCell
 
 @synthesize delegate = _delegate;
 @synthesize textInput = _textInput;
+@synthesize leagueButton = _lLeagueButton;
+@synthesize okButton = _okButton;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
++ (void) initialize {
+    buttonImage = [[UIImage imageNamed:@"leagueSelectButton"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 5, 0, 5)];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithCoder:aDecoder];
     if (self) {
         
         self.textInput = (UITextField*) [self viewWithTag:1];
         self.textInput.delegate = self;
+        
+        self.okButton = (UIButton*) [self viewWithTag:2];
+        [self.okButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        [self.okButton setTitle:@"OK" forState:UIControlStateNormal];
+        [self.okButton setTitle:@"OK" forState:UIControlStateApplication];
+        [self.okButton setTitle:@"OK" forState:UIControlStateHighlighted];
+        [self.okButton setTitle:@"OK" forState:UIControlStateSelected];
+        
+        
+        self.leagueButton = (UIButton*) [self viewWithTag:3];
+        [self.leagueButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        [self.leagueButton setTitle:@"+ SKAPA EN NY LIGA" forState:UIControlStateNormal];
+        [self.leagueButton addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showInput)]];
     }
     return self;
+}
+
+- (void) showInput {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.leagueButton.alpha = 0;
+        self.okButton.alpha = 1;
+        self.textInput.alpha = 1;
+    }];
+    
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

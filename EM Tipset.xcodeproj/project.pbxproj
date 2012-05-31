@@ -19,6 +19,10 @@
 		4E059D091525FFBC005ABD20 /* Timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E059D081525FFBC005ABD20 /* Timeline.m */; };
 		4E075F021574BE9A009CDF74 /* FXLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E075F011574BE9A009CDF74 /* FXLabel.m */; };
 		4E10683A15778FA70021AD6B /* NewLeagueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E10683915778FA70021AD6B /* NewLeagueCell.m */; };
+		4E2399A71577D11A005D7A35 /* leagueSelectBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2399A31577D11A005D7A35 /* leagueSelectBackground@2x.png */; };
+		4E2399A81577D11A005D7A35 /* leagueSelectBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2399A41577D11A005D7A35 /* leagueSelectBackground.png */; };
+		4E2399A91577D11A005D7A35 /* leagueSelectButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2399A51577D11A005D7A35 /* leagueSelectButton@2x.png */; };
+		4E2399AA1577D11A005D7A35 /* leagueSelectButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2399A61577D11A005D7A35 /* leagueSelectButton.png */; };
 		4E246D451554041100739D33 /* darkRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D411554041100739D33 /* darkRight.png */; };
 		4E246D461554041100739D33 /* darkRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D421554041100739D33 /* darkRight@2x.png */; };
 		4E246D471554041100739D33 /* darkLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D431554041100739D33 /* darkLeft.png */; };
@@ -247,8 +251,12 @@
 		4E075F011574BE9A009CDF74 /* FXLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXLabel.m; sourceTree = "<group>"; };
 		4E09105C156FC8FC00A54406 /* TeamSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeamSelectDelegate.h; sourceTree = "<group>"; };
 		4E09105E156FC90A00A54406 /* PlayerSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerSelectDelegate.h; sourceTree = "<group>"; };
-		4E10683815778FA70021AD6B /* NewLeagueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = NewLeagueCell.h; sourceTree = "<group>"; };
+		4E10683815778FA70021AD6B /* NewLeagueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewLeagueCell.h; sourceTree = "<group>"; };
 		4E10683915778FA70021AD6B /* NewLeagueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewLeagueCell.m; sourceTree = "<group>"; };
+		4E2399A31577D11A005D7A35 /* leagueSelectBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leagueSelectBackground@2x.png"; sourceTree = "<group>"; };
+		4E2399A41577D11A005D7A35 /* leagueSelectBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leagueSelectBackground.png; sourceTree = "<group>"; };
+		4E2399A51577D11A005D7A35 /* leagueSelectButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leagueSelectButton@2x.png"; sourceTree = "<group>"; };
+		4E2399A61577D11A005D7A35 /* leagueSelectButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leagueSelectButton.png; sourceTree = "<group>"; };
 		4E246D411554041100739D33 /* darkRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkRight.png; sourceTree = "<group>"; };
 		4E246D421554041100739D33 /* darkRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkRight@2x.png"; sourceTree = "<group>"; };
 		4E246D431554041100739D33 /* darkLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkLeft.png; sourceTree = "<group>"; };
@@ -624,6 +632,10 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4E2399A31577D11A005D7A35 /* leagueSelectBackground@2x.png */,
+				4E2399A41577D11A005D7A35 /* leagueSelectBackground.png */,
+				4E2399A51577D11A005D7A35 /* leagueSelectButton@2x.png */,
+				4E2399A61577D11A005D7A35 /* leagueSelectButton.png */,
 				5BDB8F0D15740E31008E2ED6 /* lockGrayClosed.png */,
 				5BDB8F0E15740E31008E2ED6 /* lockGrayClosed@2x.png */,
 				5B6A361B1571174E007D88B7 /* lockUnfinishedInset@2x.png */,
@@ -1290,6 +1302,10 @@
 				5BDB8F1015740E31008E2ED6 /* lockGrayClosed@2x.png in Resources */,
 				4E346646157508CD009A5394 /* secondConfirm.png in Resources */,
 				4E346647157508CD009A5394 /* secondConfirm@2x.png in Resources */,
+				4E2399A71577D11A005D7A35 /* leagueSelectBackground@2x.png in Resources */,
+				4E2399A81577D11A005D7A35 /* leagueSelectBackground.png in Resources */,
+				4E2399A91577D11A005D7A35 /* leagueSelectButton@2x.png in Resources */,
+				4E2399AA1577D11A005D7A35 /* leagueSelectButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

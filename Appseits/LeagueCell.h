@@ -10,4 +10,6 @@
 
 @interface LeagueCell : UITableViewCell
 
+@property (nonatomic, strong) UILabel* leagueName;
+
 @end
