@@ -623,11 +623,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="7Ny-Yz-OBu">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tips" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="eg8-s2-x53" customClass="FXLabel">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                                <rect key="frame" x="10" y="0.0" width="30" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -640,7 +640,7 @@
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" id="j7w-Py-eJV">
-                                        <rect key="frame" x="60" y="0.0" width="100" height="44"/>
+                                        <rect key="frame" x="50" y="0.0" width="100" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" text="Ranking" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="puY-Nj-6zL" customClass="FXLabel">

@@ -241,6 +241,14 @@ static NSURL *downloadURL;
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *menu = [userDefaults objectForKey:MENU_KEY];
+    if ([menu isEqualToString:@"RANKING"]) {
+        // select rankings directly
+        [self switchToRanking];
+    }
+    else {
+        // select match list directly
+        [self resultSelected:self];
+    }
        
     self.allTeams = [BackendAdapter teamList];
    
@@ -374,7 +382,11 @@ static NSURL *downloadURL;
 }
 
 - (IBAction)resultSelected:(id)sender {
-    NSLog(@"Result selected");
+    // store menu selection on client side
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:@"TIPS" forKey:MENU_KEY];
+    [userDefaults synchronize];
+    
     self.rankingMenuItem.backgroundColor = [UIColor clearColor];
     self.resultMenuItem.backgroundColor = [UIColor menuSelectedBackground];
     
@@ -385,7 +397,11 @@ static NSURL *downloadURL;
 }
 
 - (void) switchToRanking {
-    NSLog(@"Ranking selected");
+    
+    // store menu selection on client side
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:@"RANKING" forKey:MENU_KEY];
+    [userDefaults synchronize];
     
     //TODO - enable ranking again, when view is ready
     self.rankingMenuItem.backgroundColor = [UIColor menuSelectedBackground];
