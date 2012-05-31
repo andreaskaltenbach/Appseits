@@ -23,6 +23,8 @@
 		4E2399A81577D11A005D7A35 /* leagueSelectBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2399A41577D11A005D7A35 /* leagueSelectBackground.png */; };
 		4E2399A91577D11A005D7A35 /* leagueSelectButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2399A51577D11A005D7A35 /* leagueSelectButton@2x.png */; };
 		4E2399AA1577D11A005D7A35 /* leagueSelectButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2399A61577D11A005D7A35 /* leagueSelectButton.png */; };
+		4E2399AE1577DEEB005D7A35 /* dropDownIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2399AC1577DEEB005D7A35 /* dropDownIndicator@2x.png */; };
+		4E2399AF1577DEEB005D7A35 /* dropDownIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2399AD1577DEEB005D7A35 /* dropDownIndicator.png */; };
 		4E246D451554041100739D33 /* darkRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D411554041100739D33 /* darkRight.png */; };
 		4E246D461554041100739D33 /* darkRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D421554041100739D33 /* darkRight@2x.png */; };
 		4E246D471554041100739D33 /* darkLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E246D431554041100739D33 /* darkLeft.png */; };
@@ -257,6 +259,8 @@
 		4E2399A41577D11A005D7A35 /* leagueSelectBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leagueSelectBackground.png; sourceTree = "<group>"; };
 		4E2399A51577D11A005D7A35 /* leagueSelectButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leagueSelectButton@2x.png"; sourceTree = "<group>"; };
 		4E2399A61577D11A005D7A35 /* leagueSelectButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leagueSelectButton.png; sourceTree = "<group>"; };
+		4E2399AC1577DEEB005D7A35 /* dropDownIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropDownIndicator@2x.png"; sourceTree = "<group>"; };
+		4E2399AD1577DEEB005D7A35 /* dropDownIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropDownIndicator.png; sourceTree = "<group>"; };
 		4E246D411554041100739D33 /* darkRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkRight.png; sourceTree = "<group>"; };
 		4E246D421554041100739D33 /* darkRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkRight@2x.png"; sourceTree = "<group>"; };
 		4E246D431554041100739D33 /* darkLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = darkLeft.png; sourceTree = "<group>"; };
@@ -632,6 +636,8 @@
 		4E050D79152209B20063EDED /* images */ = {
 			isa = PBXGroup;
 			children = (
+				4E2399AC1577DEEB005D7A35 /* dropDownIndicator@2x.png */,
+				4E2399AD1577DEEB005D7A35 /* dropDownIndicator.png */,
 				4E2399A31577D11A005D7A35 /* leagueSelectBackground@2x.png */,
 				4E2399A41577D11A005D7A35 /* leagueSelectBackground.png */,
 				4E2399A51577D11A005D7A35 /* leagueSelectButton@2x.png */,
@@ -1306,6 +1312,8 @@
 				4E2399A81577D11A005D7A35 /* leagueSelectBackground.png in Resources */,
 				4E2399A91577D11A005D7A35 /* leagueSelectButton@2x.png in Resources */,
 				4E2399AA1577D11A005D7A35 /* leagueSelectButton.png in Resources */,
+				4E2399AE1577DEEB005D7A35 /* dropDownIndicator@2x.png in Resources */,
+				4E2399AF1577DEEB005D7A35 /* dropDownIndicator.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
