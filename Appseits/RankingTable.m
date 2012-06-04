@@ -13,17 +13,14 @@
 #import "RankingCell.h"
 #import "BackendAdapter.h"
 
-#define SPINNER_DIMENSION 50
-
 @interface RankingTable()
-@property (nonatomic, strong) UIView *loadingView;
+
 
 @property (nonatomic, strong) League* league;
 @end
 
 @implementation RankingTable
 
-@synthesize loadingView = _loadingView;
 @synthesize league = _league;
 @synthesize overviewViewController = _overviewViewController;
 
@@ -62,61 +59,13 @@
     return cell;
 }
 
-- (UIView*) loadingView {
-    if (!_loadingView) {;
-    
-        _loadingView = [[UIView alloc] initWithFrame:self.overviewViewController.rankingView.bounds];
-        _loadingView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        _loadingView.backgroundColor = [UIColor whiteColor];
-        _loadingView.alpha = 0.6;
-        
-        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(self.overviewViewController.rankingView.bounds.size.width/2 - SPINNER_DIMENSION/2, self.overviewViewController.rankingView.bounds.size.height/2 - SPINNER_DIMENSION/2, SPINNER_DIMENSION, SPINNER_DIMENSION)];
-        spinner.color = [UIColor darkGreen];
-        spinner.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        [spinner startAnimating];
-        
-        [_loadingView addSubview:spinner];
-        [self.overviewViewController.rankingView addSubview:_loadingView];
-    }
-    return _loadingView;
-}
+
 
 - (void) refreshRankings {
     
     // the league has changed -> refresh the ranking
-    
-    
-    if (self.league != BackendAdapter.currentLeague) {
-        self.league = BackendAdapter.currentLeague;
-        
-        self.loadingView.hidden = NO;
-        
-        [BackendAdapter loadRankings:^(RemoteCallResult remoteResult) {
-            
-            switch (remoteResult) {
-                case NO_INTERNET:
-                    [self.overviewViewController showError:@"No internet"];
-                    break;
-                    
-                case INTERNAL_SERVER_ERROR:
-                case INTERNAL_CLIENT_ERROR:
-                    [self.overviewViewController showError:@"Internal"];
-                    break;
-                    
-                case OK:
-                    
-                    [self.overviewViewController updateRankingInScoreView]; 
-                    [self scrollToMyself];
-                    
-                    [self reloadData];
-                    
-                                        break;
-                    
-            }
-            self.loadingView.hidden = YES;
-        }];
-
-    }
+    [self reloadData];
+    [self scrollToMyself];
 }
 
 - (void) scrollToMyself {

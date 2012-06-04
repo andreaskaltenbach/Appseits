@@ -40,7 +40,7 @@ static UIImage *userGray;
 @synthesize myself = _myself;
 @synthesize userImage = _userImage;
 
-- (void) initialize {
++ (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
     trendConstant = [UIImage imageNamed:@"trendNeutral.png"];
     trendDown = [UIImage imageNamed:@"trendDown.png"];
@@ -53,7 +53,7 @@ static UIImage *userGray;
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.rank = (UILabel*) [self viewWithTag:1];
-        self.trend = (UIImageView*) [self viewWithTag:2];
+        //self.trend = (UIImageView*) [self viewWithTag:2];
         
         self.userImage = (UIImageView*) [self viewWithTag:999];
         self.userName = (UILabel*) [self viewWithTag:4];        
@@ -132,8 +132,13 @@ static UIImage *userGray;
     CGRect userNameFrame = self.userName.frame;
     if (self.myself) {
         
-        self.userImage.hidden = NO;
-        self.userImage.image = userGray;
+        if (selected) {
+            self.userImage.hidden = YES;
+        }
+        else {
+            self.userImage.hidden = NO;
+            self.userImage.image = userGreen;
+        }
         
         userNameFrame.origin.x = 72;
         userNameFrame.size.width = 210;

@@ -41,6 +41,8 @@
 #import "LeagueSelector.h"
 #import "CompetitorStatisticsViewController.h"
 
+#define SPINNER_DIMENSION 50
+
 static UIImage *trendUp;
 static UIImage *trendConstant;
 static UIImage *trendDown;
@@ -83,7 +85,7 @@ static NSURL *downloadURL;
 @property (strong, nonatomic) IBOutlet UILabel *totalRanks;
 @property (strong, nonatomic) IBOutlet UILabel *rankSeparator;
 @property (nonatomic, strong) League* currentLeague;
-
+@property (nonatomic, strong) UIView *loadingView;
 
 @end
 
@@ -134,6 +136,7 @@ static NSURL *downloadURL;
 @synthesize currentMatchSelection = _currentMatchSelection;
 @synthesize currentLeague = _currentLeague;
 @synthesize currentCompetitorId = _currentCompetitorId;
+@synthesize loadingView = _loadingView;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -434,7 +437,58 @@ static NSURL *downloadURL;
     self.rankingTable.scrollsToTop = YES;
     [self.menuDependingScrollView scrollToRankings];
     
-    [self.rankingTable refreshRankings];
+    [self loadRankings];
+}
+
+- (void) loadRankings {
+    
+    if (self.currentLeague != BackendAdapter.currentLeague) {
+        self.currentLeague = BackendAdapter.currentLeague;
+        
+        self.loadingView.hidden = NO;
+        
+        [BackendAdapter loadRankings:^(RemoteCallResult remoteResult) {
+            
+            switch (remoteResult) {
+                case NO_INTERNET:
+                    [self showError:@"No internet"];
+                    break;
+                    
+                case INTERNAL_SERVER_ERROR:
+                case INTERNAL_CLIENT_ERROR:
+                    [self showError:@"Internal"];
+                    break;
+                    
+                case OK:
+                    
+                    [self updateRankingInScoreView]; 
+                    [self.rankingTable refreshRankings];
+                    break;
+                    
+            }
+            self.loadingView.hidden = YES;
+        }];
+    }
+
+}
+
+- (UIView*) loadingView {
+    if (!_loadingView) {;
+        
+        _loadingView = [[UIView alloc] initWithFrame:self.rankingView.bounds];
+        _loadingView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        _loadingView.backgroundColor = [UIColor whiteColor];
+        _loadingView.alpha = 0.6;
+        
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(self.rankingView.bounds.size.width/2 - SPINNER_DIMENSION/2, self.rankingView.bounds.size.height/2 - SPINNER_DIMENSION/2, SPINNER_DIMENSION, SPINNER_DIMENSION)];
+        spinner.color = [UIColor darkGreen];
+        spinner.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        [spinner startAnimating];
+        
+        [_loadingView addSubview:spinner];
+        [self.rankingView addSubview:_loadingView];
+    }
+    return _loadingView;
 }
 
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
@@ -455,6 +509,13 @@ static NSURL *downloadURL;
                 // update of the timeline (iPad)
                 self.timeline.matchRounds = [BackendAdapter matchRounds];
                 self.roundSelector.tournamentRounds = [BackendAdapter combinedTop4AndScorerRoundAndMatchRounds];
+                
+                
+                // update the score view
+                [self updateRankingInScoreView];
+                
+                // update the ranking view
+                [self.rankingTable refreshRankings];
         }
         
         self.lastUpdated = [NSDate date];
