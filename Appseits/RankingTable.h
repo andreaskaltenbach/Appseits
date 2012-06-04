@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "ScrollTriggeringTableView.h"
+#import "OverviewViewController.h"
 
 @interface RankingTable : ScrollTriggeringTableView<UITableViewDataSource>
+
+@property (nonatomic, weak) OverviewViewController *overviewViewController;
+
+- (void) refreshRankings;
 
 @end

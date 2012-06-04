@@ -12,15 +12,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GUt-xg-79E">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="Bbq-7L-vAw">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="Kf9-eQ-q7o">
-                                        <rect key="frame" x="0.0" y="220" width="320" height="240"/>
+                                        <rect key="frame" x="0.0" y="176" width="320" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="70d-yG-rIU">
@@ -108,15 +108,15 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XqY-2R-k6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="6qr-mS-VaE" customClass="OverviewViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iug-QR-3Ui">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="pqq-yL-Lji" userLabel="league selector" customClass="LeagueSelector">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bed-w3-mGg">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="separatorColor" red="0.14509804546833038" green="0.29803922772407532" blue="0.12549020349979401" alpha="1" colorSpace="deviceRGB"/>
                                         <prototypes>
@@ -167,7 +167,7 @@
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                         </button>
-                                                        <textField opaque="NO" clipsSubviews="YES" alpha="0.0" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Namlös liga" minimumFontSize="17" id="UO8-9s-4YZ">
+                                                        <textField opaque="NO" clipsSubviews="YES" alpha="0.0" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ge din liga ett namn!" minimumFontSize="17" id="UO8-9s-4YZ">
                                                             <rect key="frame" x="10" y="14" width="250" height="31"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -212,7 +212,7 @@
                                 </subviews>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="aer-g7-G9t" userLabel="main scroll view" customClass="MainScrollView">
-                                <rect key="frame" x="0.0" y="92" width="320" height="370"/>
+                                <rect key="frame" x="0.0" y="48" width="320" height="370"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="DVm-iQ-cdc" userLabel="scoreView">
@@ -539,7 +539,7 @@
                                                 <rect key="frame" x="320" y="0.0" width="320" height="320"/>
                                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" id="FMd-Zt-ACs" userLabel="lastUpdateView" customClass="RoundTimeConstraintRow">
+                                                    <view contentMode="scaleToFill" id="lp6-i4-TFk" userLabel="round time constraints" customClass="RoundTimeConstraintRow">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="27"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -549,37 +549,38 @@
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="star.png" id="G52-vx-Put">
-                                                                <rect key="frame" x="20" y="11" width="11" height="10"/>
+                                                                <rect key="frame" x="15" y="11" width="11" height="10"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </imageView>
                                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="verticalSeparator.png" id="cE8-vx-qR8">
-                                                                <rect key="frame" x="47" y="0.0" width="2" height="30"/>
+                                                                <rect key="frame" x="41" y="0.0" width="2" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </imageView>
                                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Namn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="N4h-DH-JMK">
-                                                                <rect key="frame" x="58" y="5" width="46" height="21"/>
+                                                                <rect key="frame" x="52" y="5" width="46" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="verticalSeparator.png" id="JeT-Rv-v0a">
-                                                                <rect key="frame" x="243" y="0.0" width="2" height="30"/>
+                                                                <rect key="frame" x="272" y="0.0" width="2" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                                                             </imageView>
-                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Poäng" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="BA4-LL-cqF">
-                                                                <rect key="frame" x="260" y="5" width="50" height="21"/>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Poäng" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="BA4-LL-cqF">
+                                                                <rect key="frame" x="272" y="5" width="48" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </view>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="S6h-1E-dgG" customClass="RankingTable">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="S6h-1E-dgG" customClass="RankingTable">
                                                         <rect key="frame" x="0.0" y="57" width="320" height="265"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="separatorColor" red="0.73333334922790527" green="0.78039222955703735" blue="0.78431379795074463" alpha="1" colorSpace="deviceRGB"/>
                                                         <prototypes>
                                                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="rankingCell" id="H7C-qe-iOf" customClass="RankingCell">
                                                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
@@ -588,21 +589,23 @@
                                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <view tag="100" contentMode="scaleToFill" id="ck0-P1-GIE" userLabel="backgroundView">
+                                                                        <view tag="100" contentMode="scaleToFill" id="ck0-P1-GIE" userLabel="backgroundView" customClass="SSGradientView">
                                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" text="Christofer Falkman" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="82D-TX-LdI">
-                                                                                    <rect key="frame" x="56" y="12" width="179" height="21"/>
-                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                </label>
-                                                                            </subviews>
                                                                         </view>
-                                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6pC-a9-tFe">
-                                                                            <rect key="frame" x="0.0" y="12" width="27" height="21"/>
+                                                                        <imageView userInteractionEnabled="NO" tag="999" contentMode="scaleToFill" image="userGreen@2x.png" id="tcV-RL-s8m">
+                                                                            <rect key="frame" x="52" y="14" width="11" height="16"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        </imageView>
+                                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" text="Christofer Falkman" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="82D-TX-LdI">
+                                                                            <rect key="frame" x="52" y="0.0" width="210" height="44"/>
+                                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        </label>
+                                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="6pC-a9-tFe">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="42" height="44"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -613,17 +616,17 @@
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         </imageView>
                                                                         <view contentMode="scaleToFill" id="PE7-yr-Mo6" userLabel="separator1">
-                                                                            <rect key="frame" x="47" y="0.0" width="1" height="44"/>
+                                                                            <rect key="frame" x="41" y="0.0" width="1" height="44"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <color key="backgroundColor" red="0.3333333432674408" green="0.45098042488098145" blue="0.46274513006210327" alpha="1" colorSpace="deviceRGB"/>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" id="Mmk-kn-dAi" userLabel="separator2">
-                                                                            <rect key="frame" x="243" y="0.0" width="1" height="44"/>
+                                                                            <rect key="frame" x="272" y="0.0" width="1" height="44"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                                             <color key="backgroundColor" red="0.33333334329999997" green="0.45098042490000001" blue="0.46274513010000001" alpha="1" colorSpace="deviceRGB"/>
                                                                         </view>
-                                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" text="57.4" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xBc-hc-nXt">
-                                                                            <rect key="frame" x="250" y="12" width="61" height="21"/>
+                                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" text="57.4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="xBc-hc-nXt">
+                                                                            <rect key="frame" x="272" y="0.0" width="48" height="44"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -714,6 +717,7 @@
                         <segue destination="HA9-ls-g95" kind="push" identifier="toPlayerTeamList" id="9gv-1C-j4F"/>
                         <segue destination="yhp-JU-dlz" kind="modal" id="ZcN-Vc-2q2"/>
                         <segue destination="yhp-JU-dlz" kind="modal" identifier="toMatchPrediction" modalTransitionStyle="flipHorizontal" id="aNG-Dg-Dgt"/>
+                        <segue destination="qXZ-s9-LVr" kind="push" identifier="toCompetitorStatistic" id="xwz-Ij-u5F"/>
                     </connections>
                 </viewController>
                 <tapGestureRecognizer id="MiS-WY-3ru">
@@ -735,11 +739,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3V-Y9-b3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="aOb-qA-Le6" customClass="TeamViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oqh-VG-r0N">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7t8-aW-RwO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="s5E-hn-VyL">
@@ -817,17 +821,63 @@
             </objects>
             <point key="canvasLocation" x="1167" y="52"/>
         </scene>
+        <!--Competitor Statistics View Controller-->
+        <scene sceneID="cy3-hu-bgM">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ke-tv-Oqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="qXZ-s9-LVr" customClass="CompetitorStatisticsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sRq-xR-Bcs">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tippade Matcher" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="tLJ-VI-CLX">
+                                <rect key="frame" x="42" y="20" width="130" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Statistik" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="LkP-3f-4Aa">
+                                <rect key="frame" x="156" y="20" width="130" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="aSB-tf-G71">
+                                <rect key="frame" x="0.0" y="60" width="320" height="325"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="GqZ-vh-y7Y">
+                                <rect key="frame" x="50" y="9" width="207" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="o9q-sb-WbZ"/>
+                    <connections>
+                        <outlet property="scrollView" destination="aSB-tf-G71" id="UG9-LC-y0m"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="657" y="526"/>
+        </scene>
         <!--Player Team View Controller-->
         <scene sceneID="QID-tl-DCp">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1Q-7I-NHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="HA9-ls-g95" customClass="PlayerTeamViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Td-yd-VBI">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LTd-j2-Iod">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="gEA-5X-5i1">
@@ -901,11 +951,11 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4V-lc-GD6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="1j4-57-w0D" customClass="PlayerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uWh-0u-kLJ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OPt-3v-6Zz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="WH5-me-NNQ">
@@ -1346,7 +1396,7 @@
         <scene sceneID="XMU-6v-OB7">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PM3-OV-jGG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController navigationBarHidden="YES" id="ROM-IM-TKG" sceneMemberID="viewController">
+                <navigationController id="ROM-IM-TKG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Jdd-F7-ZzU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1380,204 +1430,9 @@
         <image name="secondConfirm@2x.png" width="244" height="86"/>
         <image name="star.png" width="22" height="20"/>
         <image name="stroke.png" width="100" height="16"/>
+        <image name="userGreen@2x.png" width="22" height="32"/>
         <image name="verticalSeparator.png" width="6" height="88"/>
     </resources>
-    <classes>
-        <class className="AppseitsPageControl" superclassName="UIPageControl">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppseitsPageControl.h"/>
-        </class>
-        <class className="AppseitsSelectionCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppseitsSelectionCell.h"/>
-        </class>
-        <class className="AppseitsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppseitsViewController.h"/>
-        </class>
-        <class className="CPTGraphHostingView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
-        </class>
-        <class className="DoubledLightBlueGradientView" superclassName="SSGradientView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DoubledLightBlueGradientView.h"/>
-        </class>
-        <class className="FXLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FXLabel.h"/>
-        </class>
-        <class className="LeagueCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeagueCell.h"/>
-        </class>
-        <class className="LeagueSelector" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LeagueSelector.h"/>
-        </class>
-        <class className="LightBlueGradient" superclassName="SSGradientView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LightBlueGradient.h"/>
-        </class>
-        <class className="LoginViewController" superclassName="AppseitsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="emailInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="forgotPasswordButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="inputBackgroundView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="loginView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="passwordInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="separator" candidateClass="UIView"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="MainScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainScrollView.h"/>
-        </class>
-        <class className="MatchCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchCell.h"/>
-        </class>
-        <class className="MatchPredictionCell" superclassName="MatchCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchPredictionCell.h"/>
-        </class>
-        <class className="MatchPredictionViewController" superclassName="AppseitsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchPredictionViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="firstTeamFlag" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="firstTeamGoalsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="firstTeamLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="roundConstraints" candidateClass="RoundTimeConstraintRow"/>
-                <relationship kind="outlet" name="secondTeamFlag" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="secondTeamGoalsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondTeamLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MatchResultCell" superclassName="MatchCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchResultCell.h"/>
-        </class>
-        <class className="MatchTable" superclassName="ScrollTriggeringTableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchTable.h"/>
-        </class>
-        <class className="MenuDependendScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuDependendScrollView.h"/>
-        </class>
-        <class className="NewLeagueCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewLeagueCell.h"/>
-        </class>
-        <class className="OverviewViewController" superclassName="AppseitsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OverviewViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="gameTable" candidateClass="MatchTable"/>
-                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="leagueSelector" candidateClass="LeagueSelector"/>
-                <relationship kind="outlet" name="leagueTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="mainScrollView" candidateClass="MainScrollView"/>
-                <relationship kind="outlet" name="matchView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="menu" candidateClass="UIView"/>
-                <relationship kind="outlet" name="menuDependingScrollView" candidateClass="MenuDependendScrollView"/>
-                <relationship kind="outlet" name="pointInCurrentRound" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="pointsTotal" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rankingMenu" candidateClass="FXLabel"/>
-                <relationship kind="outlet" name="rankingMenuItem" candidateClass="UIView"/>
-                <relationship kind="outlet" name="rankingMenuView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="rankingTable" candidateClass="RankingTable"/>
-                <relationship kind="outlet" name="rankingTableHeader" candidateClass="UIView"/>
-                <relationship kind="outlet" name="resultMenuItem" candidateClass="UIView"/>
-                <relationship kind="outlet" name="roundConstraintBar" candidateClass="RoundTimeConstraintRow"/>
-                <relationship kind="outlet" name="roundSelector" candidateClass="RoundSelector"/>
-                <relationship kind="outlet" name="scoreView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scorerContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scorerView" candidateClass="ScorerView"/>
-                <relationship kind="outlet" name="separatorView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="settingsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timeline" candidateClass="Timeline"/>
-                <relationship kind="outlet" name="timelineScrollView" candidateClass="TimelineScrollView"/>
-                <relationship kind="outlet" name="tipsMenu" candidateClass="FXLabel"/>
-                <relationship kind="outlet" name="top4AndScorerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="top4ContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="top4View" candidateClass="Top4View"/>
-                <relationship kind="outlet" name="trendImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="PagedView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PagedView.h"/>
-        </class>
-        <class className="PlayerCell" superclassName="AppseitsSelectionCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerCell.h"/>
-        </class>
-        <class className="PlayerTeamCell" superclassName="TeamCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerTeamCell.h"/>
-        </class>
-        <class className="PlayerTeamViewController" superclassName="TeamViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerTeamViewController.h"/>
-        </class>
-        <class className="PlayerViewController" superclassName="AppseitsViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlayerViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="loadingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="RankingCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingCell.h"/>
-        </class>
-        <class className="RankingTable" superclassName="ScrollTriggeringTableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RankingTable.h"/>
-        </class>
-        <class className="RoundSelector" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundSelector.h"/>
-        </class>
-        <class className="RoundTimeConstraintRow" superclassName="SSGradientView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RoundTimeConstraintRow.h"/>
-        </class>
-        <class className="SSBorderedView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSBorderedView.h"/>
-        </class>
-        <class className="SSGradientView" superclassName="SSBorderedView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SSGradientView.h"/>
-        </class>
-        <class className="ScorerView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScorerView.h"/>
-        </class>
-        <class className="ScrollTriggeringTableView" superclassName="UITableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ScrollTriggeringTableView.h"/>
-        </class>
-        <class className="SettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="envelopeImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="facebookButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="logoutButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="TeamCell" superclassName="AppseitsSelectionCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamCell.h"/>
-        </class>
-        <class className="TeamViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TeamViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="loadingView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="table" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="trophyImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="Timeline" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Timeline.h"/>
-        </class>
-        <class className="TimelineScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineScrollView.h"/>
-        </class>
-        <class className="Top4View" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/Top4View.h"/>
-        </class>
-        <class className="UnfinishedMatchViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UnfinishedMatchViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="graphView" candidateClass="CPTGraphHostingView"/>
-                <relationship kind="outlet" name="pageIndicator" candidateClass="UIPageControl"/>
-                <relationship kind="outlet" name="resultButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="PagedView"/>
-                <relationship kind="outlet" name="spreadButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

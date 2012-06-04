@@ -129,7 +129,7 @@
 }
 
 + (UIColor *) rankingSelected {
-    return [UIColor colorWithRed:116.0/255.0f green:173.0f/255.0f blue:54.0f/255.0f alpha:1];
+    return [UIColor colorWithRed:116.0/255.0f green:173.0f/255.0f blue:54.0f/255.0f alpha:0.5];
 }
 
 + (UIColor *) rankingOdd {

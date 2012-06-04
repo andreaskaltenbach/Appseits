@@ -247,5 +247,10 @@ static UIImage* confirmButtonImage;
     }];
 }
 
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 
 @end

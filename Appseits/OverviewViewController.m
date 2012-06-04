@@ -39,6 +39,7 @@
 #import "FXLabel.h"
 #import "UIViewController+KNSemiModal.h"
 #import "LeagueSelector.h"
+#import "CompetitorStatisticsViewController.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -80,6 +81,7 @@ static NSURL *downloadURL;
 @property (strong, nonatomic) IBOutlet UITableView *leagueTable;
 
 @property (nonatomic, strong) League* currentLeague;
+
 @end
 
 @implementation OverviewViewController
@@ -123,6 +125,7 @@ static NSURL *downloadURL;
 @synthesize leagueTable = _leagueTable;
 @synthesize currentMatchSelection = _currentMatchSelection;
 @synthesize currentLeague = _currentLeague;
+@synthesize currentCompetitorId = _currentCompetitorId;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -200,6 +203,7 @@ static NSURL *downloadURL;
     self.gameTable.overviewViewController = self;
     self.gameTable.scrollDelegate = self;
     self.rankingTable.scrollDelegate = self;
+    self.rankingTable.overviewViewController = self;
         
     // setup of the scrollable timeline (iPhone)
     self.timelineScrollView.roundSelectDelegate = self;
@@ -239,17 +243,8 @@ static NSURL *downloadURL;
     
     self.scoreView.backgroundColor = [UIColor squareBackground];
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *menu = [userDefaults objectForKey:MENU_KEY];
-    if ([menu isEqualToString:@"RANKING"]) {
-        // select rankings directly
-        [self switchToRanking];
-    }
-    else {
-        // select match list directly
-        [self resultSelected:self];
-    }
-       
+    
+    
     self.allTeams = [BackendAdapter teamList];
    
     // setup top4 view
@@ -269,6 +264,19 @@ static NSURL *downloadURL;
     // setup league selector
     [self refreshRankingLabel];
     self.leagueSelector.leagueSelectionDelegate = self;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *menu = [userDefaults objectForKey:MENU_KEY];
+    if ([menu isEqualToString:@"RANKING"]) {
+        // select rankings directly
+        [self switchToRanking];
+    }
+    else {
+        // select match list directly
+        [self resultSelected:self];
+    }
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -409,8 +417,9 @@ static NSURL *downloadURL;
     
     self.gameTable.scrollsToTop = NO;
     self.rankingTable.scrollsToTop = YES;
-    
     [self.menuDependingScrollView scrollToRankings];
+    
+    [self.rankingTable refreshRankings];
 }
 
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
@@ -491,6 +500,11 @@ static NSURL *downloadURL;
         MatchPredictionViewController *matchPredictionController = segue.destinationViewController;
         matchPredictionController.match = self.currentMatchSelection;
         matchPredictionController.overviewViewController = self;
+    }
+    
+    if ([segue.identifier isEqualToString:@"toCompetitorStatistic"]) {
+        CompetitorStatisticsViewController *statisticsController = segue.destinationViewController;
+        statisticsController.userId = self.currentCompetitorId;
     }
 }
 

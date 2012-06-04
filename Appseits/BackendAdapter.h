@@ -13,7 +13,8 @@
 #import "ScorerRound.h"
 #import "Top4Round.h"
 
-#define SERVER_URL @"http://emtipset.dev.stendahls.se"
+//#define SERVER_URL @"http://emtipset.dev.stendahls.se"
+#define SERVER_URL @"http://em2012.brunoson.se"
 
 typedef enum {
     OK,
@@ -66,7 +67,11 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 + (void) postPredictionForPlace:(int) place andPlayer: (NSNumber*) playerId: (RemoteCallBlock) remoteCallBlock;
 
 + (NSString*) email;
++ (NSString*) userId;
 
++ (void) loadRankings:(RemoteCallBlock) remoteCallBlock;
+
++ (void) loadAllCompetitors:(RemoteCallBlock) remoteCallBlock;
 
 
 

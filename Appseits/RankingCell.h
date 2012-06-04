@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) Ranking *ranking;
 
-- (void) odd;
-- (void) even;
+@property BOOL even;
 
 @end

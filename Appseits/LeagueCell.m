@@ -10,7 +10,7 @@
 #import "UIColor+AppColors.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface  LeagueCell()
+@interface  LeagueCell()    
 @property (nonatomic, strong) UIView* selectedView;
 @end
 
@@ -41,15 +41,15 @@
     self.selectedView.hidden = !selected;
 }
 
-- (void) setHighlighted:(BOOL)highlighted {
-    
-}
-
 - (UILabel*) leagueName {
     if (_leagueName) return _leagueName;
     
     _leagueName = (UILabel*) [self viewWithTag:1];
     return _leagueName;
+}
+
+- (void) setHighlighted:(BOOL)highlighted {
+    
 }
 
 - (void) setHighlighted:(BOOL)highlighted animated:(BOOL)animated {

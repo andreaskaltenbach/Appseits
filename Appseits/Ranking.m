@@ -7,25 +7,34 @@
 //
 
 #import "Ranking.h"
+#import "BackendAdapter.h"
 
 @implementation Ranking
 
 @synthesize trend = _trend;
-@synthesize userId = _userId;
-@synthesize userName = _userName;
+@synthesize competitorId = _competitorId;
+@synthesize competitorName = _competitorName;
 @synthesize totalPoints = _totalPoints;
-@synthesize gameBetPoints = _gameBetPoints;
-@synthesize oneOnOnePoints = _oneOnOnePoints;
-@synthesize topScorerPoints = _topScorerPoints;
-@synthesize topFourPoints = _topFourPoints;
+@synthesize correctMatchWinnerPredictionPoints = _correctMatchWinnerPredictionPoints;
+@synthesize topScorerPredictionPoints = _topScorerPredictionPoints;
+@synthesize perfectMatchPredictionPoints = _perfectMatchPredictionPoints;
+@synthesize championshipWinnerPredictionPoints = _championshipWinnerPredictionPoints;
 @synthesize rank = _rank;
 
 + (Ranking*) rankingFromJson:(NSDictionary*) jsonData {
     Ranking *ranking = [[Ranking alloc] init];
-    ranking.userId = [jsonData objectForKey:@"userId"];
-    ranking.userName = [jsonData objectForKey:@"userName"];
-    NSNumber *points = [jsonData objectForKey:@"points"];
-    if (points) ranking.totalPoints = points;
+    ranking.rank = [jsonData objectForKey:@"rankingPosition"];
+    ranking.competitorId = [jsonData objectForKey:@"competitorUserId"];
+    ranking.competitorName = [jsonData objectForKey:@"competitorName"];
+    NSArray *points = [jsonData objectForKey:@"points"];
+    
+    if (points) {
+        ranking.totalPoints = [points valueForKey:@"totalPoints"];
+        ranking.perfectMatchPredictionPoints = [points valueForKey:@"perfectMatchPredictionPoints"];
+        ranking.correctMatchWinnerPredictionPoints = [points valueForKey:@"correctMatchWinnerPredictionPoints"];
+        ranking.topScorerPredictionPoints = [points valueForKey:@"topScorerPredictionPoints"];
+        ranking.championshipWinnerPredictionPoints = [points valueForKey:@"championshipWinnerPredictionPoints"];
+    }
     
     
     NSString *trend = [jsonData objectForKey:@"trend"];
@@ -41,18 +50,18 @@
         }                 
     }
     
-    if (points) ranking.totalPoints = points;
     return ranking;
+}
+
+- (BOOL) isMyRanking {
+    return [[BackendAdapter userId] isEqualToString:self.competitorId];
 }
 
 + (NSArray*) rankingsFromJson: (NSArray*) jsonRankings {
 
-    int counter = 1;
-    
     NSMutableArray *rankings = [NSMutableArray array];
     for (NSDictionary *rankingData in jsonRankings) {
         Ranking *ranking = [Ranking rankingFromJson:rankingData];
-        ranking.rank = [NSNumber numberWithInt:counter++];
         [rankings addObject:ranking];
     }
     

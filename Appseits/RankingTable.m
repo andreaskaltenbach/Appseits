@@ -16,14 +16,16 @@
 #define SPINNER_DIMENSION 50
 
 @interface RankingTable()
-@property (nonatomic, strong) NSArray *rankings;
 @property (nonatomic, strong) UIView *loadingView;
+
+@property (nonatomic, strong) League* league;
 @end
 
 @implementation RankingTable
 
-@synthesize rankings = _rankings;
 @synthesize loadingView = _loadingView;
+@synthesize league = _league;
+@synthesize overviewViewController = _overviewViewController;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -32,22 +34,16 @@
 
         self.dataSource = self;
         
-        // load a potential league ID stored in the user defaults
-//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  //      self.leagueId = [userDefaults objectForKey:LEAGUE_ID_KEY];
-        
         self.backgroundColor = [UIColor clearColor];
-        
         self.scrollsToTop = NO;
-        
-        self.rankings = [BackendAdapter rankings];
+
     }
     return self;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.rankings count];
+    return [BackendAdapter.rankings count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,13 +51,13 @@
     NSString *rankingCellIdentifier = @"rankingCell";
     
     RankingCell *cell = [tableView dequeueReusableCellWithIdentifier:rankingCellIdentifier];
-    cell.ranking = [self.rankings objectAtIndex:indexPath.row];
+    cell.ranking = [BackendAdapter.rankings objectAtIndex:indexPath.row];
     
     if (indexPath.row % 2 == 0) {
-        [cell even];
+        cell.even = YES;
     }
     else {
-        [cell odd];
+        cell.even = NO;
     }
     return cell;
 }
@@ -85,25 +81,53 @@
     return _loadingView;
 }
 
-/*- (void) setLeagueId:(NSNumber *)leagueId {
-    if (_leagueId != leagueId) {
-        _leagueId = leagueId;
+- (void) refreshRankings {
+    
+    // the league has changed -> refresh the ranking
+    
+    self.loadingView.hidden = NO;
+    
+    [BackendAdapter loadRankings:^(RemoteCallResult remoteResult) {
         
-        // show spinner view and fetch new 
-        self.loadingView.hidden = NO;
-        
-        BackendAdapter setCurrentLeague:<#(League *)#> :<#^(bool success)onDone#>
-        
-        [RankingService getRankingsForLeague:leagueId :^(NSArray *rankings) {
-            self.rankings = rankings;
-            [self reloadData];
-            self.loadingView.hidden = YES;
-            
-        } :^(NSString *errorMessage) {
-            NSLog(@"Failed to fetch rankings!");
-        }];
-        
-    }
-}*/
+        switch (remoteResult) {
+            case NO_INTERNET:
+                [self.overviewViewController showError:@"No internet"];
+                break;
+                
+            case INTERNAL_SERVER_ERROR:
+            case INTERNAL_CLIENT_ERROR:
+                [self.overviewViewController showError:@"Internal"];
+                break;
+                
+            case OK:
+                
+                [self reloadData];
+                
+                // scroll to myself inside the list
+                int counter = 0;
+                for (Ranking* ranking in [BackendAdapter rankings]) {
+                    if (ranking.isMyRanking) {
+                        [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:counter inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+                        break;
+                    }
+                    counter++;
+                }
+                break;
+                
+        }
+        self.loadingView.hidden = YES;
+    }];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    Ranking *ranking = [BackendAdapter.rankings objectAtIndex:indexPath.row];
+    self.overviewViewController.currentCompetitorId = ranking.competitorId;
+    
+    [self.overviewViewController performSegueWithIdentifier:@"toCompetitorStatistic" sender:self];
+    
+}
+
+
 
 @end

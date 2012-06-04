@@ -44,4 +44,6 @@
 
 @property (nonatomic, strong) Match* currentMatchSelection;
 
+@property (nonatomic, strong) NSString* currentCompetitorId;
+
 @end

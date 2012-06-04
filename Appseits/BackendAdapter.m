@@ -18,8 +18,6 @@
 #import "ScorerRound.h"
 #import "CompositeTop4AndScorerRound.h"
 
-static NSString *rankingUrl;
-
 static NSArray *rounds;
 static NSArray *rankings;
 static NSArray *leagues;
@@ -51,12 +49,12 @@ static NSString* TOP4_URL;
 static NSString* SCORER_URL;
 static NSString* TEAMS_URL;
 static NSString* LEAGUE_URL;
+static NSString* RANKING_URL;
 
 @implementation BackendAdapter
 
 + (void) initialize {
-    rankingUrl = @"http://dl.dropbox.com/u/15650647/ranking.json";
-    
+    RANKING_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/ranking"];
     LOGIN_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/login"];
     ROUNDS_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/rounds"];
     BET_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/bet"];
@@ -506,39 +504,19 @@ static NSString* LEAGUE_URL;
     return top4Round.top4Tips;
 }
 
-+ (RemoteCallResult) loadRankings {
-    
-    //TODO - mix in the league ID
-    NSURL *url = [NSURL URLWithString:rankingUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    NSError *error;
-    NSURLResponse *response;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
-    if (remoteCallResult != OK) return remoteCallResult;
-    
-    // parse the result
-    NSError *parseError = nil;
-    NSArray *rankingData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
-    
-    if (parseError) {
-        return INTERNAL_CLIENT_ERROR;
-    }
-    
-    rankings = [Ranking rankingsFromJson:rankingData];
-    NSLog(@"Fetched %i rankings for league %@", [rankings count], currentLeague);
-    
-    return OK;
-}
-
 + (void) loadRankings:(RemoteCallBlock) remoteCallBlock {
     
-    //TODO - mix in the league ID
-    NSURL *url = [NSURL URLWithString:rankingUrl];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSString* rankingUrl = RANKING_URL;
     
+    League* league = [BackendAdapter currentLeague];
+    
+    if (league) {
+        rankingUrl = [RANKING_URL stringByAppendingFormat:@"/%i", league.id];
+    }
+    
+    NSMutableURLRequest *request = [self requestForUrl:rankingUrl];
+    NSLog(@"Fetch rankings: %@", rankingUrl);
+
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
         RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
@@ -697,6 +675,10 @@ static NSString* LEAGUE_URL;
 
 + (NSString*) email {
     return userEmail;
+}
+
++ (NSString*) userId {
+    return userId;
 }
 
 + (Top4Round*) top4Round {
