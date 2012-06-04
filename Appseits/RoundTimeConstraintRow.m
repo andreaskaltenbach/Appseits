@@ -10,13 +10,13 @@
 #import "UIColor+AppColors.h"
 #import "OverviewViewController.h"
 
-static UIImage *clockImage;
+
 
 static NSString *closeMessage;
 static NSString *openMessage;
 
 @interface RoundTimeConstraintRow()
-@property (nonatomic, strong) UILabel* label;
+
 @property (nonatomic, strong) NSTimer *timer;
 
 @end
@@ -24,13 +24,11 @@ static NSString *openMessage;
 @implementation RoundTimeConstraintRow
 
 @synthesize round = _round;
-@synthesize label = _label;
+
 @synthesize timer = _timer;
 @synthesize overviewViewController = _overviewViewController;
 
 + (void) initialize {
-    clockImage = [UIImage imageNamed:@"11-clock.png"];
-    
     closeMessage = @"Omgången låses om %i %@";
     openMessage = @"Omgången öppnar om %i %@";
 }
@@ -39,17 +37,6 @@ static NSString *openMessage;
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.colors = [UIColor lastUpdatedGradient];
-        
-        UIImageView *clockImageView = [[UIImageView alloc] initWithImage:clockImage];
-        clockImageView.frame = CGRectMake(6, 6, 16, 16);
-        [self addSubview:clockImageView];
-        
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(30, 0, 290, self.frame.size.height)];
-        self.label.textColor = [UIColor lastUpdatedTextColor];
-        self.label.font = [UIFont systemFontOfSize:14];
-        self.label.backgroundColor = [UIColor clearColor];
-        [self addSubview:self.label];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(startTimer)

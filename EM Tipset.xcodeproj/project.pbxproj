@@ -129,6 +129,7 @@
 		4EE7C2E8155C0CC600DD1D9C /* ScorerSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7C2E7155C0CC600DD1D9C /* ScorerSelector.m */; };
 		4EE7C2EB155C0CE200DD1D9C /* Selector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7C2EA155C0CE200DD1D9C /* Selector.m */; };
 		4EE945D5152B228200E6A62A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE945D4152B228200E6A62A /* Constants.m */; };
+		4EF23BD0157D501800DADDFA /* YellowBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF23BCF157D501800DADDFA /* YellowBar.m */; };
 		4EFD60D5155BBE4300BA8ABD /* matchBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EFD60D3155BBE4300BA8ABD /* matchBackground@2x.png */; };
 		4EFD60D6155BBE4300BA8ABD /* matchBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EFD60D4155BBE4300BA8ABD /* matchBackground.png */; };
 		5B007EEF1548754B00AE6518 /* cogwheel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B007EED1548754B00AE6518 /* cogwheel.png */; };
@@ -487,6 +488,8 @@
 		4EE7C2EA155C0CE200DD1D9C /* Selector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Selector.m; sourceTree = "<group>"; };
 		4EE945D3152B228200E6A62A /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		4EE945D4152B228200E6A62A /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		4EF23BCE157D501800DADDFA /* YellowBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YellowBar.h; sourceTree = "<group>"; };
+		4EF23BCF157D501800DADDFA /* YellowBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YellowBar.m; sourceTree = "<group>"; };
 		4EFD60D3155BBE4300BA8ABD /* matchBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "matchBackground@2x.png"; sourceTree = "<group>"; };
 		4EFD60D4155BBE4300BA8ABD /* matchBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = matchBackground.png; sourceTree = "<group>"; };
 		5B007EED1548754B00AE6518 /* cogwheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cogwheel.png; sourceTree = "<group>"; };
@@ -1115,6 +1118,8 @@
 				4ED8407F1575789B00F69D96 /* LeagueCell.m */,
 				4E10683815778FA70021AD6B /* NewLeagueCell.h */,
 				4E10683915778FA70021AD6B /* NewLeagueCell.m */,
+				4EF23BCE157D501800DADDFA /* YellowBar.h */,
+				4EF23BCF157D501800DADDFA /* YellowBar.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1448,6 +1453,7 @@
 				4E10683A15778FA70021AD6B /* NewLeagueCell.m in Sources */,
 				4E9CB16415792DE60049ECBF /* Competitor.m in Sources */,
 				4E9CB168157BE1910049ECBF /* CompetitorStatisticsViewController.m in Sources */,
+				4EF23BD0157D501800DADDFA /* YellowBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

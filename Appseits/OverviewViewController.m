@@ -86,6 +86,7 @@ static NSURL *downloadURL;
 @property (strong, nonatomic) IBOutlet UILabel *rankSeparator;
 @property (nonatomic, strong) League* currentLeague;
 @property (nonatomic, strong) UIView *loadingView;
+@property (strong, nonatomic) IBOutlet YellowBar *lastRankingUpdateBar;
 
 @end
 
@@ -137,6 +138,7 @@ static NSURL *downloadURL;
 @synthesize currentLeague = _currentLeague;
 @synthesize currentCompetitorId = _currentCompetitorId;
 @synthesize loadingView = _loadingView;
+@synthesize lastRankingUpdateBar = _lastRankingUpdateBar;
 
 + (void) initialize {
     trendUp = [UIImage imageNamed:@"trendUp.png"];
@@ -277,6 +279,7 @@ static NSURL *downloadURL;
     
     [self updateRankingInScoreView];
     [self.rankingTable scrollToMyself];
+    [self updateLastRankingUpdateLabel];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -336,6 +339,7 @@ static NSURL *downloadURL;
     [self setRankSeparator:nil];
     [self setTotalRanks:nil];
     [self setRankSeparator:nil];
+    [self setLastRankingUpdateBar:nil];
     [super viewDidUnload];
 }
 
@@ -510,17 +514,25 @@ static NSURL *downloadURL;
                 self.timeline.matchRounds = [BackendAdapter matchRounds];
                 self.roundSelector.tournamentRounds = [BackendAdapter combinedTop4AndScorerRoundAndMatchRounds];
                 
-                
                 // update the score view
                 [self updateRankingInScoreView];
                 
                 // update the ranking view
                 [self.rankingTable refreshRankings];
+                [self updateLastRankingUpdateLabel];
         }
         
         self.lastUpdated = [NSDate date];
         [self.pullToRefreshView finishedLoading];
     }];
+}
+
+- (void) updateLastRankingUpdateLabel {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sv_SE"];
+    [formatter setDateFormat:@"yyyy-MM-dd HH.mm"];
+    self.lastRankingUpdateBar.label.text = [NSString stringWithFormat:@"Uppdaterad: %@", [formatter stringFromDate:self.lastUpdated]];
+
 }
 
 - (NSDate *)pullToRefreshViewLastUpdated:(PullToRefreshView *)view {

@@ -58,7 +58,7 @@ static UIImage *lock;
         [self addSubview:self.label];
         
         //setup flag image
-        self.flag = [[UIImageView alloc] initWithFrame:CGRectMake(84, 17, 16, 16)];
+        self.flag = [[UIImageView alloc] initWithFrame:CGRectMake(84, 16, 16, 16)];
         [self addSubview:self.flag];
     }
     return self;

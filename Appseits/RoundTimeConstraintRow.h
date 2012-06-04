@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SSGradientView.h"
+#import "YellowBar.h"
 #import "TournamentRound.h"
 
 @class OverviewViewController;
 
-@interface RoundTimeConstraintRow : SSGradientView
+@interface RoundTimeConstraintRow : YellowBar
 
 @property (nonatomic, strong) TournamentRound *round;
 @property (nonatomic, weak) OverviewViewController *overviewViewController;
