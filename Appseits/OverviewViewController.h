@@ -46,4 +46,9 @@
 
 @property (nonatomic, strong) NSString* currentCompetitorId;
 
+@property (strong, nonatomic) IBOutlet UIView *rankingView;
+@property (strong, nonatomic) IBOutlet UIView *scoreView;
+
+- (void) updateRankingInScoreView;
+
 @end

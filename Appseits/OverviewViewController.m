@@ -58,7 +58,6 @@ static NSURL *downloadURL;
 @property (strong, nonatomic) IBOutlet UIView *resultMenuItem;
 @property (strong, nonatomic) IBOutlet UIView *rankingMenuItem;
 @property (strong, nonatomic) IBOutlet MenuDependendScrollView *menuDependingScrollView;
-@property (strong, nonatomic) IBOutlet UIView *scoreView;
 @property (strong, nonatomic) IBOutlet RankingTable *rankingTable;
 @property (strong, nonatomic) IBOutlet UIImageView *trendImage;
 @property (strong, nonatomic) IBOutlet UIView *rankingTableHeader;
@@ -79,8 +78,12 @@ static NSURL *downloadURL;
 @property (strong, nonatomic) IBOutlet UIView *rankingMenuView;
 @property (strong, nonatomic) IBOutlet LeagueSelector *leagueSelector;
 @property (strong, nonatomic) IBOutlet UITableView *leagueTable;
-
+@property (strong, nonatomic) IBOutlet UIImageView *dropDownIndicator;
+@property (strong, nonatomic) IBOutlet UILabel *rankLabel;
+@property (strong, nonatomic) IBOutlet UILabel *totalRanks;
+@property (strong, nonatomic) IBOutlet UILabel *rankSeparator;
 @property (nonatomic, strong) League* currentLeague;
+
 
 @end
 
@@ -123,6 +126,11 @@ static NSURL *downloadURL;
 @synthesize rankingMenuView = _rankingMenuView;
 @synthesize leagueSelector = _leagueSelector;
 @synthesize leagueTable = _leagueTable;
+@synthesize dropDownIndicator = _dropDownIndicator;
+@synthesize rankLabel = _rankLabel;
+@synthesize totalRanks = _totalRanks;
+@synthesize rankSeparator = _rankSeparator;
+@synthesize rankingView = _rankingView;
 @synthesize currentMatchSelection = _currentMatchSelection;
 @synthesize currentLeague = _currentLeague;
 @synthesize currentCompetitorId = _currentCompetitorId;
@@ -243,8 +251,6 @@ static NSURL *downloadURL;
     
     self.scoreView.backgroundColor = [UIColor squareBackground];
     
-    
-    
     self.allTeams = [BackendAdapter teamList];
    
     // setup top4 view
@@ -264,6 +270,10 @@ static NSURL *downloadURL;
     // setup league selector
     [self refreshRankingLabel];
     self.leagueSelector.leagueSelectionDelegate = self;
+    [self.leagueSelector selectCurrentLeague];
+    
+    [self updateRankingInScoreView];
+    [self.rankingTable scrollToMyself];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -317,6 +327,12 @@ static NSURL *downloadURL;
     [self setRankingMenuView:nil];
     [self setLeagueSelector:nil];
     [self setLeagueTable:nil];
+    [self setDropDownIndicator:nil];
+    [self setRankingView:nil];
+    [self setRankLabel:nil];
+    [self setRankSeparator:nil];
+    [self setTotalRanks:nil];
+    [self setRankSeparator:nil];
     [super viewDidUnload];
 }
 
@@ -411,7 +427,6 @@ static NSURL *downloadURL;
     [userDefaults setObject:@"RANKING" forKey:MENU_KEY];
     [userDefaults synchronize];
     
-    //TODO - enable ranking again, when view is ready
     self.rankingMenuItem.backgroundColor = [UIColor menuSelectedBackground];
     self.resultMenuItem.backgroundColor = [UIColor clearColor];
     
@@ -577,7 +592,7 @@ static NSURL *downloadURL;
     // define width of text
     float width = [leagueName sizeWithFont:[UIFont boldSystemFontOfSize:13]].width;
     CGRect rankingItemFrame = self.rankingMenuItem.frame;
-    rankingItemFrame.size.width = width + 20;
+    rankingItemFrame.size.width = width + 30;
     self.rankingMenuItem.frame = rankingItemFrame;
     
     // update ranking menu item text
@@ -597,6 +612,31 @@ static NSURL *downloadURL;
        
     // switch to ranking view
     [self switchToRanking];
+}
+
+- (void) updateRankingInScoreView {
+    NSString* rank = [NSString stringWithFormat:@"%i",BackendAdapter.myRanking.rank.intValue];
+    NSString* allRankings = [NSString stringWithFormat:@"%i",[[BackendAdapter rankings] count]];
+    
+    UIFont* font = [UIFont systemFontOfSize:30];
+    
+    self.rankLabel.text = rank;
+    CGSize rankSize = [rank sizeWithFont:font];
+    CGRect frame = self.rankLabel.frame;
+    frame.size.width = rankSize.width;
+    self.rankLabel.frame = frame;
+    
+    frame = self.rankSeparator.frame;
+    frame.origin.x = self.rankLabel.frame.origin.x + self.rankLabel.frame.size.width;
+    self.rankSeparator.frame = frame;
+    
+
+    self.totalRanks.text = allRankings;
+    frame = self.totalRanks.frame;
+    frame.origin.x = self.rankSeparator.frame.origin.x + self.rankSeparator.frame.size.width;
+    CGSize totalRanksSize = [allRankings sizeWithFont:font];
+    frame.size.width = totalRanksSize.width;
+    self.totalRanks.frame = frame;
 }
 
 @end

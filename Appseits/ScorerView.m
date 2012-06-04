@@ -10,6 +10,7 @@
 #import "UIColor+AppColors.h"
 #import "ScorerSelector.h"
 #import "Top4View.h"
+#import "Ranking.h"
 
 @interface ScorerView()
 @property (nonatomic, strong) NSArray *scorerSelectors;
@@ -123,5 +124,7 @@
     // send update to server
     [BackendAdapter postPredictionForPlace:place andPlayer:player.playerId :remoteCallBlock];
 }
+
+
 
 @end

@@ -16,4 +16,6 @@
 
 - (void) refreshRankings;
 
+- (void) scrollToMyself;
+
 @end

@@ -133,13 +133,8 @@ static UIImage *userGray;
     if (self.myself) {
         
         self.userImage.hidden = NO;
-        if (selected) {
-            self.userImage.image = userGray;
-        }
-        else {
-            self.userImage.image = userGreen;
-        }
-
+        self.userImage.image = userGray;
+        
         userNameFrame.origin.x = 72;
         userNameFrame.size.width = 210;
     }

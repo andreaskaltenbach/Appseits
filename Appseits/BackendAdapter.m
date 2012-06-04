@@ -21,6 +21,7 @@
 static NSArray *rounds;
 static NSArray *rankings;
 static NSArray *leagues;
+static Ranking* myRanking;
 
 static League *currentLeague;
 
@@ -184,6 +185,9 @@ static NSString* RANKING_URL;
              remoteCallResult = [self loadLeagues];
             }
             if (remoteCallResult == OK) {
+                remoteCallResult = [self loadRankings];
+            }
+            if (remoteCallResult == OK) {
                 remoteCallResult = [self loadTop4];
             }
             if (remoteCallResult == OK) {
@@ -207,6 +211,9 @@ static NSString* RANKING_URL;
         RemoteCallResult remoteCallResult = [self fetchTeams];
         if (remoteCallResult == OK) {
             remoteCallResult = [self loadCompleteTournament];
+        }
+        if (remoteCallResult == OK) {
+            remoteCallResult = [self loadRankings];
         }
         if (remoteCallResult == OK) {
             remoteCallResult = [self loadLeagues];
@@ -294,7 +301,7 @@ static NSString* RANKING_URL;
     NSNumber *leagueId = [userDefaults objectForKey:LEAGUE_ID_KEY];
     if (leagueId) {
         for (League *league in leagues) {
-            if (league.id == leagueId) {
+            if (league.leagueId == leagueId) {
                 currentLeague = league;
             }
         }
@@ -436,7 +443,7 @@ static NSString* RANKING_URL;
         NSNumber* leagueId = [userDefaults objectForKey:@"leagueId"];
         if (leagueId) {
             for (League* league in leagues) {
-                if ([league.id isEqualToNumber:leagueId]) {
+                if ([league.leagueId isEqualToNumber:leagueId]) {
                     return league;
                 }
             }
@@ -454,7 +461,7 @@ static NSString* RANKING_URL;
         
         // store selected league ID in user defaults
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setObject:league.id forKey:@"leagueId"];
+        [userDefaults setObject:league.leagueId forKey:@"leagueId"];
         [userDefaults synchronize];
     }
 }
@@ -469,7 +476,7 @@ static NSString* RANKING_URL;
         
         // store selected league in user defaults
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        [userDefaults setObject:league.id forKey:@"leagueId"];
+        [userDefaults setObject:league.leagueId forKey:@"leagueId"];
         [userDefaults synchronize];
         
         
@@ -492,6 +499,10 @@ static NSString* RANKING_URL;
     return rounds;
 }
 
++ (Ranking*) myRanking {
+    return myRanking;
+}
+
 + (NSArray*) rankings {
     return rankings;
 }
@@ -504,6 +515,43 @@ static NSString* RANKING_URL;
     return top4Round.top4Tips;
 }
 
++ (RemoteCallResult) loadRankings {
+    
+    NSString* rankingUrl = RANKING_URL;
+    
+    League* league = [BackendAdapter currentLeague];
+    
+    if (league) {
+        rankingUrl = [RANKING_URL stringByAppendingFormat:@"/%i", league.leagueId.intValue];
+    }
+    
+    NSMutableURLRequest *request = [self requestForUrl:rankingUrl];
+    NSError *error;
+    NSURLResponse *response;
+    
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    if (remoteCallResult != OK) {
+        return remoteCallResult;
+    }
+        
+    // parse the result
+    NSError *parseError = nil;
+    NSArray *rankingData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
+    
+    if (parseError) {
+        return INTERNAL_CLIENT_ERROR;
+    }
+    
+    rankings = [Ranking rankingsFromJson:rankingData];
+    
+    for (Ranking* ranking in rankings) {
+        if (ranking.isMyRanking) myRanking = ranking;
+    }
+    return OK;
+}
+
 + (void) loadRankings:(RemoteCallBlock) remoteCallBlock {
     
     NSString* rankingUrl = RANKING_URL;
@@ -511,11 +559,10 @@ static NSString* RANKING_URL;
     League* league = [BackendAdapter currentLeague];
     
     if (league) {
-        rankingUrl = [RANKING_URL stringByAppendingFormat:@"/%i", league.id];
+        rankingUrl = [RANKING_URL stringByAppendingFormat:@"/%i", league.leagueId.intValue];
     }
     
     NSMutableURLRequest *request = [self requestForUrl:rankingUrl];
-    NSLog(@"Fetch rankings: %@", rankingUrl);
 
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
@@ -533,6 +580,10 @@ static NSString* RANKING_URL;
             }
             
             rankings = [Ranking rankingsFromJson:rankingData];
+            
+            for (Ranking* ranking in rankings) {
+                if (ranking.isMyRanking) myRanking = ranking;
+            }
             remoteCallBlock(OK);
         }
 

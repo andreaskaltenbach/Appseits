@@ -16,5 +16,8 @@
 @end
 
 @interface LeagueSelector : UIView<UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic, strong) UITableView *leagueTable;
 @property id<LeagueSelectionDelegate> leagueSelectionDelegate; 
+
+- (void) selectCurrentLeague;
 @end

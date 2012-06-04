@@ -12,6 +12,7 @@
 #import "Top4Tips.h"
 #import "ScorerRound.h"
 #import "Top4Round.h"
+#import "Ranking.h"
 
 //#define SERVER_URL @"http://emtipset.dev.stendahls.se"
 #define SERVER_URL @"http://em2012.brunoson.se"
@@ -49,6 +50,7 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 + (Top4Round*) top4Round;
 + (ScorerRound*) scorerRound;
 + (NSArray*) rankings;
++ (Ranking*) myRanking;
 + (NSArray*) leagues;
 + (NSArray*) teamList;
 + (NSDictionary*) teams;

@@ -13,11 +13,11 @@
 #import "NewLeagueCell.h"
 
 #define ROW_HEIGHT 40
-#define INPUT_ROW_HEIGHT 60
-#define MAX_TABLE_HEIGHT 200
+//#define INPUT_ROW_HEIGHT 60
+#define MAX_TABLE_HEIGHT 380
 
 @interface LeagueSelector()
-@property (nonatomic, strong) UITableView *leagueTable;
+
 @end
 
 @implementation LeagueSelector
@@ -44,18 +44,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1 + [[BackendAdapter leagues] count] + 1;
+    return 1 + [[BackendAdapter leagues] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row > [[BackendAdapter leagues] count]) {
-        // it's the last cell in the table -> the new cell input cell
-        NewLeagueCell* newLeagueCell = [tableView dequeueReusableCellWithIdentifier:@"newLeagueCell"];
-        return newLeagueCell;
-    }
-
-    // otherwise, it's an ordinary league cell
     LeagueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leagueCell"];
     cell.textLabel.font = [UIFont systemFontOfSize:13];
     cell.textLabel.textColor = [UIColor whiteColor];
@@ -71,18 +64,30 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row > [[BackendAdapter leagues] count]) {
-        return INPUT_ROW_HEIGHT;
+- (void) selectCurrentLeague {
+    
+    League *currentLeague = BackendAdapter.currentLeague;
+    
+    NSIndexPath* indexPath;
+    if (currentLeague) {
+        NSLog(@"index: %i", indexPath.row);
+        indexPath = [NSIndexPath indexPathForRow:[BackendAdapter.leagues indexOfObject:currentLeague] + 1 inSection:0];
     }
     else {
-        return ROW_HEIGHT;
+        indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     }
+    
+    [self.leagueTable selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return ROW_HEIGHT;
 }
 
 - (void) setFrame:(CGRect)frame {
     
-    float tableHeight = ([[BackendAdapter leagues] count] + 1) * ROW_HEIGHT + INPUT_ROW_HEIGHT;
+    float tableHeight = ([[BackendAdapter leagues] count] + 1) * ROW_HEIGHT;
     frame.size.height = MIN(MAX_TABLE_HEIGHT, tableHeight);
     
     CGRect tableFrame = self.leagueTable.frame;
