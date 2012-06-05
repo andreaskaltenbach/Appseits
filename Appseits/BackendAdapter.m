@@ -17,8 +17,13 @@
 #import "Team.h"
 #import "ScorerRound.h"
 #import "CompositeTop4AndScorerRound.h"
+#import "Comparison.h"
 
 static NSArray *rounds;
+
+static NSMutableDictionary* matchRoundMap;
+static NSMutableDictionary* matchMap;
+
 static NSArray *rankings;
 static NSArray *leagues;
 static Ranking* myRanking;
@@ -36,6 +41,8 @@ static NSMutableDictionary *teamNames;
 static NSMutableArray *players;
 static NSMutableDictionary *playerDictionary;
 
+static Comparison* lastComparison;
+
 static Top4Round *top4Round;
 static ScorerRound *scorerRound;
 
@@ -51,6 +58,7 @@ static NSString* SCORER_URL;
 static NSString* TEAMS_URL;
 static NSString* LEAGUE_URL;
 static NSString* RANKING_URL;
+static NSString* COMPETITORS_URL;
 
 @implementation BackendAdapter
 
@@ -63,6 +71,7 @@ static NSString* RANKING_URL;
     SCORER_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/topscorer"];
     TEAMS_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/teams"];
     LEAGUE_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/leagues"];
+    COMPETITORS_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/competitors"];
 }
 
 + (BOOL) modelInitialized {
@@ -432,6 +441,15 @@ static NSString* RANKING_URL;
     
     rounds = [MatchRound tournamentRoundsFromJson:roundsData];
     
+    matchRoundMap = [NSMutableDictionary dictionary];
+    matchMap = [NSMutableDictionary dictionary];
+    for (MatchRound* round in rounds) {
+        [matchRoundMap setObject:round forKey:round.roundId];
+        for (Match* match in round.matches) {
+            [matchMap setObject:match forKey:match.matchId];
+        }
+    }
+    
     return OK;
 }
 
@@ -515,6 +533,44 @@ static NSString* RANKING_URL;
     return top4Round.top4Tips;
 }
 
++ (void) loadRankings:(RemoteCallBlock) remoteCallBlock {
+    
+    NSString* rankingUrl = RANKING_URL;
+    
+    League* league = [BackendAdapter currentLeague];
+    
+    if (league) {
+        rankingUrl = [RANKING_URL stringByAppendingFormat:@"/%i", league.leagueId.intValue];
+    }
+    
+    NSMutableURLRequest *request = [self requestForUrl:rankingUrl];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+        if (remoteCallResult != OK) {
+            remoteCallBlock(remoteCallResult);
+        }
+        else {
+            // parse the result
+            NSError *parseError = nil;
+            NSArray *rankingData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
+            
+            if (parseError) {
+                remoteCallBlock(INTERNAL_CLIENT_ERROR);
+            }
+            
+            rankings = [Ranking rankingsFromJson:rankingData];
+            
+            for (Ranking* ranking in rankings) {
+                if (ranking.isMyRanking) myRanking = ranking;
+            }
+            remoteCallBlock(OK);
+        }
+        
+    }];
+}
+
 + (RemoteCallResult) loadRankings {
     
     NSString* rankingUrl = RANKING_URL;
@@ -552,43 +608,6 @@ static NSString* RANKING_URL;
     return OK;
 }
 
-+ (void) loadRankings:(RemoteCallBlock) remoteCallBlock {
-    
-    NSString* rankingUrl = RANKING_URL;
-    
-    League* league = [BackendAdapter currentLeague];
-    
-    if (league) {
-        rankingUrl = [RANKING_URL stringByAppendingFormat:@"/%i", league.leagueId.intValue];
-    }
-    
-    NSMutableURLRequest *request = [self requestForUrl:rankingUrl];
-
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
-        if (remoteCallResult != OK) {
-            remoteCallBlock(remoteCallResult);
-        }
-        else {
-            // parse the result
-            NSError *parseError = nil;
-            NSArray *rankingData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
-            
-            if (parseError) {
-                remoteCallBlock(INTERNAL_CLIENT_ERROR);
-            }
-            
-            rankings = [Ranking rankingsFromJson:rankingData];
-            
-            for (Ranking* ranking in rankings) {
-                if (ranking.isMyRanking) myRanking = ranking;
-            }
-            remoteCallBlock(OK);
-        }
-
-    }];
-}
 
 + (void) postPrediction:(NSNumber*) matchId: (NSNumber*) firstTeamGoals: (NSNumber*) secondTeamGoals: (RemoteCallBlock) remoteCallBlock {
     
@@ -737,6 +756,55 @@ static NSString* RANKING_URL;
 }
 + (ScorerRound*) scorerRound {
     return scorerRound;
+}
+
++ (NSDictionary*) matchRoundMap {
+    return matchRoundMap;
+}
+
++ (NSDictionary*) matchMap {
+    return matchMap;
+}
+
++ (void) loadCompetitorComparison:(NSString*) competitorId:(RemoteCallBlock) remoteCallBlock {
+    
+    
+    
+    NSString* competitorUrl = [COMPETITORS_URL stringByAppendingFormat:@"/%@", competitorId];
+    
+    NSLog(@"URL: %@", competitorUrl);
+    
+    NSMutableURLRequest *request = [BackendAdapter requestForUrl:competitorUrl];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        RemoteCallResult remoteCallResult = [BackendAdapter remoteCallResult:response:error];
+        if (remoteCallResult != OK) {
+            remoteCallBlock(remoteCallResult);
+        }
+        else {
+            
+            
+            // parse the result
+            NSError *parseError = nil;
+            NSDictionary* comparisonData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
+            
+            NSLog(@"Data: %@", comparisonData);
+
+            
+            if (parseError) {
+                remoteCallBlock(INTERNAL_CLIENT_ERROR);
+            }
+            
+            lastComparison = [Comparison comparisonFromJson:comparisonData];
+            remoteCallBlock(OK);
+        }
+        
+    }];
+}
+
++ (Comparison*) lastComparison {
+    return lastComparison;
 }
 
 @end

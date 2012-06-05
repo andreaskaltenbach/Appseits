@@ -13,9 +13,10 @@
 #import "ScorerRound.h"
 #import "Top4Round.h"
 #import "Ranking.h"
+#import "Comparison.h"
 
-//#define SERVER_URL @"http://emtipset.dev.stendahls.se"
-#define SERVER_URL @"http://em2012.brunoson.se"
+#define SERVER_URL @"http://emtipset.dev.stendahls.se"
+//#define SERVER_URL @"http://em2012.brunoson.se"
 
 typedef enum {
     OK,
@@ -57,6 +58,8 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 + (NSDictionary*) teamNames;
 + (NSArray*) playerList;
 + (NSDictionary*) players;
++ (NSDictionary*) matchRoundMap;
++ (NSDictionary*) matchMap;
 
 + (UIImage*) imageForTeam:(NSString*) teamName;
 
@@ -73,8 +76,8 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 
 + (void) loadRankings:(RemoteCallBlock) remoteCallBlock;
 
-+ (void) loadAllCompetitors:(RemoteCallBlock) remoteCallBlock;
++ (void) loadCompetitorComparison:(NSString*) competitorId:(RemoteCallBlock) remoteCallBlock ;
 
-
++ (Comparison*) lastComparison;
 
 @end

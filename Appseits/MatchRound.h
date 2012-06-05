@@ -15,10 +15,12 @@
 @interface MatchRound : TournamentRound
 
 @property (nonatomic, strong) NSArray *matches;
+@property (nonatomic, strong) NSNumber *roundId;
 
 + (NSArray*) tournamentRoundsFromJson: (NSArray*) jsonRounds;
 
 + (Match*) nextPredictableMatch:(Match*) match;
 + (Match*) previousPredictableMatch:(Match*) match;
+
 
 @end

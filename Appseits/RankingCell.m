@@ -100,11 +100,10 @@ static UIImage *userGray;
 {
  
     if (selected) {
-       /* self.userName.textColor = [UIColor whiteColor];
+        self.userName.textColor = [UIColor whiteColor];
         self.points.textColor = [UIColor whiteColor];
         self.rank.textColor = [UIColor whiteColor];
-        self.background.colors = [UIColor selectedSection];*/
-        
+        self.background.colors = [UIColor selectedSection];
     }
     else {
         self.userName.textColor = [UIColor blackColor];

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppseitsViewController.h"
 
-@interface CompetitorStatisticsViewController : AppseitsViewController
+@interface CompetitorStatisticsViewController : AppseitsViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSString* userId;
 
