@@ -81,7 +81,6 @@ static UIImage *userGray;
         self.myself = NO;
     }
     
-    
     switch (ranking.trend) {
         case UP:
             self.trend.image = trendUp;
