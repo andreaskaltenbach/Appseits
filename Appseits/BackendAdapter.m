@@ -164,6 +164,8 @@ static NSString* RANKING_URL;
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults removeObjectForKey:@"email"];
     [userDefaults removeObjectForKey:@"password"];
+    [userDefaults removeObjectForKey:LEAGUE_ID_KEY];
+    currentLeague = nil;
     [userDefaults synchronize];
 }
 
@@ -288,8 +290,6 @@ static NSString* RANKING_URL;
     NSError *parseError = nil;
     NSArray *leagueData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
     
-    NSLog(@"Data: %@", leagueData);
-    
     if (parseError) {
         return INTERNAL_CLIENT_ERROR;
     }
@@ -305,6 +305,11 @@ static NSString* RANKING_URL;
                 currentLeague = league;
             }
         }
+    }
+    
+    if (!currentLeague) {
+        [userDefaults removeObjectForKey:LEAGUE_ID_KEY];
+        [userDefaults synchronize];
     }
     
     return OK;
