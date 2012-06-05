@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "MatchRound.h"
+#import "Comparison.h"
 
 @interface RoundComparison : NSObject
 
 @property (nonatomic, strong) MatchRound* matchRound;
 @property (nonatomic, strong) NSArray* matchComparisons;
+@property (nonatomic, strong) Comparison* comparison;
 
 + (NSArray*) roundComparisonsFromJson:(NSArray*) jsonData;
 

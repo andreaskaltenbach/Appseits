@@ -34,9 +34,10 @@
     NSArray* rounds = [jsonData objectForKey:@"rounds"];
     if (rounds) {
         comparison.roundComparisons = [RoundComparison roundComparisonsFromJson:rounds];
+        for (RoundComparison* roundComparison in comparison.roundComparisons) {
+            roundComparison.comparison = comparison;
+        }
     }
-    
-    
     
     return comparison;
 }

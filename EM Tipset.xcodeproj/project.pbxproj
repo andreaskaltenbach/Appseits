@@ -80,6 +80,7 @@
 		4E531C43151CB04A0003CAD1 /* MatchRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C42151CB04A0003CAD1 /* MatchRound.m */; };
 		4E531C46151CB05B0003CAD1 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Match.m */; };
 		4E531C4E151CB5D50003CAD1 /* MatchPredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */; };
+		4E66A560157E60B7009B4001 /* MCSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A55F157E60B7009B4001 /* MCSegmentedControl.m */; };
 		4E6B8C90156E25E500E54B10 /* menuBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6B8C8E156E25E500E54B10 /* menuBackground@2x.png */; };
 		4E6B8C91156E25E500E54B10 /* menuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6B8C8F156E25E500E54B10 /* menuBackground.png */; };
 		4E76C63E156EDD0D0021F043 /* greenBall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E76C63B156EDD0D0021F043 /* greenBall@2x.png */; };
@@ -429,6 +430,8 @@
 		4E531C45151CB05B0003CAD1 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
 		4E531C4C151CB5D50003CAD1 /* MatchPredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPredictionCell.h; sourceTree = "<group>"; };
 		4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPredictionCell.m; sourceTree = "<group>"; };
+		4E66A55E157E60B7009B4001 /* MCSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSegmentedControl.h; sourceTree = "<group>"; };
+		4E66A55F157E60B7009B4001 /* MCSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSegmentedControl.m; sourceTree = "<group>"; };
 		4E6B8C8E156E25E500E54B10 /* menuBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuBackground@2x.png"; sourceTree = "<group>"; };
 		4E6B8C8F156E25E500E54B10 /* menuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBackground.png; sourceTree = "<group>"; };
 		4E76C63B156EDD0D0021F043 /* greenBall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenBall@2x.png"; sourceTree = "<group>"; };
@@ -820,6 +823,8 @@
 		4E059D021525FA0E005ABD20 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				4E66A55E157E60B7009B4001 /* MCSegmentedControl.h */,
+				4E66A55F157E60B7009B4001 /* MCSegmentedControl.m */,
 				4E34664F15757016009A5394 /* UIViewController+KNSemiModal.h */,
 				4E34665015757016009A5394 /* UIViewController+KNSemiModal.m */,
 				4E075F001574BE9A009CDF74 /* FXLabel.h */,
@@ -1472,6 +1477,7 @@
 				4EFE235C157D62FB002486AF /* Comparison.m in Sources */,
 				4EFE235F157D637D002486AF /* RoundComparison.m in Sources */,
 				4EFE2362157D6392002486AF /* MatchComparison.m in Sources */,
+				4E66A560157E60B7009B4001 /* MCSegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

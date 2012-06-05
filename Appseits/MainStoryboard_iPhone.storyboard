@@ -803,7 +803,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hermann" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="s8G-UC-iga">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="s8G-UC-iga">
                                         <rect key="frame" x="10" y="0.0" width="300" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -812,32 +812,36 @@
                                     </label>
                                 </subviews>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="GqZ-vh-y7Y">
+                            <view contentMode="scaleToFill" id="Ngx-6G-igS" customClass="LightBlueGradient">
+                                <rect key="frame" x="0.0" y="50" width="320" height="366"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="GqZ-vh-y7Y" customClass="MCSegmentedControl">
                                 <rect key="frame" x="10" y="60" width="300" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Tippade Matcher"/>
                                     <segment title="Statistik"/>
                                 </segments>
-                                <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="segmentedControlTapped:" destination="qXZ-s9-LVr" eventType="valueChanged" id="Rwp-OS-VPe"/>
                                 </connections>
                             </segmentedControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" id="aSB-tf-G71">
-                                <rect key="frame" x="0.0" y="88" width="320" height="328"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" id="aSB-tf-G71">
+                                <rect key="frame" x="0.0" y="114" width="320" height="302"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ewl-qz-6jO" userLabel="comparison table">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="328"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ewl-qz-6jO" userLabel="comparison table">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="302"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="comparisonRow" rowHeight="160" id="LV8-zF-EVu">
-                                                <rect key="frame" x="0.0" y="22" width="320" height="160"/>
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="comparisonCell" rowHeight="140" id="LV8-zF-EVu" customClass="ComparisonCell">
+                                                <rect key="frame" x="0.0" y="22" width="320" height="140"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="139"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="matchResultBackground@2x.png" id="aSm-gq-6gu">
@@ -871,7 +875,7 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SWE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bcs-NL-ZSG">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="21" contentMode="left" text="SWE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="bcs-NL-ZSG">
                                                             <rect key="frame" x="269" y="29" width="40" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -887,7 +891,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </imageView>
                                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="greenBall@2x.png" id="JT7-J3-qQg">
-                                                            <rect key="frame" x="277" y="70" width="30" height="30"/>
+                                                            <rect key="frame" x="275" y="70" width="30" height="30"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </imageView>
                                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="31" contentMode="left" text="AK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="wCz-n1-Hyx">
@@ -985,7 +989,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="o9q-sb-WbZ"/>
                     <connections>
-                        <outlet property="comparisonTable" destination="ewl-qz-6jO" id="h1L-OM-Ks9"/>
+                        <outlet property="comparisonTable" destination="ewl-qz-6jO" id="HgG-2j-n75"/>
                         <outlet property="competitorNameLabel" destination="s8G-UC-iga" id="xsD-gZ-Ivc"/>
                         <outlet property="competitorNameView" destination="uf5-em-moE" id="xmI-is-xZe"/>
                         <outlet property="scrollView" destination="aSB-tf-G71" id="ZWK-YP-4JL"/>
@@ -1580,6 +1584,9 @@
         <class className="CPTGraphHostingView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
         </class>
+        <class className="ComparisonCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ComparisonCell.h"/>
+        </class>
         <class className="CompetitorStatisticsViewController" superclassName="AppseitsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CompetitorStatisticsViewController.h"/>
             <relationships>
@@ -1587,7 +1594,7 @@
                 <relationship kind="outlet" name="competitorNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="competitorNameView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="segmentedControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="segmentedControl" candidateClass="MCSegmentedControl"/>
             </relationships>
         </class>
         <class className="DoubledLightBlueGradientView" superclassName="SSGradientView">
@@ -1618,6 +1625,9 @@
                 <relationship kind="outlet" name="separator" candidateClass="UIView"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
+        </class>
+        <class className="MCSegmentedControl" superclassName="UISegmentedControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MCSegmentedControl.h"/>
         </class>
         <class className="MainScrollView" superclassName="UIScrollView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainScrollView.h"/>

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Match.h"
+#import "RoundComparison.h"
 
 @interface MatchComparison : NSObject
 
@@ -20,6 +21,8 @@
 @property (nonatomic, strong) NSNumber* competitorPredictionFirstTeam;
 @property (nonatomic, strong) NSNumber* competitorPredictionSecondTeam;
 @property (nonatomic, strong) NSNumber* competitorScore;
+
+@property (nonatomic, strong) RoundComparison* roundComparison;
 
 + (NSArray*) matchComparisonsFromJson:(NSArray*) jsonData;
 

@@ -12,10 +12,11 @@
 #import "BackendAdapter.h"
 #import "Comparison.h"
 #import "RoundComparison.h"
+#import "MCSegmentedControl.h"
 
 @interface CompetitorStatisticsViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) IBOutlet MCSegmentedControl *segmentedControl;
 @property (strong, nonatomic) IBOutlet UIView *competitorNameView;
 @property (strong, nonatomic) IBOutlet UILabel *competitorNameLabel;
 @property (strong, nonatomic) IBOutlet UITableView *comparisonTable;
@@ -38,21 +39,14 @@
     
     self.view.backgroundColor = [UIColor squareBackground];
     
+    self.comparisonTable.backgroundColor = [UIColor clearColor];
+
     self.competitorNameView.backgroundColor = [UIColor headerBackground];
     
     self.scrollView.contentSize = CGSizeMake(2*self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-	// Do any additional setup after loading the view.
-    [self.navigationController setNavigationBarHidden:NO];
-    
-    self.navigationController.title = @"Tippade matcher";
-    self.navigationItem.backBarButtonItem.title = @"Tillbaka";
-    
+    self.segmentedControl.tintColor = [UIColor segmentedControlSelected];
+    self.segmentedControl.font = [UIFont boldSystemFontOfSize:12];
     
     [BackendAdapter loadCompetitorComparison:self.userId :^(RemoteCallResult remoteCallResult) {
         
@@ -66,9 +60,23 @@
                 break;
             case OK:
                 self.comparison = [BackendAdapter lastComparison];
+                [self.comparisonTable reloadData];
+                self.competitorNameLabel.text = [BackendAdapter lastComparison].competitorName;
         }
     }];
+}
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+	// Do any additional setup after loading the view.
+    [self.navigationController setNavigationBarHidden:NO];
+    
+    self.navigationController.title = @"Tippade matcher";
+    self.navigationItem.backBarButtonItem.title = @"Tillbaka";
+    
+    
+    
 }
 
 - (void) setComparison:(Comparison *)comparison {
@@ -76,6 +84,8 @@
     
     self.matchComparisons = [NSArray array];
     for (RoundComparison* roundComparison in comparison.roundComparisons) {
+        
+        NSLog(@"%i match rounds", [roundComparison.matchComparisons count]);
         
             self.matchComparisons = [self.matchComparisons arrayByAddingObjectsFromArray:roundComparison.matchComparisons]; 
     }
@@ -104,6 +114,13 @@
 }
 
 - (IBAction)segmentedControlTapped:(id)sender {
+    
+    if (self.segmentedControl.selectedSegmentIndex == 0) {
+        [self.scrollView scrollRectToVisible:CGRectMake(0, 0, self.scrollView.frame.size.width, scrollView.frame.size.height) animated:YES];
+    }
+    else {
+                [self.scrollView scrollRectToVisible:CGRectMake(self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, scrollView.frame.size.height) animated:YES];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -115,7 +132,12 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"%i rounds", [self.matchComparisons count]);
     return [self.matchComparisons count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 140;
 }
 
 @end

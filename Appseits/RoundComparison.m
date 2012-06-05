@@ -15,6 +15,8 @@
 @synthesize matchRound = _matchRound;
 @synthesize matchComparisons = _matchComparisons;
 
+@synthesize comparison = _comparison;
+
 + (NSArray*) roundComparisonsFromJson:(NSArray*) jsonData {
     
     NSMutableArray* roundComparisons = [[NSMutableArray alloc] init];
@@ -38,6 +40,9 @@
     NSArray* matchComparisonData = [jsonData objectForKey:@"matches"];
     if (matchComparisonData) {
         roundComparison.matchComparisons = [MatchComparison matchComparisonsFromJson:matchComparisonData];
+        for (MatchComparison* matchComparison in roundComparison.matchComparisons) {
+            matchComparison.roundComparison = roundComparison;
+        }
     }
     
     return roundComparison;

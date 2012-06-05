@@ -83,8 +83,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     Ranking *ranking = [BackendAdapter.rankings objectAtIndex:indexPath.row];
-    self.overviewViewController.currentCompetitorId = ranking.competitorId;
-    [self.overviewViewController performSegueWithIdentifier:@"toCompetitorStatistic" sender:self];
+    
+    if (!ranking.isMyRanking) {
+        self.overviewViewController.currentCompetitorId = ranking.competitorId;
+        [self.overviewViewController performSegueWithIdentifier:@"toCompetitorStatistic" sender:self];
+    }
 }
 
 

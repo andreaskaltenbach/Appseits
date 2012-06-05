@@ -193,5 +193,9 @@
             nil];    
 }
 
++ (UIColor*) segmentedControlSelected {
+    return [UIColor colorWithRed:56.0/255.0f green:105.0/255.0f blue:15.0/255.0f alpha:1];
+}
+
 
 @end

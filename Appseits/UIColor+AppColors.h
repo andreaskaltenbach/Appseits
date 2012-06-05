@@ -67,4 +67,6 @@
 + (NSArray *) lightBlueGradient;
 + (NSArray *) doubledLightBlueGradient;
 
++ (UIColor*) segmentedControlSelected;
+
 @end

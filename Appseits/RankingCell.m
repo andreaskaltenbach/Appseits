@@ -99,10 +99,12 @@ static UIImage *userGray;
 {
  
     if (selected) {
-        self.userName.textColor = [UIColor whiteColor];
-        self.points.textColor = [UIColor whiteColor];
-        self.rank.textColor = [UIColor whiteColor];
-        self.background.colors = [UIColor selectedSection];
+        if (!self.myself) {
+            self.userName.textColor = [UIColor whiteColor];
+            self.points.textColor = [UIColor whiteColor];
+            self.rank.textColor = [UIColor whiteColor];
+            self.background.colors = [UIColor selectedSection];
+        }
     }
     else {
         self.userName.textColor = [UIColor blackColor];
@@ -130,13 +132,8 @@ static UIImage *userGray;
     CGRect userNameFrame = self.userName.frame;
     if (self.myself) {
         
-        if (selected) {
-            self.userImage.hidden = YES;
-        }
-        else {
-            self.userImage.hidden = NO;
-            self.userImage.image = userGreen;
-        }
+        self.userImage.hidden = NO;
+        self.userImage.image = userGreen;
         
         userNameFrame.origin.x = 72;
         userNameFrame.size.width = 210;

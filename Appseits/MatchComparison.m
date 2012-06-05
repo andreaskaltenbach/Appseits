@@ -10,6 +10,7 @@
 #import "BackendAdapter.h"
 #import "Match.h"
 
+
 @implementation MatchComparison
 
 @synthesize match = _match;
@@ -19,6 +20,7 @@
 @synthesize competitorPredictionFirstTeam = _competitorPredictionFirstTeam;
 @synthesize competitorScore = _competitorScore;
 @synthesize competitorPredictionSecondTeam = _competitorPredictionSecondTeam;
+@synthesize roundComparison = _roundComparison;
 
 + (NSArray*) matchComparisonsFromJson:(NSArray*) jsonData {
     
@@ -40,13 +42,13 @@
     Match* match = [[BackendAdapter matchMap] objectForKey:matchId];
     matchComparison.match = match;
     
-    NSDictionary* myPrediction = [jsonData objectForKey:@"prediction"];
+    NSDictionary* myPrediction = [jsonData objectForKey:@"comparePrediction"];
     NSDictionary* myOutcome = [myPrediction objectForKey:@"outcome"];
     matchComparison.myPredictionFirstTeam = [myOutcome valueForKey:@"homeTeamGoals"];
     matchComparison.myPredictionSecondTeam = [myOutcome valueForKey:@"awayTeamGoals"];
     matchComparison.myPredictionScore = [myPrediction valueForKey:@"score"];
     
-    NSDictionary* competitorPrediction = [jsonData objectForKey:@"comparePrediction"];
+    NSDictionary* competitorPrediction = [jsonData objectForKey:@"prediction"];
     NSDictionary* competitorOutcome = [competitorPrediction objectForKey:@"outcome"];
     matchComparison.competitorPredictionFirstTeam = [competitorOutcome valueForKey:@"homeTeamGoals"];
     matchComparison.competitorPredictionSecondTeam = [competitorOutcome valueForKey:@"awayTeamGoals"];

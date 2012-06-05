@@ -50,6 +50,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
+        
         self.firstTeamNameLabel = (UILabel*) [self viewWithTag:11];
         self.firstTeamFlag = (UIImageView*) [self viewWithTag:12];
         self.firstTeamPointsLabel = (UILabel*) [self viewWithTag:13];
@@ -82,8 +83,8 @@
 
 - (void) setMatchComparison:(MatchComparison *)matchComparison {
     
-    self.firstTeamNameLabel.text = matchComparison.match.firstTeam.shortName;
-    self.secondTeamNameLabel.text = matchComparison.match.secondTeam.shortName;
+    self.firstTeamNameLabel.text = [matchComparison.match.firstTeam.shortName uppercaseString];
+    self.secondTeamNameLabel.text = [matchComparison.match.secondTeam.shortName uppercaseString];
     
     self.firstTeamFlag.image = matchComparison.match.firstTeam.flag;
     self.secondTeamFlag.image = matchComparison.match.secondTeam.flag;
@@ -102,11 +103,17 @@
         self.secondTeamPointsLabel.text = @"-";
     }
     
-    self.myFirstTeamPredictionLabel.text = [NSString stringWithFormat:@"%ip", matchComparison.myPredictionFirstTeam.intValue];
-    self.mySecondTeamPredictionLabel.text = [NSString stringWithFormat:@"%ip", matchComparison.myPredictionSecondTeam.intValue];
+    self.myFirstTeamPredictionLabel.text = [NSString stringWithFormat:@"%i", matchComparison.myPredictionFirstTeam.intValue];
+    self.mySecondTeamPredictionLabel.text = [NSString stringWithFormat:@"%i", matchComparison.myPredictionSecondTeam.intValue];
 
-    self.competitorFirstTeamPredictionLabel.text = [NSString stringWithFormat:@"%ip", matchComparison.competitorPredictionFirstTeam.intValue];
-    self.competitorSecondTeamPredictionLabel.text = [NSString stringWithFormat:@"%ip", matchComparison.competitorPredictionSecondTeam.intValue];
+    self.competitorFirstTeamPredictionLabel.text = [NSString stringWithFormat:@"%i", matchComparison.competitorPredictionFirstTeam.intValue];
+    self.competitorSecondTeamPredictionLabel.text = [NSString stringWithFormat:@"%i", matchComparison.competitorPredictionSecondTeam.intValue];
+    
+    self.myInitials.text = matchComparison.roundComparison.comparison.myInitials;
+    self.competitorInitials.text = matchComparison.roundComparison.comparison.competitorInitials;
+    
+    self.myScoreLabel.text = [NSString stringWithFormat:@"%ip", matchComparison.myPredictionScore.intValue];
+    self.competitorScoreLabel.text = [NSString stringWithFormat:@"%ip", matchComparison.competitorScore.intValue];
 }
 
 @end
