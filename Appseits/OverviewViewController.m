@@ -344,7 +344,14 @@ static NSURL *downloadURL;
 }
 
 - (void) switchLeague {
-    [self presentSemiView:self.leagueSelector];
+    if ([[BackendAdapter leagues] count] > 0) {
+        // show league selector, if user has at least one league
+        [self presentSemiView:self.leagueSelector];
+    }
+    else {
+        // otherwise, we jump to the super league directly
+        [self switchToRanking];
+    }
 }
 
 // Called whenever a tournament round is selected in the timeline
@@ -454,13 +461,12 @@ static NSURL *downloadURL;
         [BackendAdapter loadRankings:^(RemoteCallResult remoteResult) {
             
             switch (remoteResult) {
-                case NO_INTERNET:
-                    [self showError:@"No internet"];
-                    break;
-                    
-                case INTERNAL_SERVER_ERROR:
                 case INTERNAL_CLIENT_ERROR:
-                    [self showError:@"Internal"];
+                case INTERNAL_SERVER_ERROR:
+                    [self showError:@"Någonting gick fel. Försök igen."];
+                    break;
+                case NO_INTERNET:
+                    [self showError:@"Du verkar sakna uppkoppling. Försök igen."];
                     break;
                     
                 case OK:
@@ -659,7 +665,7 @@ static NSURL *downloadURL;
 - (void) refreshRankingLabel {
     NSString* leagueName = [BackendAdapter currentLeague].name;
     if (!leagueName) {
-        leagueName = @"Superligan";
+        leagueName = @"Alla deltagare";
     }
     
     // define width of text

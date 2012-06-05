@@ -54,7 +54,7 @@
     cell.textLabel.textColor = [UIColor whiteColor];
     
     if (indexPath.row == 0) {
-        cell.leagueName.text = @"Superligan";
+        cell.leagueName.text = @"Alla deltagare";
     }
     else {
         League *league = [[BackendAdapter leagues] objectAtIndex:indexPath.row - 1];
