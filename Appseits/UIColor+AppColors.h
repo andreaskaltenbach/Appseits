@@ -68,5 +68,6 @@
 + (NSArray *) doubledLightBlueGradient;
 
 + (UIColor*) segmentedControlSelected;
++ (UIColor*) backButtonColor;
 
 @end

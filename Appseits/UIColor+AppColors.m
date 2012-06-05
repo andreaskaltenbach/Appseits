@@ -197,5 +197,9 @@
     return [UIColor colorWithRed:56.0/255.0f green:105.0/255.0f blue:15.0/255.0f alpha:1];
 }
 
++ (UIColor*) backButtonColor {
+    return [UIColor colorWithRed:131.0/255.0f green:181.0/255.0f blue:78.0/255.0f alpha:1];
+}
+
 
 @end

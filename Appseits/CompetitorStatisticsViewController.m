@@ -72,8 +72,12 @@
 	// Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:NO];
     
-    self.navigationController.title = @"Tippade matcher";
-    self.navigationItem.backBarButtonItem.title = @"Tillbaka";
+    self.navigationItem.title = @"Tippade matcher";
+    self.navigationItem.leftBarButtonItem.title = @"asf";
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Black" style:UIBarButtonItemStyleBordered target:nil action:nil]; 
+    [[self navigationItem] setBackBarButtonItem:backButton];
+//    tintColor = [UIColor yellowColor];
     
     
     

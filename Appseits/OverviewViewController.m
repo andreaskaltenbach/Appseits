@@ -597,6 +597,10 @@ static NSURL *downloadURL;
     }
     
     if ([segue.identifier isEqualToString:@"toCompetitorStatistic"]) {
+        
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Tillbaka" style:UIBarButtonItemStylePlain target:nil action:nil];
+        backButton.tintColor = [UIColor backButtonColor];
+        [[self navigationItem] setBackBarButtonItem:backButton];
         CompetitorStatisticsViewController *statisticsController = segue.destinationViewController;
         statisticsController.userId = self.currentCompetitorId;
     }
