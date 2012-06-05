@@ -59,17 +59,17 @@
         self.secondTeamFlag = (UIImageView*) [self viewWithTag:22];
         self.secondTeamPointsLabel = (UILabel*) [self viewWithTag:23];
         
-        self.myInitials = (UILabel*) [self viewWithTag:31];
-        self.competitorInitials = (UILabel*) [self viewWithTag:32];
+        self.myInitials = (UILabel*) [self viewWithTag:32];
+        self.competitorInitials = (UILabel*) [self viewWithTag:31];
         
-        self.myFirstTeamPredictionLabel = (UILabel*) [self viewWithTag:33];
-        self.mySecondTeamPredictionLabel = (UILabel*) [self viewWithTag:34];
+        self.myFirstTeamPredictionLabel = (UILabel*) [self viewWithTag:35];
+        self.mySecondTeamPredictionLabel = (UILabel*) [self viewWithTag:36];
         
-        self.competitorFirstTeamPredictionLabel = (UILabel*) [self viewWithTag:35];
-        self.competitorSecondTeamPredictionLabel = (UILabel*) [self viewWithTag:36];
+        self.competitorFirstTeamPredictionLabel = (UILabel*) [self viewWithTag:33];
+        self.competitorSecondTeamPredictionLabel = (UILabel*) [self viewWithTag:34];
 
-        self.myScoreLabel = (UILabel*) [self viewWithTag:37];
-        self.competitorScoreLabel = (UILabel*) [self viewWithTag:38];
+        self.myScoreLabel = (UILabel*) [self viewWithTag:38];
+        self.competitorScoreLabel = (UILabel*) [self viewWithTag:37];
     }
     return self;
 }
