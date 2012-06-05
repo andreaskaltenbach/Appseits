@@ -982,6 +982,143 @@
                                             <outlet property="delegate" destination="qXZ-s9-LVr" id="Itz-rO-h4h"/>
                                         </connections>
                                     </tableView>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="VTh-Ym-yYH">
+                                        <rect key="frame" x="320" y="0.0" width="320" height="302"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" id="tzJ-7K-NZv" customClass="CPTGraphHostingView">
+                                                <rect key="frame" x="60" y="0.0" width="200" height="200"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
+                                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Motstandare har inga poäng än så länge." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" id="hWv-gG-6yj">
+                                                <rect key="frame" x="60" y="0.0" width="200" height="200"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="whiteHeadingBackground@2x.png" id="uA0-k0-aIe">
+                                                <rect key="frame" x="53" y="225" width="235" height="57"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Poäng Skyttekungar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="lZO-DP-3VM">
+                                                <rect key="frame" x="53" y="228" width="235" height="45"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" id="yEM-QB-WQL" userLabel="player table">
+                                                <rect key="frame" x="6" y="300" width="309" height="150"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <view key="tableHeaderView" contentMode="scaleToFill" id="Afi-56-k1X">
+                                                    <rect key="frame" x="0.0" y="0.0" width="309" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Spelare" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="ccr-BH-lkh">
+                                                            <rect key="frame" x="11" y="11" width="48" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </view>
+                                                <prototypes>
+                                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="playerCell" rowHeight="40" id="ujz-lA-iT5" customClass="CompetitorStatisticCell">
+                                                        <rect key="frame" x="0.0" y="52" width="309" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="309" height="39"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="SDS-eT-h2d">
+                                                                    <rect key="frame" x="30" y="4" width="26" height="26"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Hakan Mild" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="2Gr-Y6-PfY">
+                                                                    <rect key="frame" x="64" y="6" width="86" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </label>
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="gqc-gV-skm">
+                                                                    <rect key="frame" x="111" y="11" width="86" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                                <sections/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="qXZ-s9-LVr" id="Fb9-ff-2A1"/>
+                                                    <outlet property="delegate" destination="qXZ-s9-LVr" id="6pT-3X-y3p"/>
+                                                </connections>
+                                            </tableView>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" id="TNC-cZ-P8t" userLabel="team table">
+                                                <rect key="frame" x="5" y="600" width="309" height="190"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <view key="tableHeaderView" contentMode="scaleToFill" id="RHL-qD-MS6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="309" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Lag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="fkH-Kd-310">
+                                                            <rect key="frame" x="11" y="11" width="48" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </view>
+                                                <prototypes>
+                                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamCell" rowHeight="40" id="kXV-yR-vvx" customClass="CompetitorStatisticCell">
+                                                        <rect key="frame" x="0.0" y="52" width="309" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                            <rect key="frame" x="0.0" y="0.0" width="309" height="39"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" id="VsM-5G-3Yx">
+                                                                    <rect key="frame" x="30" y="4" width="26" height="26"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                </imageView>
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Hakan Mild" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="p1f-4i-utK">
+                                                                    <rect key="frame" x="64" y="6" width="86" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </label>
+                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" text="5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="lef-rm-Ch9">
+                                                                    <rect key="frame" x="111" y="11" width="86" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                                <sections/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="qXZ-s9-LVr" id="nrI-0q-vLC"/>
+                                                    <outlet property="delegate" destination="qXZ-s9-LVr" id="Tye-Zs-e2M"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
+                                    </scrollView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -992,8 +1129,13 @@
                         <outlet property="comparisonTable" destination="ewl-qz-6jO" id="HgG-2j-n75"/>
                         <outlet property="competitorNameLabel" destination="s8G-UC-iga" id="xsD-gZ-Ivc"/>
                         <outlet property="competitorNameView" destination="uf5-em-moE" id="xmI-is-xZe"/>
+                        <outlet property="graphView" destination="tzJ-7K-NZv" id="Sfe-Me-9LZ"/>
+                        <outlet property="noPointsYetLabel" destination="hWv-gG-6yj" id="qWf-Pp-fjB"/>
+                        <outlet property="playerTable" destination="yEM-QB-WQL" id="Xdd-Og-Ygc"/>
                         <outlet property="scrollView" destination="aSB-tf-G71" id="ZWK-YP-4JL"/>
                         <outlet property="segmentedControl" destination="GqZ-vh-y7Y" id="Bfe-kt-opC"/>
+                        <outlet property="statisticView" destination="VTh-Ym-yYH" id="WUZ-51-2oa"/>
+                        <outlet property="teamTable" destination="TNC-cZ-P8t" id="2Kn-Sw-bjx"/>
                     </connections>
                 </viewController>
             </objects>
@@ -1570,6 +1712,7 @@
         <image name="stroke.png" width="100" height="16"/>
         <image name="userGreen@2x.png" width="22" height="32"/>
         <image name="verticalSeparator.png" width="6" height="88"/>
+        <image name="whiteHeadingBackground@2x.png" width="470" height="114"/>
     </resources>
     <classes>
         <class className="AppseitsPageControl" superclassName="UIPageControl">
@@ -1587,14 +1730,22 @@
         <class className="ComparisonCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ComparisonCell.h"/>
         </class>
+        <class className="CompetitorStatisticCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CompetitorStatisticCell.h"/>
+        </class>
         <class className="CompetitorStatisticsViewController" superclassName="AppseitsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CompetitorStatisticsViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="comparisonTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="competitorNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="competitorNameView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="graphView" candidateClass="CPTGraphHostingView"/>
+                <relationship kind="outlet" name="noPointsYetLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playerTable" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="segmentedControl" candidateClass="MCSegmentedControl"/>
+                <relationship kind="outlet" name="statisticView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="teamTable" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="DoubledLightBlueGradientView" superclassName="SSGradientView">

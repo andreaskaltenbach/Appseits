@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "AppseitsViewController.h"
+#import "CorePlot-CocoaTouch.h"
+#import "Ranking.h"
 
-@interface CompetitorStatisticsViewController : AppseitsViewController<UITableViewDataSource, UITableViewDelegate>
+@interface CompetitorStatisticsViewController : AppseitsViewController<UITableViewDataSource, UITableViewDelegate, CPTPieChartDataSource, CPTPieChartDelegate>
 
-@property (nonatomic, strong) NSString* userId;
+@property (nonatomic, strong) Ranking* ranking;
 
 @end

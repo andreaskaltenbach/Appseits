@@ -136,7 +136,7 @@ static NSURL *downloadURL;
 @synthesize rankingView = _rankingView;
 @synthesize currentMatchSelection = _currentMatchSelection;
 @synthesize currentLeague = _currentLeague;
-@synthesize currentCompetitorId = _currentCompetitorId;
+@synthesize currentRanking = _currentRanking;
 @synthesize loadingView = _loadingView;
 @synthesize lastRankingUpdateBar = _lastRankingUpdateBar;
 
@@ -602,7 +602,7 @@ static NSURL *downloadURL;
         backButton.tintColor = [UIColor backButtonColor];
         [[self navigationItem] setBackBarButtonItem:backButton];
         CompetitorStatisticsViewController *statisticsController = segue.destinationViewController;
-        statisticsController.userId = self.currentCompetitorId;
+        statisticsController.ranking = self.currentRanking;
     }
 }
 

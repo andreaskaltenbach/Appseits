@@ -81,6 +81,9 @@
 		4E531C46151CB05B0003CAD1 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Match.m */; };
 		4E531C4E151CB5D50003CAD1 /* MatchPredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */; };
 		4E66A560157E60B7009B4001 /* MCSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A55F157E60B7009B4001 /* MCSegmentedControl.m */; };
+		4E66A56E157EA69E009B4001 /* CompetitorStatisticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A56D157EA69E009B4001 /* CompetitorStatisticCell.m */; };
+		4E66A571157EAA80009B4001 /* Top4PredictionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A570157EAA7F009B4001 /* Top4PredictionResult.m */; };
+		4E66A574157EAC0D009B4001 /* ScorerPredictionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A573157EAC0D009B4001 /* ScorerPredictionResult.m */; };
 		4E6B8C90156E25E500E54B10 /* menuBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6B8C8E156E25E500E54B10 /* menuBackground@2x.png */; };
 		4E6B8C91156E25E500E54B10 /* menuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6B8C8F156E25E500E54B10 /* menuBackground.png */; };
 		4E76C63E156EDD0D0021F043 /* greenBall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E76C63B156EDD0D0021F043 /* greenBall@2x.png */; };
@@ -432,6 +435,12 @@
 		4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPredictionCell.m; sourceTree = "<group>"; };
 		4E66A55E157E60B7009B4001 /* MCSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSegmentedControl.h; sourceTree = "<group>"; };
 		4E66A55F157E60B7009B4001 /* MCSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSegmentedControl.m; sourceTree = "<group>"; };
+		4E66A56C157EA69E009B4001 /* CompetitorStatisticCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitorStatisticCell.h; sourceTree = "<group>"; };
+		4E66A56D157EA69E009B4001 /* CompetitorStatisticCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitorStatisticCell.m; sourceTree = "<group>"; };
+		4E66A56F157EAA7F009B4001 /* Top4PredictionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Top4PredictionResult.h; sourceTree = "<group>"; };
+		4E66A570157EAA7F009B4001 /* Top4PredictionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Top4PredictionResult.m; sourceTree = "<group>"; };
+		4E66A572157EAC0D009B4001 /* ScorerPredictionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; path = ScorerPredictionResult.h; sourceTree = "<group>"; };
+		4E66A573157EAC0D009B4001 /* ScorerPredictionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScorerPredictionResult.m; sourceTree = "<group>"; };
 		4E6B8C8E156E25E500E54B10 /* menuBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuBackground@2x.png"; sourceTree = "<group>"; };
 		4E6B8C8F156E25E500E54B10 /* menuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBackground.png; sourceTree = "<group>"; };
 		4E76C63B156EDD0D0021F043 /* greenBall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenBall@2x.png"; sourceTree = "<group>"; };
@@ -1017,6 +1026,8 @@
 		4E531C40151CB0240003CAD1 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				4E66A56F157EAA7F009B4001 /* Top4PredictionResult.h */,
+				4E66A570157EAA7F009B4001 /* Top4PredictionResult.m */,
 				4E531C41151CB04A0003CAD1 /* MatchRound.h */,
 				4E531C42151CB04A0003CAD1 /* MatchRound.m */,
 				4E531C44151CB05B0003CAD1 /* Match.h */,
@@ -1047,6 +1058,8 @@
 				4EFE235E157D637D002486AF /* RoundComparison.m */,
 				4EFE2360157D6392002486AF /* MatchComparison.h */,
 				4EFE2361157D6392002486AF /* MatchComparison.m */,
+				4E66A572157EAC0D009B4001 /* ScorerPredictionResult.h */,
+				4E66A573157EAC0D009B4001 /* ScorerPredictionResult.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1140,6 +1153,8 @@
 				4EF23BCF157D501800DADDFA /* YellowBar.m */,
 				4EFE2356157D6257002486AF /* ComparisonCell.h */,
 				4EFE2357157D6257002486AF /* ComparisonCell.m */,
+				4E66A56C157EA69E009B4001 /* CompetitorStatisticCell.h */,
+				4E66A56D157EA69E009B4001 /* CompetitorStatisticCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1478,6 +1493,9 @@
 				4EFE235F157D637D002486AF /* RoundComparison.m in Sources */,
 				4EFE2362157D6392002486AF /* MatchComparison.m in Sources */,
 				4E66A560157E60B7009B4001 /* MCSegmentedControl.m in Sources */,
+				4E66A56E157EA69E009B4001 /* CompetitorStatisticCell.m in Sources */,
+				4E66A571157EAA80009B4001 /* Top4PredictionResult.m in Sources */,
+				4E66A574157EAC0D009B4001 /* ScorerPredictionResult.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

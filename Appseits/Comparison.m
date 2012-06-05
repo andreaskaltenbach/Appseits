@@ -8,6 +8,8 @@
 
 #import "Comparison.h"
 #import "RoundComparison.h"
+#import "Top4PredictionResult.h"
+#import "ScorerPredictionResult.h"
 
 @implementation Comparison
 
@@ -15,6 +17,9 @@
 @synthesize competitorInitials = _competitorInitials;
 @synthesize competitorName = _competitorName;
 @synthesize roundComparisons = _roundComparisons;
+
+@synthesize scorerPredictions = _scorerPredictions;
+@synthesize top4Predictions = _top4Predictions;
 
 + (Comparison*) comparisonFromJson:(NSDictionary*) jsonData {
    
@@ -37,6 +42,16 @@
         for (RoundComparison* roundComparison in comparison.roundComparisons) {
             roundComparison.comparison = comparison;
         }
+    }
+    
+    NSArray* winners = [competitorInfo objectForKey:@"winners"];
+    if (winners) {
+        comparison.top4Predictions = [Top4PredictionResult top4ResultsFromJson:winners];
+    }
+    
+    NSArray* scorers = [competitorInfo objectForKey:@"topScorers"];
+    if (scorers) {
+        comparison.scorerPredictions = [ScorerPredictionResult scorerResultsFromJson:scorers];
     }
     
     return comparison;

@@ -85,7 +85,7 @@
     Ranking *ranking = [BackendAdapter.rankings objectAtIndex:indexPath.row];
     
     if (!ranking.isMyRanking) {
-        self.overviewViewController.currentCompetitorId = ranking.competitorId;
+        self.overviewViewController.currentRanking = ranking;
         [self.overviewViewController performSegueWithIdentifier:@"toCompetitorStatistic" sender:self];
     }
 }

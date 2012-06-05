@@ -17,6 +17,10 @@
 
 @property (nonatomic, strong) NSArray* roundComparisons;
 
+@property (nonatomic, strong) NSArray* top4Predictions;
+
+@property (nonatomic, strong) NSArray* scorerPredictions;
+
 + (Comparison*) comparisonFromJson:(NSDictionary*) jsonData;
 
 @end

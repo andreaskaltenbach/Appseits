@@ -44,7 +44,7 @@
 
 @property (nonatomic, strong) Match* currentMatchSelection;
 
-@property (nonatomic, strong) NSString* currentCompetitorId;
+@property (nonatomic, strong) Ranking* currentRanking;
 
 @property (strong, nonatomic) IBOutlet UIView *rankingView;
 @property (strong, nonatomic) IBOutlet UIView *scoreView;
