@@ -12,7 +12,7 @@ static UIImage* grayBackground;
 
 @interface CompetitorStatisticCell() 
     
-@property (nonatomic, strong) UIView* grayBackground;
+@property (nonatomic, strong) UIImageView* grayBackground;
 @end;
 
 @implementation CompetitorStatisticCell
@@ -23,7 +23,7 @@ static UIImage* grayBackground;
 @synthesize grayBackground = _grayBackground;
 
 + (void) initialize {
-    grayBackground = [UIImage imageNamed:@"greyCellBackground"];
+    grayBackground = [UIImage imageNamed:@"grayCellBackground"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -33,9 +33,8 @@ static UIImage* grayBackground;
         self.flag = (UIImageView*) [self viewWithTag:1];
         self.name = (UILabel*) [self viewWithTag:2];
         self.points = (UILabel*) [self viewWithTag:3];
-        self.grayBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 32)];
-        self.grayBackground.backgroundColor = [UIColor colorWithPatternImage:grayBackground];
-        [self addSubview:self.grayBackground];
+        self.grayBackground = (UIImageView*) [self viewWithTag:99];
+        self.grayBackground.image = grayBackground;
     }
     return self;
 }
@@ -48,7 +47,7 @@ static UIImage* grayBackground;
 }
 
 - (void) setOdd:(BOOL) odd {
-    self.grayBackground.hidden = !odd;
+    self.grayBackground.hidden = odd;
 }
 
 @end
