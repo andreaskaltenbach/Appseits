@@ -99,7 +99,9 @@ static UIImage *userGray;
 {
  
     if (selected) {
-        if (!self.myself) {
+        TournamentRound* firstRound = [[BackendAdapter tournamentRounds] objectAtIndex:0]; 
+
+        if (!self.myself && !firstRound.notPassed) {
             self.userName.textColor = [UIColor whiteColor];
             self.points.textColor = [UIColor whiteColor];
             self.rank.textColor = [UIColor whiteColor];
