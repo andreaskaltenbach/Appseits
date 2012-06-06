@@ -88,12 +88,27 @@
             case OK:
                 self.comparison = [BackendAdapter lastComparison];
                 [self.comparisonTable reloadData];
+                [self scrollToNextMatch];
                 [self.playerTable reloadData];
                 [self.teamTable reloadData];
                 
                 [self setupPieChart];
         }
     }];
+}
+
+- (void) scrollToNextMatch {
+    int counter = 0;
+    for (MatchComparison* matchComparison in self.matchComparisons) {
+        if (matchComparison.isNextMatch) {
+            
+            [self.comparisonTable scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:counter inSection:0] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+            
+            return;
+
+        }
+        counter++;
+    }
 }
 
 - (void) setupPieChart {
@@ -165,8 +180,6 @@
         [self.indexToPointsDict setObject:_1X2 forKey:[NSNumber numberWithInt:counter]];
         counter++;
     }
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -261,7 +274,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.comparisonTable) {
-        return 140;
+        return 155;
     }
     else {
         return 32;

@@ -24,6 +24,8 @@
 
 @property (nonatomic, strong) RoundComparison* roundComparison;
 
+@property BOOL isNextMatch;
+
 + (NSArray*) matchComparisonsFromJson:(NSArray*) jsonData;
 
 @end

@@ -10,6 +10,7 @@
 #import "RoundComparison.h"
 #import "Top4PredictionResult.h"
 #import "ScorerPredictionResult.h"
+#import "MatchComparison.h"
 
 @implementation Comparison
 
@@ -38,10 +39,31 @@
     
     NSArray* rounds = [jsonData objectForKey:@"rounds"];
     if (rounds) {
+        
+        MatchComparison* nextMatch;
+        NSDate* now = [[NSDate date] dateByAddingTimeInterval:60*60*24*3];
+        NSLog(@"Now: %@", now);
+        
         comparison.roundComparisons = [RoundComparison roundComparisonsFromJson:rounds];
         for (RoundComparison* roundComparison in comparison.roundComparisons) {
             roundComparison.comparison = comparison;
+            
+            // scan for next match
+            for (MatchComparison* matchComparison in roundComparison.matchComparisons) {
+                if (!nextMatch) {
+                    // add 90 mins match time + 15 mins half time + 5 mins extra time!
+                    NSDate* finalWhistle = [matchComparison.match.kickOff dateByAddingTimeInterval:60*110];
+                    NSLog(@"Final whistle %@", finalWhistle);
+                    
+                    if ([now compare:finalWhistle] == NSOrderedAscending) {
+                        nextMatch = matchComparison;
+                    }
+                }
+            }
         }
+        
+        // set next match
+        nextMatch.isNextMatch = YES;
     }
     
     NSArray* winners = [competitorInfo objectForKey:@"winners"];

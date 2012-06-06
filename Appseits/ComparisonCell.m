@@ -35,6 +35,8 @@
 @property (nonatomic, strong) UIImageView* competitorPointBall;
 @property (nonatomic, strong) UIImageView* myPointBall;
 
+@property (nonatomic, strong) UIView* nextMatchBar;
+
 @end
 
 @implementation ComparisonCell
@@ -63,6 +65,8 @@
 
 @synthesize competitorPointBall = _competitorPointBall;
 @synthesize myPointBall = _myPointBall;
+
+@synthesize nextMatchBar = _nextMatchBar;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -97,6 +101,8 @@
         
         self.competitorPointBall = (UIImageView*) [self viewWithTag:333];
         self.myPointBall = (UIImageView*) [self viewWithTag:444];
+        
+        self.nextMatchBar = (UIView*) [self viewWithTag:456];
     }
     return self;
 }
@@ -162,6 +168,13 @@
     
     [myResultUtil switchLeftPredictionBackground:self.myFirstPredictionBackground];
     [myResultUtil switchRightPredictionBackground:self.mySecondPredictionBackground];
+    
+    if (matchComparison.isNextMatch) {
+        self.nextMatchBar.hidden = NO;
+    }
+    else {
+        self.nextMatchBar.hidden = YES;
+    }
 }
 
 @end

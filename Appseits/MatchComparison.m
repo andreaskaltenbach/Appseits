@@ -21,6 +21,7 @@
 @synthesize competitorScore = _competitorScore;
 @synthesize competitorPredictionSecondTeam = _competitorPredictionSecondTeam;
 @synthesize roundComparison = _roundComparison;
+@synthesize isNextMatch = _isNextMatch;
 
 + (NSArray*) matchComparisonsFromJson:(NSArray*) jsonData {
     
@@ -31,7 +32,6 @@
     }
     
     return matchComparisons;
-    
 }
 
 + (MatchComparison*) matchComparisonFromJson:(NSDictionary*) jsonData {
