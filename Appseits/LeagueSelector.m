@@ -34,6 +34,7 @@
         self.leagueTable.delegate = self;
         self.leagueTable.dataSource = self;
         self.leagueTable.backgroundColor = [UIColor clearColor];
+        self.leagueTable.scrollsToTop = NO;
         
         UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:self.bounds];
         backgroundImage.image = [[UIImage imageNamed:@"leagueSelectBackground"] resizableImageWithCapInsets:UIEdgeInsetsMake(90, 150, 90, 150)];
