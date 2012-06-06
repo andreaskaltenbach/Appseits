@@ -37,17 +37,20 @@
     }
     
     
-    NSString *trend = [jsonData objectForKey:@"trend"];
+    NSNumber *trend = [jsonData objectForKey:@"trend"];
     if (trend) {
-        if ([trend isEqualToString:@"up"]) {
-            ranking.trend = UP;
-        }
-        else if ([trend isEqualToString:@"down"]) {
-            ranking.trend = DOWN;
-        }
-        else {
-            ranking.trend = UNCHANGED;
-        }                 
+        
+        switch (trend.intValue) {
+            case 1:
+                ranking.trend = UP;
+                break;
+            case -1:
+                ranking.trend = DOWN;
+                break;
+            default:
+                ranking.trend = UNCHANGED;
+                break;
+        }   
     }
     
     return ranking;

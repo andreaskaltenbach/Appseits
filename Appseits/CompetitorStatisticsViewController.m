@@ -28,7 +28,6 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet MCSegmentedControl *segmentedControl;
 @property (strong, nonatomic) IBOutlet UIView *competitorNameView;
-@property (strong, nonatomic) IBOutlet UILabel *competitorNameLabel;
 @property (strong, nonatomic) IBOutlet UITableView *comparisonTable;
 @property (strong, nonatomic) Comparison *comparison;
 @property (strong, nonatomic) NSArray* matchComparisons;
@@ -46,7 +45,6 @@
 @synthesize scrollView;
 @synthesize segmentedControl;
 @synthesize competitorNameView;
-@synthesize competitorNameLabel;
 @synthesize comparisonTable;
 @synthesize comparison = _comparison;
 @synthesize matchComparisons = _matchComparisons;
@@ -66,6 +64,7 @@
     self.view.backgroundColor = [UIColor squareBackground];
     
     self.comparisonTable.backgroundColor = [UIColor clearColor];
+    self.teamTable.backgroundColor = [UIColor clearColor];
 
     self.competitorNameView.backgroundColor = [UIColor headerBackground];
     
@@ -74,9 +73,7 @@
     self.segmentedControl.tintColor = [UIColor segmentedControlSelected];
     self.segmentedControl.font = [UIFont boldSystemFontOfSize:12];
     
-    self.statisticView.contentSize = CGSizeMake(self.statisticView.frame.size.width, 1000);
-    
-    self.competitorNameLabel.text = self.ranking.competitorName;
+    self.statisticView.contentSize = CGSizeMake(self.statisticView.frame.size.width, 740);
     
     [BackendAdapter loadCompetitorComparison:self.ranking.competitorId :^(RemoteCallResult remoteCallResult) {
         
@@ -118,7 +115,7 @@
         // Add pie chart
         CPTPieChart *piePlot = [[CPTPieChart alloc] init];
         piePlot.dataSource		= self;
-        piePlot.pieRadius		= 80.0;
+        piePlot.pieRadius		= 120.0;
         piePlot.startAngle		= 0;
         piePlot.sliceDirection	= CPTPieDirectionClockwise;
         piePlot.centerAnchor	= CGPointMake(0.5, 0.5);
@@ -129,7 +126,7 @@
         
         if ([self.pointsDict count] == 1) {
             // only one point type -> show data label centered
-            piePlot.labelOffset = -70;
+            piePlot.labelOffset = -100;
         }
         else {
             // multiple point types -> show data labels over the point types
@@ -178,9 +175,7 @@
 	// Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:NO];
     
-    self.navigationItem.title = @"Tippade matcher";
-    
-    
+    self.navigationItem.title = self.ranking.competitorName;
     
 }
 
@@ -204,7 +199,6 @@
     [self setSegmentedControl:nil];
     [self setScrollView:nil];
     [self setCompetitorNameView:nil];
-    [self setCompetitorNameLabel:nil];
     [self setComparisonTable:nil];
     [self setGraphView:nil];
     [self setNoPointsYetLabel:nil];
@@ -238,6 +232,7 @@
         cell.name.text = scorerResult.player.name;
         cell.flag.image = scorerResult.player.team.flag;
         cell.points.text = [NSString stringWithFormat:@"%.1fp", scorerResult.score.floatValue];
+        [cell setOdd:(indexPath.row % 2 != 0)];
         return cell;
     }
     
@@ -247,6 +242,7 @@
         cell.name.text = top4Result.team.name;
         cell.flag.image = top4Result.team.flag;
         cell.points.text = [NSString stringWithFormat:@"%.1fp", top4Result.score.floatValue];
+        [cell setOdd:(indexPath.row % 2 != 0)];
         return cell;
     }
     
@@ -270,7 +266,7 @@
         return 140;
     }
     else {
-        return 40;
+        return 32;
     }
 }
 

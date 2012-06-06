@@ -14,4 +14,6 @@
 @property (nonatomic, strong) UILabel *name;
 @property (nonatomic, strong) UILabel *points;
 
+- (void) setOdd:(BOOL) odd;
+
 @end
