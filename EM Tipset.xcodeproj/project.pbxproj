@@ -86,6 +86,7 @@
 		4E66A574157EAC0D009B4001 /* ScorerPredictionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A573157EAC0D009B4001 /* ScorerPredictionResult.m */; };
 		4E66A577157FAA8E009B4001 /* grayCellBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E66A575157FAA8E009B4001 /* grayCellBackground@2x.png */; };
 		4E66A578157FAA8E009B4001 /* grayCellBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E66A576157FAA8E009B4001 /* grayCellBackground.png */; };
+		4E66A57B157FB1E9009B4001 /* MatchResultUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A57A157FB1E9009B4001 /* MatchResultUtil.m */; };
 		4E6B8C90156E25E500E54B10 /* menuBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6B8C8E156E25E500E54B10 /* menuBackground@2x.png */; };
 		4E6B8C91156E25E500E54B10 /* menuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E6B8C8F156E25E500E54B10 /* menuBackground.png */; };
 		4E76C63E156EDD0D0021F043 /* greenBall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E76C63B156EDD0D0021F043 /* greenBall@2x.png */; };
@@ -445,6 +446,8 @@
 		4E66A573157EAC0D009B4001 /* ScorerPredictionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScorerPredictionResult.m; sourceTree = "<group>"; };
 		4E66A575157FAA8E009B4001 /* grayCellBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grayCellBackground@2x.png"; sourceTree = "<group>"; };
 		4E66A576157FAA8E009B4001 /* grayCellBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grayCellBackground.png; sourceTree = "<group>"; };
+		4E66A579157FB1E9009B4001 /* MatchResultUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchResultUtil.h; sourceTree = "<group>"; };
+		4E66A57A157FB1E9009B4001 /* MatchResultUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResultUtil.m; sourceTree = "<group>"; };
 		4E6B8C8E156E25E500E54B10 /* menuBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuBackground@2x.png"; sourceTree = "<group>"; };
 		4E6B8C8F156E25E500E54B10 /* menuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBackground.png; sourceTree = "<group>"; };
 		4E76C63B156EDD0D0021F043 /* greenBall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "greenBall@2x.png"; sourceTree = "<group>"; };
@@ -860,6 +863,8 @@
 				4ED46E4715594BEA00B75582 /* VersionEnforcer.m */,
 				5B1695D0156562F100F939D1 /* LockImageProvider.h */,
 				5B1695D1156562F100F939D1 /* LockImageProvider.m */,
+				4E66A579157FB1E9009B4001 /* MatchResultUtil.h */,
+				4E66A57A157FB1E9009B4001 /* MatchResultUtil.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -1504,6 +1509,7 @@
 				4E66A56E157EA69E009B4001 /* CompetitorStatisticCell.m in Sources */,
 				4E66A571157EAA80009B4001 /* Top4PredictionResult.m in Sources */,
 				4E66A574157EAC0D009B4001 /* ScorerPredictionResult.m in Sources */,
+				4E66A57B157FB1E9009B4001 /* MatchResultUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
