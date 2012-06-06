@@ -15,8 +15,8 @@
 #import "Ranking.h"
 #import "Comparison.h"
 
-//#define SERVER_URL @"http://emtipset.dev.stendahls.se"
-#define SERVER_URL @"http://em2012.brunoson.se"
+#define SERVER_URL @"http://emtipset.dev.stendahls.se"
+//#define SERVER_URL @"http://em2012.brunoson.se"
 
 typedef enum {
     OK,

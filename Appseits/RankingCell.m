@@ -41,9 +41,9 @@ static UIImage *userGray;
 @synthesize userImage = _userImage;
 
 + (void) initialize {
-    trendUp = [UIImage imageNamed:@"trendUp.png"];
-    trendConstant = [UIImage imageNamed:@"trendNeutral.png"];
-    trendDown = [UIImage imageNamed:@"trendDown.png"];
+    trendUp = [UIImage imageNamed:@"up"];
+    trendConstant = [UIImage imageNamed:@"neutral"];
+    trendDown = [UIImage imageNamed:@"down"];
     userGray = [UIImage imageNamed:@"userGray"];
     userGreen = [UIImage imageNamed:@"userGreen"];
 }
@@ -53,7 +53,7 @@ static UIImage *userGray;
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.rank = (UILabel*) [self viewWithTag:1];
-        //self.trend = (UIImageView*) [self viewWithTag:2];
+        self.trend = (UIImageView*) [self viewWithTag:2];
         
         self.userImage = (UIImageView*) [self viewWithTag:999];
         self.userName = (UILabel*) [self viewWithTag:4];        
@@ -66,7 +66,6 @@ static UIImage *userGray;
     }
     return self;
 }
-
 
 - (void) setRanking:(Ranking *)ranking {
     _ranking = ranking;
@@ -81,18 +80,22 @@ static UIImage *userGray;
         self.myself = NO;
     }
     
-    switch (ranking.trend) {
-        case UP:
-            self.trend.image = trendUp;
-            break;
-        case DOWN:
-            self.trend.image = trendDown;
-            break;
-        default:
-            self.trend.image = trendConstant;
-            break;
+    if (!ranking.trend) {
+        self.trend.image = trendConstant;
     }
-    
+    else {
+        switch (ranking.trend) {
+            case UP:
+                self.trend.image = trendUp;
+                break;
+            case DOWN:
+                self.trend.image = trendDown;
+                break;
+            default:
+                self.trend.image = trendConstant;
+                break;
+        }
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -137,12 +140,12 @@ static UIImage *userGray;
         self.userImage.hidden = NO;
         self.userImage.image = userGreen;
         
-        userNameFrame.origin.x = 72;
+        userNameFrame.origin.x = 87;
         userNameFrame.size.width = 210;
     }
     else {
         self.userImage.hidden = YES;
-        userNameFrame.origin.x = 52;
+        userNameFrame.origin.x = 67;
         userNameFrame.size.width = 190;
     }
     self.userName.frame = userNameFrame;

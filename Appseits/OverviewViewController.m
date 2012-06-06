@@ -141,9 +141,9 @@ static NSURL *downloadURL;
 @synthesize lastRankingUpdateBar = _lastRankingUpdateBar;
 
 + (void) initialize {
-    trendUp = [UIImage imageNamed:@"trendUp.png"];
-    trendConstant = [UIImage imageNamed:@"trendNeutral.png"];
-    trendDown = [UIImage imageNamed:@"trendDown.png"];
+    trendUp = [UIImage imageNamed:@"up"];
+    trendConstant = [UIImage imageNamed:@"neutral"];
+    trendDown = [UIImage imageNamed:@"down"];
     
     cogWheel = [UIImage imageNamed:@"cogwheel"];
     
@@ -720,6 +720,23 @@ static NSURL *downloadURL;
     CGSize totalRanksSize = [allRankings sizeWithFont:font];
     frame.size.width = totalRanksSize.width;
     self.totalRanks.frame = frame;
+    
+    if (!BackendAdapter.myRanking.trend) {
+        self.trendImage.image = trendConstant;
+    }
+    else {
+        switch (BackendAdapter.myRanking.trend) {
+            case UP:
+                self.trendImage.image = trendUp;
+                break;
+            case DOWN:
+                self.trendImage.image = trendDown;
+                break;
+            default:
+                self.trendImage.image = trendConstant;
+                break;
+        }
+    }
 }
 
 @end
