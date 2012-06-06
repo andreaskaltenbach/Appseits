@@ -147,24 +147,23 @@ static UIImage *greenBallCheck;
         }
     }
     else {
+        pointBallBackground.hidden = NO;
+        pointsLabel.hidden = NO;
+
+        
         if (self.points.intValue > 0) {
             // match is played and user got points
-            pointBallBackground.hidden = NO;
             pointBallBackground.image = greenBall;
-            pointsLabel.hidden = NO;
             pointsLabel.text = [NSString stringWithFormat:@"%ip", self.points.intValue];
-            pointsLabel.opaque = 1;
+            pointsLabel.opaque = 0.8;
         }
         else {
             // match is played and user got 0 points
-            pointBallBackground.hidden = NO;
             pointBallBackground.image = grayBall;
-            pointsLabel.hidden = NO;
             pointsLabel.text = @"0p";
             pointsLabel.opaque = 0.4;
         }
     }
-    
 }
 
 @end

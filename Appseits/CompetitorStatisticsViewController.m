@@ -249,8 +249,6 @@
     ComparisonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"comparisonCell"];
     cell.matchComparison = [self.matchComparisons objectAtIndex:indexPath.row];
     return cell;
-
-    
     
 }
 

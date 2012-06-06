@@ -7,6 +7,7 @@
 //
 
 #import "ComparisonCell.h"
+#import "MatchResultUtil.h"
 
 @interface ComparisonCell()
 @property (nonatomic, strong) UILabel* firstTeamNameLabel;
@@ -24,7 +25,15 @@
 @property (nonatomic, strong) UILabel* myScoreLabel;
 @property (nonatomic, strong) UILabel* competitorFirstTeamPredictionLabel;
 @property (nonatomic, strong) UILabel* competitorSecondTeamPredictionLabel;
+@property (nonatomic, strong) UIView* competitorFirstPredictionBackground;
+@property (nonatomic, strong) UIView* competitorSecondPredictionBackground;
+
+@property (nonatomic, strong) UIView* myFirstPredictionBackground;
+@property (nonatomic, strong) UIView* mySecondPredictionBackground;
+
 @property (nonatomic, strong) UILabel* competitorScoreLabel;
+@property (nonatomic, strong) UIImageView* competitorPointBall;
+@property (nonatomic, strong) UIImageView* myPointBall;
 
 @end
 
@@ -45,6 +54,15 @@
 @synthesize competitorFirstTeamPredictionLabel = _competitorFirstTeamPredictionLabel;
 @synthesize competitorSecondTeamPredictionLabel = _competitorSecondTeamPredictionLabel;
 @synthesize competitorScoreLabel = _competitorScoreLabel;
+
+@synthesize competitorFirstPredictionBackground = _competitorFirstPredictionBackground;
+@synthesize competitorSecondPredictionBackground = _competitorSecondPredictionBackground;
+
+@synthesize myFirstPredictionBackground = _myFirstPredictionBackground;
+@synthesize mySecondPredictionBackground = _mySecondPredictionBackground;
+
+@synthesize competitorPointBall = _competitorPointBall;
+@synthesize myPointBall = _myPointBall;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -70,6 +88,15 @@
 
         self.myScoreLabel = (UILabel*) [self viewWithTag:38];
         self.competitorScoreLabel = (UILabel*) [self viewWithTag:37];
+        
+        self.competitorFirstPredictionBackground = (UIView*) [self viewWithTag:111];
+        self.competitorSecondPredictionBackground = (UIView*) [self viewWithTag:222];
+        
+        self.myFirstPredictionBackground = (UIView*) [self viewWithTag:133];
+        self.mySecondPredictionBackground = (UIView*) [self viewWithTag:233];
+        
+        self.competitorPointBall = (UIImageView*) [self viewWithTag:333];
+        self.myPointBall = (UIImageView*) [self viewWithTag:444];
     }
     return self;
 }
@@ -114,6 +141,27 @@
     
     self.myScoreLabel.text = [NSString stringWithFormat:@"%ip", matchComparison.myPredictionScore.intValue];
     self.competitorScoreLabel.text = [NSString stringWithFormat:@"%ip", matchComparison.competitorScore.intValue];
+    
+    // update prediction labels for competitor:
+    MatchResultUtil* competitorResultUtil = [MatchResultUtil utilForPredictions:matchComparison.competitorPredictionFirstTeam :matchComparison.competitorPredictionSecondTeam forMatchResult:matchComparison.match.firstTeamGoals :matchComparison.match.secondTeamGoals withPoints:matchComparison.competitorScore];
+    
+    [competitorResultUtil updateLeftPredictionLabel:self.competitorFirstTeamPredictionLabel];
+    [competitorResultUtil updateRightPredictionLabel:self.competitorSecondTeamPredictionLabel];
+    
+    [competitorResultUtil switchLeftPredictionBackground:self.competitorFirstPredictionBackground];
+    [competitorResultUtil switchRightPredictionBackground:self.competitorSecondPredictionBackground];
+    [competitorResultUtil updatePointsBall:self.competitorPointBall :self.competitorScoreLabel];
+    
+    // update own prediction labels:
+    
+    MatchResultUtil* myResultUtil = [MatchResultUtil utilForPredictions:matchComparison.myPredictionFirstTeam :matchComparison.myPredictionSecondTeam forMatchResult:matchComparison.match.firstTeamGoals :matchComparison.match.secondTeamGoals withPoints:matchComparison.myPredictionScore];
+    
+    [myResultUtil updatePointsBall:self.myPointBall :self.myScoreLabel];
+    [myResultUtil updateLeftPredictionLabel:self.myFirstTeamPredictionLabel];
+    [myResultUtil updateRightPredictionLabel:self.mySecondTeamPredictionLabel];
+    
+    [myResultUtil switchLeftPredictionBackground:self.myFirstPredictionBackground];
+    [myResultUtil switchRightPredictionBackground:self.mySecondPredictionBackground];
 }
 
 @end
