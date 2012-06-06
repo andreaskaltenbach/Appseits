@@ -41,8 +41,7 @@
     if (rounds) {
         
         MatchComparison* nextMatch;
-        NSDate* now = [[NSDate date] dateByAddingTimeInterval:60*60*24*3];
-        NSLog(@"Now: %@", now);
+        NSDate* now = [NSDate date];
         
         comparison.roundComparisons = [RoundComparison roundComparisonsFromJson:rounds];
         for (RoundComparison* roundComparison in comparison.roundComparisons) {
@@ -53,8 +52,6 @@
                 if (!nextMatch) {
                     // add 90 mins match time + 15 mins half time + 5 mins extra time!
                     NSDate* finalWhistle = [matchComparison.match.kickOff dateByAddingTimeInterval:60*110];
-                    NSLog(@"Final whistle %@", finalWhistle);
-                    
                     if ([now compare:finalWhistle] == NSOrderedAscending) {
                         nextMatch = matchComparison;
                     }
