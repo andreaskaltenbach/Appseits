@@ -40,6 +40,7 @@
 #import "UIViewController+KNSemiModal.h"
 #import "LeagueSelector.h"
 #import "CompetitorStatisticsViewController.h"
+#import "GANTracker.h"
 
 #define SPINNER_DIMENSION 50
 
@@ -283,6 +284,10 @@ static NSURL *downloadURL;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:@"app/overview" withError:&error];
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *menu = [userDefaults objectForKey:MENU_KEY];
     if ([menu isEqualToString:@"RANKING"]) {
@@ -357,6 +362,9 @@ static NSURL *downloadURL;
 // Called whenever a tournament round is selected in the timeline
 - (void) tournamentRoundSelected:(TournamentRound*) round {
     
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/round/%@", round.roundName] withError:&error];
+    
     // iPad
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         if (round.class == [MatchRound class]) {
@@ -420,6 +428,10 @@ static NSURL *downloadURL;
 }
 
 - (IBAction)resultSelected:(id)sender {
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:@"app/overview/tips" withError:&error];
+    
     // store menu selection on client side
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:@"TIPS" forKey:MENU_KEY];
@@ -435,6 +447,9 @@ static NSURL *downloadURL;
 }
 
 - (void) switchToRanking {
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:@"app/overview/ranking" withError:&error];
     
     // store menu selection on client side
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -685,6 +700,9 @@ static NSURL *downloadURL;
 # pragma marks LeagueSelectorDelegate
 
 - (void) leagueSelected:(League*) league {
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/league/%@", league.name] withError:&error];
     
     [BackendAdapter setCurrentLeague:league];
     

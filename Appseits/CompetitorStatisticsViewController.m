@@ -18,6 +18,7 @@
 #import "CompetitorStatisticCell.h"
 #import "ScorerPredictionResult.h"
 #import "Top4PredictionResult.h"
+#import "GANTracker.h"
 
 #define SK @"SK"
 #define T4 @"T4"
@@ -76,6 +77,9 @@
     self.segmentedControl.font = [UIFont boldSystemFontOfSize:12];
     
     self.statisticView.contentSize = CGSizeMake(self.statisticView.frame.size.width, 690);
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/competitorStats/%@/tippadeMatcher", self.ranking.competitorName] withError:&error];
     
     [BackendAdapter loadCompetitorComparison:self.ranking.competitorId :^(RemoteCallResult remoteCallResult) {
         
@@ -239,9 +243,16 @@
     
     if (self.segmentedControl.selectedSegmentIndex == 0) {
         [self.scrollView scrollRectToVisible:CGRectMake(0, 0, self.scrollView.frame.size.width, scrollView.frame.size.height) animated:YES];
+        NSError* error;
+        [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/competitorStats/%@/tippadeMatcher", self.ranking.competitorName] withError:&error];
+
+        
     }
     else {
         [self.scrollView scrollRectToVisible:CGRectMake(self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, scrollView.frame.size.height) animated:YES];
+        NSError* error;
+        [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/competitorStats/%@/statistik", self.ranking.competitorName] withError:&error];
+
     }
 }
 

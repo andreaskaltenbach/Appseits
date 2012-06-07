@@ -160,12 +160,6 @@
     [competitorResultUtil switchRightPredictionBackground:self.competitorSecondPredictionBackground];
     [competitorResultUtil updatePointsBall:self.competitorPointBall :self.competitorScoreLabel];
     
-    // hide balls, if match is not yet played:
-    if (!matchComparison.match.firstTeamGoals && !matchComparison.match.secondTeamGoals) {
-        self.competitorPointBall.image = nil;
-        self.myPointBall.image = nil;
-    }
-    
     // update own prediction labels:
     MatchResultUtil* myResultUtil = [MatchResultUtil utilForPredictions:matchComparison.myPredictionFirstTeam :matchComparison.myPredictionSecondTeam forMatchResult:matchComparison.match.firstTeamGoals :matchComparison.match.secondTeamGoals withPoints:matchComparison.myPredictionScore];
     
@@ -181,6 +175,12 @@
     }
     else {
         self.nextMatchBar.hidden = YES;
+    }
+    
+    // hide balls, if match is not yet played:
+    if (!matchComparison.match.firstTeamGoals && !matchComparison.match.secondTeamGoals) {
+        self.competitorPointBall.image = nil;
+        self.myPointBall.image = nil;
     }
 }
 
