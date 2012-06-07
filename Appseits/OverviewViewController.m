@@ -675,7 +675,7 @@ static NSURL *downloadURL;
     // define width of text
     float width = [leagueName sizeWithFont:[UIFont boldSystemFontOfSize:15]].width;
     CGRect rankingItemFrame = self.rankingMenuItem.frame;
-    rankingItemFrame.size.width = width + 30;
+    rankingItemFrame.size.width = width + 55;
     self.rankingMenuItem.frame = rankingItemFrame;
     
     // update ranking menu item text
