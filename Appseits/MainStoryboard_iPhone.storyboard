@@ -1091,18 +1091,18 @@
                                                         </connections>
                                                     </tableView>
                                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="whiteHeadingBackground@2x.png" id="mbC-mC-cN2">
-                                                        <rect key="frame" x="0.0" y="485" width="320" height="47"/>
+                                                        <rect key="frame" x="0.0" y="469" width="320" height="47"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Poäng Topp 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontSizeToFit="NO" id="cjM-nj-GId">
-                                                        <rect key="frame" x="0.0" y="485" width="320" height="47"/>
+                                                        <rect key="frame" x="0.0" y="469" width="320" height="47"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="32" sectionHeaderHeight="22" sectionFooterHeight="22" id="TNC-cZ-P8t" userLabel="team table">
-                                                        <rect key="frame" x="0.0" y="550" width="480" height="765"/>
+                                                        <rect key="frame" x="0.0" y="534" width="480" height="765"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <view key="tableHeaderView" contentMode="scaleToFill" id="RHL-qD-MS6">

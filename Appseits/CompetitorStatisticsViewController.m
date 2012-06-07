@@ -75,7 +75,7 @@
     self.segmentedControl.tintColor = [UIColor segmentedControlSelected];
     self.segmentedControl.font = [UIFont boldSystemFontOfSize:12];
     
-    self.statisticView.contentSize = CGSizeMake(self.statisticView.frame.size.width, 740);
+    self.statisticView.contentSize = CGSizeMake(self.statisticView.frame.size.width, 690);
     
     [BackendAdapter loadCompetitorComparison:self.ranking.competitorId :^(RemoteCallResult remoteCallResult) {
         
@@ -155,6 +155,8 @@
         CGRect frame = self.top4AndScorerView.frame;
         frame.origin.y = frame.origin.y - 210;
         self.top4AndScorerView.frame = frame;
+        
+        self.statisticView.contentSize = CGSizeMake(self.statisticView.contentSize.width, self.statisticView.contentSize.height - 210);
     }
 }
 
