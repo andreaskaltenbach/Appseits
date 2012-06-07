@@ -318,18 +318,16 @@
 }
 
 -(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index {
-    
-
 
     NSString* pointType = [self.indexToPointsDict objectForKey:[NSNumber numberWithInt:index]];
     NSNumber *points = [self.pointsDict objectForKey:pointType];
 
-    CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%@\n%.1fp", pointType, points.floatValue]];
+    CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%@\n(%.1fp)", pointType, points.floatValue]];
 	CPTMutableTextStyle *textStyle = [label.textStyle mutableCopy];
-    textStyle.fontSize = 14;
+    textStyle.fontSize = 15;
     textStyle.color = [CPTColor whiteColor];
+    textStyle.textAlignment = CPTTextAlignmentCenter;
 	label.textStyle = textStyle;
-    
     
     return label;
 }
