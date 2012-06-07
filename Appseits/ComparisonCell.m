@@ -8,6 +8,7 @@
 
 #import "ComparisonCell.h"
 #import "MatchResultUtil.h"
+#import "UIColor+AppColors.h"
 
 @interface ComparisonCell()
 @property (nonatomic, strong) UILabel* firstTeamNameLabel;
@@ -103,6 +104,7 @@
         self.myPointBall = (UIImageView*) [self viewWithTag:444];
         
         self.nextMatchBar = (UIView*) [self viewWithTag:456];
+        self.nextMatchBar.backgroundColor = [UIColor nextMatchColor];
     }
     return self;
 }
