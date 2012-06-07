@@ -39,6 +39,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *teamTable;
 @property (strong, nonatomic) IBOutlet UILabel *noPointsYetLabel;
 @property (strong, nonatomic) IBOutlet UIScrollView *statisticView;
+@property (strong, nonatomic) IBOutlet UIView *top4AndScorerView;
 @end
 
 @implementation CompetitorStatisticsViewController
@@ -57,6 +58,7 @@
 @synthesize teamTable;
 @synthesize noPointsYetLabel;
 @synthesize statisticView;
+@synthesize top4AndScorerView;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -150,6 +152,9 @@
     }
     else {
         self.noPointsYetLabel.hidden = NO;
+        CGRect frame = self.top4AndScorerView.frame;
+        frame.origin.y = frame.origin.y - 210;
+        self.top4AndScorerView.frame = frame;
     }
 }
 
@@ -218,6 +223,7 @@
     [self setStatisticView:nil];
     [self setPlayerTable:nil];
     [self setTeamTable:nil];
+    [self setTop4AndScorerView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
