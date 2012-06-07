@@ -674,6 +674,11 @@ static NSURL *downloadURL;
 
 - (void) newVersionAvailable:(NSString*) versionNumber {
    [self showPrompt:@"Det finns en ny version av appen!":@"Ladda hem nu" :@"Senare" :^{
+       
+       NSError* error;
+       NSString* appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+       [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/update/%@", appVersion] withError:&error];
+       
        // navigate to the download URL
        if ([[UIApplication sharedApplication] canOpenURL:downloadURL]) {
            [[UIApplication sharedApplication] openURL:downloadURL];
