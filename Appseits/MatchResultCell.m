@@ -124,14 +124,14 @@ static UIImage *resultSelectedBackgroundImage;
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
-    [super setSelected:selected animated:animated];
-    
+    //TODO - activate once match results exist
+    /*[super setSelected:selected animated:animated];
     if (selected) {
         self.backgroundColor = [UIColor colorWithPatternImage:resultSelectedBackgroundImage];
     }
     else {
-        self.backgroundColor = [UIColor colorWithPatternImage:resultBackgroundImage];
-    }
+     */   self.backgroundColor = [UIColor colorWithPatternImage:resultBackgroundImage];
+   // }
 }
 
 @end
