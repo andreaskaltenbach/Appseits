@@ -63,10 +63,25 @@
 }
 
 -(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index {
-    CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:@"Lulu"];
+    
+    NSString* labelText;
+    switch (index) {
+        case 0:
+            labelText = [NSString stringWithFormat:@"2\n(%.1f%%)", self.matchStats.secondTeamWinPredictionPercentage.floatValue * 100];
+            break;
+        case 1:
+            labelText = [NSString stringWithFormat:@"X\n(%.1f%%)", self.matchStats.drawPredictionPercentage.floatValue * 100];       
+            break;
+        default:
+            labelText = [NSString stringWithFormat:@"1\n(%.1f%%)", self.matchStats.firstTeamWinPredictionPercentage.floatValue * 100];
+    }
+    
+    CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:labelText];
 	CPTMutableTextStyle *textStyle = [label.textStyle mutableCopy];
     
-	textStyle.color = [CPTColor lightGrayColor];
+    textStyle.fontSize = 15;
+    textStyle.color = [CPTColor whiteColor];
+    textStyle.textAlignment = CPTTextAlignmentCenter;
 	label.textStyle = textStyle;
     return label;
 }
