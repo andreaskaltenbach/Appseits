@@ -73,6 +73,8 @@
 		4E4D7E861580D18400C47837 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4D7E851580D18400C47837 /* libGoogleAnalytics.a */; };
 		4E4D7E8A1580D24C00C47837 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4D7E891580D24C00C47837 /* CFNetwork.framework */; };
 		4E4D7E8C1580D25900C47837 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4D7E8B1580D25800C47837 /* libsqlite3.0.dylib */; };
+		4E4D7E9F1583730E00C47837 /* MatchStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D7E9E1583730E00C47837 /* MatchStatistics.m */; };
+		4E4D7EA31583759B00C47837 /* MatchResultDistribtion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4D7EA21583759B00C47837 /* MatchResultDistribtion.m */; };
 		4E531C16151CAB050003CAD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C15151CAB050003CAD1 /* UIKit.framework */; };
 		4E531C18151CAB050003CAD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C17151CAB050003CAD1 /* Foundation.framework */; };
 		4E531C1A151CAB050003CAD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C19151CAB050003CAD1 /* CoreGraphics.framework */; };
@@ -130,7 +132,6 @@
 		4EE59D9E15404A690082193D /* AppseitsPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE59D9D15404A690082193D /* AppseitsPageControl.m */; };
 		4EE59DA115404C4E0082193D /* pageControl_inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE59D9F15404C4E0082193D /* pageControl_inactive.png */; };
 		4EE59DA215404C4E0082193D /* pageControl_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE59DA015404C4E0082193D /* pageControl_active.png */; };
-		4EE59DA5154050FB0082193D /* PagedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE59DA4154050FB0082193D /* PagedView.m */; };
 		4EE7C2CF155BD78700DD1D9C /* MatchPredictionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE7C2CE155BD78700DD1D9C /* MatchPredictionViewController.m */; };
 		4EE7C2D8155BDB6B00DD1D9C /* predictionInput@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE7C2D0155BDB6B00DD1D9C /* predictionInput@2x.png */; };
 		4EE7C2D9155BDB6B00DD1D9C /* predictionInput.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE7C2D1155BDB6B00DD1D9C /* predictionInput.png */; };
@@ -427,6 +428,10 @@
 		4E4D7E881580D19000C47837 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
 		4E4D7E891580D24C00C47837 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4E4D7E8B1580D25800C47837 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		4E4D7E9D1583730E00C47837 /* MatchStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchStatistics.h; sourceTree = "<group>"; };
+		4E4D7E9E1583730E00C47837 /* MatchStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchStatistics.m; sourceTree = "<group>"; };
+		4E4D7EA11583759B00C47837 /* MatchResultDistribtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchResultDistribtion.h; sourceTree = "<group>"; };
+		4E4D7EA21583759B00C47837 /* MatchResultDistribtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResultDistribtion.m; sourceTree = "<group>"; };
 		4E531C11151CAB050003CAD1 /* EM Tipset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EM Tipset.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E531C15151CAB050003CAD1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4E531C17151CAB050003CAD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -504,8 +509,6 @@
 		4EE59D9D15404A690082193D /* AppseitsPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppseitsPageControl.m; sourceTree = "<group>"; };
 		4EE59D9F15404C4E0082193D /* pageControl_inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageControl_inactive.png; sourceTree = "<group>"; };
 		4EE59DA015404C4E0082193D /* pageControl_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pageControl_active.png; sourceTree = "<group>"; };
-		4EE59DA3154050FB0082193D /* PagedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagedView.h; sourceTree = "<group>"; };
-		4EE59DA4154050FB0082193D /* PagedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagedView.m; sourceTree = "<group>"; };
 		4EE7C2CD155BD78700DD1D9C /* MatchPredictionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPredictionViewController.h; sourceTree = "<group>"; };
 		4EE7C2CE155BD78700DD1D9C /* MatchPredictionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPredictionViewController.m; sourceTree = "<group>"; };
 		4EE7C2D0155BDB6B00DD1D9C /* predictionInput@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "predictionInput@2x.png"; sourceTree = "<group>"; };
@@ -1094,6 +1097,10 @@
 				4EFE2361157D6392002486AF /* MatchComparison.m */,
 				4E66A572157EAC0D009B4001 /* ScorerPredictionResult.h */,
 				4E66A573157EAC0D009B4001 /* ScorerPredictionResult.m */,
+				4E4D7E9D1583730E00C47837 /* MatchStatistics.h */,
+				4E4D7E9E1583730E00C47837 /* MatchStatistics.m */,
+				4E4D7EA11583759B00C47837 /* MatchResultDistribtion.h */,
+				4E4D7EA21583759B00C47837 /* MatchResultDistribtion.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1135,8 +1142,6 @@
 				4E86FF5B152B275F00958DDE /* RankingCell.m */,
 				4EE59D9C15404A690082193D /* AppseitsPageControl.h */,
 				4EE59D9D15404A690082193D /* AppseitsPageControl.m */,
-				4EE59DA3154050FB0082193D /* PagedView.h */,
-				4EE59DA4154050FB0082193D /* PagedView.m */,
 				4EDF7A7B1541A6B4000C81AD /* MainScrollView.h */,
 				4EDF7A7C1541A6B4000C81AD /* MainScrollView.m */,
 				5BD38CD81542A2B300551FB9 /* ScrollTriggeringTableView.h */,
@@ -1483,7 +1488,6 @@
 				5BEC8890153F3EFE00EDC6BA /* CPTColor+AppColors.m in Sources */,
 				4EE59D9A154031DC0082193D /* UnfinishedMatchViewController.m in Sources */,
 				4EE59D9E15404A690082193D /* AppseitsPageControl.m in Sources */,
-				4EE59DA5154050FB0082193D /* PagedView.m in Sources */,
 				4EDF7A7D1541A6B4000C81AD /* MainScrollView.m in Sources */,
 				5BD38CDA1542A2B300551FB9 /* ScrollTriggeringTableView.m in Sources */,
 				5BD38CDF1542BA2B00551FB9 /* RoundTimeConstraintRow.m in Sources */,
@@ -1536,6 +1540,8 @@
 				4E66A571157EAA80009B4001 /* Top4PredictionResult.m in Sources */,
 				4E66A574157EAC0D009B4001 /* ScorerPredictionResult.m in Sources */,
 				4E66A57B157FB1E9009B4001 /* MatchResultUtil.m in Sources */,
+				4E4D7E9F1583730E00C47837 /* MatchStatistics.m in Sources */,
+				4E4D7EA31583759B00C47837 /* MatchResultDistribtion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

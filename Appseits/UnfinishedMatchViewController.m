@@ -10,28 +10,38 @@
 #import "UIColor+AppColors.h"
 #import "CorePlot-CocoaTouch.h"
 #import "CPTColor+AppColors.h"
-#import "PagedView.h"
+#import "MCSegmentedControl.h"
+#import "GANTracker.h"
+#import "BackendAdapter.h"
+#import "MatchStatistics.h"
 
 @interface UnfinishedMatchViewController ()
-@property (strong, nonatomic) IBOutlet CPTGraphHostingView *graphView;
-@property (strong, nonatomic) IBOutlet UIPageControl *pageIndicator;
 @property (strong, nonatomic) CPTXYGraph *pieChart;
-@property (strong, nonatomic) IBOutlet UIButton *spreadButton;
-@property (strong, nonatomic) IBOutlet UIButton *resultButton;
-@property (strong, nonatomic) IBOutlet PagedView *scrollView;
+@property (strong, nonatomic) IBOutlet CPTGraphHostingView *pieChartView;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet MCSegmentedControl *segmentedControl;
+@property (nonatomic, strong) MatchStatistics* matchStats;
 
 @end
 
 @implementation UnfinishedMatchViewController
-@synthesize graphView = _graphView;
-@synthesize pageIndicator = _pageIndicator;
 @synthesize pieChart = _pieChart;
-@synthesize spreadButton = _spreadButton;
-@synthesize resultButton = _resultButton;
+@synthesize pieChartView = _pieChartView;
 @synthesize scrollView = _scrollView;
+@synthesize segmentedControl = _segmentedControl;
+@synthesize match = _match;
+@synthesize matchStats = _matchStats;
 
 -(CPTFill *)sliceFillForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)index {
-    return [CPTFill fillWithColor:[CPTColor darkGreen]];
+    
+    switch (index) {
+        case 0:
+            return [CPTFill fillWithColor:[CPTColor darkGreen]];
+        case 1:
+            return [CPTFill fillWithColor:[CPTColor middleDarkGreen]];
+        default:
+            return [CPTFill fillWithColor:[CPTColor middleLightGreen]];
+    }
 }
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
@@ -39,9 +49,17 @@
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
-    if (index == 0) return [NSNumber numberWithInt:60];
-    if (index == 1) return [NSNumber numberWithInt:15];
-    return [NSNumber numberWithInt:25];
+    
+    NSLog(@"%f", self.matchStats.firstTeamWinPredictionPercentage.floatValue);
+    
+    switch (index) {
+        case 0:
+            return self.matchStats.secondTeamWinPredictionPercentage;
+        case 1:
+            return self.matchStats.drawPredictionPercentage;
+        default:
+            return self.matchStats.firstTeamWinPredictionPercentage;
+    }
 }
 
 -(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index {
@@ -53,88 +71,86 @@
     return label;
 }
 
-- (void)viewDidLoad
-{
-        
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor squareBackground];
     
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissMyself)];
-    [self.scrollView addGestureRecognizer:tapGesture];
+    self.scrollView.contentSize = CGSizeMake(2*self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    
+    self.segmentedControl.tintColor = [UIColor segmentedControlSelected];
+    self.segmentedControl.font = [UIFont boldSystemFontOfSize:12];
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/matchStats/%@-%@/fordelning", self.match.firstTeam.shortName, self.match.secondTeam.shortName] withError:&error];
+    
+    [BackendAdapter loadMatchStats:self.match.matchId :^(RemoteCallResult remoteCallResult) {
+        
+        switch (remoteCallResult) {
+            case INTERNAL_CLIENT_ERROR:
+            case INTERNAL_SERVER_ERROR:
+                [self showError:@"Någonting gick fel vid uppdatering. Försök igen."];
+                break;
+            case NO_INTERNET:
+                [self showError:@"Du verkar sakna uppkoppling. Försök igen."];
+                break;
+            case OK:
+                self.matchStats = [BackendAdapter lastMatchStats];
+                [self setupPieChart];
+        }
+    }];
+}
 
-    
-    
-    
-    [self spreadSelected:self];
-    
-    // Create pieChart from theme
-	self.pieChart = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
-    self.graphView.hostedGraph = self.pieChart;
+- (void) setupPieChart {
+        
+    // points available -> create pieChart from theme
+    self.pieChart = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
+    self.pieChartView.hostedGraph = self.pieChart;
     
     self.pieChart.paddingLeft   = 0.0;
-	self.pieChart.paddingTop	= 0.0;
-	self.pieChart.paddingRight  = 0.0;
-	self.pieChart.paddingBottom = 0.0;
+    self.pieChart.paddingTop	= 0.0;
+    self.pieChart.paddingRight  = 0.0;
+    self.pieChart.paddingBottom = 0.0;
     
-	self.pieChart.axisSet = nil;
+    self.pieChart.axisSet = nil;
+    CPTMutableTextStyle *whiteText = [CPTMutableTextStyle textStyle];
+    whiteText.color = [CPTColor whiteColor];
     
-	CPTMutableTextStyle *whiteText = [CPTMutableTextStyle textStyle];
-	whiteText.color = [CPTColor whiteColor];
+    // Add pie chart
+    CPTPieChart *piePlot = [[CPTPieChart alloc] init];
+    piePlot.dataSource		= self;
+    piePlot.pieRadius		= 120.0;
+    piePlot.startAngle		= 0;
+    piePlot.sliceDirection	= CPTPieDirectionClockwise;
+    piePlot.centerAnchor	= CGPointMake(0.5, 0.5);
+    piePlot.borderWidth = 0;
+    piePlot.delegate		= self;
     
-	// Add pie chart
-	CPTPieChart *piePlot = [[CPTPieChart alloc] init];
-	piePlot.dataSource		= self;
-	piePlot.pieRadius		= 80.0;
-	piePlot.startAngle		= 0;
-	piePlot.sliceDirection	= CPTPieDirectionClockwise;
-	piePlot.centerAnchor	= CGPointMake(0.5, 0.5);
-	piePlot.borderLineStyle = [CPTLineStyle lineStyle];
-	piePlot.delegate		= self;
-	[self.pieChart addPlot:piePlot];
+    [self.pieChart addPlot:piePlot];
     
-    [super viewDidLoad];
-
-}
-
-- (void) dismissMyself {
-    [self dismissModalViewControllerAnimated:YES];
-}
-
-- (IBAction)spreadSelected:(id)sender {
-    self.spreadButton.selected = YES;
-    self.resultButton.selected = NO;
-    
-    [self.scrollView scrollRectToVisible:CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
-    
-    self.pageIndicator.currentPage = 0;
-    [self.scrollView selectPage:0];
-}
-
-
-- (IBAction)resultSelected:(id)sender {
-    self.spreadButton.selected = NO;
-    self.resultButton.selected = YES;
-    self.pageIndicator.currentPage = 0;
-    
-    [self.scrollView scrollRectToVisible:CGRectMake(self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
-    
-    self.pageIndicator.currentPage = 1;
-    [self.scrollView selectPage:1];
+    piePlot.labelOffset = -60;
 }
 
 - (void)viewDidUnload
 {
-    [self setGraphView:nil];
-    [self setPageIndicator:nil];
-    [self setSpreadButton:nil];
-    [self setResultButton:nil];
     [self setScrollView:nil];
+    [self setPieChartView:nil];
+    [self setScrollView:nil];
+    [self setSegmentedControl:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (void)viewWillAppear:(BOOL)animated
 {
-	return YES;
+    [super viewWillAppear:animated];
+	// Do any additional setup after loading the view.
+    [self.navigationController setNavigationBarHidden:NO];
+    
+    self.navigationItem.title = [NSString stringWithFormat:@"%@ - %@", [self.match.firstTeam.shortName uppercaseString], [self.match.secondTeam.shortName uppercaseString]];
+    
+    
 }
+
 
 @end

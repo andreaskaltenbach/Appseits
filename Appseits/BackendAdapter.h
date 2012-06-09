@@ -14,6 +14,7 @@
 #import "Top4Round.h"
 #import "Ranking.h"
 #import "Comparison.h"
+#import "MatchStatistics.h"
 
 //#define SERVER_URL @"http://emtipset.dev.stendahls.se"
 #define SERVER_URL @"http://em2012.brunoson.se"
@@ -78,6 +79,10 @@ typedef void(^TeamsFetchedBlock)(NSArray* teams);
 
 + (void) loadCompetitorComparison:(NSString*) competitorId:(RemoteCallBlock) remoteCallBlock ;
 
++ (void) loadMatchStats:(NSNumber*) matchId:(RemoteCallBlock) remoteCallBlock;
+
 + (Comparison*) lastComparison;
+
++ (MatchStatistics*) lastMatchStats;
 
 @end

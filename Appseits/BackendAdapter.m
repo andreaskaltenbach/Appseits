@@ -18,6 +18,7 @@
 #import "ScorerRound.h"
 #import "CompositeTop4AndScorerRound.h"
 #import "Comparison.h"
+#import "MatchStatistics.h"
 
 static NSArray *rounds;
 
@@ -42,6 +43,7 @@ static NSMutableArray *players;
 static NSMutableDictionary *playerDictionary;
 
 static Comparison* lastComparison;
+static MatchStatistics* lastMatchStats;
 
 static Top4Round *top4Round;
 static ScorerRound *scorerRound;
@@ -59,6 +61,7 @@ static NSString* TEAMS_URL;
 static NSString* LEAGUE_URL;
 static NSString* RANKING_URL;
 static NSString* COMPETITORS_URL;
+static NSString* MATCH_URL;
 
 @implementation BackendAdapter
 
@@ -72,6 +75,7 @@ static NSString* COMPETITORS_URL;
     TEAMS_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/teams"];
     LEAGUE_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/leagues"];
     COMPETITORS_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/competitors"];
+    MATCH_URL = [NSString stringWithFormat:@"%@%@", SERVER_URL, @"/api/matches"];
 }
 
 + (BOOL) modelInitialized {
@@ -771,13 +775,38 @@ static NSString* COMPETITORS_URL;
     return matchMap;
 }
 
++ (void) loadMatchStats:(NSNumber*) matchId:(RemoteCallBlock) remoteCallBlock {
+    NSString* matchStatUrl = [MATCH_URL stringByAppendingFormat:@"/%@", matchId];
+    
+    NSMutableURLRequest *request = [BackendAdapter requestForUrl:matchStatUrl];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        RemoteCallResult remoteCallResult = [BackendAdapter remoteCallResult:response:error];
+        if (remoteCallResult != OK) {
+            remoteCallBlock(remoteCallResult);
+        }
+        else {
+            // parse the result
+            NSError *parseError = nil;
+            NSDictionary* matchStatData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
+            
+            if (parseError) {
+                remoteCallBlock(INTERNAL_CLIENT_ERROR);
+            }
+            
+            lastMatchStats = [MatchStatistics statsFromJson:matchStatData];
+            remoteCallBlock(OK);
+        }
+        
+    }];
+
+    
+}
+
 + (void) loadCompetitorComparison:(NSString*) competitorId:(RemoteCallBlock) remoteCallBlock {
     
-    
-    
     NSString* competitorUrl = [COMPETITORS_URL stringByAppendingFormat:@"/%@", competitorId];
-    
-    NSLog(@"URL: %@", competitorUrl);
     
     NSMutableURLRequest *request = [BackendAdapter requestForUrl:competitorUrl];
     
@@ -788,14 +817,9 @@ static NSString* COMPETITORS_URL;
             remoteCallBlock(remoteCallResult);
         }
         else {
-            
-            
             // parse the result
             NSError *parseError = nil;
             NSDictionary* comparisonData = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &parseError];
-            
-            NSLog(@"Data: %@", comparisonData);
-
             
             if (parseError) {
                 remoteCallBlock(INTERNAL_CLIENT_ERROR);
@@ -811,5 +835,11 @@ static NSString* COMPETITORS_URL;
 + (Comparison*) lastComparison {
     return lastComparison;
 }
+
++ (MatchStatistics*) lastMatchStats {
+    return lastMatchStats;
+}
+
+
 
 @end

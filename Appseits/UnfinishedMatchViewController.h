@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "CorePlot-CocoaTouch.h"
+#import "Match.h"
+#import "AppseitsViewController.h"
 
-@interface UnfinishedMatchViewController : UIViewController<CPTPieChartDataSource, CPTPieChartDelegate>
+@interface UnfinishedMatchViewController : AppseitsViewController<CPTPieChartDataSource, CPTPieChartDelegate>
+
+@property (nonatomic, strong) Match* match;
 
 @end

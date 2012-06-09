@@ -37,7 +37,6 @@
     
     round.roundId = [jsonData valueForKey:@"roundId"];
     
-    NSLog(@"Round ID: %i", round.roundId.intValue);
     return round;
 }
 

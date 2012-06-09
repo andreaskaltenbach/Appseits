@@ -28,7 +28,6 @@
 @interface CompetitorStatisticsViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet MCSegmentedControl *segmentedControl;
-@property (strong, nonatomic) IBOutlet UIView *competitorNameView;
 @property (strong, nonatomic) IBOutlet UITableView *comparisonTable;
 @property (strong, nonatomic) Comparison *comparison;
 @property (strong, nonatomic) NSArray* matchComparisons;
@@ -46,7 +45,6 @@
 @implementation CompetitorStatisticsViewController
 @synthesize scrollView;
 @synthesize segmentedControl;
-@synthesize competitorNameView;
 @synthesize comparisonTable;
 @synthesize comparison = _comparison;
 @synthesize matchComparisons = _matchComparisons;
@@ -69,8 +67,6 @@
     self.comparisonTable.backgroundColor = [UIColor clearColor];
     self.teamTable.backgroundColor = [UIColor clearColor];
 
-    self.competitorNameView.backgroundColor = [UIColor headerBackground];
-    
     self.scrollView.contentSize = CGSizeMake(2*self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     
     self.segmentedControl.tintColor = [UIColor segmentedControlSelected];
@@ -196,11 +192,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-	// Do any additional setup after loading the view.
     [self.navigationController setNavigationBarHidden:NO];
-    
     self.navigationItem.title = self.ranking.competitorName;
-    
 }
 
 - (void) setComparison:(Comparison *)comparison {
@@ -222,7 +215,6 @@
     [self setScrollView:nil];
     [self setSegmentedControl:nil];
     [self setScrollView:nil];
-    [self setCompetitorNameView:nil];
     [self setComparisonTable:nil];
     [self setGraphView:nil];
     [self setNoPointsYetLabel:nil];

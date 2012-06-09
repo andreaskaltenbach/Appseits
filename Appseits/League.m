@@ -25,7 +25,6 @@
     for (NSDictionary *leagueData in jsonData) {
         League *league = [[League alloc] init];
         league.leagueId = [leagueData valueForKey:@"id"];
-        NSLog(@"league ID %i", league.leagueId.intValue);
         league.name = [leagueData objectForKey:@"name"];
         [leagues addObject:league];
     }

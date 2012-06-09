@@ -163,8 +163,13 @@ static NSDateFormatter *dateFormatter;
         self.overviewViewController.currentMatchSelection = match;
         [self.overviewViewController performSegueWithIdentifier:@"toMatchPrediction" sender:self];
     }
+    
+    else {
+        self.overviewViewController.currentMatchSelection = match;
+        [self.overviewViewController performSegueWithIdentifier:@"toMatchStats" sender:self];
+    }
+    
     // TODO - show statistics if match is closed and played
-    // TODO - show predictions if match is closed but not yet played
     
 }
 

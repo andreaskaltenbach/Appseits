@@ -41,6 +41,7 @@
 #import "LeagueSelector.h"
 #import "CompetitorStatisticsViewController.h"
 #import "GANTracker.h"
+#import "UnfinishedMatchViewController.h"
 
 #define SPINNER_DIMENSION 50
 
@@ -618,6 +619,15 @@ static NSURL *downloadURL;
         [[self navigationItem] setBackBarButtonItem:backButton];
         CompetitorStatisticsViewController *statisticsController = segue.destinationViewController;
         statisticsController.ranking = self.currentRanking;
+    }
+    
+    if ([segue.identifier isEqualToString:@"toMatchStats"]) {
+        
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Tillbaka" style:UIBarButtonItemStylePlain target:nil action:nil];
+        backButton.tintColor = [UIColor backButtonColor];
+        [[self navigationItem] setBackBarButtonItem:backButton];
+        UnfinishedMatchViewController *matchStatsController = segue.destinationViewController;
+        matchStatsController.match = self.currentMatchSelection;
     }
 }
 
