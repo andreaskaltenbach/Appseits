@@ -40,6 +40,7 @@
 #import "UIViewController+KNSemiModal.h"
 #import "LeagueSelector.h"
 #import "CompetitorStatisticsViewController.h"
+#import "GANTracker.h"
 
 #define SPINNER_DIMENSION 50
 
@@ -283,6 +284,10 @@ static NSURL *downloadURL;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:@"app/overview" withError:&error];
+    
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *menu = [userDefaults objectForKey:MENU_KEY];
     if ([menu isEqualToString:@"RANKING"]) {
@@ -357,6 +362,9 @@ static NSURL *downloadURL;
 // Called whenever a tournament round is selected in the timeline
 - (void) tournamentRoundSelected:(TournamentRound*) round {
     
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/round/%@", round.roundName] withError:&error];
+    
     // iPad
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         if (round.class == [MatchRound class]) {
@@ -420,6 +428,10 @@ static NSURL *downloadURL;
 }
 
 - (IBAction)resultSelected:(id)sender {
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:@"app/overview/tips" withError:&error];
+    
     // store menu selection on client side
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:@"TIPS" forKey:MENU_KEY];
@@ -435,6 +447,9 @@ static NSURL *downloadURL;
 }
 
 - (void) switchToRanking {
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:@"app/overview/ranking" withError:&error];
     
     // store menu selection on client side
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -659,6 +674,11 @@ static NSURL *downloadURL;
 
 - (void) newVersionAvailable:(NSString*) versionNumber {
    [self showPrompt:@"Det finns en ny version av appen!":@"Ladda hem nu" :@"Senare" :^{
+       
+       NSError* error;
+       NSString* appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+       [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/update/%@", appVersion] withError:&error];
+       
        // navigate to the download URL
        if ([[UIApplication sharedApplication] canOpenURL:downloadURL]) {
            [[UIApplication sharedApplication] openURL:downloadURL];
@@ -675,7 +695,7 @@ static NSURL *downloadURL;
     // define width of text
     float width = [leagueName sizeWithFont:[UIFont boldSystemFontOfSize:15]].width;
     CGRect rankingItemFrame = self.rankingMenuItem.frame;
-    rankingItemFrame.size.width = width + 30;
+    rankingItemFrame.size.width = width + 55;
     self.rankingMenuItem.frame = rankingItemFrame;
     
     // update ranking menu item text
@@ -685,6 +705,9 @@ static NSURL *downloadURL;
 # pragma marks LeagueSelectorDelegate
 
 - (void) leagueSelected:(League*) league {
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/league/%@", league.name] withError:&error];
     
     [BackendAdapter setCurrentLeague:league];
     

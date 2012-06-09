@@ -18,6 +18,7 @@
 #import "CompetitorStatisticCell.h"
 #import "ScorerPredictionResult.h"
 #import "Top4PredictionResult.h"
+#import "GANTracker.h"
 
 #define SK @"SK"
 #define T4 @"T4"
@@ -39,6 +40,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *teamTable;
 @property (strong, nonatomic) IBOutlet UILabel *noPointsYetLabel;
 @property (strong, nonatomic) IBOutlet UIScrollView *statisticView;
+@property (strong, nonatomic) IBOutlet UIView *top4AndScorerView;
 @end
 
 @implementation CompetitorStatisticsViewController
@@ -57,6 +59,7 @@
 @synthesize teamTable;
 @synthesize noPointsYetLabel;
 @synthesize statisticView;
+@synthesize top4AndScorerView;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
@@ -73,7 +76,10 @@
     self.segmentedControl.tintColor = [UIColor segmentedControlSelected];
     self.segmentedControl.font = [UIFont boldSystemFontOfSize:12];
     
-    self.statisticView.contentSize = CGSizeMake(self.statisticView.frame.size.width, 740);
+    self.statisticView.contentSize = CGSizeMake(self.statisticView.frame.size.width, 690);
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/competitorStats/%@/tippadeMatcher", self.ranking.competitorName] withError:&error];
     
     [BackendAdapter loadCompetitorComparison:self.ranking.competitorId :^(RemoteCallResult remoteCallResult) {
         
@@ -150,6 +156,11 @@
     }
     else {
         self.noPointsYetLabel.hidden = NO;
+        CGRect frame = self.top4AndScorerView.frame;
+        frame.origin.y = frame.origin.y - 210;
+        self.top4AndScorerView.frame = frame;
+        
+        self.statisticView.contentSize = CGSizeMake(self.statisticView.contentSize.width, self.statisticView.contentSize.height - 210);
     }
 }
 
@@ -218,6 +229,7 @@
     [self setStatisticView:nil];
     [self setPlayerTable:nil];
     [self setTeamTable:nil];
+    [self setTop4AndScorerView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -231,9 +243,16 @@
     
     if (self.segmentedControl.selectedSegmentIndex == 0) {
         [self.scrollView scrollRectToVisible:CGRectMake(0, 0, self.scrollView.frame.size.width, scrollView.frame.size.height) animated:YES];
+        NSError* error;
+        [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/competitorStats/%@/tippadeMatcher", self.ranking.competitorName] withError:&error];
+
+        
     }
     else {
         [self.scrollView scrollRectToVisible:CGRectMake(self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, scrollView.frame.size.height) animated:YES];
+        NSError* error;
+        [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/competitorStats/%@/statistik", self.ranking.competitorName] withError:&error];
+
     }
 }
 
@@ -310,18 +329,16 @@
 }
 
 -(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index {
-    
-
 
     NSString* pointType = [self.indexToPointsDict objectForKey:[NSNumber numberWithInt:index]];
     NSNumber *points = [self.pointsDict objectForKey:pointType];
 
-    CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%@\n%.1fp", pointType, points.floatValue]];
+    CPTTextLayer *label = [[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%@\n(%.1fp)", pointType, points.floatValue]];
 	CPTMutableTextStyle *textStyle = [label.textStyle mutableCopy];
-    textStyle.fontSize = 14;
+    textStyle.fontSize = 15;
     textStyle.color = [CPTColor whiteColor];
+    textStyle.textAlignment = CPTTextAlignmentCenter;
 	label.textStyle = textStyle;
-    
     
     return label;
 }

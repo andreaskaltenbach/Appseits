@@ -12,6 +12,7 @@
 #import "BackendAdapter.h"
 #import "MatchRound.h"
 #import "RoundTimeConstraintRow.h"
+#import "GANTracker.h"
 
 @interface MatchPredictionViewController ()
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
@@ -57,6 +58,9 @@
     self.view.backgroundColor = [UIColor squareBackground];
     
     [self updateView];
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:@"app/prediction" withError:&error];
 }
 
 - (void)viewDidUnload
@@ -173,6 +177,9 @@
 
 - (void) pushPrediction {
     if (self.stalePrediction && self.completePrediction) {
+        
+        NSError* error;
+        [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/prediction/%i", self.match.matchId] withError:&error];
         
         [self.overviewViewController.timelineScrollView refreshSections];
         [self.overviewViewController.gameTable updateMatchCell:self.match];

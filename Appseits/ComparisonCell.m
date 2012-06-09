@@ -8,6 +8,7 @@
 
 #import "ComparisonCell.h"
 #import "MatchResultUtil.h"
+#import "UIColor+AppColors.h"
 
 @interface ComparisonCell()
 @property (nonatomic, strong) UILabel* firstTeamNameLabel;
@@ -103,6 +104,7 @@
         self.myPointBall = (UIImageView*) [self viewWithTag:444];
         
         self.nextMatchBar = (UIView*) [self viewWithTag:456];
+        self.nextMatchBar.backgroundColor = [UIColor nextMatchColor];
     }
     return self;
 }
@@ -159,7 +161,6 @@
     [competitorResultUtil updatePointsBall:self.competitorPointBall :self.competitorScoreLabel];
     
     // update own prediction labels:
-    
     MatchResultUtil* myResultUtil = [MatchResultUtil utilForPredictions:matchComparison.myPredictionFirstTeam :matchComparison.myPredictionSecondTeam forMatchResult:matchComparison.match.firstTeamGoals :matchComparison.match.secondTeamGoals withPoints:matchComparison.myPredictionScore];
     
     [myResultUtil updatePointsBall:self.myPointBall :self.myScoreLabel];
@@ -174,6 +175,12 @@
     }
     else {
         self.nextMatchBar.hidden = YES;
+    }
+    
+    // hide balls, if match is not yet played:
+    if (!matchComparison.match.firstTeamGoals && !matchComparison.match.secondTeamGoals) {
+        self.competitorPointBall.image = nil;
+        self.myPointBall.image = nil;
     }
 }
 

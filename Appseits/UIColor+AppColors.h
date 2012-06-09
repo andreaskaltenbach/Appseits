@@ -70,4 +70,6 @@
 + (UIColor*) segmentedControlSelected;
 + (UIColor*) backButtonColor;
 
++ (UIColor*) nextMatchColor;
+
 @end

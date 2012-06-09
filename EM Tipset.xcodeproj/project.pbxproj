@@ -70,6 +70,9 @@
 		4E449779156FB9F10020DBDF /* predictionBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E449777156FB9F10020DBDF /* predictionBg.png */; };
 		4E44977A156FB9F10020DBDF /* predictionBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E449778156FB9F10020DBDF /* predictionBg@2x.png */; };
 		4E45D5C8153C63110036098A /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E45D5C7153C63110036098A /* libCorePlot-CocoaTouch.a */; };
+		4E4D7E861580D18400C47837 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4D7E851580D18400C47837 /* libGoogleAnalytics.a */; };
+		4E4D7E8A1580D24C00C47837 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4D7E891580D24C00C47837 /* CFNetwork.framework */; };
+		4E4D7E8C1580D25900C47837 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4D7E8B1580D25800C47837 /* libsqlite3.0.dylib */; };
 		4E531C16151CAB050003CAD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C15151CAB050003CAD1 /* UIKit.framework */; };
 		4E531C18151CAB050003CAD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C17151CAB050003CAD1 /* Foundation.framework */; };
 		4E531C1A151CAB050003CAD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E531C19151CAB050003CAD1 /* CoreGraphics.framework */; };
@@ -420,6 +423,10 @@
 		4E45D5C5153C62450036098A /* NSDecimalNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDecimalNumberExtensions.h; sourceTree = "<group>"; };
 		4E45D5C6153C62450036098A /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
 		4E45D5C7153C63110036098A /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
+		4E4D7E851580D18400C47837 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		4E4D7E881580D19000C47837 /* GANTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GANTracker.h; sourceTree = "<group>"; };
+		4E4D7E891580D24C00C47837 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		4E4D7E8B1580D25800C47837 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		4E531C11151CAB050003CAD1 /* EM Tipset.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "EM Tipset.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E531C15151CAB050003CAD1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4E531C17151CAB050003CAD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -683,6 +690,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E4D7E8C1580D25900C47837 /* libsqlite3.0.dylib in Frameworks */,
+				4E4D7E8A1580D24C00C47837 /* CFNetwork.framework in Frameworks */,
 				5B3E6FFE1549BD7900190AE9 /* libz.dylib in Frameworks */,
 				4E050D831522115D0063EDED /* QuartzCore.framework in Frameworks */,
 				4E531C16151CAB050003CAD1 /* UIKit.framework in Frameworks */,
@@ -690,6 +699,7 @@
 				4E531C1A151CAB050003CAD1 /* CoreGraphics.framework in Frameworks */,
 				4E45D5C8153C63110036098A /* libCorePlot-CocoaTouch.a in Frameworks */,
 				5B3E6FFA1549BD2B00190AE9 /* libTestFlight.a in Frameworks */,
+				4E4D7E861580D18400C47837 /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -967,6 +977,8 @@
 		4E531C06151CAB050003CAD1 = {
 			isa = PBXGroup;
 			children = (
+				4E4D7E8B1580D25800C47837 /* libsqlite3.0.dylib */,
+				4E4D7E891580D24C00C47837 /* CFNetwork.framework */,
 				5B6A36151571025B007D88B7 /* Icon-72@2x.png */,
 				5B6A361115710218007D88B7 /* Icon-72.png */,
 				5B6A360F15710210007D88B7 /* Icon@2x.png */,
@@ -995,6 +1007,8 @@
 		4E531C14151CAB050003CAD1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E4D7E881580D19000C47837 /* GANTracker.h */,
+				4E4D7E851580D18400C47837 /* libGoogleAnalytics.a */,
 				5B3E6FF51549BD2B00190AE9 /* TestFlightSDK1.0 */,
 				4E45D577153C62450036098A /* CorePlotHeaders */,
 				4E45D5C7153C63110036098A /* libCorePlot-CocoaTouch.a */,

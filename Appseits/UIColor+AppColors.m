@@ -201,5 +201,9 @@
     return [UIColor colorWithRed:131.0/255.0f green:181.0/255.0f blue:78.0/255.0f alpha:1];
 }
 
++ (UIColor*) nextMatchColor {
+    return [UIColor colorWithRed:209.0/255.0f green:90.0/255.0f blue:62.0/255.0f alpha:0.3];
+}
+
 
 @end
