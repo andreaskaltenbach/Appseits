@@ -31,9 +31,12 @@
     if (predictedOutcomeDistribution) {
         NSMutableArray* resultDistribution = [NSMutableArray array];
         
-        [predictionDistribution enumerateKeysAndObjectsUsingBlock:^(NSString* result, NSNumber* percentage, BOOL *stop) {
+        [predictedOutcomeDistribution enumerateKeysAndObjectsUsingBlock:^(NSString* result, NSNumber* part, BOOL *stop) {
+            NSNumber *percentage = [NSNumber numberWithFloat:100 * part.floatValue];
             [resultDistribution addObject:[MatchResultDistribtion resultDistribution:result :percentage]];
         }];
+        
+        stats.resultDistribution = resultDistribution;
         
     }
     return stats;

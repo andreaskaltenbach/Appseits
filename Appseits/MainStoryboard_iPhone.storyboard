@@ -1661,11 +1661,22 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="352"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="shI-C1-8fI" customClass="CPTGraphHostingView">
+                                    <view hidden="YES" contentMode="scaleToFill" id="shI-C1-8fI" userLabel="pie chart" customClass="CPTGraphHostingView">
                                         <rect key="frame" x="30" y="46" width="260" height="260"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="jOm-yf-BEb">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="352"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" id="BMo-DM-Nkf" userLabel="bar chart" customClass="CPTGraphHostingView">
+                                                <rect key="frame" x="30" y="0.0" width="260" height="306"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                    </scrollView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -1673,6 +1684,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="A6E-bz-XDU"/>
                     <connections>
+                        <outlet property="barChartScrollView" destination="jOm-yf-BEb" id="OnJ-pC-Eh5"/>
+                        <outlet property="barChartView" destination="BMo-DM-Nkf" id="bJv-gK-hUX"/>
                         <outlet property="pieChartView" destination="shI-C1-8fI" id="0ZT-5J-aJN"/>
                         <outlet property="scrollView" destination="FfF-jR-CzL" id="2Nc-aF-tpy"/>
                         <outlet property="segmentedControl" destination="MtU-2Y-VPD" id="S2p-ZR-601"/>
@@ -1747,7 +1760,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CompetitorStatisticsViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="comparisonTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="competitorNameView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="graphView" candidateClass="CPTGraphHostingView"/>
                 <relationship kind="outlet" name="noPointsYetLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="playerTable" candidateClass="UITableView"/>
@@ -1936,6 +1948,8 @@
         <class className="UnfinishedMatchViewController" superclassName="AppseitsViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UnfinishedMatchViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="barChartScrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="barChartView" candidateClass="CPTGraphHostingView"/>
                 <relationship kind="outlet" name="pieChartView" candidateClass="CPTGraphHostingView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="segmentedControl" candidateClass="MCSegmentedControl"/>

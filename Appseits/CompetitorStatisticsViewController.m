@@ -126,8 +126,6 @@
         self.pieChart.paddingBottom = 0.0;
         
         self.pieChart.axisSet = nil;
-        CPTMutableTextStyle *whiteText = [CPTMutableTextStyle textStyle];
-        whiteText.color = [CPTColor whiteColor];
         
         // Add pie chart
         CPTPieChart *piePlot = [[CPTPieChart alloc] init];
