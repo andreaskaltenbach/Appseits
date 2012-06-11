@@ -80,22 +80,18 @@ static UIImage *userGray;
         self.myself = NO;
     }
     
-    if (!ranking.trend) {
-        self.trend.image = trendConstant;
+    switch (ranking.trend) {
+        case UP:
+            self.trend.image = trendUp;
+            break;
+        case DOWN:
+            self.trend.image = trendDown;
+            break;
+        default:
+            self.trend.image = trendConstant;
+            break;
     }
-    else {
-        switch (ranking.trend) {
-            case UP:
-                self.trend.image = trendUp;
-                break;
-            case DOWN:
-                self.trend.image = trendDown;
-                break;
-            default:
-                self.trend.image = trendConstant;
-                break;
-        }
-    }
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

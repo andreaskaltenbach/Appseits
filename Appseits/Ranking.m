@@ -37,7 +37,7 @@
     }
     
     
-    NSNumber *trend = [jsonData objectForKey:@"trend"];
+    NSNumber *trend = [jsonData objectForKey:@"competitorTrend"];
     if (trend) {
         
         switch (trend.intValue) {

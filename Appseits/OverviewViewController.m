@@ -754,21 +754,16 @@ static NSURL *downloadURL;
     frame.size.width = totalRanksSize.width;
     self.totalRanks.frame = frame;
     
-    if (!BackendAdapter.myRanking.trend) {
-        self.trendImage.image = trendConstant;
-    }
-    else {
-        switch (BackendAdapter.myRanking.trend) {
-            case UP:
-                self.trendImage.image = trendUp;
-                break;
-            case DOWN:
-                self.trendImage.image = trendDown;
-                break;
-            default:
-                self.trendImage.image = trendConstant;
-                break;
-        }
+    switch (BackendAdapter.myRanking.trend) {
+        case UP:
+            self.trendImage.image = trendUp;
+            break;
+        case DOWN:
+            self.trendImage.image = trendDown;
+            break;
+        default:
+            self.trendImage.image = trendConstant;
+            break;
     }
 }
 
