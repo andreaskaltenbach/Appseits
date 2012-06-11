@@ -684,7 +684,6 @@
                         <outlet property="trendImage" destination="OQs-YT-d0P" id="aTb-7X-XZC"/>
                         <segue destination="aOb-qA-Le6" kind="push" identifier="toTeamList" id="DHo-qL-Sdf"/>
                         <segue destination="HA9-ls-g95" kind="push" identifier="toPlayerTeamList" id="9gv-1C-j4F"/>
-                        <segue destination="yhp-JU-dlz" kind="modal" id="ZcN-Vc-2q2"/>
                         <segue destination="yhp-JU-dlz" kind="modal" identifier="toMatchPrediction" modalTransitionStyle="flipHorizontal" id="aNG-Dg-Dgt"/>
                         <segue destination="qXZ-s9-LVr" kind="push" identifier="toCompetitorStatistic" id="xwz-Ij-u5F"/>
                         <segue destination="0JB-BR-gUT" kind="push" identifier="toMatchStats" id="fvU-Mx-D4d"/>
@@ -1655,23 +1654,24 @@
                                 </segments>
                                 <connections>
                                     <action selector="segmentedControlTapped:" destination="qXZ-s9-LVr" eventType="valueChanged" id="LsA-b9-7j5"/>
+                                    <action selector="segmentedControlTapped:" destination="0JB-BR-gUT" eventType="valueChanged" id="suR-fR-KJE"/>
                                 </connections>
                             </segmentedControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="FfF-jR-CzL">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="FfF-jR-CzL">
                                 <rect key="frame" x="0.0" y="64" width="320" height="352"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <view hidden="YES" contentMode="scaleToFill" id="shI-C1-8fI" userLabel="pie chart" customClass="CPTGraphHostingView">
+                                    <view contentMode="scaleToFill" id="shI-C1-8fI" userLabel="pie chart" customClass="CPTGraphHostingView">
                                         <rect key="frame" x="30" y="46" width="260" height="260"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="jOm-yf-BEb">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="352"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="jOm-yf-BEb">
+                                        <rect key="frame" x="320" y="0.0" width="320" height="352"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="BMo-DM-Nkf" userLabel="bar chart" customClass="CPTGraphHostingView">
-                                                <rect key="frame" x="30" y="0.0" width="260" height="306"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="352"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
@@ -1964,7 +1964,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="ZcN-Vc-2q2"/>
-    </inferredMetricsTieBreakers>
 </document>

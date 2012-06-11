@@ -796,12 +796,11 @@ static NSString* MATCH_URL;
             }
             
             lastMatchStats = [MatchStatistics statsFromJson:matchStatData];
+                        
             remoteCallBlock(OK);
         }
         
     }];
-
-    
 }
 
 + (void) loadCompetitorComparison:(NSString*) competitorId:(RemoteCallBlock) remoteCallBlock {

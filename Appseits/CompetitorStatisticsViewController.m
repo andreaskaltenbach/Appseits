@@ -171,7 +171,7 @@
       counter++;
     }
     if (_ranking.topScorerPredictionPoints && _ranking.topScorerPredictionPoints .intValue > 0) {
-        [self.pointsDict setValue:_ranking.perfectMatchPredictionPoints forKey:SK];  
+        [self.pointsDict setValue:_ranking.topScorerPredictionPoints forKey:SK];  
         [self.indexToPointsDict setObject:SK forKey:[NSNumber numberWithInt:counter]];
         counter++;
     }
@@ -232,14 +232,14 @@
 - (IBAction)segmentedControlTapped:(id)sender {
     
     if (self.segmentedControl.selectedSegmentIndex == 0) {
-        [self.scrollView scrollRectToVisible:CGRectMake(0, 0, self.scrollView.frame.size.width, scrollView.frame.size.height) animated:YES];
+        [self.scrollView scrollRectToVisible:CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
         NSError* error;
         [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/competitorStats/%@/tippadeMatcher", self.ranking.competitorName] withError:&error];
 
         
     }
     else {
-        [self.scrollView scrollRectToVisible:CGRectMake(self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, scrollView.frame.size.height) animated:YES];
+        [self.scrollView scrollRectToVisible:CGRectMake(self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
         NSError* error;
         [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/competitorStats/%@/statistik", self.ranking.competitorName] withError:&error];
 

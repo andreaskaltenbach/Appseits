@@ -15,6 +15,7 @@
 #import "BackendAdapter.h"
 #import "MatchStatistics.h"
 #import "MatchResultDistribtion.h"
+#import "CPTColor+AppColors.h"
 
 #define BAR_HEIGHT 40
 
@@ -89,7 +90,6 @@
         else if ( fieldEnum == CPTBarPlotFieldBarTip ) {
             // length
             MatchResultDistribtion* distribution = [self.matchStats.resultDistribution objectAtIndex:index];
-            NSLog(@"Percentage: %f", distribution.percentage.floatValue);
             return distribution.percentage;
             
         }
@@ -97,7 +97,6 @@
             num = [NSDecimalNumber numberWithInt:0];
             
         }
-        NSLog(@"%f", num.floatValue);
         return num;
     }
 }
@@ -129,7 +128,8 @@
     
     else {
         MatchResultDistribtion* distribution = [self.matchStats.resultDistribution objectAtIndex:index];
-        return [[CPTTextLayer alloc] initWithText:distribution.result];
+        NSString* label = [NSString stringWithFormat:@"%.1f%%", distribution.percentage.floatValue];
+        return [[CPTTextLayer alloc] initWithText:label];
     }
     
 }
@@ -207,62 +207,39 @@
     self.barChartView.frame = frame;
     
     self.barChartView.hostedGraph = graph;
-
     self.barChart.graph = graph;
     
-	graph.plotAreaFrame.paddingBottom += 30.0;
-    
-    // get the highest percentage, defining the right border
+	// get the highest percentage, defining the right border
     float max;
+    int ownIndex; 
+    int counter = 0;
     for (MatchResultDistribtion* resultDistribution in self.matchStats.resultDistribution) {
         max = MAX(max, resultDistribution.percentage.floatValue);
+        
+        if (self.match.firstTeamGoals && self.match.secondTeamGoals && self.match.firstTeamPrediction && self.match.secondTeamPrediction) {
+            NSString* resultString = [NSString stringWithFormat:@"%i-%i", self.match.firstTeamPrediction.intValue, self.match.secondTeamPrediction.intValue];
+            
+            if ([resultString isEqualToString: resultDistribution.result]) {
+                ownIndex = counter;
+            }
+        }
+        counter++;
     }
-    NSLog(@"Max: %f", max);
-
+    max+= 20;
+    
+    NSLog(@"Own index%i", ownIndex);
     
 	// Add plot space for bar charts
 	CPTXYPlotSpace *barPlotSpace = [[CPTXYPlotSpace alloc] init];
-	barPlotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat(max)];
-	barPlotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0) length:CPTDecimalFromFloat([self.matchStats.resultDistribution count])];
+	barPlotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-10) length:CPTDecimalFromFloat(max)];
+	barPlotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-5) length:CPTDecimalFromFloat([self.matchStats.resultDistribution count] + 5)];
 
 	[graph addPlotSpace:barPlotSpace];
     
-	// Create grid line styles
-	CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];
-	majorGridLineStyle.lineWidth = 1.0f;
-	majorGridLineStyle.lineColor = [[CPTColor whiteColor] colorWithAlphaComponent:0.75];
-    
-	CPTMutableLineStyle *minorGridLineStyle = [CPTMutableLineStyle lineStyle];
-	minorGridLineStyle.lineWidth = 1.0f;
-	minorGridLineStyle.lineColor = [[CPTColor whiteColor] colorWithAlphaComponent:0.25];
-    
+	
 	// Create axes
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
-	CPTXYAxis *x		  = axisSet.xAxis;
-	{
-
-		x.majorIntervalLength		  = CPTDecimalFromInteger(10);
-		x.minorTicksPerInterval		  = 9;
-		x.orthogonalCoordinateDecimal = CPTDecimalFromDouble(-0.5);
-
-		x.majorGridLineStyle = majorGridLineStyle;
-		x.minorGridLineStyle = minorGridLineStyle;
-		x.axisLineStyle		 = nil;
-		x.majorTickLineStyle = nil;
-		x.minorTickLineStyle = nil;
-		x.labelOffset		 = 10.0;
-
-		x.visibleRange	 = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0f) length:CPTDecimalFromFloat(100.0f)];
-		x.gridLinesRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-0.5f) length:CPTDecimalFromFloat(10.0f)];
-
-		x.title		  = @"X Axis";
-		x.titleOffset = 30.0f;
-
-		x.titleLocation = CPTDecimalFromInteger(55);
-        
-		x.plotSpace = barPlotSpace;
-	}
-    
+	
 	CPTXYAxis *y = axisSet.yAxis;
 	{
 		y.majorIntervalLength		  = CPTDecimalFromInteger(1);
@@ -270,27 +247,46 @@
 		y.orthogonalCoordinateDecimal = CPTDecimalFromInteger(0);
 
 		y.preferredNumberOfMajorTicks = 8;
-		y.majorGridLineStyle		  = majorGridLineStyle;
-		y.minorGridLineStyle		  = minorGridLineStyle;
 		y.axisLineStyle				  = nil;
 		y.majorTickLineStyle		  = nil;
 		y.minorTickLineStyle		  = nil;
 		y.labelOffset				  = 10.0;
-		y.labelRotation				  = M_PI / 2;
         
-		y.visibleRange	 = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-0.5f) length:CPTDecimalFromFloat(10.0f)];
-		y.gridLinesRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0f) length:CPTDecimalFromFloat(100.0f)];
+		y.visibleRange	 = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-2) length:CPTDecimalFromFloat(99)];
         
-		y.title		  = @"Y Axis";
-		y.titleOffset = 30.0f;
+        y.labelingPolicy = CPTAxisLabelingPolicyNone;
+        
+        // one tick location for every result prediction
+        int counter = 0;
+        NSMutableArray* tickLocations = [NSMutableArray arrayWithCapacity:[self.matchStats.resultDistribution count]];
+        while (counter < [self.matchStats.resultDistribution count]) {
+            [tickLocations addObject:[NSDecimalNumber numberWithInt:counter++]];
+        }
+        
 
-		y.titleLocation = CPTDecimalFromInteger(5);
         
-		y.plotSpace = barPlotSpace;
+        NSMutableArray *axisLabels = [NSMutableArray arrayWithCapacity:[self.matchStats.resultDistribution count]];
+        for (MatchResultDistribtion* resultDistribution in self.matchStats.resultDistribution) {
+            [axisLabels addObject:resultDistribution.result];
+        }
+		
+        NSMutableArray *customLabels = [NSMutableArray arrayWithCapacity:[axisLabels count]];
+        NSUInteger labelLocation = 0;
+        for (NSNumber *tickLocation in tickLocations) {
+            CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText: [axisLabels objectAtIndex:labelLocation++] textStyle:y.labelTextStyle];
+            newLabel.tickLocation = [tickLocation decimalValue];
+            newLabel.offset = y.labelOffset + y.majorTickLength;
+            
+            [customLabels addObject:newLabel];
+        }
+        
+        y.axisLabels =  [NSSet setWithArray:customLabels];
+
+      	y.plotSpace = barPlotSpace;
 	}
     
 	// Set axes
-	graph.axisSet.axes = [NSArray arrayWithObjects:x, y, nil];
+	graph.axisSet.axes = [NSArray arrayWithObjects:y, nil];
     
 	// Create a bar line style
 	CPTMutableLineStyle *barLineStyle = [[CPTMutableLineStyle alloc] init];
@@ -301,11 +297,13 @@
 	CPTMutableTextStyle *whiteTextStyle = [CPTMutableTextStyle textStyle];
 	whiteTextStyle.color   = [CPTColor whiteColor];
     
-	// Create second bar plot
-	CPTBarPlot *barPlot2 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor blueColor] horizontalBars:NO];
+	// Create bar plot
+	CPTBarPlot *barPlot2 = [CPTBarPlot tubularBarPlotWithColor:[CPTColor lightGreen] horizontalBars:NO];
     
 	barPlot2.lineStyle	  = barLineStyle;
-	barPlot2.fill		  = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:0.0f green:1.0f blue:0.5f alpha:0.5f]];
+    
+    barPlot2.fill		  = [CPTFill fillWithColor:[CPTColor lightGreen]];
+        
 	barPlot2.barBasesVary = YES;
     
 	barPlot2.barWidth = CPTDecimalFromFloat(1.0f); // bar is full (100%) width
@@ -333,7 +331,6 @@
     [self setBarChart:nil];
     [self setBarChartView:nil];
     [self setBarChartScrollView:nil];
-    [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
@@ -351,5 +348,17 @@
     [super viewWillDisappear:animated];
 }
 
+- (IBAction)segmentedControlTapped:(id)sender {
+    if (self.segmentedControl.selectedSegmentIndex == 0) {
+        [self.scrollView scrollRectToVisible:CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
+        NSError* error;
+        [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/matchStats/%@-%@/fordelning", self.match.firstTeam.shortName, self.match.secondTeam.shortName] withError:&error];
+    }
+    else {
+        [self.scrollView scrollRectToVisible:CGRectMake(self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
+        NSError* error;
+        [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/matchStats/%@-%@/resultat", self.match.firstTeam.shortName, self.match.secondTeam.shortName] withError:&error];
+    }
+}
 
 @end

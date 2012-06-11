@@ -36,7 +36,9 @@
             [resultDistribution addObject:[MatchResultDistribtion resultDistribution:result :percentage]];
         }];
         
-        stats.resultDistribution = resultDistribution;
+        stats.resultDistribution = [resultDistribution sortedArrayUsingComparator:^NSComparisonResult(MatchResultDistribtion* left, MatchResultDistribtion* right) {
+            return [left.percentage compare:right.percentage];
+        }];
         
     }
     return stats;
