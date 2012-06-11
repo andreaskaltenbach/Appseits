@@ -263,8 +263,6 @@
             [tickLocations addObject:[NSDecimalNumber numberWithInt:counter++]];
         }
         
-
-        
         NSMutableArray *axisLabels = [NSMutableArray arrayWithCapacity:[self.matchStats.resultDistribution count]];
         for (MatchResultDistribtion* resultDistribution in self.matchStats.resultDistribution) {
             [axisLabels addObject:resultDistribution.result];

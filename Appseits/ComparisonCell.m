@@ -152,6 +152,7 @@
     
     // update prediction labels for competitor:
     MatchResultUtil* competitorResultUtil = [MatchResultUtil utilForPredictions:matchComparison.competitorPredictionFirstTeam :matchComparison.competitorPredictionSecondTeam forMatchResult:matchComparison.match.firstTeamGoals :matchComparison.match.secondTeamGoals withPoints:matchComparison.competitorScore];
+    competitorResultUtil.fontColorNoPoints = [UIColor whiteColor];
     
     [competitorResultUtil updateLeftPredictionLabel:self.competitorFirstTeamPredictionLabel];
     [competitorResultUtil updateRightPredictionLabel:self.competitorSecondTeamPredictionLabel];
@@ -162,6 +163,7 @@
     
     // update own prediction labels:
     MatchResultUtil* myResultUtil = [MatchResultUtil utilForPredictions:matchComparison.myPredictionFirstTeam :matchComparison.myPredictionSecondTeam forMatchResult:matchComparison.match.firstTeamGoals :matchComparison.match.secondTeamGoals withPoints:matchComparison.myPredictionScore];
+    myResultUtil.fontColorNoPoints = [UIColor blackColor];
     
     [myResultUtil updatePointsBall:self.myPointBall :self.myScoreLabel];
     [myResultUtil updateLeftPredictionLabel:self.myFirstTeamPredictionLabel];

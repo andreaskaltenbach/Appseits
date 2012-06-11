@@ -20,4 +20,6 @@
 
 - (void) updatePointsBall:(UIImageView*) pointBallBackground: (UILabel*) pointsLabel;
 
+@property (nonatomic, strong) UIColor* fontColorNoPoints;
+
 @end

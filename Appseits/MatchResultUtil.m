@@ -37,6 +37,8 @@ static UIImage *greenBallCheck;
 @synthesize rightGoals = _rightGoals;
 @synthesize points = _points;
 
+@synthesize fontColorNoPoints = _fontColorNoPoints;
+
 + (void) initialize {
     pointsBackground = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pointsBackgroundGreen"]];
     greenBall = [UIImage imageNamed:@"greenBall"];
@@ -93,6 +95,10 @@ static UIImage *greenBallCheck;
             util.rightPoints = NO;
         }
     }
+    
+    // set default font color for no points
+    util.fontColorNoPoints = [UIColor transparentWhite];
+    
     return util;
 }
 
@@ -119,7 +125,7 @@ static UIImage *greenBallCheck;
         predictionLabel.textColor = [UIColor whiteColor];
     }
     else {
-        predictionLabel.textColor = [UIColor transparentWhite];
+        predictionLabel.textColor = self.fontColorNoPoints;
     }
 }
 - (void) updateRightPredictionLabel:(UILabel*) predictionLabel {
@@ -127,7 +133,7 @@ static UIImage *greenBallCheck;
         predictionLabel.textColor = [UIColor whiteColor];
     }
     else {
-        predictionLabel.textColor = [UIColor transparentWhite];
+        predictionLabel.textColor = self.fontColorNoPoints;
     }
 }
 
