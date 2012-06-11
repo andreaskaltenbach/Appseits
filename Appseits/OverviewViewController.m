@@ -554,13 +554,11 @@ static NSURL *downloadURL;
     formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sv_SE"];
     [formatter setDateFormat:@"yyyy-MM-dd HH.mm"];
     self.lastRankingUpdateBar.label.text = [NSString stringWithFormat:@"Uppdaterad: %@", [formatter stringFromDate:self.lastUpdated]];
-
 }
 
 - (NSDate *)pullToRefreshViewLastUpdated:(PullToRefreshView *)view {
     return self.lastUpdated;
 }
-
 
 # pragma mark TeamSelectDelegate
 

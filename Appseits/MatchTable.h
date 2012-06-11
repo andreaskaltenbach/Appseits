@@ -22,4 +22,6 @@
 
 - (NSIndexPath*) indexPathForMatch: (Match*) aMatch;
 
+- (void) scrollToMatchDay;
+
 @end

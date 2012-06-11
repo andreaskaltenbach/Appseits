@@ -165,8 +165,11 @@ static NSDateFormatter *dateFormatter;
     }
     
     else {
-        self.overviewViewController.currentMatchSelection = match;
-        [self.overviewViewController performSegueWithIdentifier:@"toMatchStats" sender:self];
+        
+        if (!match.matchRound.notPassed) {
+            self.overviewViewController.currentMatchSelection = match;
+            [self.overviewViewController performSegueWithIdentifier:@"toMatchStats" sender:self];
+        }
     }
     
     // TODO - show statistics if match is closed and played
@@ -213,6 +216,27 @@ static NSDateFormatter *dateFormatter;
     if (indexPath) {
         MatchCell *matchCell = (MatchCell*) [self cellForRowAtIndexPath:indexPath];
         matchCell.match = newMatch;
+    }
+}
+
+- (void) reloadData {
+    [super reloadData];
+    [self scrollToMatchDay];
+}
+
+- (void) scrollToMatchDay {
+    
+    NSDate* now = [NSDate date];
+    NSString* nowString = [dateFormatter stringFromDate:now];
+    
+    int section = [self.matchDays indexOfObject:nowString];
+    
+    if (section != NSIntegerMax) {
+        [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+    else {
+        [self scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        
     }
 }
 
