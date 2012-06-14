@@ -179,6 +179,17 @@ static NSURL *downloadURL;
                 // update of the timeline (iPad)
                 self.timeline.matchRounds = [BackendAdapter matchRounds];
                 self.roundSelector.tournamentRounds = [BackendAdapter combinedTop4AndScorerRoundAndMatchRounds];
+                
+                // update the score view
+                [self updateRankingInScoreView];
+                
+                // update the ranking view
+                [self.rankingTable refreshRankings];
+                [self updateLastRankingUpdateLabel];
+                
+                // update last updated date
+                self.lastUpdated = [NSDate date];
+                [self.pullToRefreshView refreshLastUpdatedDate];
         }
     }];
     
@@ -542,6 +553,10 @@ static NSURL *downloadURL;
                 // update the ranking view
                 [self.rankingTable refreshRankings];
                 [self updateLastRankingUpdateLabel];
+                
+                // update last updated date
+                self.lastUpdated = [NSDate date];
+                [self.pullToRefreshView refreshLastUpdatedDate];
         }
         
         self.lastUpdated = [NSDate date];

@@ -51,8 +51,11 @@ static NSDateFormatter *dateFormatter;
 }
 
 - (void) setRound:(MatchRound *)round {
-    _round = round;
     
+    BOOL changedRound = ![_round.roundName isEqualToString:round.roundName];
+    
+    _round = round;
+        
     self.matchDays = [NSMutableArray array];
     self.matches = [NSMutableArray array];
     
@@ -76,6 +79,11 @@ static NSDateFormatter *dateFormatter;
     }
 
     [self reloadData];
+    
+    if (changedRound) {
+        [self scrollToMatchDay];
+    }
+       
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -217,11 +225,6 @@ static NSDateFormatter *dateFormatter;
         MatchCell *matchCell = (MatchCell*) [self cellForRowAtIndexPath:indexPath];
         matchCell.match = newMatch;
     }
-}
-
-- (void) reloadData {
-    [super reloadData];
-    [self scrollToMatchDay];
 }
 
 - (void) scrollToMatchDay {

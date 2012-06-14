@@ -11,6 +11,7 @@
 #import "MatchRound.h"
 #import "TimelineScrollViewRoundSection.h"
 #import "Match.h"
+#import "BackendAdapter.h"
 
 #define ROUND_TEXT_X 20
 #define ROUND_TEXT_Y 4
@@ -99,16 +100,21 @@ static UIImage *darkRight;
     }
     self.sections = [NSArray arrayWithArray:sections];
     
-    // select current round
-    TournamentRound* activeRound = [TournamentRound activeRound:self.tournamentRounds];
+    // switch to active round if no current round does exist yet (first access)
+    TournamentRound* activeRound;
+    if (self.currentRound) {
+        activeRound = self.currentRound;
+    } else {
+        [TournamentRound activeRound:self.tournamentRounds];   
+    }
     
     TimelineScrollViewRoundSection *activeSection;
     for (TimelineScrollViewRoundSection *section in self.sections) {
-        if (section.round == activeRound) {
+        if ([section.round.roundName isEqualToString:activeRound.roundName]) {
             activeSection = section;
             [self selectSection:section];
         }
-    }
+    }   
     
     // put in the progress overlay
     self.progressView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, self.frame.size.height)];
@@ -152,7 +158,33 @@ static UIImage *darkRight;
     [self scrollRectToVisible:CGRectMake(self.selectedIndex * ROUND_WIDTH + xOffset , 0, totalWidth, self.frame.size.height) animated:YES];
     
     self.currentRound = selectedSection.round;
+    
     [self.roundSelectDelegate tournamentRoundSelected:selectedSection.round];
+}
+
+- (void) setCurrentRound:(TournamentRound *)currentRound {
+    
+    _currentRound = currentRound;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:currentRound.roundName forKey:@"currentRoundName"];
+    [userDefaults synchronize];
+}
+
+- (TournamentRound*) currentRound {
+    if (_currentRound) return _currentRound;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString* roundName = [userDefaults objectForKey:@"currentRoundName"];
+    
+    for (TournamentRound* tournamentRound in [BackendAdapter tournamentRounds]) {
+        if ([tournamentRound.roundName isEqualToString:roundName]) {
+            _currentRound = tournamentRound;
+            return tournamentRound;
+        }
+    }
+    
+    return nil;
 }
 
 - (void) sectionTapped:(UITapGestureRecognizer*) sender {
