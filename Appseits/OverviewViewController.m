@@ -183,13 +183,13 @@ static NSURL *downloadURL;
                 // update the score view
                 [self updateRankingInScoreView];
                 
-                // update the ranking view
-                [self.rankingTable refreshRankings];
-                [self updateLastRankingUpdateLabel];
-                
                 // update last updated date
                 self.lastUpdated = [NSDate date];
                 [self.pullToRefreshView refreshLastUpdatedDate];
+                
+                // update the ranking view
+                [self.rankingTable refreshRankings];
+                [self updateLastRankingUpdateLabel];
         }
     }];
     
@@ -550,13 +550,13 @@ static NSURL *downloadURL;
                 // update the score view
                 [self updateRankingInScoreView];
                 
-                // update the ranking view
-                [self.rankingTable refreshRankings];
-                [self updateLastRankingUpdateLabel];
-                
                 // update last updated date
                 self.lastUpdated = [NSDate date];
                 [self.pullToRefreshView refreshLastUpdatedDate];
+
+                // update the ranking view
+                [self.rankingTable refreshRankings];
+                [self updateLastRankingUpdateLabel];
         }
         
         self.lastUpdated = [NSDate date];
