@@ -271,7 +271,7 @@ static NSString* MATCH_URL;
 
             NSData *flagData = [NSURLConnection sendSynchronousRequest:flagRequest returningResponse:&response error:&error];
             
-            RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+            RemoteCallResult remoteCallResult = [self remoteCallResult:response:flagData:error];
             if (remoteCallResult != OK) return remoteCallResult;
                 
             // write flag file to disk
@@ -296,7 +296,7 @@ static NSString* MATCH_URL;
     NSURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:data:error];
     if (remoteCallResult != OK) return remoteCallResult;
     
     // parse the result
@@ -355,10 +355,10 @@ static NSString* MATCH_URL;
     return request;
 }
 
-+ (RemoteCallResult) remoteCallResult: (NSURLResponse*) response: (NSError*) error {
++ (RemoteCallResult) remoteCallResult: (NSURLResponse*) response: (NSData*) data:(NSError*) error {
     
-    if (error) return INTERNAL_SERVER_ERROR;
-
+    if (error && !data) return INTERNAL_SERVER_ERROR;
+    
     if (![response isKindOfClass:NSHTTPURLResponse.class]) {
         return INTERNAL_SERVER_ERROR;
     }
@@ -382,7 +382,7 @@ static NSString* MATCH_URL;
     NSURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:data:error];
     if (remoteCallResult != OK) return remoteCallResult;
     
     // parse the result
@@ -409,7 +409,7 @@ static NSString* MATCH_URL;
     NSURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:data:error];
     if (remoteCallResult != OK) return remoteCallResult;
     
     // parse the result
@@ -438,7 +438,7 @@ static NSString* MATCH_URL;
     NSURLResponse *response;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:data:error];
     if (remoteCallResult != OK) return remoteCallResult;    
     // parse the result
     NSError *parseError = nil;
@@ -556,7 +556,7 @@ static NSString* MATCH_URL;
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
-        RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+        RemoteCallResult remoteCallResult = [self remoteCallResult:response:data:error];
         if (remoteCallResult != OK) {
             remoteCallBlock(remoteCallResult);
         }
@@ -596,7 +596,7 @@ static NSString* MATCH_URL;
     
     NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
         
-    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:data:error];
     if (remoteCallResult != OK) {
         return remoteCallResult;
     }
@@ -637,7 +637,7 @@ static NSString* MATCH_URL;
     
    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
        
-       RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+       RemoteCallResult remoteCallResult = [self remoteCallResult:response:data:error];
        remoteCallBlock(remoteCallResult);
        
    }];
@@ -659,7 +659,7 @@ static NSString* MATCH_URL;
     request.HTTPBody = data;
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+        RemoteCallResult remoteCallResult = [self remoteCallResult:response:data:error];
         remoteCallBlock(remoteCallResult);
 
     }];
@@ -682,7 +682,7 @@ static NSString* MATCH_URL;
     request.HTTPBody = data;
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+        RemoteCallResult remoteCallResult = [self remoteCallResult:response:data:error];
         remoteCallBlock(remoteCallResult);
     }];
 
@@ -696,7 +696,7 @@ static NSString* MATCH_URL;
         
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    RemoteCallResult remoteCallResult = [self remoteCallResult:response:error];
+    RemoteCallResult remoteCallResult = [self remoteCallResult:response:data:error];
     if (remoteCallResult != OK) return remoteCallResult;
     
     NSError *parseError;
@@ -782,7 +782,7 @@ static NSString* MATCH_URL;
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
-        RemoteCallResult remoteCallResult = [BackendAdapter remoteCallResult:response:error];
+        RemoteCallResult remoteCallResult = [BackendAdapter remoteCallResult:response:data:error];
         if (remoteCallResult != OK) {
             remoteCallBlock(remoteCallResult);
         }
@@ -811,7 +811,7 @@ static NSString* MATCH_URL;
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
-        RemoteCallResult remoteCallResult = [BackendAdapter remoteCallResult:response:error];
+        RemoteCallResult remoteCallResult = [BackendAdapter remoteCallResult:response:data:error];
         if (remoteCallResult != OK) {
             remoteCallBlock(remoteCallResult);
         }
