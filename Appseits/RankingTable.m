@@ -86,9 +86,8 @@
     
     TournamentRound* firstRound = [[BackendAdapter tournamentRounds] objectAtIndex:0]; 
     
-    if (!ranking.isMyRanking && !firstRound.notPassed) {
-        // show competitor statistics only if the first round is closed and 
-        // another competitor than myself is selected
+    if (!firstRound.notPassed) {
+        // show competitor statistics only if the first round is closed 
         self.overviewViewController.currentRanking = ranking;
         [self.overviewViewController performSegueWithIdentifier:@"toCompetitorStatistic" sender:self];
     }

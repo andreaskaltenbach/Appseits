@@ -13,4 +13,6 @@
 
 - (void) setMatchComparison:(MatchComparison *)matchComparison;
 
+- (void) setMyRanking:(BOOL) myRanking;
+
 @end

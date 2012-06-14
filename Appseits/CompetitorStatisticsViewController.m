@@ -270,6 +270,7 @@
     
     ComparisonCell *cell = [tableView dequeueReusableCellWithIdentifier:@"comparisonCell"];
     cell.matchComparison = [self.matchComparisons objectAtIndex:indexPath.row];
+    [cell setMyRanking:self.ranking.isMyRanking];
     return cell;
     
 }
@@ -283,7 +284,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == self.comparisonTable) {
-        return 155;
+        if (self.ranking.isMyRanking) {
+            return 120;     
+        }
+        else  {
+            return 155;
+        }
     }
     else {
         return 32;

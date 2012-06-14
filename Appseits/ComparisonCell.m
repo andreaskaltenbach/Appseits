@@ -10,6 +10,9 @@
 #import "MatchResultUtil.h"
 #import "UIColor+AppColors.h"
 
+static UIImage* comparisonBackground;
+static UIImage* myStatsBackground;
+
 @interface ComparisonCell()
 @property (nonatomic, strong) UILabel* firstTeamNameLabel;
 @property (nonatomic, strong) UILabel* firstTeamPointsLabel;
@@ -37,6 +40,7 @@
 @property (nonatomic, strong) UIImageView* myPointBall;
 
 @property (nonatomic, strong) UIView* nextMatchBar;
+@property (nonatomic, strong) UIImageView* comparisonBackground;
 
 @end
 
@@ -68,6 +72,12 @@
 @synthesize myPointBall = _myPointBall;
 
 @synthesize nextMatchBar = _nextMatchBar;
+@synthesize comparisonBackground = _comparisonBackground;
+
++ (void) initialize {
+    comparisonBackground = [UIImage imageNamed:@"competitorComparisonBackground"];
+    myStatsBackground = [UIImage imageNamed:@"myStatsBackground"];
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -105,15 +115,34 @@
         
         self.nextMatchBar = (UIView*) [self viewWithTag:456];
         self.nextMatchBar.backgroundColor = [UIColor nextMatchColor];
+        
+        self.comparisonBackground = (UIImageView*) [self viewWithTag:1000];
     }
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void) setMyRanking:(BOOL) myRanking {
+    CGRect frame = self.comparisonBackground.frame;
+    if (myRanking) {
+        self.comparisonBackground.image = myStatsBackground;
+        frame.size.height = 38;
+        self.myInitials.hidden = YES;
+        self.myFirstTeamPredictionLabel.hidden = YES;
+        self.myFirstPredictionBackground.hidden = YES;
+        self.mySecondTeamPredictionLabel.hidden = YES;
+        self.mySecondPredictionBackground.hidden = YES;
+        self.myPointBall.hidden = YES;
+        self.myScoreLabel.hidden = YES;
+    }
+    else {
+        self.comparisonBackground.image = comparisonBackground;
+        frame.size.height = 70;
+        self.myFirstTeamPredictionLabel.hidden = NO;
+        self.myFirstPredictionBackground.hidden = NO;
+        self.mySecondTeamPredictionLabel.hidden = NO;
+        self.mySecondPredictionBackground.hidden = NO;
+    }
+    self.comparisonBackground.frame = frame;
 }
 
 - (void) setMatchComparison:(MatchComparison *)matchComparison {
