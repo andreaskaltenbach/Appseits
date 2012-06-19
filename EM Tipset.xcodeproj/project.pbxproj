@@ -84,7 +84,6 @@
 		4E531C3F151CAE500003CAD1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C3E151CAE500003CAD1 /* LoginViewController.m */; };
 		4E531C43151CB04A0003CAD1 /* MatchRound.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C42151CB04A0003CAD1 /* MatchRound.m */; };
 		4E531C46151CB05B0003CAD1 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C45151CB05B0003CAD1 /* Match.m */; };
-		4E531C4E151CB5D50003CAD1 /* MatchPredictionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */; };
 		4E66A560157E60B7009B4001 /* MCSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A55F157E60B7009B4001 /* MCSegmentedControl.m */; };
 		4E66A56E157EA69E009B4001 /* CompetitorStatisticCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A56D157EA69E009B4001 /* CompetitorStatisticCell.m */; };
 		4E66A571157EAA80009B4001 /* Top4PredictionResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E66A570157EAA7F009B4001 /* Top4PredictionResult.m */; };
@@ -450,8 +449,6 @@
 		4E531C42151CB04A0003CAD1 /* MatchRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchRound.m; sourceTree = "<group>"; };
 		4E531C44151CB05B0003CAD1 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
 		4E531C45151CB05B0003CAD1 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
-		4E531C4C151CB5D50003CAD1 /* MatchPredictionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPredictionCell.h; sourceTree = "<group>"; };
-		4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchPredictionCell.m; sourceTree = "<group>"; };
 		4E66A55E157E60B7009B4001 /* MCSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSegmentedControl.h; sourceTree = "<group>"; };
 		4E66A55F157E60B7009B4001 /* MCSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSegmentedControl.m; sourceTree = "<group>"; };
 		4E66A56C157EA69E009B4001 /* CompetitorStatisticCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitorStatisticCell.h; sourceTree = "<group>"; };
@@ -1126,8 +1123,6 @@
 				4E050D8B15234F060063EDED /* MatchCell.m */,
 				4E050D84152219F60063EDED /* MatchResultCell.h */,
 				4E050D85152219F60063EDED /* MatchResultCell.m */,
-				4E531C4C151CB5D50003CAD1 /* MatchPredictionCell.h */,
-				4E531C4D151CB5D50003CAD1 /* MatchPredictionCell.m */,
 				4E050D8715233C560063EDED /* TimelineScrollView.h */,
 				4E050D8815233C560063EDED /* TimelineScrollView.m */,
 				5BA4B8A0152737ED006450B7 /* TimelineScrollViewRoundSection.h */,
@@ -1467,7 +1462,6 @@
 				4E531C3F151CAE500003CAD1 /* LoginViewController.m in Sources */,
 				4E531C43151CB04A0003CAD1 /* MatchRound.m in Sources */,
 				4E531C46151CB05B0003CAD1 /* Match.m in Sources */,
-				4E531C4E151CB5D50003CAD1 /* MatchPredictionCell.m in Sources */,
 				4E050D7F15220A320063EDED /* UIColor+AppColors.m in Sources */,
 				4E050D86152219F60063EDED /* MatchResultCell.m in Sources */,
 				4E050D8915233C560063EDED /* TimelineScrollView.m in Sources */,

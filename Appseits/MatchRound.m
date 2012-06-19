@@ -72,13 +72,6 @@
     return YES;
 }
 
-- (BOOL) readyToBet {
-    for (Match* match in self.matches) {
-        if (match.unknownOpponents) return NO;
-    }
-    return YES;
-}
-
 + (Match*) previousPredictableMatch:(Match*) match {
     MatchRound* matchRound = match.matchRound;
     int matchIndex = [matchRound.matches indexOfObject:match];

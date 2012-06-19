@@ -37,10 +37,9 @@
     NSString *secondTeamName = [gameData objectForKey:@"secondTeam"];
     match.secondTeam = [teamNames objectForKey:secondTeamName];
     
-    // if a 'TBD' is found, we do not have any opponents yet!
-    
-
-    if ([match.firstTeam.shortName rangeOfString:@"tbd"].location != NSNotFound) {
+    // if a 'TBD' is found, we do not have all opponents yet!
+    if ([match.firstTeam.shortName rangeOfString:@"tbd"].location != NSNotFound
+        || [match.secondTeam.shortName rangeOfString:@"tbd"].location != NSNotFound) {
         match.unknownOpponents = YES;
     }
     

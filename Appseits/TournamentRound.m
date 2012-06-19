@@ -35,7 +35,7 @@
 
 - (BOOL) notPassed {
     NSDate *now = [NSDate date];
-        // locked date has not passed
+    // locked date has not passed
     return [now compare:self.lockDate] == NSOrderedAscending;
 }
 - (BOOL) started {
@@ -49,7 +49,7 @@
 }
 
 - (BOOL) readyToBet {
-    return NO;
+    return self.notPassed && self.started;
 }
 
 + (float) totalPoints {

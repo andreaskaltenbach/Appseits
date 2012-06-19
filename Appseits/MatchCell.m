@@ -77,7 +77,7 @@ static UIImage *selectedBackgroundImage;
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     
-    if (selected && !self.match.unknownOpponents) {
+    if (selected && self.match.matchRound.readyToBet) {
         self.backgroundColor = [UIColor colorWithPatternImage:selectedBackgroundImage];
         self.firstTeamName.textColor = [UIColor whiteColor];
         self.secondTeamName.textColor = [UIColor whiteColor];

@@ -8,14 +8,12 @@
 
 #import "MatchTable.h"
 #import "MatchResultCell.h"
-#import "MatchPredictionCell.h"
 #import "UIColor+AppColors.h"
 #import "TournamentRound.h"
 #import "SSGradientView.h"
 
 static    NSString *matchCell;
 static    NSString *matchResultCell;
-static    NSString *matchPredictionCell;
 
 static NSDateFormatter *dateFormatter;
 
@@ -33,7 +31,6 @@ static NSDateFormatter *dateFormatter;
 + (void) initialize {
     matchCell= @"matchCell";
     matchResultCell = @"matchResultCell";
-    matchPredictionCell = @"matchPredictionCell";
     
     dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sv_SE"];
@@ -104,11 +101,11 @@ static NSDateFormatter *dateFormatter;
     
     if (self.round.notPassed) {
         
-        if (match.unknownOpponents) {
+        if (match.matchRound.readyToBet) {
             cell = [tableView dequeueReusableCellWithIdentifier:matchCell];
         }
         else {
-            cell = [tableView dequeueReusableCellWithIdentifier:matchResultCell];
+            cell = [tableView dequeueReusableCellWithIdentifier:matchCell];
         }
     }
     else {
@@ -120,14 +117,8 @@ static NSDateFormatter *dateFormatter;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (self.round.notPassed) {
-        Match *match = [self.round.matches objectAtIndex:indexPath.row];
-        if (match.unknownOpponents) {
-            return 70;
-        }
-        else {
-            return 108;
-        }
+    if (self.round.readyToBet || self.round.notPassed) {
+        return 70;
     }
     else {
         return 108;
@@ -167,13 +158,11 @@ static NSDateFormatter *dateFormatter;
     
     NSArray *matches = [self.matches objectAtIndex:indexPath.section];
     Match *match = [matches objectAtIndex:indexPath.row];
-    if (!match.unknownOpponents && match.matchRound.notPassed) {
+    if (match.matchRound.readyToBet) {
         self.overviewViewController.currentMatchSelection = match;
         [self.overviewViewController performSegueWithIdentifier:@"toMatchPrediction" sender:self];
     }
-    
     else {
-        
         if (!match.matchRound.notPassed) {
             self.overviewViewController.currentMatchSelection = match;
             [self.overviewViewController performSegueWithIdentifier:@"toMatchStats" sender:self];
