@@ -18,7 +18,9 @@
 - (float) points {
     float points = 0.0f;
     for(Match *game in self.matches) {
-        points += game.points.floatValue;
+		if (game.points != [NSNull null]) {
+        	points += game.points.floatValue;
+		}
     }
     return points;
 }
