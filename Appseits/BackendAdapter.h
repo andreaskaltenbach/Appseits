@@ -15,58 +15,75 @@
 
 #define SERVER_URL @"http://vm2014.brunoson.se"
 
-typedef enum {
-    OK,
-    NO_INTERNET,
-    INTERNAL_SERVER_ERROR,
-    INTERNAL_CLIENT_ERROR
+typedef enum
+{
+	OK,
+	NO_INTERNET,
+	INTERNAL_SERVER_ERROR,
+	INTERNAL_CLIENT_ERROR
 } RemoteCallResult;
 
 typedef void(^FinishedBlock)(bool success);
+
 typedef void(^RemoteCallBlock)(RemoteCallResult error);
-typedef void(^TeamsFetchedBlock)(NSArray* teams);
+
+typedef void(^TeamsFetchedBlock)(NSArray *teams);
 
 @interface BackendAdapter : NSObject
 
-+ (BOOL) credentialsAvailable;
-+ (void) storeCredentials:(NSString*) email: (NSString*) password;
-+ (void) validateCredentials:(FinishedBlock) onFinished;
++ (BOOL)credentialsAvailable;
 
-+ (void) initializeModel:(RemoteCallBlock) remoteCallBlock;
-+ (BOOL) modelInitialized;
-+ (void) refreshModel:(RemoteCallBlock) remoteCallBlock;
++ (void)storeCredentials:(NSString *)email :(NSString *)password;
 
-+ (void) logout;
++ (void)validateCredentials:(FinishedBlock)onFinished;
 
-+ (League*) currentLeague;
-+ (void) setCurrentLeague:(League*) league:(RemoteCallBlock) remoteCallBlock;
++ (void)initializeModel:(RemoteCallBlock)remoteCallBlock;
 
-+ (NSArray*) matchRounds;
-+ (NSArray*) tournamentRounds;
-+ (NSArray*) combinedTop4AndScorerRoundAndMatchRounds;
-+ (Top4Round*) top4Round;
-+ (ScorerRound*) scorerRound;
-+ (NSArray*) rankings;
-+ (NSArray*) leagues;
-+ (NSArray*) teamList;
-+ (NSDictionary*) teams;
-+ (NSDictionary*) teamNames;
-+ (NSArray*) playerList;
-+ (NSDictionary*) players;
++ (BOOL)modelInitialized;
 
-+ (UIImage*) imageForTeam:(NSString*) teamName;
++ (void)refreshModel:(RemoteCallBlock)remoteCallBlock;
 
-+ (Top4Tips*) top4;
++ (void)logout;
 
-+ (void) postPrediction:(NSNumber*) matchId: (NSNumber*) firstTeamGoals: (NSNumber*) secondTeamGoals: (RemoteCallBlock) remoteCallBlock;
++ (League *)currentLeague;
 
-+ (void) postPredictionForPlace:(int) place andTeam: (NSNumber*) teamId: (RemoteCallBlock) remoteCallBlock;
++ (void)setCurrentLeague:(League *)league :(RemoteCallBlock)remoteCallBlock;
 
-+ (void) postPredictionForPlace:(int) place andPlayer: (NSNumber*) playerId: (RemoteCallBlock) remoteCallBlock;
++ (NSArray *)matchRounds;
 
-+ (NSString*) email;
++ (NSArray *)tournamentRounds;
 
++ (NSArray *)combinedTop4AndScorerRoundAndMatchRounds;
 
++ (Top4Round *)top4Round;
+
++ (ScorerRound *)scorerRound;
+
++ (NSArray *)rankings;
+
++ (NSArray *)leagues;
+
++ (NSArray *)teamList;
+
++ (NSDictionary *)teams;
+
++ (NSDictionary *)teamNames;
+
++ (NSArray *)playerList;
+
++ (NSDictionary *)players;
+
++ (UIImage *)imageForTeam:(NSString *)teamName;
+
++ (Top4Tips *)top4;
+
++ (void)postPrediction:(NSNumber *)matchId :(NSNumber *)firstTeamGoals :(NSNumber *)secondTeamGoals :(RemoteCallBlock)remoteCallBlock;
+
++ (void)postPredictionForPlace:(int)place andTeam:(NSNumber *)teamId :(RemoteCallBlock)remoteCallBlock;
+
++ (void)postPredictionForPlace:(int)place andPlayer:(NSNumber *)playerId :(RemoteCallBlock)remoteCallBlock;
+
++ (NSString *)email;
 
 
 @end

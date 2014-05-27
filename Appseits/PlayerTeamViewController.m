@@ -26,11 +26,11 @@
 }
 
 - (IBAction)backButtonPushed:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
     // if we selected a player previously, we jump to this player right away
     if (self.overviewController.currentPlayerSelection && !self.jumpedToPlayer) {
