@@ -13,7 +13,7 @@
 #import "ScorerRound.h"
 #import "Top4Round.h"
 
-#define SERVER_URL @"http://em2012.brunoson.se"
+#define SERVER_URL @"http://vm2014.brunoson.se"
 
 typedef enum {
     OK,

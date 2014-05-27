@@ -48,7 +48,7 @@
     
     // extract results
     NSDictionary *result = [gameData objectForKey:@"result"];
-    if (result) {
+    if (result != [NSNull null]) {
         
         id homeGoals = [result objectForKey:@"homeTeamGoals"];
         id awayGoals = [result objectForKey:@"awayTeamGoals"];
@@ -63,7 +63,7 @@
     
     // extract predictions
     NSDictionary *prediction = [gameData objectForKey:@"prediction"];
-    if (prediction) {
+    if (prediction != [NSNull null]) {
         
         id homeGoals = [prediction objectForKey:@"homeTeamGoals"];
         id awayGoals = [prediction objectForKey:@"awayTeamGoals"];

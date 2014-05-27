@@ -108,8 +108,8 @@ static NSString* TEAMS_URL;
             NSHTTPURLResponse *response;
             
             NSData *userData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            
-            if (response.statusCode != 200) {   
+
+            if (response.statusCode != 200) {
                 // an error occured
                 if(response.statusCode == 0) {
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -354,6 +354,9 @@ static NSString* TEAMS_URL;
         case 0:
             return NO_INTERNET;
         case 200:
+		case 201:
+		case 202:
+		case 204:
             return OK;
         default:
             return INTERNAL_SERVER_ERROR;
