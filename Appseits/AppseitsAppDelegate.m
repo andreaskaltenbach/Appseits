@@ -7,7 +7,6 @@
 //
 
 #import "AppseitsAppDelegate.h"
-#import "TestFlight.h"
 #import "VersionEnforcer.h"
 #import "BackendAdapter.h"
 #import "GANTracker.h"
@@ -19,9 +18,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    
-    // Test Flight
-    [TestFlight takeOff:@"a6badd340afc21aca5e16d40e68bf450_NzU4OTgyMDEyLTA0LTI2IDEzOjMwOjI3LjAyODIwOA"];
     
     // Google Analytics
     [[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-32245098-1"
