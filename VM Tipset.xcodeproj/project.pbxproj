@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16DA1DB61944ECE100F492F6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 16DA1DB51944ECE100F492F6 /* Default-568h@2x.png */; };
 		4E050D7C152209BA0063EDED /* blck.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D7B152209BA0063EDED /* blck.png */; };
 		4E050D7F15220A320063EDED /* UIColor+AppColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E050D7E15220A320063EDED /* UIColor+AppColors.m */; };
 		4E050D8115220E710063EDED /* square.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E050D8015220E710063EDED /* square.png */; };
@@ -256,6 +257,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16DA1DB51944ECE100F492F6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4E050D7B152209BA0063EDED /* blck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blck.png; sourceTree = "<group>"; };
 		4E050D7D15220A320063EDED /* UIColor+AppColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColors.h"; sourceTree = "<group>"; };
 		4E050D7E15220A320063EDED /* UIColor+AppColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColors.m"; sourceTree = "<group>"; };
@@ -972,6 +974,7 @@
 				5B6A360D15710151007D88B7 /* Icon.png */,
 				5BC662DA154AE16A0070C304 /* Default.png */,
 				5BC662D8154AE1620070C304 /* Default@2x.png */,
+				16DA1DB51944ECE100F492F6 /* Default-568h@2x.png */,
 				5B3E6FFD1549BD7900190AE9 /* libz.dylib */,
 				4E531C1B151CAB060003CAD1 /* Appseits */,
 				4E531C14151CAB050003CAD1 /* Frameworks */,
@@ -1262,6 +1265,7 @@
 				5B8FB2431528784C003AEB05 /* greenBall.png in Resources */,
 				5BA1F2F91538AC0E00B57336 /* verticalSeparator.png in Resources */,
 				5BA1F2FA1538AC0E00B57336 /* star.png in Resources */,
+				16DA1DB61944ECE100F492F6 /* Default-568h@2x.png in Resources */,
 				4EE59DA115404C4E0082193D /* pageControl_inactive.png in Resources */,
 				4EE59DA215404C4E0082193D /* pageControl_active.png in Resources */,
 				4EDF7A791541A1EA000C81AD /* headerPattern.png in Resources */,
