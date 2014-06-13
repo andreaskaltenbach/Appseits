@@ -53,6 +53,7 @@
     LeagueCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leagueCell"];
     cell.textLabel.font = [UIFont systemFontOfSize:13];
     cell.textLabel.textColor = [UIColor whiteColor];
+	cell.backgroundColor = [UIColor clearColor];
     
     if (indexPath.row == 0) {
         cell.leagueName.text = @"Alla deltagare";
