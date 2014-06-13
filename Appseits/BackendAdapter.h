@@ -44,6 +44,12 @@ typedef void(^TeamsFetchedBlock)(NSArray *teams);
 + (void) setCurrentLeague:(League*) league;
 + (void) setCurrentLeague:(League*) league:(RemoteCallBlock) remoteCallBlock;
 
++ (void) initializeModel:(RemoteCallBlock) remoteCallBlock;
++ (void) loadRankings:(RemoteCallBlock) remoteCallBlock;
+
++ (NSString*) userId;
++ (UIImage*) imageForTeam:(NSString*) teamName;
+
 + (NSArray*) matchRounds;
 + (NSArray*) tournamentRounds;
 + (NSArray*) combinedTop4AndScorerRoundAndMatchRounds;
@@ -59,6 +65,13 @@ typedef void(^TeamsFetchedBlock)(NSArray *teams);
 + (NSDictionary*) players;
 + (NSDictionary*) matchRoundMap;
 + (NSDictionary*) matchMap;
+
++ (void) postPredictionForPlace:(int) place andTeam: (NSNumber*) teamId: (RemoteCallBlock) remoteCallBlock;
++ (void) postPredictionForPlace:(int) place andPlayer: (NSNumber*) playerId: (RemoteCallBlock) remoteCallBlock;
++ (void) postPrediction:(NSNumber*) matchId: (NSNumber*) firstTeamGoals: (NSNumber*) secondTeamGoals: (RemoteCallBlock) remoteCallBlock;
++ (void) loadCompetitorComparison:(NSString*) competitorId:(RemoteCallBlock) remoteCallBlock;
+
++ (void) refreshModel:(RemoteCallBlock) remoteCallBlock;
 
 + (void)refreshModel:(RemoteCallBlock)remoteCallBlock;
 

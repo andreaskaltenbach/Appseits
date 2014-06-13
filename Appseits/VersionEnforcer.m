@@ -37,7 +37,11 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSHTTPURLResponse *response;
     NSData *versionData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
+
+	if (!versionData) {
+		return;
+	}
+
     NSDictionary* json = [NSJSONSerialization 
                           JSONObjectWithData:versionData
                           options:kNilOptions 
