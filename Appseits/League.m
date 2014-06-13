@@ -10,12 +10,12 @@
 
 @implementation League
 
-@synthesize id = _id;
+@synthesize leagueId = _leagueId;
 @synthesize name = _name;
 
-+ (League*) league:(NSNumber*) id: (NSString*) name {
++ (League*) league:(NSNumber*) leagueId: (NSString*) name {
     League *league = [[League alloc] init];
-    league.id = id;
+    league.leagueId = leagueId;
     league.name = name;
     return league;
 }
@@ -24,10 +24,11 @@
     NSMutableArray *leagues = [NSMutableArray array];
     for (NSDictionary *leagueData in jsonData) {
         League *league = [[League alloc] init];
-        league.id = [leagueData valueForKey:@"id"];
+        league.leagueId = [leagueData valueForKey:@"id"];
         league.name = [leagueData objectForKey:@"name"];
         [leagues addObject:league];
     }
+    NSLog(@"%i", [leagues count]);
     return leagues;
 }
 

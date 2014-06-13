@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "TournamentRoundSelectDelegate.h"
-#import "LeaguePickerView.h"
 #import "PullToRefreshView.h"
 #import "ScrollTriggeringTableView.h"
 #import "Top4View.h"
@@ -22,12 +21,13 @@
 #import "PlayerSelectDelegate.h"
 #import "TeamSelectDelegate.h"
 #import "TimelineScrollView.h"
+#import "LeagueSelector.h"
 
 @class MatchTable;
 @class Top4View;
 @class ScorerView;
 
-@interface OverviewViewController : AppseitsViewController<TournamentRoundSelectDelegate, LeagueDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate, VersionDelegate>
+@interface OverviewViewController : AppseitsViewController<TournamentRoundSelectDelegate, ScrollDelegate, UITableViewDelegate, PullToRefreshViewDelegate, TeamSelectDelegate, PlayerSelectDelegate, VersionDelegate, LeagueSelectionDelegate>
 
 @property (strong, nonatomic) IBOutlet TimelineScrollView *timelineScrollView;
 
@@ -43,5 +43,12 @@
 @property int currentPlayerPlace;
 
 @property (nonatomic, strong) Match* currentMatchSelection;
+
+@property (nonatomic, strong) Ranking* currentRanking;
+
+@property (strong, nonatomic) IBOutlet UIView *rankingView;
+@property (strong, nonatomic) IBOutlet UIView *scoreView;
+
+- (void) updateRankingInScoreView;
 
 @end

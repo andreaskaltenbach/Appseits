@@ -14,7 +14,7 @@ typedef void(^LeagueFailedBlock)(NSString * errorMessage);
 
 @interface League : NSObject
 
-@property (nonatomic, strong) NSNumber *id;
+@property (nonatomic, strong) NSNumber *leagueId;
 @property (nonatomic, strong) NSString *name;
 
 + (League*) league:(NSNumber*) id: (NSString*) name;

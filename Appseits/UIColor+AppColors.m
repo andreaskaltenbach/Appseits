@@ -129,7 +129,7 @@
 }
 
 + (UIColor *) rankingSelected {
-    return [UIColor colorWithRed:116.0/255.0f green:173.0f/255.0f blue:54.0f/255.0f alpha:1];
+    return [UIColor colorWithRed:116.0/255.0f green:173.0f/255.0f blue:54.0f/255.0f alpha:0.5];
 }
 
 + (UIColor *) rankingOdd {
@@ -191,6 +191,18 @@
             [UIColor colorWithRed:14.0/255.0f green:162.0/255.0f blue:189.0/255.0f alpha:0],
             [UIColor colorWithRed:14.0/255.0f green:162.0/255.0f blue:189.0/255.0f alpha:0],
             nil];    
+}
+
++ (UIColor*) segmentedControlSelected {
+    return [UIColor colorWithRed:56.0/255.0f green:105.0/255.0f blue:15.0/255.0f alpha:1];
+}
+
++ (UIColor*) backButtonColor {
+    return [UIColor colorWithRed:131.0/255.0f green:181.0/255.0f blue:78.0/255.0f alpha:1];
+}
+
++ (UIColor*) nextMatchColor {
+    return [UIColor colorWithRed:209.0/255.0f green:90.0/255.0f blue:62.0/255.0f alpha:0.3];
 }
 
 

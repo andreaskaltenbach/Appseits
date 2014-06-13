@@ -19,7 +19,7 @@
     CompositeTop4AndScorerRound *round = [[CompositeTop4AndScorerRound alloc] init];
     round.top4Round = top4Round;
     round.scorerRound = scorerRound;
-    round.roundName = @"Top4 & Skyttekung";
+    round.roundName = @"Topp4 & Skyttekung";
     return round;
 }
 

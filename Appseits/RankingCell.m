@@ -9,17 +9,22 @@
 #import "RankingCell.h"
 #import "SSGradientView.h"
 #import "UIColor+AppColors.h"
+#import "BackendAdapter.h"
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
 static UIImage *trendDown;
+static UIImage *userGreen;
+static UIImage *userGray;
 
 @interface RankingCell()
 @property (nonatomic, strong) UILabel *rank;
 @property (nonatomic, strong) UIImageView *trend;
 @property (nonatomic, strong) UILabel *userName;
 @property (nonatomic, strong) UILabel *points;
-@property (nonatomic, strong) UIView *background;
+@property (nonatomic, strong) SSGradientView *background;
+@property (nonatomic, strong) UIImageView *userImage;
+@property BOOL myself;
 
 @end
 
@@ -31,11 +36,16 @@ static UIImage *trendDown;
 @synthesize points = _points;
 @synthesize ranking = _ranking;
 @synthesize background = _background;
+@synthesize even = _even;
+@synthesize myself = _myself;
+@synthesize userImage = _userImage;
 
-- (void) initialize {
-    trendUp = [UIImage imageNamed:@"trendUp.png"];
-    trendConstant = [UIImage imageNamed:@"trendNeutral.png"];
-    trendDown = [UIImage imageNamed:@"trendDown.png"];
++ (void) initialize {
+    trendUp = [UIImage imageNamed:@"up"];
+    trendConstant = [UIImage imageNamed:@"neutral"];
+    trendDown = [UIImage imageNamed:@"down"];
+    userGray = [UIImage imageNamed:@"userGray"];
+    userGreen = [UIImage imageNamed:@"userGreen"];
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -45,23 +55,30 @@ static UIImage *trendDown;
         self.rank = (UILabel*) [self viewWithTag:1];
         self.trend = (UIImageView*) [self viewWithTag:2];
         
+        self.userImage = (UIImageView*) [self viewWithTag:999];
         self.userName = (UILabel*) [self viewWithTag:4];        
         
         self.points = (UILabel*) [self viewWithTag:5];        
         
-        self.background = (UIView*) [self viewWithTag:100];
+        self.background = (SSGradientView*) [self viewWithTag:100];
         
-
+        self.background.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
 
-
 - (void) setRanking:(Ranking *)ranking {
     _ranking = ranking;
     self.rank.text = [NSString stringWithFormat:@"%i", ranking.rank.intValue];
-    self.userName.text = ranking.userName;
+    self.userName.text = ranking.competitorName;
     self.points.text = [NSString stringWithFormat:@"%.1f", ranking.totalPoints.floatValue];
+    
+    if ([self.ranking.competitorId isEqualToString:[BackendAdapter userId]]) {
+        self.myself = YES;
+    }
+    else {
+        self.myself = NO;
+    }
     
     switch (ranking.trend) {
         case UP:
@@ -77,20 +94,65 @@ static UIImage *trendDown;
     
 }
 
-- (void) even {
-    self.background.backgroundColor = [UIColor rankingEven];
-}
-
-- (void) odd {
-    self.background.backgroundColor = [UIColor rankingOdd];
-}
-
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    [super setSelected:selected animated:animated];
+ 
+    if (selected) {
+        TournamentRound* firstRound = [[BackendAdapter tournamentRounds] objectAtIndex:0]; 
 
-    // Configure the view for the selected state
+        if (!self.myself && !firstRound.notPassed) {
+            self.userName.textColor = [UIColor whiteColor];
+            self.points.textColor = [UIColor whiteColor];
+            self.rank.textColor = [UIColor whiteColor];
+            self.background.colors = [UIColor selectedSection];
+        }
+    }
+    else {
+        self.userName.textColor = [UIColor blackColor];
+        self.points.textColor = [UIColor blackColor];
+        self.rank.textColor = [UIColor blackColor];
+        self.background.colors = nil;
+        
+        if (self.myself) {
+            self.background.backgroundColor = [UIColor rankingSelected];
+        }
+        
+        else {
+            if (self.even) {
+                self.background.backgroundColor = [UIColor rankingEven];
+            }
+            else {
+                self.background.backgroundColor = [UIColor rankingOdd];
+                
+            }
+        }
+    }
+    
+    
+    // handle user icon
+    CGRect userNameFrame = self.userName.frame;
+    if (self.myself) {
+        
+        self.userImage.hidden = NO;
+        self.userImage.image = userGreen;
+        
+        userNameFrame.origin.x = 87;
+        userNameFrame.size.width = 210;
+    }
+    else {
+        self.userImage.hidden = YES;
+        userNameFrame.origin.x = 67;
+        userNameFrame.size.width = 190;
+    }
+    self.userName.frame = userNameFrame;
+}
+
+- (void) setHighlighted:(BOOL)highlighted {
+    
+}
+
+- (void) setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    
 }
 
 @end

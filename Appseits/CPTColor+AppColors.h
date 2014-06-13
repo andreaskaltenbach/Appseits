@@ -11,7 +11,8 @@
 @interface CPTColor (AppColors)
 
 +(CPTColor *) darkGreen;
-+(CPTColor *) middleGreen;
++(CPTColor *) middleDarkGreen;
++(CPTColor *) middleLightGreen;
 +(CPTColor *) lightGreen;
 
 @end

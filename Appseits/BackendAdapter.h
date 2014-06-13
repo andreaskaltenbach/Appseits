@@ -12,6 +12,9 @@
 #import "Top4Tips.h"
 #import "ScorerRound.h"
 #import "Top4Round.h"
+#import "Ranking.h"
+#import "Comparison.h"
+#import "MatchStatistics.h"
 
 #define SERVER_URL @"http://vm2014.brunoson.se"
 
@@ -37,9 +40,25 @@ typedef void(^TeamsFetchedBlock)(NSArray *teams);
 
 + (void)validateCredentials:(FinishedBlock)onFinished;
 
-+ (void)initializeModel:(RemoteCallBlock)remoteCallBlock;
++ (League*) currentLeague;
++ (void) setCurrentLeague:(League*) league;
++ (void) setCurrentLeague:(League*) league:(RemoteCallBlock) remoteCallBlock;
 
-+ (BOOL)modelInitialized;
++ (NSArray*) matchRounds;
++ (NSArray*) tournamentRounds;
++ (NSArray*) combinedTop4AndScorerRoundAndMatchRounds;
++ (Top4Round*) top4Round;
++ (ScorerRound*) scorerRound;
++ (NSArray*) rankings;
++ (Ranking*) myRanking;
++ (NSArray*) leagues;
++ (NSArray*) teamList;
++ (NSDictionary*) teams;
++ (NSDictionary*) teamNames;
++ (NSArray*) playerList;
++ (NSDictionary*) players;
++ (NSDictionary*) matchRoundMap;
++ (NSDictionary*) matchMap;
 
 + (void)refreshModel:(RemoteCallBlock)remoteCallBlock;
 
@@ -51,39 +70,14 @@ typedef void(^TeamsFetchedBlock)(NSArray *teams);
 
 + (NSArray *)matchRounds;
 
-+ (NSArray *)tournamentRounds;
++ (NSString*) email;
 
-+ (NSArray *)combinedTop4AndScorerRoundAndMatchRounds;
 
-+ (Top4Round *)top4Round;
 
-+ (ScorerRound *)scorerRound;
++ (void) loadMatchStats:(NSNumber*) matchId:(RemoteCallBlock) remoteCallBlock;
 
-+ (NSArray *)rankings;
++ (Comparison*) lastComparison;
 
-+ (NSArray *)leagues;
-
-+ (NSArray *)teamList;
-
-+ (NSDictionary *)teams;
-
-+ (NSDictionary *)teamNames;
-
-+ (NSArray *)playerList;
-
-+ (NSDictionary *)players;
-
-+ (UIImage *)imageForTeam:(NSString *)teamName;
-
-+ (Top4Tips *)top4;
-
-+ (void)postPrediction:(NSNumber *)matchId :(NSNumber *)firstTeamGoals :(NSNumber *)secondTeamGoals :(RemoteCallBlock)remoteCallBlock;
-
-+ (void)postPredictionForPlace:(int)place andTeam:(NSNumber *)teamId :(RemoteCallBlock)remoteCallBlock;
-
-+ (void)postPredictionForPlace:(int)place andPlayer:(NSNumber *)playerId :(RemoteCallBlock)remoteCallBlock;
-
-+ (NSString *)email;
-
++ (MatchStatistics*) lastMatchStats;
 
 @end

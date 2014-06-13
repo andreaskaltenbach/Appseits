@@ -17,15 +17,17 @@ typedef enum {
 
 @interface Ranking : NSObject
 
-@property (nonatomic, strong) NSString *userName;
-@property (nonatomic, strong) NSNumber *userId;
-@property (nonatomic, strong) NSNumber *totalPoints;
-@property (nonatomic, strong) NSNumber *gameBetPoints;
-@property (nonatomic, strong) NSNumber *oneOnOnePoints;
-@property (nonatomic, strong) NSNumber *topScorerPoints;
-@property (nonatomic, strong) NSNumber *topFourPoints;
+@property (nonatomic, strong) NSString *competitorName;
+@property (nonatomic, strong) NSString *competitorId;
 @property (nonatomic, strong) NSNumber *rank;
+@property (nonatomic, strong) NSNumber *totalPoints;
+@property (nonatomic, strong) NSNumber *correctMatchWinnerPredictionPoints;
+@property (nonatomic, strong) NSNumber *topScorerPredictionPoints;
+@property (nonatomic, strong) NSNumber *perfectMatchPredictionPoints;
+@property (nonatomic, strong) NSNumber *championshipWinnerPredictionPoints;
 @property Trend trend;
 
 + (NSArray*) rankingsFromJson: (NSArray*) jsonRankings;
+
+- (BOOL) isMyRanking;
 @end

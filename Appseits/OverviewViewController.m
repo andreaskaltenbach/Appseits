@@ -8,7 +8,6 @@
 
 #import "OverviewViewController.h"
 #import "MatchRound.h"
-#import "MatchPredictionCell.h"
 #import "UIColor+AppColors.h"
 #import "MatchResultCell.h"
 #import "TimelineScrollView.h"
@@ -18,7 +17,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "RankingTable.h"
 #import "Constants.h"
-#import "LeaguePickerView.h"
 #import "BackendAdapter.h"
 #import "MainScrollView.h"
 #import "PullToRefreshView.h"
@@ -38,6 +36,13 @@
 #import "VersionEnforcer.h"
 #import "MatchPredictionViewController.h"
 #import "FXLabel.h"
+#import "UIViewController+KNSemiModal.h"
+#import "LeagueSelector.h"
+#import "CompetitorStatisticsViewController.h"
+#import "GANTracker.h"
+#import "UnfinishedMatchViewController.h"
+
+#define SPINNER_DIMENSION 50
 
 static UIImage *trendUp;
 static UIImage *trendConstant;
@@ -47,7 +52,6 @@ static NSURL *downloadURL;
 
 @interface OverviewViewController()
 
-@property (strong, nonatomic) IBOutlet LeaguePickerView *leaguePicker;
 @property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
 @property (strong, nonatomic) IBOutlet UILabel *pointInCurrentRound;
@@ -57,8 +61,6 @@ static NSURL *downloadURL;
 @property (strong, nonatomic) IBOutlet UIView *resultMenuItem;
 @property (strong, nonatomic) IBOutlet UIView *rankingMenuItem;
 @property (strong, nonatomic) IBOutlet MenuDependendScrollView *menuDependingScrollView;
-@property (strong, nonatomic) IBOutlet UIView *scoreView;
-@property (strong, nonatomic) IBOutlet UITextField *leagueInput;
 @property (strong, nonatomic) IBOutlet RankingTable *rankingTable;
 @property (strong, nonatomic) IBOutlet UIImageView *trendImage;
 @property (strong, nonatomic) IBOutlet UIView *rankingTableHeader;
@@ -76,12 +78,22 @@ static NSURL *downloadURL;
 @property (strong, nonatomic) IBOutlet UIView *scorerContainerView;
 @property (strong, nonatomic) IBOutlet FXLabel *tipsMenu;
 @property (strong, nonatomic) IBOutlet FXLabel *rankingMenu;
+@property (strong, nonatomic) IBOutlet UIView *rankingMenuView;
+@property (strong, nonatomic) IBOutlet LeagueSelector *leagueSelector;
+@property (strong, nonatomic) IBOutlet UITableView *leagueTable;
+@property (strong, nonatomic) IBOutlet UIImageView *dropDownIndicator;
+@property (strong, nonatomic) IBOutlet UILabel *rankLabel;
+@property (strong, nonatomic) IBOutlet UILabel *totalRanks;
+@property (strong, nonatomic) IBOutlet UILabel *rankSeparator;
+@property (nonatomic, strong) League* currentLeague;
+@property (nonatomic, strong) UIView *loadingView;
+@property (strong, nonatomic) IBOutlet YellowBar *lastRankingUpdateBar;
+
 @end
 
 @implementation OverviewViewController
 @synthesize gameTable = _gameTable;
 @synthesize timelineScrollView = _timelineScrollView;
-@synthesize leaguePicker = _leaguePicker;
 @synthesize settingsButton = _settingsButton;
 @synthesize pointInCurrentRound = _pointInCurrentRound;
 @synthesize pointsTotal = _pointsTotal;
@@ -91,7 +103,6 @@ static NSURL *downloadURL;
 @synthesize rankingMenuItem = _rankingMenuItem;
 @synthesize menuDependingScrollView = _menuDependingScrollView;
 @synthesize scoreView = _scoreView;
-@synthesize leagueInput = _leagueInput;
 @synthesize rankingTable = _rankingTable;
 @synthesize trendImage = _trendImage;
 @synthesize rankingTableHeader = _rankingTableHeader;
@@ -116,12 +127,24 @@ static NSURL *downloadURL;
 @synthesize scorerContainerView = _scorerContainerView;
 @synthesize tipsMenu = _tipsMenu;
 @synthesize rankingMenu = _rankingMenu;
+@synthesize rankingMenuView = _rankingMenuView;
+@synthesize leagueSelector = _leagueSelector;
+@synthesize leagueTable = _leagueTable;
+@synthesize dropDownIndicator = _dropDownIndicator;
+@synthesize rankLabel = _rankLabel;
+@synthesize totalRanks = _totalRanks;
+@synthesize rankSeparator = _rankSeparator;
+@synthesize rankingView = _rankingView;
 @synthesize currentMatchSelection = _currentMatchSelection;
+@synthesize currentLeague = _currentLeague;
+@synthesize currentRanking = _currentRanking;
+@synthesize loadingView = _loadingView;
+@synthesize lastRankingUpdateBar = _lastRankingUpdateBar;
 
 + (void) initialize {
-    trendUp = [UIImage imageNamed:@"trendUp.png"];
-    trendConstant = [UIImage imageNamed:@"trendNeutral.png"];
-    trendDown = [UIImage imageNamed:@"trendDown.png"];
+    trendUp = [UIImage imageNamed:@"up"];
+    trendConstant = [UIImage imageNamed:@"neutral"];
+    trendDown = [UIImage imageNamed:@"down"];
     
     cogWheel = [UIImage imageNamed:@"cogwheel"];
     
@@ -155,6 +178,17 @@ static NSURL *downloadURL;
                 // update of the timeline (iPad)
                 self.timeline.matchRounds = [BackendAdapter matchRounds];
                 self.roundSelector.tournamentRounds = [BackendAdapter combinedTop4AndScorerRoundAndMatchRounds];
+                
+                // update the score view
+                [self updateRankingInScoreView];
+                
+                // update last updated date
+                self.lastUpdated = [NSDate date];
+                [self.pullToRefreshView refreshLastUpdatedDate];
+                
+                // update the ranking view
+                [self.rankingTable refreshRankings];
+                [self updateLastRankingUpdateLabel];
         }
     }];
     
@@ -167,9 +201,11 @@ static NSURL *downloadURL;
     
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor blackBackground];
+    
     // check for new app version
     VersionEnforcer *versionEnforcer = [VersionEnforcer init:self];
-    [versionEnforcer checkVersion:@"http://dl.dropbox.com/u/15650647/appseits/version.json"];
+    [versionEnforcer checkVersion:@"http://em2012.brunoson.se/app/version.json"];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshApplication)
@@ -192,12 +228,8 @@ static NSURL *downloadURL;
     self.gameTable.overviewViewController = self;
     self.gameTable.scrollDelegate = self;
     self.rankingTable.scrollDelegate = self;
+    self.rankingTable.overviewViewController = self;
         
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showLeaguePicker)];
-    [self.leagueInput addGestureRecognizer:tapGesture];
-    
-    // setup match and ranking switcher
-    
     // setup of the scrollable timeline (iPhone)
     self.timelineScrollView.roundSelectDelegate = self;
     self.timelineScrollView.tournamentRounds = [BackendAdapter tournamentRounds];
@@ -207,18 +239,6 @@ static NSURL *downloadURL;
     self.timeline.matchRounds = [BackendAdapter matchRounds];
     self.roundSelector.roundSelectDelegate = self;
     self.roundSelector.tournamentRounds = [BackendAdapter combinedTop4AndScorerRoundAndMatchRounds];
-
-    // setup league input
-    self.leagueInput.backgroundColor = [UIColor clearColor];
-    League *selectedLeague = [BackendAdapter currentLeague];
-    if (selectedLeague) {
-        self.leagueInput.text = selectedLeague.name;
-    }
-    else {
-        self.leagueInput.text = @"Alla ligor";
-    }
-    self.leaguePicker.leagueDelegate = self;
-
     
     self.view.backgroundColor = [UIColor squareBackground];
     
@@ -237,6 +257,8 @@ static NSURL *downloadURL;
     self.rankingMenu.shadowOffset = CGSizeMake(0.0f, -1.0f);
     self.rankingMenu.shadowColor = [UIColor colorWithWhite:0.0f alpha:0.7f];
     self.rankingMenu.shadowBlur = 5.0f;
+    
+    [self.rankingMenuView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(switchLeague)]];
 
     // initialize personal informer
     self.trendImage.image = trendConstant;
@@ -245,19 +267,6 @@ static NSURL *downloadURL;
     self.rankingTableHeader.backgroundColor = [UIColor blackBackground];
     
     self.scoreView.backgroundColor = [UIColor squareBackground];
-    
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *menu = [userDefaults objectForKey:MENU_KEY];
-    //TODO
-    if ([menu isEqualToString:@"Ranking"]) {
-        // select rankings directly
-        [self rankingSelected:self];
-    }
-    else {
-        // select match list directly
-        [self resultSelected:self];
-    }
-    
     
     self.allTeams = [BackendAdapter teamList];
    
@@ -274,6 +283,32 @@ static NSURL *downloadURL;
     self.scorerView.overviewViewController = self;
         
     self.gameTable.backgroundColor = [UIColor blackBackground];
+    
+    // setup league selector
+    [self refreshRankingLabel];
+    self.leagueSelector.leagueSelectionDelegate = self;
+    [self.leagueSelector selectCurrentLeague];
+    
+    [self updateRankingInScoreView];
+    [self.rankingTable scrollToMyself];
+    [self updateLastRankingUpdateLabel];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:@"app/overview" withError:&error];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *menu = [userDefaults objectForKey:MENU_KEY];
+    if ([menu isEqualToString:@"RANKING"]) {
+        // select rankings directly
+        [self switchToRanking];
+    }
+    else {
+        // select match list directly
+        [self resultSelected:self];
+    }
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -294,10 +329,7 @@ static NSURL *downloadURL;
     [self setRankingMenuItem:nil];
     [self setMenuDependingScrollView:nil];
     [self setScoreView:nil];
-    [self setLeagueInput:nil];
-    [self setLeaguePicker:nil];
     [self setRankingTable:nil];
-    [self setLeaguePicker:nil];
     [self setTrendImage:nil];
     [self setRankingTableHeader:nil];
     [self setHeaderView:nil];
@@ -314,11 +346,35 @@ static NSURL *downloadURL;
     [self setScorerContainerView:nil];
     [self setTipsMenu:nil];
     [self setRankingMenu:nil];
+    [self setRankingMenuView:nil];
+    [self setLeagueSelector:nil];
+    [self setLeagueTable:nil];
+    [self setDropDownIndicator:nil];
+    [self setRankingView:nil];
+    [self setRankLabel:nil];
+    [self setRankSeparator:nil];
+    [self setTotalRanks:nil];
+    [self setRankSeparator:nil];
+    [self setLastRankingUpdateBar:nil];
     [super viewDidUnload];
+}
+
+- (void) switchLeague {
+    if ([[BackendAdapter leagues] count] > 0) {
+        // show league selector, if user has at least one league
+        [self presentSemiView:self.leagueSelector];
+    }
+    else {
+        // otherwise, we jump to the super league directly
+        [self switchToRanking];
+    }
 }
 
 // Called whenever a tournament round is selected in the timeline
 - (void) tournamentRoundSelected:(TournamentRound*) round {
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/round/%@", round.roundName] withError:&error];
     
     // iPad
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -383,7 +439,15 @@ static NSURL *downloadURL;
 }
 
 - (IBAction)resultSelected:(id)sender {
-    NSLog(@"Result selected");
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:@"app/overview/tips" withError:&error];
+    
+    // store menu selection on client side
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:@"TIPS" forKey:MENU_KEY];
+    [userDefaults synchronize];
+    
     self.rankingMenuItem.backgroundColor = [UIColor clearColor];
     self.resultMenuItem.backgroundColor = [UIColor menuSelectedBackground];
     
@@ -393,34 +457,74 @@ static NSURL *downloadURL;
     [self.menuDependingScrollView scrollToMatches];
 }
 
-- (IBAction)rankingSelected:(id)sender {
-    NSLog(@"Ranking selected");
+- (void) switchToRanking {
     
-    //TODO - enable ranking again, when view is ready
-    /*self.rankingMenuItem.backgroundColor = [UIColor menuSelectedBackground];
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:@"app/overview/ranking" withError:&error];
+    
+    // store menu selection on client side
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:@"RANKING" forKey:MENU_KEY];
+    [userDefaults synchronize];
+    
+    self.rankingMenuItem.backgroundColor = [UIColor menuSelectedBackground];
     self.resultMenuItem.backgroundColor = [UIColor clearColor];
     
     self.gameTable.scrollsToTop = NO;
     self.rankingTable.scrollsToTop = YES;
+    [self.menuDependingScrollView scrollToRankings];
     
-    
-    [self.menuDependingScrollView scrollToRankings];*/
+    [self loadRankings];
 }
 
-- (void) showLeaguePicker {
-    [self.leaguePicker show];
-}
-
-#pragma mark LeagueDelegate
-- (void) leagueChanged:(League*) league {
+- (void) loadRankings {
     
-    [self rankingSelected:self];
-    
-    if (league) {
-        self.leagueInput.text = league.name;
-    } else {
-        self.leagueInput.text = @"Alla ligor";
+    if (self.currentLeague != BackendAdapter.currentLeague) {
+        self.currentLeague = BackendAdapter.currentLeague;
+        
+        self.loadingView.hidden = NO;
+        
+        [BackendAdapter loadRankings:^(RemoteCallResult remoteResult) {
+            
+            switch (remoteResult) {
+                case INTERNAL_CLIENT_ERROR:
+                case INTERNAL_SERVER_ERROR:
+                    [self showError:@"Någonting gick fel. Försök igen."];
+                    break;
+                case NO_INTERNET:
+                    [self showError:@"Du verkar sakna uppkoppling. Försök igen."];
+                    break;
+                    
+                case OK:
+                    
+                    [self updateRankingInScoreView]; 
+                    [self.rankingTable refreshRankings];
+                    break;
+                    
+            }
+            self.loadingView.hidden = YES;
+        }];
     }
+
+}
+
+- (UIView*) loadingView {
+    if (!_loadingView) {;
+        
+        _loadingView = [[UIView alloc] initWithFrame:self.rankingView.bounds];
+        _loadingView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        _loadingView.backgroundColor = [UIColor whiteColor];
+        _loadingView.alpha = 0.6;
+        
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(self.rankingView.bounds.size.width/2 - SPINNER_DIMENSION/2, self.rankingView.bounds.size.height/2 - SPINNER_DIMENSION/2, SPINNER_DIMENSION, SPINNER_DIMENSION)];
+        spinner.color = [UIColor darkGreen];
+        spinner.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        [spinner startAnimating];
+        
+        [_loadingView addSubview:spinner];
+        [self.rankingView addSubview:_loadingView];
+    }
+    return _loadingView;
 }
 
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view {
@@ -441,6 +545,17 @@ static NSURL *downloadURL;
                 // update of the timeline (iPad)
                 self.timeline.matchRounds = [BackendAdapter matchRounds];
                 self.roundSelector.tournamentRounds = [BackendAdapter combinedTop4AndScorerRoundAndMatchRounds];
+                
+                // update the score view
+                [self updateRankingInScoreView];
+                
+                // update last updated date
+                self.lastUpdated = [NSDate date];
+                [self.pullToRefreshView refreshLastUpdatedDate];
+
+                // update the ranking view
+                [self.rankingTable refreshRankings];
+                [self updateLastRankingUpdateLabel];
         }
         
         self.lastUpdated = [NSDate date];
@@ -448,13 +563,15 @@ static NSURL *downloadURL;
     }];
 }
 
-- (NSDate *)pullToRefreshViewLastUpdated:(PullToRefreshView *)view {
-    return self.lastUpdated;
+- (void) updateLastRankingUpdateLabel {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"sv_SE"];
+    [formatter setDateFormat:@"yyyy-MM-dd HH.mm"];
+    self.lastRankingUpdateBar.label.text = [NSString stringWithFormat:@"Uppdaterad: %@", [formatter stringFromDate:self.lastUpdated]];
 }
 
-- (IBAction)logout:(id)sender {
-    //[BackendAdapter logout];
-    //[self.navigationController popViewControllerAnimated:YES];
+- (NSDate *)pullToRefreshViewLastUpdated:(PullToRefreshView *)view {
+    return self.lastUpdated;
 }
 
 # pragma mark TeamSelectDelegate
@@ -505,6 +622,24 @@ static NSURL *downloadURL;
         MatchPredictionViewController *matchPredictionController = segue.destinationViewController;
         matchPredictionController.match = self.currentMatchSelection;
         matchPredictionController.overviewViewController = self;
+    }
+    
+    if ([segue.identifier isEqualToString:@"toCompetitorStatistic"]) {
+        
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Tillbaka" style:UIBarButtonItemStylePlain target:nil action:nil];
+        backButton.tintColor = [UIColor backButtonColor];
+        [[self navigationItem] setBackBarButtonItem:backButton];
+        CompetitorStatisticsViewController *statisticsController = segue.destinationViewController;
+        statisticsController.ranking = self.currentRanking;
+    }
+    
+    if ([segue.identifier isEqualToString:@"toMatchStats"]) {
+        
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Tillbaka" style:UIBarButtonItemStylePlain target:nil action:nil];
+        backButton.tintColor = [UIColor backButtonColor];
+        [[self navigationItem] setBackBarButtonItem:backButton];
+        UnfinishedMatchViewController *matchStatsController = segue.destinationViewController;
+        matchStatsController.match = self.currentMatchSelection;
     }
 }
 
@@ -561,6 +696,11 @@ static NSURL *downloadURL;
 
 - (void) newVersionAvailable:(NSString*) versionNumber {
    [self showPrompt:@"Det finns en ny version av appen!":@"Ladda hem nu" :@"Senare" :^{
+       
+       NSError* error;
+       NSString* appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+       [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/update/%@", appVersion] withError:&error];
+       
        // navigate to the download URL
        if ([[UIApplication sharedApplication] canOpenURL:downloadURL]) {
            [[UIApplication sharedApplication] openURL:downloadURL];
@@ -568,5 +708,75 @@ static NSURL *downloadURL;
    }];
 }
 
+- (void) refreshRankingLabel {
+    NSString* leagueName = [BackendAdapter currentLeague].name;
+    if (!leagueName) {
+        leagueName = @"Alla deltagare";
+    }
+    
+    // define width of text
+    float width = [leagueName sizeWithFont:[UIFont boldSystemFontOfSize:15]].width;
+    CGRect rankingItemFrame = self.rankingMenuItem.frame;
+    rankingItemFrame.size.width = width + 55;
+    self.rankingMenuItem.frame = rankingItemFrame;
+    
+    // update ranking menu item text
+    self.rankingMenu.text = leagueName;
+}
+
+# pragma marks LeagueSelectorDelegate
+
+- (void) leagueSelected:(League*) league {
+    
+    NSError* error;
+    [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/league/%@", league.name] withError:&error];
+    
+    [BackendAdapter setCurrentLeague:league];
+    
+    // update ranking label
+    [self refreshRankingLabel];
+    
+    [self dismissSemiModalView];
+       
+    // switch to ranking view
+    [self switchToRanking];
+}
+
+- (void) updateRankingInScoreView {
+    NSString* rank = [NSString stringWithFormat:@"%i",BackendAdapter.myRanking.rank.intValue];
+    NSString* allRankings = [NSString stringWithFormat:@"%i",[[BackendAdapter rankings] count]];
+    
+    UIFont* font = [UIFont systemFontOfSize:30];
+    
+    self.rankLabel.text = rank;
+    CGSize rankSize = [rank sizeWithFont:font];
+    CGRect frame = self.rankLabel.frame;
+    frame.size.width = rankSize.width;
+    self.rankLabel.frame = frame;
+    
+    frame = self.rankSeparator.frame;
+    frame.origin.x = self.rankLabel.frame.origin.x + self.rankLabel.frame.size.width;
+    self.rankSeparator.frame = frame;
+    
+
+    self.totalRanks.text = allRankings;
+    frame = self.totalRanks.frame;
+    frame.origin.x = self.rankSeparator.frame.origin.x + self.rankSeparator.frame.size.width;
+    CGSize totalRanksSize = [allRankings sizeWithFont:font];
+    frame.size.width = totalRanksSize.width;
+    self.totalRanks.frame = frame;
+    
+    switch (BackendAdapter.myRanking.trend) {
+        case UP:
+            self.trendImage.image = trendUp;
+            break;
+        case DOWN:
+            self.trendImage.image = trendDown;
+            break;
+        default:
+            self.trendImage.image = trendConstant;
+            break;
+    }
+}
 
 @end

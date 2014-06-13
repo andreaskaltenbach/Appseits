@@ -14,6 +14,7 @@
 @implementation MatchRound
 
 @synthesize matches = _matches;
+@synthesize roundId = _roundId;
 
 - (float) points {
     float points = 0.0f;
@@ -34,6 +35,9 @@
     }
     round.startDate = [NSDate fromJsonTimestamp:[jsonData objectForKey:@"startDate"]];
     round.lockDate = [NSDate fromJsonTimestamp:[jsonData objectForKey:@"lockedDate"]];
+    
+    
+    round.roundId = [jsonData valueForKey:@"roundId"];
     
     return round;
 }
@@ -66,13 +70,6 @@
         if (!match.hasPrediction) {
             return NO;
         }
-    }
-    return YES;
-}
-
-- (BOOL) readyToBet {
-    for (Match* match in self.matches) {
-        if (match.unknownOpponents) return NO;
     }
     return YES;
 }

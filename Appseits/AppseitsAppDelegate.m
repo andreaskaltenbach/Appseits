@@ -10,6 +10,7 @@
 #import "TestFlight.h"
 #import "VersionEnforcer.h"
 #import "BackendAdapter.h"
+#import "GANTracker.h"
 
 @implementation AppseitsAppDelegate
 
@@ -21,6 +22,13 @@
     
     // Test Flight
     [TestFlight takeOff:@"a6badd340afc21aca5e16d40e68bf450_NzU4OTgyMDEyLTA0LTI2IDEzOjMwOjI3LjAyODIwOA"];
+    
+    // Google Analytics
+    [[GANTracker sharedTracker] startTrackerWithAccountID:@"UA-32245098-1"
+                                           dispatchPeriod:10
+                                                 delegate:nil];
+    
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"menuBackground"] forBarMetrics:UIBarMetricsDefault];
     
     return YES;
 }
