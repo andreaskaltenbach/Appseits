@@ -175,9 +175,14 @@ static UIImage* myStatsBackground;
     
     self.myInitials.text = matchComparison.roundComparison.comparison.myInitials;
     self.competitorInitials.text = matchComparison.roundComparison.comparison.competitorInitials;
-    
-    self.myScoreLabel.text = [NSString stringWithFormat:@"%ip", matchComparison.myPredictionScore.intValue];
-    self.competitorScoreLabel.text = [NSString stringWithFormat:@"%ip", matchComparison.competitorScore.intValue];
+
+	if (matchComparison.myPredictionScore != [NSNull null]) {
+    	self.myScoreLabel.text = [NSString stringWithFormat:@"%ip", matchComparison.myPredictionScore.intValue];
+	}
+
+	if (matchComparison.competitorScore != [NSNull null]) {
+   		self.competitorScoreLabel.text = [NSString stringWithFormat:@"%ip", matchComparison.competitorScore.intValue];
+	}
     
     // update prediction labels for competitor:
     MatchResultUtil* competitorResultUtil = [MatchResultUtil utilForPredictions:matchComparison.competitorPredictionFirstTeam :matchComparison.competitorPredictionSecondTeam forMatchResult:matchComparison.match.firstTeamGoals :matchComparison.match.secondTeamGoals withPoints:matchComparison.competitorScore];
