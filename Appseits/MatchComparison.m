@@ -43,17 +43,22 @@
     matchComparison.match = match;
     
     NSDictionary* myPrediction = [jsonData objectForKey:@"comparePrediction"];
-    NSDictionary* myOutcome = [myPrediction objectForKey:@"outcome"];
-    matchComparison.myPredictionFirstTeam = [myOutcome valueForKey:@"homeTeamGoals"];
-    matchComparison.myPredictionSecondTeam = [myOutcome valueForKey:@"awayTeamGoals"];
-    matchComparison.myPredictionScore = [myPrediction valueForKey:@"score"];
     
+    if (myPrediction != [NSNull null]) {
+        NSDictionary* myOutcome = [myPrediction objectForKey:@"outcome"];
+        matchComparison.myPredictionFirstTeam = [myOutcome valueForKey:@"homeTeamGoals"];
+        matchComparison.myPredictionSecondTeam = [myOutcome valueForKey:@"awayTeamGoals"];
+        matchComparison.myPredictionScore = [myPrediction valueForKey:@"score"];
+    }
+
     NSDictionary* competitorPrediction = [jsonData objectForKey:@"prediction"];
-    NSDictionary* competitorOutcome = [competitorPrediction objectForKey:@"outcome"];
-    matchComparison.competitorPredictionFirstTeam = [competitorOutcome valueForKey:@"homeTeamGoals"];
-    matchComparison.competitorPredictionSecondTeam = [competitorOutcome valueForKey:@"awayTeamGoals"];
-    matchComparison.competitorScore = [competitorPrediction valueForKey:@"score"];
-    
+	if (competitorPrediction != [NSNull null]) {
+		NSDictionary* competitorOutcome = [competitorPrediction objectForKey:@"outcome"];
+		matchComparison.competitorPredictionFirstTeam = [competitorOutcome valueForKey:@"homeTeamGoals"];
+		matchComparison.competitorPredictionSecondTeam = [competitorOutcome valueForKey:@"awayTeamGoals"];
+		matchComparison.competitorScore = [competitorPrediction valueForKey:@"score"];
+	}
+
     return matchComparison;
 }
 

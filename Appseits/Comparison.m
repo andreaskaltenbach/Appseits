@@ -27,7 +27,7 @@
     Comparison* comparison = [[Comparison alloc] init];
     
     NSDictionary* myInfo = [jsonData objectForKey:@"compareWith"];
-    if (myInfo) {
+    if (myInfo != [NSNull null]) {
         comparison.myInitials = [myInfo valueForKey:@"initials"];
     }
     
