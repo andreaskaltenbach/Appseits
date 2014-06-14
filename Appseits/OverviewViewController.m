@@ -751,7 +751,7 @@ static NSURL *downloadURL;
     self.rankLabel.text = rank;
     CGSize rankSize = [rank sizeWithFont:font];
     CGRect frame = self.rankLabel.frame;
-    frame.size.width = rankSize.width;
+    frame.size.width = rankSize.width  + 2;
     self.rankLabel.frame = frame;
     
     frame = self.rankSeparator.frame;
