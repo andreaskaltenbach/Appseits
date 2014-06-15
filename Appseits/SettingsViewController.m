@@ -41,8 +41,8 @@ static NSURL *facebookWebUrl;
     envelopeImage = [UIImage imageNamed:@"envelope"];
     externImage = [UIImage imageNamed:@"extern"];
     
-    facebookAppUrl = [NSURL URLWithString:@"fb://group/219951568114692/"];
-    facebookWebUrl = [NSURL URLWithString:@"http://www.facebook.com/groups/219951568114692/"];
+    facebookAppUrl = [NSURL URLWithString:@"fb://groups/535699109873919/"];
+    facebookWebUrl = [NSURL URLWithString:@"http://www.facebook.com/groups/535699109873919/"];
 }
 
 - (void)viewDidLoad
@@ -60,7 +60,7 @@ static NSURL *facebookWebUrl;
     
     // setup facebook button
     UILabel *facebookLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, self.facebookButton.frame.size.width, self.facebookButton.frame.size.height)];
-    facebookLabel.text = @"EM-Tipsets Facebook-grupp";
+    facebookLabel.text = @"VM-Tipsets Facebook-grupp";
     facebookLabel.backgroundColor = [UIColor clearColor];
     facebookLabel.textColor = [UIColor whiteColor];
     facebookLabel.font = [UIFont systemFontOfSize:16];
