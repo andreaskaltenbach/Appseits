@@ -148,7 +148,7 @@ static NSURL *downloadURL;
     
     cogWheel = [UIImage imageNamed:@"cogwheel"];
     
-    downloadURL = [NSURL URLWithString:@"itms-services://?action=download-manifest&url=http://em2012.brunoson.se/app/emtipset.plist"];
+    downloadURL = [NSURL URLWithString:@"itms-services://?action=download-manifest&url=https://beta.stendahls.se/vmtips/VM-Tipset.plist"];
 }
 
 - (void) scroll:(int) offset {
