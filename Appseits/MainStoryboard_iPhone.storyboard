@@ -746,17 +746,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="GqZ-vh-y7Y" customClass="MCSegmentedControl">
-                                <rect key="frame" x="10" y="10" width="300" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Tippade Matcher"/>
-                                    <segment title="Statistik"/>
-                                </segments>
-                                <connections>
-                                    <action selector="segmentedControlTapped:" destination="qXZ-s9-LVr" eventType="valueChanged" id="Rwp-OS-VPe"/>
-                                </connections>
-                            </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" id="aSB-tf-G71">
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1118,14 +1107,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="o9q-sb-WbZ"/>
+                    <navigationItem key="navigationItem" id="o9q-sb-WbZ">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Y51-ax-oSq">
+                            <rect key="frame" x="43" y="8" width="235" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Tippade Matcher"/>
+                                <segment title="Statistik"/>
+                            </segments>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="segmentedControlChange:" destination="qXZ-s9-LVr" eventType="valueChanged" id="kl1-g9-wZF"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <connections>
                         <outlet property="comparisonTable" destination="ewl-qz-6jO" id="HgG-2j-n75"/>
                         <outlet property="graphView" destination="tzJ-7K-NZv" id="Sfe-Me-9LZ"/>
                         <outlet property="noPointsYetLabel" destination="hWv-gG-6yj" id="qWf-Pp-fjB"/>
                         <outlet property="playerTable" destination="yEM-QB-WQL" id="Xdd-Og-Ygc"/>
                         <outlet property="scrollView" destination="aSB-tf-G71" id="ZWK-YP-4JL"/>
-                        <outlet property="segmentedControl" destination="GqZ-vh-y7Y" id="Bfe-kt-opC"/>
+                        <outlet property="segmentedControl" destination="Y51-ax-oSq" id="72d-Df-rc8"/>
                         <outlet property="statisticView" destination="VTh-Ym-yYH" id="WUZ-51-2oa"/>
                         <outlet property="teamTable" destination="TNC-cZ-P8t" id="2Kn-Sw-bjx"/>
                         <outlet property="top4AndScorerView" destination="2yX-V4-Wa5" id="81A-8S-Uzz"/>

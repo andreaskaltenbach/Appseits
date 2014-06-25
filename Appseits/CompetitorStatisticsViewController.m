@@ -27,7 +27,7 @@
 
 @interface CompetitorStatisticsViewController ()
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) IBOutlet MCSegmentedControl *segmentedControl;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) IBOutlet UITableView *comparisonTable;
 @property (strong, nonatomic) Comparison *comparison;
 @property (strong, nonatomic) NSArray* matchComparisons;
@@ -70,7 +70,7 @@
     self.scrollView.contentSize = CGSizeMake(2*self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     
     self.segmentedControl.tintColor = [UIColor segmentedControlSelected];
-    self.segmentedControl.font = [UIFont boldSystemFontOfSize:12];
+//    self.segmentedControl.font = [UIFont boldSystemFontOfSize:12];
     
     self.statisticView.contentSize = CGSizeMake(self.statisticView.frame.size.width, 690);
     
@@ -228,22 +228,22 @@
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
-- (IBAction)segmentedControlTapped:(id)sender {
+- (IBAction)segmentedControlChange:(id)sender {
     
     if (self.segmentedControl.selectedSegmentIndex == 0) {
         [self.scrollView scrollRectToVisible:CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
         NSError* error;
         [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/competitorStats/%@/tippadeMatcher", self.ranking.competitorName] withError:&error];
-
+        
         
     }
     else {
         [self.scrollView scrollRectToVisible:CGRectMake(self.scrollView.frame.size.width, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height) animated:YES];
         NSError* error;
         [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/competitorStats/%@/statistik", self.ranking.competitorName] withError:&error];
-
+        
     }
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
