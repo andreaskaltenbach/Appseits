@@ -744,7 +744,7 @@
                             <view contentMode="scaleToFill" id="Ngx-6G-igS" customClass="LightBlueGradient">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="GqZ-vh-y7Y" customClass="MCSegmentedControl">
                                 <rect key="frame" x="10" y="10" width="300" height="29"/>
@@ -764,13 +764,13 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ewl-qz-6jO" userLabel="comparison table">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="comparisonCell" rowHeight="155" id="LV8-zF-EVu" customClass="ComparisonCell">
                                                 <rect key="frame" x="0.0" y="22" width="320" height="155"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LV8-zF-EVu" id="J2O-xa-hmG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="matchResultBackground.png" id="aSm-gq-6gu">
@@ -928,7 +928,9 @@
                                                             <color key="backgroundColor" red="0.95686280727386475" green="0.89803928136825562" blue="0.89411771297454834" alpha="1" colorSpace="deviceRGB"/>
                                                         </view>
                                                     </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -995,7 +997,7 @@
                                                                 <rect key="frame" x="0.0" y="40" width="480" height="32"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ujz-lA-iT5" id="ldi-m5-SXd">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="480" height="31"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="480" height="32"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" tag="99" contentMode="scaleToFill" id="bjO-Tj-ybH">
@@ -1070,7 +1072,7 @@
                                                                 <rect key="frame" x="0.0" y="40" width="480" height="32"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qVe-68-ekC" id="MyK-qO-d5r">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="480" height="31"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="480" height="32"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" tag="99" contentMode="scaleToFill" id="yt0-kM-gtJ">
@@ -1108,8 +1110,10 @@
                                                 </subviews>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </scrollView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
