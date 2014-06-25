@@ -24,7 +24,7 @@
 @property (strong, nonatomic) CPTXYGraph *barChart;
 @property (strong, nonatomic) IBOutlet CPTGraphHostingView *pieChartView;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) IBOutlet MCSegmentedControl *segmentedControl;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) MatchStatistics* matchStats;
 @property (strong, nonatomic) IBOutlet UIScrollView *barChartScrollView;
 
@@ -142,7 +142,7 @@
     self.scrollView.contentSize = CGSizeMake(2*self.scrollView.frame.size.width, self.scrollView.frame.size.height);
     
     self.segmentedControl.tintColor = [UIColor segmentedControlSelected];
-    self.segmentedControl.font = [UIFont boldSystemFontOfSize:12];
+    //self.segmentedControl.font = [UIFont boldSystemFontOfSize:12];
     
     NSError* error;
     [[GANTracker sharedTracker] trackPageview:[NSString stringWithFormat:@"app/matchStats/%@-%@/fordelning", self.match.firstTeam.shortName, self.match.secondTeam.shortName] withError:&error];
