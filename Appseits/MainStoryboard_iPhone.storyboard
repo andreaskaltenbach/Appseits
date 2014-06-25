@@ -171,7 +171,7 @@
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="aer-g7-G9t" userLabel="main scroll view" customClass="MainScrollView">
                                 <rect key="frame" x="0.0" y="112" width="320" height="370"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="DVm-iQ-cdc" userLabel="scoreView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
